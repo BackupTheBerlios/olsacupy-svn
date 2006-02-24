@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<appendix id="openldap-ldap.conf">
+	<title>Archivo de configuración <filename>/etc/ldap/ldap.conf</filename></title>
+
+<programlisting><![CDATA[
+# $OpenLDAP: pkg/ldap/libraries/libldap/ldap.conf,v 1.9 2000/09/04 19:57:01 kurt Exp $
+#
+# LDAP Defaults
+#
+
+# See ldap.conf(5) for details
+# This file should be world readable but not world writable.
+
+# Your LDAP server. Must be resolvable without using LDAP.
+HOST gsr.pt
+
+# The distinguished name of the search base.
+BASE dc=gsr, dc=pt
+
+# The port.
+# Optional: default is 389. 636 is for ldaps
+PORT 389
+#PORT 636]]></programlisting>
+</appendix>

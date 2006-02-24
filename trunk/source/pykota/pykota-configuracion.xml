@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<chapter id="pykota-configuracion">
+
+<chapterinfo>
+	<keywordset>
+		<keyword>pykota</keyword>
+		<keyword>configuración</keyword>
+	</keywordset>
+</chapterinfo>
+
+<title>Configuración</title>
+
+<sect1 id="pykota-configuracion-intro">
+	<title>Introducción</title>
+
+	<para>La configuración de PyKota se realiza en dos archivos:
+	<filename>/etc/pykota/pykota.conf</filename> y <filename>/etc/pykota/pykotadmin.conf</filename>.
+	Como dichos archivos son suficientemente explicativos, sólo se van a realizar
+	una serie de apuntes sobre los mismos. Refiérase
+	a los apéndices: <xref linkend="pykota-pykota-conf"/> y
+	<xref linkend="pykota-pykotadmin-conf"/> para ver un ejemplo de
+	configuración de PyKota.</para>
+</sect1>
+
+<sect1 id="pykota-configuracion-usuarios">
+	<title>Usuarios de pykota</title>
+
+	<para>PyKota hace uso de dos usuarios para el acceso al directorio <acronym>LDAP</acronym>:
+	uno destinado a la lectura de la base de datos de impresión y otro destinado
+	a la administración de esta base de datos. El primer usuario sólo ha de tener
+	permisos de lectura y el segundo de lectura/escritura en la base de datos de impresión.</para>
+
+	<para>Puede hacer uso del siguiente <acronym>LDIF</acronym> para generar
+	dichos usuarios en su sistema:</para>
+
+<programlisting># Entry 1: cn=pykotauser,dc=gsr,dc=pt
+dn:cn=pykotauser,dc=gsr,dc=pt
+cn: pykotauser
+objectClass: simpleSecurityObject
+objectClass: organizationalRole
+description: Usuario de PyKota
+userPassword: {CRYPT}********
+
+# Entry 1: cn=pykotaadmin,dc=gsr,dc=pt
+dn:cn=pykotaadmin,dc=gsr,dc=pt
+cn: pykotaadmin
+objectClass: simpleSecurityObject
+objectClass: organizationalRole
+description: Administrador de PyKota
+userPassword: {CRYPT}********</programlisting>
+
+	<warning><para>Para la realización de las pruebas, se ha utilizado un único usuario,
+	este ha sido el administrador de <acronym>LDAP</acronym>. Esto se ha realizado por
+	simplicidad, pero se recomienda encarecidamente que se creen los usuarios arriba
+	expuestos y se le asignen los permisos oportunos.</para></warning>
+</sect1>
+
+<sect1 id="pykota-configuracion-repaso-conf">
+	<title>Repaso sobre las principales opciones de configuración</title>
+
+	<para>En esta sección se realizará un breve repaso sobre las opciones más importantes
+	de configuración de PyKota.</para>
+
+	<sect2 id="pykota-configuracion-repaso-conf1">
+		<title>Opciones del archivo <filename>/etc/pykota/pykota.conf</filename></title>
+
+		<para>Este es el archivo de configuración principal de PyKota. Posee una
+		sección <emphasis>[global]</emphasis>, donde se configuran
+		las opciones por defecto para todas las impresoras administradas por
+		PyKota. Opcionalmente, pueden existir otras secciones
+		(<emphasis>[nombreimpresora]</emphasis>), destinadas a personalizar la configuración
+		de una impresora en concreto.</para>
+
+		<para>Aquí sólo se tratará la sección global, por ser las demás secciones
+		similares a esta y dependientes del sistema donde se instale PyKota.</para>
+
+
+		<sect3 id="pykota-configuracion-repaso-conf13">
+			<title>Datos de <acronym>LDAP</acronym></title>
+
+			<para>Las siguientes opciones le indican a PyKota el <emphasis>backend</emphasis>
+			que ha de utilizar y los datos relativos al mismo:</para>
+
+<programlisting>storagebackend: ldapstorage
+storageserver:  ldap://gsr.pt:389
+storagename:    dc=gsr,dc=pt
+storageuser:    cn=pykotauser,dc=gsr,dc=pt
+storageuserpw:  ********</programlisting>
+
+			<para>La base a partir de la cual se almacenarán los usuarios de PyKota en
+			el directorio <acronym>LDAP</acronym>:</para>
+
+<programlisting>userbase: ou=people,dc=gsr,dc=pt
+userrdn:  uid</programlisting>
+
+			<para>La base a partir de la cual se almacenará el crédito que poseen
+			los usuarios de PyKota:</para>
+
+<programlisting>balancebase: ou=people,dc=gsr,dc=pt
+balancerdn:  uid</programlisting>
+
+			<para>La base a partir de la cual se almacenarán los grupos de PyKota en
+			el directorio <acronym>LDAP</acronym>:</para>
+
+<programlisting>groupbase: ou=groups,dc=gsr,dc=pt
+grouprdn:  cn</programlisting>
+
+			<para>La base a partir de la cual se almacenarán los datos de las impresoras de PyKota en
+			el directorio <acronym>LDAP</acronym>:</para>
+
+<programlisting>printerbase: ou=printers,ou=pykota,dc=gsr,dc=pt
+printerrdn:  cn</programlisting>
+
+			<para>La base a partir de la cual se almacenarán los trabajos de impresión,
+			cuotas de usuario, cuotas de grupo y el último trabajo realizado, respectivamente:</para>
+
+<programlisting>jobbase:        ou=jobs,ou=pykota,dc=gsr,dc=pt
+userquotabase:  ou=uquotas,ou=pykota,dc=gsr,dc=pt
+groupquotabase: ou=gquotas,ou=pykota,dc=gsr,dc=pt
+lastjobbase:    ou=lastjobs,ou=pykota,dc=gsr,dc=pt</programlisting>
+		</sect3>
+
+		<sect3 id="pykota-configuracion-repaso-conf14">
+			<title>Creación de usuarios/grupos</title>
+
+			<para>Estas dos opciones informan a PyKota como se han de añadir los datos de los
+			usuarios y grupos en el sistema. Se ha seleccionado la opción de añadir
+			la información sobre la cuota de impresión a los usuarios/grupos ya existentes:</para>
+
+<programlisting>newuser : attach(posixAccount, warn)
+newgroup : attach(posixGroup, warn)</programlisting>
+		</sect3>
+
+		<sect3 id="pykota-configuracion-repaso-conf15">
+			<title>Correo electrónico de los usuarios</title>
+
+			<para>Esta opción indica cual es el atributo, dentro del directorio <acronym>LDAP</acronym>,
+			que ha de buscar PyKota para obtener el correo electrónico de los usuarios.</para>
+
+			<note><para>En esta documentación no se ha empleado este atributo, ya que se supone
+			que todos los usuarios poseen una cuenta de correo local a donde le llegará el
+			correo electrónico.</para></note>
+
+<programlisting>usermail : mail</programlisting>
+		</sect3>
+
+		<sect3 id="pykota-configuracion-repaso-conf16">
+			<title>Servidor <acronym>SMTP</acronym></title>
+
+			<para>Servidor de correo utilizado para enviar correos:</para>
+
+			<tip><para>Si desea integrar su servidor de correo con el sistema que se está
+			configurando en esta documentación, le aconsejo que lea el documento
+			<ulink url="http://guepardo.dyndns.org:8080/sergio-gonzalez/doc/08-postfix-ldap/html/">http://guepardo.dyndns.org:8080/sergio-gonzalez/doc/08-postfix-ldap/html/</ulink></para></tip>
+
+<programlisting>smtpserver: localhost</programlisting>
+		</sect3>
+
+		<sect3 id="pykota-configuracion-repaso-conf17">
+			<title>Contado de páginas</title>
+
+			<para>Pykota permite realizar el contado de las páginas que se han impreso de
+			dos maneras: mediante hardware (dejándole el trabajo de contado a la impresora)
+			o mediante software (haciendo uso de un contador de páginas propio).</para>
+
+			<para>En esta documentación, por el tipo de impresoras utilizadas (impresoras
+			virtuales), se ha elegido el contado de páginas mediante software:</para>
+
+<programlisting>accounter: software(/usr/bin/pkpgcounter)</programlisting>
+		</sect3>
+
+		<sect3 id="pykota-configuracion-repaso-conf18">
+			<title>Información sobre el administrador de PyKota</title>
+
+			<para>Información sobre quien es y cual es la dirección de correo electrónico
+			del administrador de PyKota:</para>
+
+<programlisting>admin: Sergio González González
+adminmail: root@localhost</programlisting>
+		</sect3>
+
+		<sect3 id="pykota-configuracion-repaso-conf19">
+			<title>Envío de notificaciones</title>
+
+			<para>Se le indica a PyKota que envíe, tanto al usuario como al administrador,
+			notificaciones sobre el estado de la cuota de un usuario determinado:</para>
+
+<programlisting>mailto: both</programlisting>
+		</sect3>
+
+	</sect2>
+
+	<sect2 id="pykota-configuracion-repaso-conf2">
+		<title>Opciones del archivo <filename>/etc/pykota/pykotadmin.conf</filename></title>
+
+		<para>En este archivo se configura el usuario que tendrá acceso de
+		escritura en la base de datos de PyKota. Como se ha de proporcionar
+		la clave del usuario, es conveniente que dicho archivo sólo lo pueda
+		leer el propietario del mismo.</para>
+	</sect2>
+</sect1>
+
+</chapter>
+

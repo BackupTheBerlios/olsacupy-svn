@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<bookinfo>
+	<title>Integración de redes con OpenLDAP, Samba, CUPS y PyKota</title>
+	<author>
+		<firstname>Sergio</firstname>
+		<surname>González González</surname>
+		<affiliation>
+			<orgname><ulink url="http://www.ipb.pt/">Instituto Politécnico de Bragança</ulink>, Portugal</orgname>
+			<address><email>sergio.gonzalez@hispalinux.es</email></address>
+		</affiliation>
+	</author>
+
+	<date>19 de junio de 2004</date>
+
+	<revhistory>
+		<revision>
+			<revnumber>0.1</revnumber>
+			<date>19-06-2004</date>
+			<authorinitials>sgg</authorinitials>
+			<revdescription>
+				<para>Documento inicial</para>
+			</revdescription>
+		</revision>
+	</revhistory>
+
+	<abstract>
+		<para>
+		Trabajo realizado para la asignatura <emphasis>Gestão de Sistemas e Redes</emphasis> perteneciente
+		a la carrera <emphasis>Ingeniería Informática</emphasis> impartida en la
+		<ulink url="http://www.estig.ipb.pt/">Escola Superior de Tecnologia e de Gestão de Bragança</ulink>
+		del <ulink url="http://www.ipb.pt/">Instituto Politécnico de Bragrança</ulink>, Portugal.
+		</para>
+
+		<para>
+		Este documento muestra los pasos necesarios para conseguir la integración de una red compuesta
+		por equipos con sistemas operativos <ulink url="http://www.linux.org/">GNU/Linux</ulink> y
+		<xref linkend="bibliografia-ms-windows"/>. Las herramientas empleadas
+		para conseguir dicha integración han sido: <xref linkend="bibliografia-openldap"/>,
+		<xref linkend="bibliografia-samba"/>, <xref linkend="bibliografia-cups"/> y
+		<xref linkend="bibliografia-pykota"/>.
+		</para>
+	</abstract>
+
+	<copyright>
+		<year>2004</year>
+		<holder>Sergio González González</holder>
+	</copyright>
+
+	<legalnotice><para>
+	Permission is granted to copy, distribute and/or modify this document
+	under the terms of the GNU Free Documentation License, Version 1.1
+	or any later version published by the Free Software Foundation;
+	with no Invariant Sections, with no Front-Cover Texts, and with no
+	Back-Cover Texts. A copy of the license is included in the section
+	entitled <xref linkend="licencia-fdl"/>.
+	</para></legalnotice>
+
+</bookinfo>

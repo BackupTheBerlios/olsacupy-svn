@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<appendix id="ldap-account-manager-instalacion-conf">
+	<title>Instalación y configuración de <emphasis>LAM</emphasis> (<acronym>LDAP</acronym>
+	Account Manager)</title>
+
+<sect1 id="ldap-account-manager-instalacion">
+	<title>Instalación</title>
+
+	<para><acronym>LAM</acronym> es un frontend web para la administración de usuarios
+	para cuentas unix y Samba dentro de un directorio <acronym>LDAP</acronym>. Su
+	descripción es la siguiente:</para>
+
+	<example id="ldap-account-manager-descripcion">
+		<title>Descripción de <acronym>LAM</acronym></title>
+
+<screen><prompt>$</prompt> <userinput>/usr/bin/apt-cache show ldap-account-manager</userinput>
+<computeroutput><![CDATA[Package: ldap-account-manager
+Version: 0.4.6-1
+Priority: extra
+Section: web
+Maintainer: Roland Gruber <post@rolandgruber.de>
+Depends: php4 | php4-cgi, php4-ldap, apache | apache-ssl | httpd,]]> <co id="lam-dependencias1"/><![CDATA[
+perl, wwwconfig-common, debconf]]> <co id="lam-dependencias2"/><![CDATA[
+Recommends: php4-mhash
+Suggests: ldap-server, sudo, php4-mcrypt
+Conflicts: php4-apc
+Architecture: all
+Filename: ./pool/main/l/ldap-account-manager/ldap-account-manager_0.4.6-1_all.deb
+Size: 405162
+Installed-Size: 2208
+MD5sum: 0e2c3ae43a1b29c23df2be92cca72219
+Description: Webfrontend for managing Unix and Samba accounts in a LDAP directory
+ LDAP Account Manager (LAM) runs on an existing webserver. LAM
+ supports LDAP connections via SSL and TLS. It uses the
+ Samba 2.x or Samba 3 schema and manages user, group and host
+ accounts. You can use templates for account creation and use
+ multiple configuration profiles. Account information can be
+ exported as PDF file. There is also a script
+ included which manages quota and homedirectories, you have to
+ setup sudo if you want to use it. LAM is translated to
+ English, French, German, Hungarian and Japanese.
+ .
+ Homepage: http://lam.sourceforge.net/
+origin: debian
+]]></computeroutput></screen>
+
+		<calloutlist>
+			<callout arearefs="lam-dependencias1 lam-dependencias2">
+			<para>Como se puede apreciar en las dependencias de este paquete, es necesario
+			tener instalado tanto <emphasis>php4</emphasis> como <emphasis>apache</emphasis>,
+			entre otros. Estas dependencias se supondrán satisfechas y correctamente configuradas.</para>
+			</callout>
+		</calloutlist>
+	</example>
+
+	<para>La manera de instalar este software se muestra a continuación:</para>
+
+	<example id="ldap-account-manager-ejemplo-instalacion">
+		<title>Instalación de <acronym>LAM</acronym></title>
+
+<screen><prompt>#</prompt> <userinput>/usr/bin/apt-get install ldap-account-manager</userinput>
+<computeroutput>Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias... Hecho
+Se instalarán los siguientes paquetes NUEVOS:
+  ldap-account-manager
+0 actualizados, 1 se instalarán, 0 para eliminar y 0 no actualizados.
+Se necesita descargar 0B/405kB de archivos.
+Se utilizarán 2261kB de espacio de disco adicional después de desempaquetar.
+Preconfiguring packages ...
+--------------------- Sourcerer Apt Watcher ---------------------
+Configure: ldap-account-manager
+-----------------------------------------------------------------
+Seleccionando el paquete ldap-account-manager previamente no seleccionado.
+(Leyendo la base de datos ...
+273818 ficheros y directorios instalados actualmente.)
+Desempaquetando ldap-account-manager (de .../ldap-account-manager_0.4.6-1_all.deb) ...
+Configurando ldap-account-manager (0.4.6-1) ...
+</computeroutput></screen>
+	</example>
+
+	<para>El proceso de instalación se ha finalizado, la siguiente sección está dedicada a la
+	configuración de la herramienta.</para>
+</sect1>
+
+<sect1 id="ldap-account-manager-configuracion">
+	<title>Configuración</title>
+
+	<sect2 id="ldap-account-manager-conf-introduccion">
+		<title>Introducción</title>
+
+		<para>El primer paso para la configuración de <emphasis>ldap-account-manager</emphasis> es la
+		edición de dos archivos destinados a la configuración de <acronym>LAM</acronym>:</para>
+
+		<itemizedlist mark="fillcircle">
+			<listitem>
+					<para><filename>/etc/ldap-account-manager/config.cfg</filename>:
+					en este archivo se indicará la clave para la administración de los distintos
+					perfiles y el perfil que utilizará por defecto <acronym>LAM</acronym>.</para>
+
+					<para>Un ejemplo de este archivo se encuentra en el
+					<xref linkend="ldap-account-manager_config_cfg"/>.</para>
+			</listitem>
+			<listitem>
+					<para><filename>/var/lib/ldap-account-manager/config/*.conf</filename>:
+					los archivos con extensión *.conf almacenados bajo el directorio
+					<filename class="directory">/var/lib/ldap-account-manager/config/</filename>
+					se corresponden con los distintos perfiles de <acronym>LAM</acronym>.
+					Estos perfiles almacenan la información sobre el servidor
+					<acronym>LDAP</acronym> y las opciones por defecto que
+					se van a utilizar para gestionar las cuentas de usuario con
+					<acronym>LAM</acronym>. No será necesario
+					modificar el contenido de estos archivos, ya que se crean y gestionan desde
+					la interfaz web.</para>
+
+					<para>Un ejemplo de este archivo se encuentra en el
+					<xref linkend="ldap-account-manager_gsr_cfg"/></para>
+			</listitem>
+		</itemizedlist>
+	</sect2>
+
+	<sect2 id="ldap-account-manager-conf-interfaz-web">
+		<title>Configuración desde la interfaz web</title>
+
+		<para>El siguiente paso será acceder a la interfaz web de <acronym>LAM</acronym> con un
+		navegador web, para ello se ha de teclear la siguiente <acronym>URL</acronym> en su navegador favorito:
+		<emphasis>http://gsr.pt/lam</emphasis> (suponiendo que <quote>gsr.pt</quote> sea
+		su dominio).</para>
+	
+		<para>En las siguientes capturas se mostrará el proceso de configuración de
+		<acronym>LAM</acronym> desde la interfaz web. Durante el proceso se creará un nuevo perfil
+		así como un usuario de ejemplo.</para>
+
+		<important><para>No utilice caracteres especiales al reyenar los campos,
+		pues <acronym>LAM</acronym> no los reconoce.</para></important>
+	
+		<figure>
+			<title><acronym>URL</acronym> donde está instalado <acronym>LAM</acronym></title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion1.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion1.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>Si se encuentra en un entorno de escritorio con <acronym>KDE</acronym>, teclee
+					<keycombo action='simul'><keycap>Alt</keycap><keycap>F2</keycap></keycombo> e introduzca
+					la dirección donde se encuentre instalado <acronym>LAM</acronym>.</para>
+				</caption>
+			</mediaobject>
+		</figure>
+	
+		<figure>
+			<title>Pantalla de ingreso</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion2.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion2.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>Pantalla principal de <acronym>LAM</acronym> antes del ingreso. Como
+					es la primera vez que se accede, se creará un nuevo perfil adaptado a las necesidades
+					del sistema. Para ello pulse sobre <emphasis>Configuration Login</emphasis>.</para>
+				</caption>
+			</mediaobject>
+		</figure>
+	
+		<figure>
+			<title>Pantalla de configuración</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion3.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion3.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>Esta imagen presenta la pantalla de configuración de <acronym>LAM</acronym>,
+					aquí seleccionaremos el enlace: <emphasis>Configuration wizard</emphasis>.</para>
+				</caption>
+			</mediaobject>
+		</figure>
+	
+		<figure>
+			<title>Asistente de configuración, datos del perfil</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion4.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion4.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>A partir de esta pantalla, se irán completando las distintas opciones que
+					presente el asistente de configuración de <acronym>LAM</acronym>. Aquí se pide el
+					nombre para el nuevo perfil (<emphasis>Profile name</emphasis>), la clave para
+					acceder al nuevo perfil creado (<emphasis>Password</emphasis>) y la
+					clave principal (<emphasis>Master password</emphasis>) de <acronym>LAM</acronym>, que
+					si no se ha cambiado la configuración por defecto del archivo
+					<filename>/etc/ldap-account-manager/config.cfg</filename>
+					(vea el <xref linkend="ldap-account-manager_config_cfg"/>), la clave será
+					<quote>lam</quote>.</para>
+				</caption>
+			</mediaobject>
+		</figure>
+	
+		<figure>
+			<title>Asistente de configuración, datos del servidor <acronym>LDAP</acronym> y Samba</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion5.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion5.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>Pantalla dedicada a la localización del servidor <acronym>LDAP</acronym> y
+					la versión de Samba:</para>
+	
+					<itemizedlist mark="opencilcle">
+						<listitem>
+							<para><emphasis>Server address</emphasis>: dirección del servidor
+							<acronym>LDAP</acronym> que se va a utilizar.</para>
+						</listitem>
+						<listitem>
+							<para><emphasis><acronym>LDAP</acronym> admin <acronym>DN</acronym></emphasis>:
+							administrador del directorio <acronym>LDAP</acronym>.</para>
+						</listitem>
+						<listitem>
+							<para><emphasis>Password</emphasis>: clave para el administrador del directorio
+							<acronym>LDAP</acronym>.</para>
+						</listitem>
+						<listitem>
+							<para><emphasis>Samba version</emphasis>: versión de Samba que se va a emplear,
+							en este caso es la versión 3.*</para>
+						</listitem>
+					</itemizedlist>
+				</caption>
+			</mediaobject>
+		</figure>
+	
+		<figure>
+			<title>Asistente de configuración, creando la estructura para el directorio <acronym>LDAP</acronym></title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion6.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion6.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>Las cuentas que se crearán a través de <acronym>LAM</acronym> se almacenarán
+					en el directorio <acronym>LDAP</acronym> de la forma que se indique en este paso:</para>
+	
+					<itemizedlist mark="opencilcle">
+						<listitem>
+							<para><emphasis>UserSuffix</emphasis>: lugar donde se almacenarán las cuentas
+							de los usuarios.</para>
+						</listitem>
+						<listitem>
+							<para><emphasis>GroupSuffix</emphasis>: lugar donde se almacenarán las cuentas
+							de los grupos de usuarios.</para>
+						</listitem>
+						<listitem>
+							<para><emphasis>HostSuffix</emphasis>: lugar donde se almacenará la información
+							sobre las máquinas Samba.</para>
+						</listitem>
+						<listitem>
+							<para><emphasis>DomainSuffix</emphasis>: lugar donde se almacenará la información
+							sobre los dominios Samba.</para>
+						</listitem>
+						<listitem>
+							<para><emphasis>Password hash type</emphasis>: tipo de algoritmo de hash a utilizar
+							para almacenar las claves, en este caso se ha elegido el tipo
+							<acronym>MD5</acronym>.</para>
+						</listitem>
+						<listitem>
+							<para><emphasis>Cache timeout</emphasis>: tiempo que <acronym>LAM</acronym>
+							mantendrá en su caché las búsquedas <acronym>LDAP</acronym> realizadas.</para>
+						</listitem>
+						<listitem>
+							<para><emphasis>Optional settings</emphasis>: las opciones por defecto
+							se adaptan a las necesidades del proyecto, por lo que no se selecciona ninguna
+							opción en este cuadro.</para>
+
+							<para>La última opción: <emphasis>Lamdaemon settings and
+							<acronym>PDF</acronym> text</emphasis> sirve para ajustar, entre otras cosas,
+							la ruta al script <filename>lamdaemon.pl</filename>. Este script permite
+							la creación/eliminación de los directorios home de los usuarios y el
+							establecimiento de quotas para los mismos.</para>
+
+							<para>En esta documentación no se ha empleado dicho script, en su lugar
+							se ha empleado el script del <xref linkend="make-deleteHomedirectory"/>.</para>
+						</listitem>
+					</itemizedlist>
+				</caption>
+			</mediaobject>
+		</figure>
+	
+		<figure>
+			<title>Asistente de configuración, confirmación de la creación de entradas <acronym>LDAP</acronym></title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion7.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion7.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>Confirmación para la creación de las nuevas entradas en el directorio
+					<acronym>LDAP</acronym>.</para>
+				</caption>
+			</mediaobject>
+		</figure>
+	
+		<figure>
+			<title>Asistente de configuración, creación de un dominio</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion8.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion8.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>Aquí se introducirá el dominio que se va a utilizar en Samba así como el
+					<acronym>SID</acronym> del servidor donde está alojado, las demás opciones
+					se dejarán como están. De esta forma, en la
+					opción <emphasis>Domain name</emphasis> se ha de teclear el dominio
+					correspondiente (en este caso GSRDOMAIN).</para>
+	
+					<para>La forma de obtener el <acronym>SID</acronym> se muestra en el
+					<xref linkend="ldap-account-manager-configuracion-obtencion-sid"/>,
+					su resultado se ha de introducir en la opción
+					<emphasis>Domain SID</emphasis>.</para>
+	
+				</caption>
+			</mediaobject>
+		</figure>
+	
+		<example id="ldap-account-manager-configuracion-obtencion-sid">
+			<title>Obtención del <acronym>SID</acronym></title>
+	
+<screen><prompt>#</prompt> <userinput>/usr/bin/net getlocalsid</userinput>
+<computeroutput>
+SID for domain TODOSCSI is: S-1-5-21-3777331929-1837441497-3139219028</computeroutput></screen>
+		</example>	
+	
+		<figure id="ldap-account-manager-configuracion-creacion-grupos-samba">
+			<title>Asistente de configuración, creación de grupos para Samba</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion9.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion9.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>El asistente pide confirmación para la creación de una serie de grupos esenciales
+					para Samba, se pulsa sobre <emphasis>Create</emphasis> para continuar.</para>
+				</caption>
+			</mediaobject>
+		</figure>
+	
+		<figure>
+			<title>Información sobre el nuevo perfil creado</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion10.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion10.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>Esta pantalla muestra la información que se a almacenado para el perfil
+					<emphasis>GSR</emphasis> que se acaba de crear. A continuación se regresará
+					a la pantalla de ingreso, pulsando sobre el enlace <emphasis>Back to Login</emphasis>.</para>
+	
+					<para>Como se ha creado un nuevo perfil adaptado a las necesidades del
+					sistema, <emphasis>GSR</emphasis>, sería recomendable modificar el archivo
+					<filename>/etc/ldap-account-manager/config.cfg</filename> para indicar
+					que el perfil por defecto pasa a ser <emphasis>GSR</emphasis> y no
+					<emphasis>lam</emphasis>. Para ello, se ha de asignar el valor
+					<emphasis>GSR</emphasis> a la variable: <emphasis>default</emphasis>.</para>
+				</caption>
+			</mediaobject>
+		</figure>
+	
+		<figure>
+			<title>Ingreso en <acronym>LAM</acronym></title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion11.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion11.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>En estos momentos, ya se puede ingresar al sistema con el perfil que se acaba de
+					añadir. Para ello, si no está ya seleccionado, elegimos el perfil
+					<emphasis>GSR</emphasis> y pulsamos sobre: <emphasis>Change Profile</emphasis>. Una
+					vez seleccionado el perfil adecuado, se ha de teclear la clave del administrador
+					del directorio <acronym>LDAP</acronym> y pulsar sobre <emphasis>Login</emphasis>.</para>
+				</caption>
+			</mediaobject>
+		</figure>
+	
+		<figure>
+			<title>Pantalla principal de <acronym>LAM</acronym></title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion12.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion12.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>Nada más ingresar en la herramienta, nos muestra los usuarios que posee
+					el directorio <acronym>LDAP</acronym> bajo la unidad organizacional
+					<emphasis>people</emphasis>
+					(en estos momentos no hay ningún usuario, ya que se acaba de crear la estructura
+					y todavía no se ha añadido ningún usuario).</para>
+				</caption>
+			</mediaobject>
+		</figure>
+	
+		<figure>
+			<title>Dominios existentes</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion13.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion13.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>Si se pulsa sobre el enlace <emphasis>Domains</emphasis>, se listan los
+					dominios existentes bajo la unidad organizacional <emphasis>domains</emphasis>.
+					En estos momentos, sólo hay un dominio: <emphasis>GSRDOMAIN</emphasis>, creado
+					en el proceso de configuración.</para>
+				</caption>
+			</mediaobject>
+		</figure>
+	
+		<figure>
+			<title>Grupos existentes</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion14.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion14.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>Bajo el enlace <emphasis>Groups</emphasis>, se listan los grupos
+					existentes bajo la unidad organizacional <emphasis>groups</emphasis>.
+					Actualmente los grupos existentes únicamente son tres, los que se han creado
+					durante el proceso de configuración.</para>
+				</caption>
+			</mediaobject>
+		</figure>
+	
+		<figure>
+			<title>Hosts existentes</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion15.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion15.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>Al pulsar sobre <emphasis>Hosts</emphasis>, se muestran las máquinas de Samba
+					existentes bajo la unidad organizacional <emphasis>machines</emphasis>. Como
+					se puede ver, todavía no se ha introducido ninguna máquina.</para>
+				</caption>
+			</mediaobject>
+		</figure>
+	
+		<figure>
+			<title>Saliendo de la herramienta</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion16.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion16.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>Una vez se ha finalizado el uso de la herramienta, se ha de salir de la misma,
+					para ello se ha de pulsar sobre el enlace <emphasis>Logout</emphasis>.</para>
+				</caption>
+			</mediaobject>
+		</figure>
+	
+		<para><acronym>LAM</acronym> ya se encuentra completamente instalado y adaptado a las necesidades
+		del sistema, por lo que ya se puede comenzar a utilizar para la administración de usuarios y
+		demás aspectos relativos.</para>
+
+		<para>En las secciones
+		<xref linkend="samba-configuracion-samba-opciones-ldap-prueba-funcionamiento-adduser"/> y
+		<xref linkend="samba-aniadiendo-clientes-dominio-winnt-creaacion-cuentas-maquina"/>
+		tiene un ejemplo sobre como crear cuentas de usuario y máquina, respectivamente.</para>
+	</sect2>
+</sect1>
+
+</appendix>

@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<appendix id="pykota-diff">
+	<title>Parche para la generación de un paquete <emphasis>deb</emphasis> de PyKota</title>
+
+<programlisting><![CDATA[diff -urN pykota/cgi-bin/printquota.cgi pykota-1.19alpha20/cgi-bin/printquota.cgi
+--- pykota/cgi-bin/printquota.cgi	2004-06-06 22:07:55.000000000 +0100
++++ pykota-1.19alpha20/cgi-bin/printquota.cgi	2004-06-17 01:09:12.000000000 +0100
+@@ -139,7 +139,7 @@
+         <tr>
+           <td>
+             <p>
+-              <a href="http://www.librelogiciel.com/software/"><img src="http://www.librelogiciel.com/software/PyKota/pykota.png" alt="PyKota's Logo" /></a>
++              <a href="http://www.librelogiciel.com/software/"><img src="/pykota.png" alt="PyKota's Logo" /></a>
+               <br />
+               <a href="http://www.librelogiciel.com/software/">PyKota version %s</a>
+             </p>
+diff -urN pykota/debian/changelog pykota-1.19alpha20/debian/changelog
+--- pykota/debian/changelog	2004-02-18 12:38:33.000000000 +0000
++++ pykota-1.19alpha20/debian/changelog	2004-06-13 12:49:59.000000000 +0100
+@@ -1,3 +1,9 @@
++pykota (1.19alpha20.cvs.20040611-1) unstable; urgency=low
++
++  * Update from CVS
++
++ -- Sergio Gonz'alez Gonz'alez <sergio.gonzalez@hispalinux.es>  Fri, 11 Jun 2004 17:10:04 +0100
++
+ pykota (1.16.cvs.20040119-1) unstable; urgency=low
+ 
+   * Initial Release.
+diff -urN pykota/debian/conffiles pykota-1.19alpha20/debian/conffiles
+--- pykota/debian/conffiles	1970-01-01 01:00:00.000000000 +0100
++++ pykota-1.19alpha20/debian/conffiles	2004-06-13 14:34:57.000000000 +0100
+@@ -0,0 +1,4 @@
++/etc/pykota/pykota.conf
++/etc/pykota/pykotadmin.conf
++/etc/default/printquota
++/etc/cron.daily/pykota
+diff -urN pykota/debian/control pykota-1.19alpha20/debian/control
+--- pykota/debian/control	2004-02-18 12:38:33.000000000 +0000
++++ pykota-1.19alpha20/debian/control	2004-06-13 12:44:18.000000000 +0100
+@@ -7,7 +7,13 @@
+ 
+ Package: pykota
+ Architecture: all
+-Depends: ${python:Depends}, python-egenix-mxdatetime, cupsys | lprng, python-pygresql | python-ldap
++Depends: ${python:Depends}, python-egenix-mxdatetime, cupsys | lprng, python-pygresql | python-ldap, libapache-mod-python
+ Recommends: snmp, netatalk
+ Description: Print Quota/Accounting system for CUPS and LPRng
+- FIXME: Description
++ PyKota is a complete GPLed Print Quota and Accounting Software Solution
++ for the Common UNIX Printing System (aka CUPS) and LPR Next Generation
++ (aka LPRng) on GNU/Linux and Unix-like operating systems, which offers
++ a great flexibility with regard to the page accounting methods it
++ supports. By default it works by directly querying the printers for the
++ number of pages they have printed, but you can easily plug your own
++ page accounting methods if you prefer.
+diff -urN pykota/debian/cron.daily pykota-1.19alpha20/debian/cron.daily
+--- pykota/debian/cron.daily	1970-01-01 01:00:00.000000000 +0100
++++ pykota-1.19alpha20/debian/cron.daily	2004-06-12 01:09:57.000000000 +0100
+@@ -0,0 +1,14 @@
++#! /bin/sh
++
++# check if print quota package is available
++test -x /usr/bin/warnpykota || exit 0
++
++# check if warnpyquota run is configured
++test -f /etc/default/printquota || exit 0
++. /etc/default/printquota
++
++if [ "$run_warnpykota" = "true" ]; then
++        /usr/bin/warnpykota
++fi
++
++exit 0
+diff -urN pykota/debian/dirs pykota-1.19alpha20/debian/dirs
+--- pykota/debian/dirs	2004-02-18 12:38:33.000000000 +0000
++++ pykota-1.19alpha20/debian/dirs	2004-06-17 11:06:15.000000000 +0100
+@@ -1,5 +1,11 @@
+ usr/bin
+ usr/share/pykota
++usr/share/doc/pykota/logos
++usr/share/doc/pykota/initscripts/ldap
++usr/share/doc/pykota/initscripts/postgresql
+ usr/lib/cups/backend
++usr/lib/cgi-bin
+ etc/pykota
+ etc/default
++etc/cron.daily
++var/www
+diff -urN pykota/debian/docs pykota-1.19alpha20/debian/docs
+--- pykota/debian/docs	2004-02-18 12:38:33.000000000 +0000
++++ pykota-1.19alpha20/debian/docs	2004-06-17 10:36:24.000000000 +0100
+@@ -3,5 +3,3 @@
+ README
+ TODO
+ SECURITY
+-initscripts/postgresql/README.postgresql
+-initscripts/ldap/README.ldap
+diff -urN pykota/debian/etc/default/printquota pykota-1.19alpha20/debian/etc/default/printquota
+--- pykota/debian/etc/default/printquota	2004-02-12 21:36:01.000000000 +0000
++++ pykota-1.19alpha20/debian/etc/default/printquota	1970-01-01 01:00:00.000000000 +0100
+@@ -1,4 +0,0 @@
+-# Configuration for print quota scripts
+-#
+-# Set to "true" if warnpykota should be run in cron.daily
+-run_warnpykota="false"
+diff -urN pykota/debian/etc/pykota.cron.daily pykota-1.19alpha20/debian/etc/pykota.cron.daily
+--- pykota/debian/etc/pykota.cron.daily	2004-02-12 21:36:01.000000000 +0000
++++ pykota-1.19alpha20/debian/etc/pykota.cron.daily	1970-01-01 01:00:00.000000000 +0100
+@@ -1,14 +0,0 @@
+-#! /bin/sh
+-
+-# check if print quota package is available
+-test -x /usr/bin/warnpykota || exit 0
+-
+-# check if warnpyquota run is configured
+-test -f /etc/default/printquota || exit 0
+-. /etc/default/printquota
+-
+-if [ "$run_warnpykota" = "true" ]; then
+-        /usr/bin/warnpykota
+-fi
+-
+-exit 0
+diff -urN pykota/debian/Makefile.docs pykota-1.19alpha20/debian/Makefile.docs
+--- pykota/debian/Makefile.docs	2004-02-18 12:38:33.000000000 +0000
++++ pykota-1.19alpha20/debian/Makefile.docs	2004-06-12 01:56:21.000000000 +0100
+@@ -4,12 +4,12 @@
+ 
+ build: build-stamp
+ build-stamp:
+-       docbook2html pykota.sgml
+-       touch build-stamp
++	docbook2html pykota.sgml
++	touch build-stamp
+ 
+ install: build
+-       mkdir -p $(DESTDIR)/usr/share/doc/pykota/html/
+-       cp *.html $(DESTDIR)/usr/share/doc/pykota/html/
++	mkdir -p $(DESTDIR)/usr/share/doc/pykota/html/
++	cp *.html $(DESTDIR)/usr/share/doc/pykota/html/
+ 
+ clean:
+-       rm -f *.html build-stamp
++	rm -f *.html build-stamp
+diff -urN pykota/debian/postinst pykota-1.19alpha20/debian/postinst
+--- pykota/debian/postinst	1970-01-01 01:00:00.000000000 +0100
++++ pykota-1.19alpha20/debian/postinst	2004-06-17 01:10:17.000000000 +0100
+@@ -0,0 +1,43 @@
++#! /bin/sh
++# postinst script for pykota
++#
++# see: dh_installdeb(1)
++
++set -e
++
++# summary of how this script can be called:
++#        * <postinst> `configure' <most-recently-configured-version>
++#        * <old-postinst> `abort-upgrade' <new version>
++#        * <conflictor's-postinst> `abort-remove' `in-favour' <package>
++#          <new-version>
++#        * <deconfigured's-postinst> `abort-deconfigure' `in-favour'
++#          <failed-install-package> <version> `removing'
++#          <conflicting-package> <version>
++# for details, see http://www.debian.org/doc/debian-policy/ or
++# the debian-policy package
++#
++
++case "$1" in
++    configure)
++		chown www-data.www-data /usr/lib/cgi-bin/printquota.cgi
++		chmod 600 /etc/pykota/pykotadmin.conf
++    ;;
++
++    abort-upgrade|abort-remove|abort-deconfigure)
++
++    ;;
++
++    *)
++        echo "postinst called with unknown argument \`$1'" >&2
++        exit 1
++    ;;
++esac
++
++# dh_installdeb will replace this with shell code automatically
++# generated by other debhelper scripts.
++
++#DEBHELPER#
++
++exit 0
++
++
+diff -urN pykota/debian/printquota-default pykota-1.19alpha20/debian/printquota-default
+--- pykota/debian/printquota-default	1970-01-01 01:00:00.000000000 +0100
++++ pykota-1.19alpha20/debian/printquota-default	2004-02-12 21:36:01.000000000 +0000
+@@ -0,0 +1,4 @@
++# Configuration for print quota scripts
++#
++# Set to "true" if warnpykota should be run in cron.daily
++run_warnpykota="false"
+diff -urN pykota/debian/rules pykota-1.19alpha20/debian/rules
+--- pykota/debian/rules	2004-02-18 12:38:33.000000000 +0000
++++ pykota-1.19alpha20/debian/rules	2004-06-17 10:42:44.000000000 +0100
+@@ -4,45 +4,70 @@
+ # GNU copyright 1997 to 1999 by Joey Hess.
+ 
+ # Uncomment this to turn on verbose mode.
+-#export DH_VERBOSE=1
++export DH_VERBOSE=1
+ 
+-export DH_COMPAT=3
++export DH_COMPAT=1
+ 
+ 
+ build: build-stamp
+ build-stamp: 
+-       dh_testdir
+-
+-       #/usr/bin/docbook-to-man debian/pykota.sgml > pykota.1
+-       /usr/bin/python setup.py build
+-       (cd docs; make -f ../debian/Makefile.docs build)
+-
+-       touch build-stamp
++	dh_testdir
++	
++	#/usr/bin/docbook-to-man debian/pykota.sgml > pykota.1
++	/usr/bin/python setup.py build
++	(cd docs; make -f ../debian/Makefile.docs build)
++	
++	touch build-stamp
+ 
+ clean:
+-       dh_testdir
+-       dh_testroot
+-       rm -f build-stamp
+-
+-       /usr/bin/python setup.py clean --all
+-       (cd docs; make -f ../debian/Makefile.docs clean)
+-       rm -f pykota/__init__.pyc pykota/version.pyc
+-
+-       dh_clean 
++	dh_testdir
++	dh_testroot
++	rm -f build-stamp
++	
++	/usr/bin/python setup.py clean --all
++	(cd docs; make -f ../debian/Makefile.docs clean)
++	rm -f pykota/__init__.pyc pykota/version.pyc
++	
++	dh_clean 
+ 
+ install: build
+-       dh_testdir
+-       dh_testroot
+-       dh_clean -k 
+-       dh_installdirs
+-
+-       /usr/bin/python setup.py install --prefix=`pwd`/debian/pykota/usr --no-compile
+-
+-       install -m 644 conf/pykota.conf.sample $(CURDIR)/debian/pykota/etc/pykota/pykota.conf
+-       install -m 640 conf/pykotadmin.conf.sample $(CURDIR)/debian/pykota/etc/pykota/pykotadmin.conf
+-       install -m 644 debian/etc/default/printquota $(CURDIR)/debian/pykota/etc/default/printquota
+-
+-       (cd docs; make -f ../debian/Makefile.docs install DESTDIR=$(CURDIR)/debian/pykota/)
++	dh_testdir
++	dh_testroot
++	dh_clean -k 
++	dh_installdirs
++	
++	/usr/bin/python setup.py install --prefix=`pwd`/debian/tmp/usr --no-compile
++	
++	install -m 644 conf/pykota.conf.sample $(CURDIR)/debian/tmp/etc/pykota/pykota.conf
++	install -m 640 conf/pykotadmin.conf.sample $(CURDIR)/debian/tmp/etc/pykota/pykotadmin.conf
++	install -m 644 debian/printquota-default $(CURDIR)/debian/tmp/etc/default/printquota
++	
++	install -m 755 -g www-data -o www-data cgi-bin/printquota.cgi $(CURDIR)/debian/tmp/usr/lib/cgi-bin/printquota.cgi
++	install -m 644 stylesheets/pykota.css $(CURDIR)/debian/tmp/var/www/pykota.css
++	install -m 644 logos/pykotasmall.png $(CURDIR)/debian/tmp/var/www/pykota.png
++	install -m 644 initscripts/README $(CURDIR)/debian/tmp/usr/share/doc/pykota/initscripts/README
++	install -m 644 initscripts/ldap/pykota-sample.ldif $(CURDIR)/debian/tmp/usr/share/doc/pykota/initscripts/ldap/pykota-sample.ldif
++	install -m 644 initscripts/ldap/pykota.schema $(CURDIR)/debian/tmp/usr/share/doc/pykota/initscripts/ldap/pykota.schema
++	install -m 644 initscripts/ldap/README.ldap $(CURDIR)/debian/tmp/usr/share/doc/pykota/initscripts/ldap/README.ldap
++	install -m 644 initscripts/postgresql/README.postgresql $(CURDIR)/debian/tmp/usr/share/doc/pykota/initscripts/postgresql/README.postgresql
++	install -m 644 initscripts/postgresql/pykota-postgresql.sql $(CURDIR)/debian/tmp/usr/share/doc/pykota/initscripts/postgresql/pykota-postgresql.sql
++	install -m 644 initscripts/postgresql/upgrade-from-before-1.03.py $(CURDIR)/debian/tmp/usr/share/doc/pykota/initscripts/postgresql/upgrade-from-before-1.03.py
++	install -m 644 initscripts/postgresql/upgrade-to-1.14.sql $(CURDIR)/debian/tmp/usr/share/doc/pykota/initscripts/postgresql/upgrade-to-1.14.sql
++	install -m 644 initscripts/postgresql/upgrade-to-1.16.sql $(CURDIR)/debian/tmp/usr/share/doc/pykota/initscripts/postgresql/upgrade-to-1.16.sql
++	install -m 644 initscripts/postgresql/upgrade-to-1.19.sql $(CURDIR)/debian/tmp/usr/share/doc/pykota/initscripts/postgresql/upgrade-to-1.19.sql
++	install -m 644 initscripts/postgresql/VERYOLDpykota-upgrade-postgresql.sql $(CURDIR)/debian/tmp/usr/share/doc/pykota/initscripts/postgresql/VERYOLDpykota-upgrade-postgresql.sql
++	install -m 644 logos/pleaseupgrade.png $(CURDIR)/debian/tmp/usr/share/doc/pykota/logos/pleaseupgrade.png
++	install -m 644 logos/pykotaofficialindexed.png $(CURDIR)/debian/tmp/usr/share/doc/pykota/logos/pykotaofficialindexed.png
++	install -m 644 logos/pykotaofficialindexedsmall.png $(CURDIR)/debian/tmp/usr/share/doc/pykota/logos/pykotaofficialindexedsmall.png
++	install -m 644 logos/pykotaofficial.png $(CURDIR)/debian/tmp/usr/share/doc/pykota/logos/pykotaofficial.png
++	install -m 644 logos/pykotaofficialsmall.png $(CURDIR)/debian/tmp/usr/share/doc/pykota/logos/pykotaofficialsmall.png
++	install -m 644 logos/pykota.png $(CURDIR)/debian/tmp/usr/share/doc/pykota/logos/pykota.png
++	install -m 644 logos/pykotasmall.png $(CURDIR)/debian/tmp/usr/share/doc/pykota/logos/pykotasmall.png
++	install -m 644 logos/pykota.xcf $(CURDIR)/debian/tmp/usr/share/doc/pykota/logos/pykota.xcf
++	install -m 644 logos/README $(CURDIR)/debian/tmp/usr/share/doc/pykota/logos/README
++	(chown www-data.www-data $(CURDIR)/debian/tmp/usr/lib/cgi-bin/printquota.cgi)
++	(chmod 755 $(CURDIR)/debian/tmp/usr/share/pykota/*)
++	(cd docs; make -f ../debian/Makefile.docs install DESTDIR=$(CURDIR)/debian/tmp/)
+ 
+ 
+ # Build architecture-dependent files here.
+@@ -51,34 +76,34 @@
+ 
+ # Build architecture-independent files here.
+ binary-arch: build install
+-       dh_testdir
+-       dh_testroot
+-       dh_installchangelogs 
+-       dh_installdocs
+-       dh_installexamples
+-#      dh_install
+-#      dh_installmenu
+-#      dh_installdebconf       
+-#      dh_installlogrotate
+-#      dh_installemacsen
+-#      dh_installpam
+-#      dh_installmime
+-#      dh_installinit
+-       dh_installcron
+-#      dh_installinfo
+-       dh_installman
+-       dh_link
+-#      dh_strip
+-       dh_compress
+-       dh_fixperms
+-#      dh_perl
+-       dh_python
+-#      dh_makeshlibs
+-       dh_installdeb
+-#      dh_shlibdeps
+-       dh_gencontrol
+-       dh_md5sums
+-       dh_builddeb
++	dh_testdir
++	dh_testroot
++	dh_installchangelogs 
++	dh_installdocs
++	dh_installexamples
++#	dh_install
++#	dh_installmenu
++#	dh_installdebconf       
++#	dh_installlogrotate
++#	dh_installemacsen
++#	dh_installpam
++#	dh_installmime
++#	dh_installinit
++	dh_installcron
++#	dh_installinfo
++	dh_installman
++	dh_link
++#	dh_strip
++	dh_compress
++	dh_fixperms
++#	dh_perl
++	dh_python
++#	dh_makeshlibs
++	dh_installdeb
++#	dh_shlibdeps
++	dh_gencontrol
++	dh_md5sums
++	dh_builddeb
+ 
+ binary: binary-indep binary-arch
+ .PHONY: build clean binary-indep binary-arch binary install
+diff -urN pykota/setup.py pykota-1.19alpha20/setup.py
+--- pykota/setup.py	2004-06-05 23:03:49.000000000 +0100
++++ pykota-1.19alpha20/setup.py	2004-06-13 14:27:08.000000000 +0100
+@@ -195,6 +195,8 @@
+ ACTION_CONTINUE = 0
+ ACTION_ABORT = 1
+ 
++ETC_DIR = "./debian/tmp/etc/pykota/"
++
+ def checkOldModule(path) :
+     """Checks if an old PyKota module is still in the destination (in case of upgrade)."""
+     fname = os.path.join(sysconfig.get_python_lib(), "pykota", path)
+@@ -255,12 +257,12 @@
+         sys.exit(-1)
+         
+     # checks if a configuration file is present in the new location
+-    if not os.path.isfile("/etc/pykota/pykota.conf") :
+-        if not os.path.isdir("/etc/pykota") :
++    if not os.path.isfile(os.path.join(ETC_DIR,"pykota.conf")) :
++        if not os.path.isdir(ETC_DIR) :
+             try :
+-                os.mkdir("/etc/pykota")
++                os.mkdir(ETC_DIR)
+             except OSError, msg :    
+-                sys.stderr.write("An error occured while creating the /etc/pykota directory.\n%s\n" % msg)
++                sys.stderr.write("An error occured while creating the etc/pykota directory.\n%s\n" % msg)
+                 sys.exit(-1)
+                 
+         if os.path.isfile("/etc/pykota.conf") :
+@@ -270,7 +272,7 @@
+             answer = raw_input("Do you want to move /etc/pykota.conf to /etc/pykota/pykota.conf (y/N) ? ")
+             if answer[0:1].upper() == 'Y' :
+                 try :
+-                    os.rename("/etc/pykota.conf", "/etc/pykota/pykota.conf")
++                    os.rename("/etc/pykota.conf", os.path.join(ETC_DIR,"pykota.conf"))
+                 except OSError :    
+                     sys.stderr.write("ERROR : An error occured while moving /etc/pykota.conf to /etc/pykota/pykota.conf\nAborted !\n")
+                     sys.exit(-1)
+@@ -286,8 +288,8 @@
+                 answer = raw_input("Do you want to install\n\tconf/pykota.conf.sample as /etc/pykota/pykota.conf (y/N) ? ")
+                 if answer[0:1].upper() == 'Y' :
+                     try :
+-                        shutil.copy("conf/pykota.conf.sample", "/etc/pykota/pykota.conf")        
+-                        shutil.copy("conf/pykotadmin.conf.sample", "/etc/pykota/pykotadmin.conf")        
++                        shutil.copy("conf/pykota.conf.sample", os.path.join(ETC_DIR,"pykota.conf"))        
++                        shutil.copy("conf/pykotadmin.conf.sample", os.path.join(ETC_DIR,"pykotadmin.conf"))        
+                     except IOError, msg :    
+                         sys.stderr.write("WARNING : Problem while installing sample configuration files in /etc/pykota/, please do it manually.\n%s\n" % msg)
+                     else :    
+@@ -316,7 +318,7 @@
+     # Second stage, we will fail if onfiguration is incorrect for security reasons
+     from pykota.config import PyKotaConfig,PyKotaConfigError
+     try :
+-        conf = PyKotaConfig("/etc/pykota/")
++        conf = PyKotaConfig(ETC_DIR)
+     except PyKotaConfigError, msg :    
+         sys.stedrr.write("%s\nINSTALLATION ABORTED !\nPlease restart installation.\n" % msg)
+         sys.exit(-1)
+@@ -374,8 +376,8 @@
+         sys.stdout.write("\n")
+             
+     # change files permissions    
+-    os.chmod("/etc/pykota/pykota.conf", 0644)
+-    os.chmod("/etc/pykota/pykotadmin.conf", 0640)
++    os.chmod(os.path.join(ETC_DIR,"pykota.conf"), 0644)
++    os.chmod(os.path.join(ETC_DIR,"pykotadmin.conf"), 0640)
+     
+     # WARNING MESSAGE    
+     sys.stdout.write("WARNING : IF YOU ARE UPGRADING FROM A PRE-1.19alpha17 TO 1.19alpha17 OR ABOVE\n")
+@@ -419,7 +421,7 @@
+     directory = os.sep.join(["share", "locale", lang, "LC_MESSAGES"])
+     data_files.append((directory, [ mofile ]))
+     
+-docdir = "/usr/share/doc/pykota"    
++docdir = "share/doc/pykota"    
+ docfiles = ["README", "FAQ", "SECURITY", "COPYING", "LICENSE", "CREDITS", "TODO", "NEWS"]
+ data_files.append((docdir, docfiles))
+ 
+diff -urN pykota/stylesheets/pykota.css pykota-1.19alpha20/stylesheets/pykota.css
+--- pykota/stylesheets/pykota.css	2004-06-06 22:07:55.000000000 +0100
++++ pykota-1.19alpha20/stylesheets/pykota.css	2004-06-17 01:08:38.000000000 +0100
+@@ -19,6 +19,10 @@
+ 
+ /* $Id: pykota.css,v 1.2 2004/06/06 21:07:55 jalet Exp $ */
+ 
++body {
++        background-color: #FFFFFF;
++     }
++
+ .even {
+         background-color: #DEDEDE;
+       }]]></programlisting>
+</appendix>

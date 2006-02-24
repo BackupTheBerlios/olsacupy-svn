@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<chapter id="pykota-probando">
+
+<chapterinfo>
+	<keywordset>
+		<keyword>pykota</keyword>
+		<keyword>pruebas</keyword>
+	</keywordset>
+</chapterinfo>
+
+<title>Probando el sistema de cuotas</title>
+
+<!-- CONSIDERACIONES PREVIAS  -->
+
+<sect1 id="pykota-pruebas-intro">
+	<title>Introducción</title>
+
+	<para>Este capítulo pondrá a prueba el sistema de cuotas de impresión, para ver
+	si funciona como debe. Se realizarán pruebas sobre los dos tipos de cuotas
+	empleados.</para>
+</sect1>
+
+<sect1 id="pykota-pruebas-usuario-printquota">
+	<title>Usuario <emphasis>printquota</emphasis></title>
+
+	<para>Recuerde que este usuario tiene un límite de impresión de 10 páginas
+	(vea el <xref linkend="pykota-estableciendo-cuotas-usuarios-ex1"/> para más detalles).
+	Se va a imprimir un documento de 5 páginas y se va a comprobar que ocurre en el
+	sistema de quotas:</para>
+
+	<figure>
+		<title>Impresión de un documento de 5 páginas I</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="./imagenes/pykota-printsaldo1.eps" align="center" format="EPS" scale="35"/>
+			</imageobject>
+			<imageobject>
+				<imagedata fileref="./imagenes/pykota-printsaldo1.png" format="PNG"/>
+			</imageobject>
+	
+			<caption>
+				<para></para>
+			</caption>
+		</mediaobject>
+	</figure>
+
+	<figure>
+		<title>Impresión de un documento de 5 páginas II</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="./imagenes/pykota-printsaldo2.eps" align="center" format="EPS" scale="35"/>
+			</imageobject>
+			<imageobject>
+				<imagedata fileref="./imagenes/pykota-printsaldo2.png" format="PNG"/>
+			</imageobject>
+	
+			<caption>
+				<para></para>
+			</caption>
+		</mediaobject>
+	</figure>
+
+	<figure>
+		<title>Impresión de un documento de 5 páginas III</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="./imagenes/pykota-printsaldo3.eps" align="center" format="EPS" scale="35"/>
+			</imageobject>
+			<imageobject>
+				<imagedata fileref="./imagenes/pykota-printsaldo3.png" format="PNG"/>
+			</imageobject>
+	
+			<caption>
+				<para></para>
+			</caption>
+		</mediaobject>
+	</figure>
+
+	<figure>
+		<title>Impresión de un documento de 5 páginas IV</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="./imagenes/pykota-printsaldo4.eps" align="center" format="EPS" scale="35"/>
+			</imageobject>
+			<imageobject>
+				<imagedata fileref="./imagenes/pykota-printsaldo4.png" format="PNG"/>
+			</imageobject>
+	
+			<caption>
+				<para></para>
+			</caption>
+		</mediaobject>
+	</figure>
+
+	<para>Tras la impresión de este documento, aparece un nuevo archivo <acronym>PDF</acronym>
+	bajo el directorio <filename class="directory">cups-pdf</filename>
+	del home del usuario <emphasis>printquota</emphasis> con un nombre similar a:
+	<filename>job_24-untitled_document.pdf</filename>.</para>
+
+	<para>Si ahora se revisa el estado de la cuota de este usuario, se obtendrá algo similar
+	a:</para>
+
+	<example id="pykota-pruebas-usuario-printquota-ex1">
+		<title>Revisando la cuota de impresión del usuario <emphasis>printquota</emphasis> I</title>
+
+<screen><prompt>#</prompt> <userinput>/usr/bin/repykota --printer LaserColor</userinput>
+<computeroutput>Reporte para la cuota user en la impresora  LaserColor
+Tiempo de gracia para páginas: 7 días
+Precio por trabajo: 0.000
+Precio por página: 0.090
+Usuario         usado   suave   duro    balance gracia        total     pagado
+------------------------------------------------------------------------------
+printquot +Q       5       5      10      -0.45                   5       0.00
+                                                  Total :         5       0.00
+                                                   Real :         0
+</computeroutput></screen>
+	</example>
+
+	<para>Se puede observar que ha consumido 5 páginas de su cuota de impresión. PyKota
+	también informa del coste de la impresión (-0.45), el valor negativo indica
+	que el usuario no ha pagado por esta impresión. A continuación se va a imprimir
+	una página más, para rebasar el límite suave de la cuota, y ver qué ocurre.</para>
+
+	<example id="pykota-pruebas-usuario-printquota-ex2">
+		<title>Revisando la cuota de impresión del usuario <emphasis>printquota</emphasis> II</title>
+
+<screen><prompt>#</prompt> <userinput>/usr/bin/repykota --printer LaserColor</userinput>
+<computeroutput>Reporte para la cuota user en la impresora  LaserColor
+Tiempo de gracia para páginas: 7 días
+Precio por trabajo: 0.000
+Precio por página: 0.090
+Usuario         usado   suave   duro    balance gracia        total     pagado
+------------------------------------------------------------------------------
+printquot +Q       6       5      10      -0.54 2004-06-24        6       0.00
+                                                  Total :         6       0.00
+                                                   Real :         5
+</computeroutput></screen>
+	</example>
+
+	<para>Tras la impresión de una página más, se puede comprobar, en el
+	<xref linkend="pykota-pruebas-usuario-printquota-ex2"/>, el estado de
+	la cuota para el usuario <emphasis>printquota</emphasis>. Al rebasarse
+	el límite suave de la quota, PyKota ha informado al usuario y al
+	administrador del sistema (porque así se ha configurado
+	- <xref linkend="pykota-configuracion-repaso-conf19"/> -) de este suceso.
+	Para ello ha enviado sendos correos, con el siguiente contenido:</para>
+
+	<example id="pykota-pruebas-usuario-printquota-ex3">
+		<title>Correo de aviso enviado al usuario <emphasis>printquota</emphasis> - límite suave sobrepasado -</title>
+
+<programlisting><![CDATA[X-Original-To: printquota@gsr.pt
+From: root@localhost
+To: printquota@gsr.pt
+Subject: Cuota de impresión baja
+
+Your Print Quota Soft Limit is reached.
+This means that you may still be allowed to print for some
+time, but you must contact your administrator to purchase
+more print quota.
+
+Entre en contacto con su administrador de sistema por favor :
+
+        Sergio González González - <root@localhost>]]></programlisting>
+	</example>
+
+	<example id="pykota-pruebas-usuario-printquota-ex4">
+		<title>Correo de aviso enviado al administrador - límite suave sobrepasado -</title>
+
+<programlisting><![CDATA[From: root@localhost
+Subject: Cuota de impresión
+To: root@localhost
+X-Original-To: root@localhost
+
+Baja cuota de impresión para el usuario printquota en la impresora LaserColor]]></programlisting>
+	</example>
+
+	<para>Ahora se van a imprimir 4 páginas más, acabando de esta forma la
+	quota de impresión.</para>
+
+	<example id="pykota-pruebas-usuario-printquota-ex5">
+		<title>Revisando la cuota de impresión del usuario <emphasis>printquota</emphasis> III</title>
+
+<screen><prompt>#</prompt> <userinput>/usr/bin/repykota --printer LaserColor</userinput>
+<computeroutput>Reporte para la cuota user en la impresora  LaserColor
+Tiempo de gracia para páginas: 7 días
+Precio por trabajo: 0.000
+Precio por página: 0.090
+Usuario         usado   suave   duro    balance gracia        total     pagado
+------------------------------------------------------------------------------
+printquot +Q      10       5      10      -0.90 DENY             10       0.00
+                                                  Total :        10       0.00
+                                                   Real :        10
+</computeroutput></screen>
+	</example>
+
+	<para>En este momento, el usuario <emphasis>printquota</emphasis> ha agotado
+	su cuota de impresión, por lo que se le deniega la impresión hasta
+	que no la amplíe (gracia: DENY). Se enviará un nuevo trabajo de impresión
+	con este usuario, y se comprobará que ocurre.</para>
+
+	<para>Ahora el trabajo de impresión no se ha efectuado, en su lugar se ha
+	recibido un correo, por parte del usuario y del administrador, con el
+	siguiente contenido:</para>
+
+	<example id="pykota-pruebas-usuario-printquota-ex6">
+		<title>Correo de aviso enviado al usuario <emphasis>printquota</emphasis> - cuota excedida -</title>
+
+<programlisting><![CDATA[X-Original-To: printquota@gsr.pt
+From: root@localhost
+To: printquota@gsr.pt
+Subject: Cuota de Impresión Excedida
+
+Your Print Quota Hard Limit is reached.
+This means that you are not allowed to print anymore.
+Please contact your administrator at root@localhost
+as soon as possible to solve the problem.
+
+Entre en contacto con su administrador de sistema por favor :
+
+        Sergio González González - <root@localhost>]]></programlisting>
+	</example>
+
+	<example id="pykota-pruebas-usuario-printquota-ex7">
+		<title>Correo de aviso enviado al administrador - cuota excedida -</title>
+
+<programlisting><![CDATA[From: root@localhost
+Subject: Cuota de impresión
+To: root@localhost
+X-Original-To: root@localhost
+
+Cuota de impresión excedida para el usuario printquota en la impresora LaserColor]]></programlisting>
+	</example>
+
+	<para>Supongamos ahora que el sistema resetea las cuotas de los usuarios cada cierto
+	período de tiempo:</para>
+
+	<example id="pykota-pruebas-usuario-printquota-ex8">
+		<title>Reseteo de la cuota para el usuario <emphasis>printquota</emphasis></title>
+
+<screen><prompt>$</prompt> <userinput>/usr/bin/edpykota --reset printquota</userinput></screen>
+	</example>
+
+	<para>A partir de ese momento, el usuario <emphasis>printquote</emphasis> dispone de nuevo
+	de una quota de impresión de 10 páginas:</para>
+
+	<example id="pykota-pruebas-usuario-printquota-ex9">
+		<title>Información sobre la cuota del usuario <emphasis>printquota</emphasis>, tras su reseteo I</title>
+
+<screen><prompt>#</prompt> <userinput>/usr/bin/repykota --printer LaserColor</userinput>
+<computeroutput>Reporte para la cuota user en la impresora  LaserColor
+Tiempo de gracia para páginas: 7 días
+Precio por trabajo: 0.000
+Precio por página: 0.090
+Usuario         usado   suave   duro    balance gracia        total     pagado
+------------------------------------------------------------------------------
+printquot -Q       0       5      10      -0.90 2004-06-24       10       0.00
+                                                  Total :        10       0.00
+                                                   Real :        10
+</computeroutput></screen>
+	</example>
+
+	<para>Si se realiza en este momento una nueva impresión, el informe para el
+	usuario <emphasis>printquota</emphasis> sería:</para>
+
+	<example id="pykota-pruebas-usuario-printquota-ex10">
+		<title>Información sobre la cuota del usuario <emphasis>printquota</emphasis>, tras su reseteo II</title>
+
+<screen><prompt>#</prompt> <userinput>/usr/bin/repykota --printer LaserColor</userinput>
+<computeroutput>Reporte para la cuota user en la impresora  LaserColor
+Tiempo de gracia para páginas: 7 días
+Precio por trabajo: 0.000
+Precio por página: 0.090
+Usuario         usado   suave   duro    balance gracia        total     pagado
+------------------------------------------------------------------------------
+printquot +Q       5       5      10      -1.35 2004-06-24       15       0.00
+                                                  Total :        15       0.00
+                                                   Real :        10
+</computeroutput></screen>
+	</example>
+
+	<para>Como se ha podido comprobar, el sistema de cuotas funciona de la manera esperada.
+	Con esto concluirían las pruebas sobre el sistema de cuotas de impresión.</para>
+
+</sect1>
+
+<sect1 id="pykota-pruebas-usuario-printsaldo">
+	<title>usuario <emphasis>printsaldo</emphasis></title>
+
+	<para>El usuario <emphasis>printsaldo</emphasis> posee una cuota de impresión
+	basada en saldo; su comportamiento es similar al mostrado en la
+	<xref linkend="pykota-pruebas-usuario-printquota"/>, por lo que se
+	deja como trabajo para el lector las pruebas con este tipo de cuotas.</para>
+
+	<tip><para>Imagínese que el usuario <emphasis>printsaldo</emphasis>
+	desea imprimir el documento que está leyendo, pero no tiene ni idea
+	de lo que puede costar su impresión. Por este motivo, ha decidido
+	consultar, antes de imprimir, el precio de impresión en cada una
+	de las impresoras disponibles en el sistema. El resultado ha sido
+	el siguiente:</para>
+
+	<example id="pykota-pruebas-usuario-printsaldo-ex1">
+		<title>Coste de impresión de un documento</title>
+
+<screen><prompt>$</prompt> <userinput>/usr/bin/pykotme ldap+samba+cups+pykota.ps</userinput>
+<computeroutput>Tamaño del trabajo : 693 páginas
+Costo en la impresora LaserColor : 62.37
+Costo en la impresora LaserBN : 20.79
+Costo en la impresora Plotter : 347.50
+Costo en la impresora Sublimacion : 451.20
+Costo en la impresora Multifuncion : 17.32
+Costo en la impresora InyeccionBN : 17.32
+Costo en la impresora InyeccionColor : 48.51</computeroutput></screen>
+	</example>
+
+	</tip>
+</sect1>
+
+</chapter>
