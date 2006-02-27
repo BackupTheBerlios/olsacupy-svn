@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<appendix id="smbldap-tools">
+	<title>Instalación y configuración de <emphasis>smbldap-tools</emphasis></title>
+
+<sect1 id="smbldap-tools-introduccion">
+	<title>Introducción</title>
+
+	<para>Las herramientas que provee el paquete <emphasis>smbldap-tools</emphasis>, son
+	un conjunto de scripts que se ejecutan sobre las herramientas de sistema
+	<emphasis>user{add,del,mod}</emphasis> y <emphasis>group{add,del,mod}</emphasis>
+	para permitir la manipulación de usuarios y grupos almacenados en un directorio
+	<acronym>LDAP</acronym>, destinadas a sistemas <acronym>DEN</acronym> como
+	Samba-<acronym>LDAP</acronym> y pam/nss_ldap.</para>
+
+	<para>Adicionalmente, se han diseñado algunos scripts para facilitar la migración
+	de servidores <acronym>PDC</acronym> Windows NT 4.0 a servidores
+	<acronym>PDC</acronym> Samba-<acronym>LDAP</acronym>. Estas son:
+	<application>smbldap-populate</application>, <application>smbldap-migrate-groups</application>
+	y <application>smbldap-migrate-accounts</application>.</para>
+
+	<para>La última versión de estas herramientas se encuentra en:
+	<ulink url="http://samba.idealx.org/">http://samba.idealx.org/</ulink>. La versión
+	utilizada para realizar esta documentación ha sido la 0.8.4.</para>
+
+	<important><para>Los scripts que provee el conjunto de herramientas <emphasis>smbldap-tools</emphasis>
+	necesitan el paquete <emphasis>libnet-ldap-perl</emphasis>, por lo que si no se encuentra
+	instalado en su sistema, ejecute:</para>
+
+<screen><prompt>#</prompt> <userinput>/usr/bin/apt-get install libnet-ldap-perl</userinput></screen></important>
+</sect1>
+
+<sect1 id="smbldap-tools-instalacion">
+	<title>Instalación</title>
+
+	<para>Se supone que el archivo <filename>smbldap-tools-0.8.4.tgz</filename> se encuentra
+	en el directorio <filename class="directory">/tmp</filename>. Los pasos para instalar
+	los scripts que provee <emphasis>smbldap-tools</emphasis> son:</para>
+
+	<orderedlist>
+		<listitem>
+			<para>Descompresión del archivo <filename>smbldap-tools-0.8.4.tgz</filename>:</para>
+
+			<example id="smbldap-tools-instalacion-ejemplo1">
+				<title>Descompresión del archivo <filename>smbldap-tools-0.8.4.tgz</filename></title>
+
+				<para>Se descomprime el archivo con los scripts en el directorio temporal:</para>
+
+<screen><prompt>$</prompt> <userinput>/bin/tar xzvf /tmp/smbldap-tools-0.8.4.tgz -C /tmp/</userinput>
+<computeroutput>smbldap-tools-0.8.4/
+smbldap-tools-0.8.4/CONTRIBUTORS
+smbldap-tools-0.8.4/COPYING
+smbldap-tools-0.8.4/ChangeLog
+smbldap-tools-0.8.4/FILES
+smbldap-tools-0.8.4/INSTALL
+smbldap-tools-0.8.4/README
+smbldap-tools-0.8.4/TODO
+smbldap-tools-0.8.4/INFRA
+smbldap-tools-0.8.4/mkntpwd.tar.gz
+smbldap-tools-0.8.4/smbldap-groupshow
+smbldap-tools-0.8.4/smbldap-populate
+smbldap-tools-0.8.4/smbldap-useradd
+smbldap-tools-0.8.4/smbldap-groupadd
+smbldap-tools-0.8.4/smbldap-migrate-accounts
+smbldap-tools-0.8.4/smbldap-userdel
+smbldap-tools-0.8.4/smbldap-groupdel
+smbldap-tools-0.8.4/smbldap-migrate-groups
+smbldap-tools-0.8.4/smbldap-usermod
+smbldap-tools-0.8.4/smbldap-groupmod
+smbldap-tools-0.8.4/smbldap-passwd
+smbldap-tools-0.8.4/smbldap-usershow
+smbldap-tools-0.8.4/smbldap_tools.pm
+smbldap-tools-0.8.4/smbldap_bind.conf <co id="smbldap_bind.conf"/>
+smbldap-tools-0.8.4/smbldap.conf <co id="smbldap.conf"/>
+smbldap-tools-0.8.4/smb.conf
+smbldap-tools-0.8.4/configure.pl <co id="configure.pl"/>
+smbldap-tools-0.8.4/doc/
+smbldap-tools-0.8.4/doc/smbldap-tools-annexes.tex
+smbldap-tools-0.8.4/doc/smbldap-tools-anx.tex
+smbldap-tools-0.8.4/doc/smbldap-tools-config.tex
+smbldap-tools-0.8.4/doc/smbldap-tools-faq.tex
+smbldap-tools-0.8.4/doc/smbldap-tools-install.tex
+smbldap-tools-0.8.4/doc/smbldap-tools-intro.tex
+smbldap-tools-0.8.4/doc/smbldap-tools-samba.tex
+smbldap-tools-0.8.4/doc/smbldap-tools-scripts.tex
+smbldap-tools-0.8.4/doc/smbldap-tools-secure.tex
+smbldap-tools-0.8.4/doc/smbldap-tools.tex
+smbldap-tools-0.8.4/doc/smbldap-tools-thx.tex
+smbldap-tools-0.8.4/doc/smbldap-tools-user.tex
+smbldap-tools-0.8.4/doc/smbldap-tools.pdf
+smbldap-tools-0.8.4/doc/html/
+smbldap-tools-0.8.4/doc/html/smbldap-tools.html
+smbldap-tools-0.8.4/doc/html/index.html
+smbldap-tools-0.8.4/doc/html/smbldap-tools001.html
+smbldap-tools-0.8.4/doc/html/smbldap-tools002.html
+smbldap-tools-0.8.4/doc/html/smbldap-tools003.html
+smbldap-tools-0.8.4/doc/html/smbldap-tools004.html
+smbldap-tools-0.8.4/doc/html/smbldap-tools005.html
+smbldap-tools-0.8.4/doc/html/smbldap-tools006.html
+smbldap-tools-0.8.4/doc/html/smbldap-tools007.html
+smbldap-tools-0.8.4/doc/html/smbldap-tools008.html
+smbldap-tools-0.8.4/doc/html/smbldap-tools009.html
+smbldap-tools-0.8.4/doc/html/smbldap-tools011.html
+smbldap-tools-0.8.4/doc/html/smbldap-tools010.html
+smbldap-tools-0.8.4/doc/html/previous_motif.gif
+smbldap-tools-0.8.4/doc/html/next_motif.gif
+smbldap-tools-0.8.4/doc/html/contents_motif.gif
+smbldap-tools-0.8.4/doc/README</computeroutput></screen>
+
+				<calloutlist>
+					<callout arearefs="smbldap_bind.conf smbldap.conf">
+						<para>Archivos de configuración de <emphasis>smbldap-tools</emphasis>, estos
+						se han de copiar al directorio
+						<filename class="directory">/etc/smbldap-tools</filename> una vez configurados.</para>
+					</callout>
+					<callout arearefs="configure.pl">
+						<para>Script de configuración.</para>
+					</callout>
+				</calloutlist>
+			</example>
+
+		</listitem>
+		<listitem>
+			<example id="smbldap-tools-instalacion-ejemplo2">
+				<title>Cambio de permisos</title>
+
+				<para>Se cambia el propietario y el grupo de los scripts por
+				<emphasis>root.root</emphasis>:</para>
+
+<screen><prompt>#</prompt> <userinput>/bin/chown root.root -R /tmp/smbldap-tools-0.8.4/</userinput></screen>
+			</example>
+
+		</listitem>
+		<listitem>
+			<example id="smbldap-tools-instalacion-ejemplo3">
+				<title>Copiando los scripts a <filename class="directory">/usr/local/sbin/</filename></title>
+
+				<para>Se copian los scripts al directorio
+				<filename class="directory">/usr/local/sbin/</filename></para>
+
+<screen><prompt>#</prompt> <userinput>/bin/cp -v --remove-destination /tmp/smbldap-tools-0.8.4/smbldap-* \
+         /tmp/smbldap-tools-0.8.4/smbldap*.pm /usr/local/sbin/</userinput>
+<computeroutput>`smbldap-groupadd' -> `/usr/local/sbin/smbldap-groupadd'
+`smbldap-groupdel' -> `/usr/local/sbin/smbldap-groupdel'
+`smbldap-groupmod' -> `/usr/local/sbin/smbldap-groupmod'
+`smbldap-groupshow' -> `/usr/local/sbin/smbldap-groupshow'
+`smbldap-migrate-accounts' -> `/usr/local/sbin/smbldap-migrate-accounts'
+`smbldap-migrate-groups' -> `/usr/local/sbin/smbldap-migrate-groups'
+`smbldap-passwd' -> `/usr/local/sbin/smbldap-passwd'
+`smbldap-populate' -> `/usr/local/sbin/smbldap-populate'
+`smbldap-useradd' -> `/usr/local/sbin/smbldap-useradd'
+`smbldap-userdel' -> `/usr/local/sbin/smbldap-userdel'
+`smbldap-usermod' -> `/usr/local/sbin/smbldap-usermod'
+`smbldap-usershow' -> `/usr/local/sbin/smbldap-usershow'
+`smbldap_tools.pm' -> `/usr/local/sbin/smbldap_tools.pm</computeroutput></screen>
+			</example>
+
+		</listitem>
+		<listitem>
+			<example id="smbldap-tools-instalacion-ejemplo4">
+				<title>Copiando los archivos de configuración a su lugar de destino</title>
+
+				<para>Se han de copiar los archivos de configuración de
+				<emphasis>smbldap-tools</emphasis> al directorio
+				<filename class="directory">/etc/smbldap-tools/</filename>:</para>
+
+<screen><prompt>#</prompt> <userinput>/bin/mkdir -vm 755 /etc/smbldap-tools/</userinput>
+<computeroutput>mkdir: se ha creado el directorio `/etc/smbldap-tools/'</computeroutput>
+<prompt>#</prompt> <userinput>/bin/cp -v /tmp/smbldap-tools-0.8.4/smbldap*conf /etc/smbldap-tools/</userinput>
+<computeroutput>`/tmp/smbldap-tools-0.8.4/smbldap_bind.conf' -> `/etc/smbldap-tools/smbldap_bind.conf'
+`/tmp/smbldap-tools-0.8.4/smbldap.conf' -> `/etc/smbldap-tools/smbldap.conf'</computeroutput>
+<prompt>#</prompt> <userinput>/bin/chmod -v 600 /etc/smbldap-tools/*</userinput>
+<computeroutput>el modo de `/etc/smbldap-tools/smbldap_bind.conf' cambia a 0600 (rw-------)
+el modo de `/etc/smbldap-tools/smbldap.conf' cambia a 0600 (rw-------)</computeroutput></screen>
+			</example>
+
+		</listitem>
+		<listitem>
+			<example id="smbldap-tools-instalacion-ejemplo5">
+				<title>Configuración de <emphasis>smbldap-tools</emphasis></title>
+
+				<para>Se hace uso del script <application>configure.pl</application>
+				para realizar la configuración de <emphasis>smbldap-tools</emphasis>:</para>
+
+				<para>Se recomienda haber realizado la configuración de Samba
+				antes de proceder con este paso. Vea el
+				<xref linkend="samba-configuracion-samba"/> para más información
+				sobre como configurar Samba.</para>
+
+<screen><prompt>#</prompt> <userinput>cd /tmp/smbldap-tools-0.8.4/</userinput>
+<userinput>./configure.pl</userinput>
+<computeroutput>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+       smbldap-tools script configuration
+       -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Before starting, check
+ . if your samba controller is up and running.
+ . if the domain SID is defined (you can get it with the 'net getlocalsid')
+
+ . you can leave the configuration using the Crtl-c key combination
+ . empty value can be set with the "." caracter
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Looking for configuration files...
+
+Samba Config File Location [/etc/samba/smb.conf] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>smbldap Config file Location (global parameters) [/etc/smbldap-tools/smbldap.conf] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>smbldap Config file Location (bind parameters) [/etc/smbldap-tools/smbldap_bind.conf] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Let's start configuring the smbldap-tools scripts ...
+
+. workgroup name: name of the domain Samba act as a PDC
+  workgroup name [GSRDOMAIN] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>. netbios name: netbios name of the samba controler
+  netbios name [TODOSCSI] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>. logon script: may be startup.cmd, ... or "" to set it to username.cmd
+  logon script [] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>. logon drive: local path to which the home directory will be connected \
+                                                           (for NT Workstations). Ex: 'H:'
+  logon drive [H:] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>. logon home: home directory location (for Win95/98 or NT Workstation). \
+                                                                    Ex: '\\TODOSCSI\home'
+  logon home (leave blank if you don't want homeDirectory) [\\%L\%u\.profile] ></computeroutput> <userinput>\\TODOSCSI\</userinput>
+<computeroutput>. logon path: home directory where roaming profiles are stored. Ex: '\\TODOSCSI\profiles\'
+  logon path (leave blank if you don't want roaming profile) \
+                                    [\\%L\profiles\%u] ></computeroutput> <userinput>\\TODOSCSI\profiles\</userinput>
+<computeroutput>. ldap suffix [dc=gsr,dc=pt] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>. ldap group suffix [ou=groups] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>. ldap user suffix [ou=people] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>. ldap machine suffix [ou=machines] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>. ldap master server: IP adress or DNS name of the master (writable) ldap server
+  ldap master server [] ></computeroutput> <userinput>gsr.pt</userinput>
+<computeroutput>. ldap master port [389] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>. ldap master bind dn [cn=admin,dc=gsr,dc=pt] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>. ldap master bind password [] ></computeroutput> <userinput>[clave]</userinput>
+<computeroutput>. ldap slave server: IP adress or DNS name of the slave ldap server: can also be the master one
+  ldap slave server [] ></computeroutput> <userinput>gsr.pt</userinput>
+<computeroutput>. ldap master port [389] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>. ldap master bind dn [cn=admin,dc=gsr,dc=pt] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>. ldap master bind password [] ></computeroutput> <userinput>[clave]</userinput>
+<computeroutput>. ldap tls support (1/0) [0] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>. SID for domain GSRDOMAIN: SID of the domain (can be obtained with 'net getlocalsid TODOSCSI')
+  SID for domain GSRDOMAIN [S-1-5-21-3777331929-1837441497-3139219028] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>. unix password encryption: encryption used for unix passwords
+  unix password encryption (CRYPT, MD5, SMD5, SSHA, SHA) [SSHA] ></computeroutput> <userinput>MD5</userinput>
+<computeroutput>. default user gidNumber [513] ></computeroutput> <userinput>10001</userinput>
+<computeroutput>. default computer gidNumber [553] ></computeroutput> <userinput>10001</userinput>
+<computeroutput>. home directory prefix (without username) [/home/] ></computeroutput> <userinput>/home/samba/users/</userinput>
+<computeroutput>. default password validation: default time before a user has to change his password
+  default password validation time (time in days) [45] ></computeroutput> <userinput>0</userinput>
+<computeroutput>. default login shell [/bin/bash] ></computeroutput> <userinput>[ENTER]</userinput>
+<computeroutput>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+backup old configuration files:
+  /etc/smbldap-tools/smbldap.conf->/etc/smbldap-tools/smbldap.conf.old
+  /etc/smbldap-tools/smbldap_bind.conf->/etc/smbldap-tools/smbldap_bind.conf.old
+writing new configuration file:
+  /etc/smbldap-tools/smbldap.conf done.
+  /etc/smbldap-tools/smbldap_bind.conf done.</computeroutput></screen>
+			</example>
+
+		</listitem>
+		<listitem>
+			<para>Si no se ha hecho, establecer la clave del administrador de <acronym>LDAP</acronym>
+			en el archivo <filename>secrets.tdb</filename>. Vea el
+			<xref linkend="samba-ajustes-finales-sistema-clave-admin-ldap-ejemplo1"/>
+			para saber como se hace.</para>
+		</listitem>
+	</orderedlist>
+
+</sect1>
+
+<sect1 id="smbldap-tools-mkntpasswd">
+	<title>Instalación de <application>mkntpwd</application></title>
+
+	<para>Para finalizar, sólo queda la instalación del programa <application>mkntpwd</application>.
+	El código fuente de este programa se encuentra dentro del paquete <emphasis>smbldap-tools</emphasis>,
+	por lo tanto, se ha de acceder al directorio donde se ha descomprimido este paquete (vea
+	el <xref linkend="smbldap-tools-instalacion-ejemplo1"/> para más datos). Allí se encontrará
+	un archivo denominado <filename>mkntpwd.tar.gz</filename>, se descomprime y se compila el código
+	que se encuentra en su interior; finalmente se copiar el programa resultante al directorio
+	<filename class="directory">/usr/local/sbin/</filename>. En el
+	<xref linkend="smbldap-tools-mkntpasswd-ejemplo1"/> se muestra el proceso.</para>
+
+	<example id="smbldap-tools-mkntpasswd-ejemplo1">
+		<title>Compilación e instalación de <application>mkntpwd</application></title>
+
+<screen><prompt>$</prompt> <userinput>cd /tmp/smbldap-tools-0.8.4/</userinput>
+<prompt>$</prompt> <userinput>/bin/tar xzvf mkntpwd.tar.gz</userinput>
+<computeroutput>mkntpwd/
+mkntpwd/Makefile
+mkntpwd/getopt.c
+mkntpwd/getopt.h
+mkntpwd/md4.c
+mkntpwd/mkntpwd.c
+mkntpwd/mkntpwd.h
+mkntpwd/smbdes.c
+</computeroutput>
+<prompt>$</prompt> <userinput>cd mkntpwd</userinput>
+<prompt>$</prompt> <userinput>/usr/bin/make</userinput>
+<prompt>#</prompt> <userinput>/bin/cp -vf mkntpwd /usr/local/sbin/</userinput>
+<computeroutput>`mkntpwd' -> `/usr/local/sbin/mkntpwd'</computeroutput>
+<prompt>#</prompt> <userinput>/bin/chmod -v 755 /usr/local/sbin/mkntpwd</userinput>
+<computeroutput>el modo de `/usr/local/sbin/mkntpwd' cambia a 0755 (rwxr-xr-x)</computeroutput>
+<prompt>#</prompt> <userinput>/bin/chown -v root.root /usr/local/sbin/mkntpwd</userinput>
+<computeroutput>cambiado el propietario de `/usr/local/sbin/mkntpwd' a root:root</computeroutput></screen>
+	</example>
+</sect1>
+</appendix>
