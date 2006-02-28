@@ -7,7 +7,7 @@
 	<para>Para poder montar los sistemas de archivos que sirve Samba, es necesario que
 	el núcleo Linux del ordenador donde se pretenden montar, tenga soporte para dicho sistema
 	de archivos. Las opciones necesarias para conseguir este soporte en el núcleo Linux
-	se verán a continuación (tanto para la versión 2.4.26 como para la 2.6.6, que son
+	se verán a continuación (tanto para la versión 2.4.27 como para la 2.6.8.1, que son
 	la versiones con las que se ha trabajado para realizar este documento):</para>
 
 	<sect1 id="samba-opciones-kernel-2.4">
@@ -16,7 +16,7 @@
 		<para>Tecleando <command>make menuconfig</command> en el directorio raíz de las fuentes del
 		núcleo, veamos como llegar a las opciones necesarias:</para>
 
-		<note><para>En esta documentación se ha empleado la versión 2.4.26 del núcleo Linux.</para></note>
+		<note><para>En esta documentación se ha empleado la versión 2.4.27 del núcleo Linux.</para></note>
 
 		<figure>
 			<title>Sistema de archivos</title>
@@ -83,7 +83,7 @@ CONFIG_SMB_UNIX=y</programlisting>
 		<para>Tecleando <command>make menuconfig</command> en el directorio raíz de las fuentes del
 		núcleo, veamos como llegar a las opciones necesarias:</para>
 
-		<note><para>En esta documentación se ha empleado la versión 2.6.6 del núcleo Linux.</para></note>
+		<note><para>En esta documentación se ha empleado la versión 2.6.8.1 del núcleo Linux.</para></note>
 
 		<figure>
 			<title>Sistema de archivos</title>
@@ -140,7 +140,10 @@ CONFIG_SMB_UNIX=y</programlisting>
 <programlisting>CONFIG_SMB_FS=m
 CONFIG_SMB_NLS_DEFAULT=y
 CONFIG_SMB_NLS_REMOTE="cp850"
-CONFIG_CIFS=m</programlisting>
+CONFIG_CIFS=m
+CONFIG_CIFS_STATS=y
+CONFIG_CIFS_XATTR=y
+CONFIG_CIFS_POSIX=y</programlisting>
 
 	</sect1>
 

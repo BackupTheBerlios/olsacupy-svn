@@ -236,7 +236,7 @@
 				<ulink url="http://www.microsoft.com/">Microsoft</ulink> Windows. Basado
 				en el protocolo <acronym>IPP</acronym>, deja atrás las dificultades del
 				viejo sistema de impresión <acronym>BSD</acronym>, proveiendo
-				autentificación, encriptación y <acronym>ACLs</acronym>, a parte de
+				autentificación, cifrado y <acronym>ACLs</acronym>, a parte de
 				otras muchas características.</para>
 
 				<para>Al mismo tiempo, es lo suficientemente compatible hacia atrás
@@ -361,6 +361,14 @@
 			<glossdef>
 				<para>(<emphasis>Disk Operating System</emphasis>).</para>
 				<glossseealso otherterm="glosario-msdos">MSDOS</glossseealso>
+			</glossdef>
+		</glossentry>
+
+		<glossentry id="glosario-dsc">
+			<glossterm><acronym>DSC</acronym></glossterm>
+
+			<glossdef>
+				<para>(<emphasis>Document Structuring Conventions</emphasis>).</para>
 			</glossdef>
 		</glossentry>
 
@@ -668,7 +676,7 @@
 				estándares <acronym>HTTP</acronym> como: * autentificación básica,
 				en modo <emphasis>digest</emphasis> o utilizando certificados;
 				* <acronym>SSL</acronym> o <acronym>TLS</acronym>, para la
-				transmisión de datos encriptados; * <acronym>LDAP</acronym> para
+				transmisión de datos cifrados; * <acronym>LDAP</acronym> para
 				servicios de directorio (publicar datos
 				en una impresora, opciones del dispositivo, controladores, coste de la
 				red; o comprobar una clave mientras se está tratando una autentificación).
@@ -1147,7 +1155,7 @@
 				<acronym>PPD</acronym> no es más que un archivo
 				<acronym>ASCII</acronym> que almacena toda la información sobre las
 				capacidades especiales de una impresora. Además almacena también la
-				definición de los comandos PostScript o <acronym>PJL</acronym>
+				definición de las órdenes PostScript o <acronym>PJL</acronym>
 				para hacer uso de capacidades específicas de una impresora.</para>
 
 				<glossseealso otherterm="glosario-cups">CUPS</glossseealso>
@@ -1390,12 +1398,20 @@
 			</glossdef>
 		</glossentry>
 
+		<glossentry id="glosario-snmp">
+			<glossterm><acronym>SNMP</acronym></glossterm>
+
+			<glossdef>
+				<para>(<emphasis>Simple Network Management Protocol</emphasis>).</para>
+			</glossdef>
+		</glossentry>
+
 		<glossentry id="glosario-ssl">
 			<glossterm><acronym>SSL</acronym></glossterm>
 
 			<glossdef>
 				<para>(<emphasis>Secure Socket Layer</emphasis>).
-				<acronym>SSL</acronym> es un método de encriptación propietario
+				<acronym>SSL</acronym> es un método de cifrado propietario
 				para la transmisión de datos a través del protocolo
 				<acronym>HTTP</acronym>, que fue desarrollado por Netscape y hoy en
 				día está siendo reemplazado por un estándar de <acronym>IETF</acronym>
@@ -1465,7 +1481,7 @@
 				<para>(<emphasis>Transport Layer Security</emphasis>).
 				<acronym>TLS</acronym> es el sucesor del protocolo
 				<acronym>SSL</acronym>, creado por <acronym>IETF</acronym> para la
-				comunicación general (tanto de autentificación como de encriptación)
+				comunicación general (tanto de autentificación como de cifrado)
 				de las redes <acronym>TCP/IP</acronym>. La versión 1 de
 				<acronym>TLS</acronym> es prácticamente idéntica a la
 				versión 3 de <acronym>SSL</acronym>.</para>

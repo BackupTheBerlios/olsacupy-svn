@@ -18,25 +18,25 @@
 	de instalarlo:</para>
 
 	<example id="samba-instalacion-configuracion-swat-ejemplo1">
-		<title>Instalación de <application>SWAT</application></title>
+		<title>Instalación de <application>SWAT</application> (primera parte)</title>
 
 <screen><prompt>$</prompt> <userinput>/usr/bin/apt-cache show swat</userinput>
 <computeroutput><![CDATA[Package: swat
 Priority: optional
 Section: net
-Installed-Size: 9356
+Installed-Size: 8968
 Maintainer: Eloy A. Paris <peloy@debian.org>
 Architecture: i386
 Source: samba
-Version: 3.0.4-5
-Depends: debconf, samba (= 3.0.4-5), libc6 (>= 2.3.2.ds1-4),
+Version: 3.0.7-1
+Depends: debconf, samba (= 3.0.7-1), libc6 (>= 2.3.2.ds1-4),
 libcomerr2 (>= 1.33-3), libcupsys2-gnutls10 (>= 1.1.20final-1),
 libkrb53 (>= 1.3.2), libldap2 (>= 2.1.17-1), libpam0g (>= 0.76),
 libpopt0 (>= 1.7)
 Recommends: samba-doc
-Filename: pool/main/s/samba/swat_3.0.4-5_i386.deb
-Size: 4374812
-MD5sum: 031eb4b17dbd026b88792fca67cf127e
+Filename: pool/main/s/samba/swat_3.0.7-1_i386.deb
+Size: 3964890
+MD5sum: d84a020935c85831d8d81321b7391ed4
 Description: Samba Web Administration Tool
  The Samba software suite is a collection of programs that
  implements the SMB protocol for unix systems, allowing you to serve
@@ -49,6 +49,7 @@ Description: Samba Web Administration Tool
  Note: if you want to use the on-line documentation that is accesible
  through the Swat front-end you must install the samba-doc package.
 Task: file-server, print-server
+
 ]]></computeroutput>
 <prompt>#</prompt><userinput>/usr/bin/apt-get install swat</userinput>
 <computeroutput><![CDATA[Leyendo lista de paquetes... Hecho
@@ -56,17 +57,39 @@ Creando árbol de dependencias... Hecho
 Se instalarán los siguientes paquetes NUEVOS:
   swat
 0 actualizados, 1 se instalarán, 0 para eliminar y 1 no actualizados.
-Se necesita descargar 0B/1527kB de archivos.
-Se utilizarán 5829kB de espacio de disco adicional después de desempaquetar.
-Preconfiguring packages ...
---------------------- Sourcerer Apt Watcher ---------------------
-Configure: swat
------------------------------------------------------------------
-Seleccionando el paquete swat previamente no seleccionado.
+Se necesita descargar 0B/3965kB de archivos.
+Se utilizarán 9183kB de espacio de disco adicional después de desempaquetar.
+Preconfiguring packages ...]]></computeroutput>
+</screen>
+	</example>
+
+	<figure>
+		<title>Aviso de sobreescritura del archivo <filename>/etc/samba/smb.conf</filename></title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="./imagenes/samba-instalacion-swat.eps" align="center" format="EPS" scale="35"/>
+			</imageobject>
+			<imageobject>
+				<imagedata fileref="./imagenes/samba-instalacion-swat.png" format="PNG"/>
+			</imageobject>
+	
+			<caption>
+				<para>El programa <application>SWAT</application> sobreescribe el archivo de configuración
+				de Samba, eliminado los comentarios, entre otras cosas. Esta pantalla avisa de este
+				hecho, y recomienda no utilizar <application>SWAT</application> en aquellos casos en los
+				que se tenga muy personalizado el archivo de configuración de Samba.</para>
+			</caption>
+		</mediaobject>
+	</figure>
+
+	<example id="samba-instalacion-configuracion-swat-ejemplo2">
+		<title>Instalación de <application>SWAT</application> (segunda parte)</title>
+
+<screen><computeroutput><![CDATA[Seleccionando el paquete swat previamente no seleccionado.
 (Leyendo la base de datos ...
-270335 ficheros y directorios instalados actualmente.)
-Desempaquetando swat (de .../swat_3.0.4-5_i386.deb) ...
-Configurando swat (3.0.4-5) ...
+133905 ficheros y directorios instalados actualmente.)
+Desempaquetando swat (de .../archives/swat_3.0.7-1_i386.deb) ...
+Configurando swat (3.0.7-1) ...
 --------- IMPORTANT INFORMATION FOR XINETD USERS ----------
 The following line will be added to your /etc/inetd.conf file:
 
@@ -77,8 +100,10 @@ above into /etc/xinetd.conf format, and add it manually. See
 /usr/share/doc/xinetd/README.Debian for more information.
 -----------------------------------------------------------
 
-]]></computeroutput>
-</screen>
+
+localepurge: checking system for new locale ...
+localepurge: processing locale files ...
+localepurge: processing man pages ...]]></computeroutput></screen>
 	</example>
 </sect1>
 
@@ -177,7 +202,7 @@ tcp        0      0 *:swat                  *:*                     LISTEN     1
 <computeroutput>Reloading internet superserver configuration: xinetd.</computeroutput></screen>
 		</example>
 	
-		<para>Una vez ejecutado el comando del <xref linkend="samba-configuracion-swat-xinetd-ejemplo2"/>,
+		<para>Una vez ejecutada la orden del <xref linkend="samba-configuracion-swat-xinetd-ejemplo2"/>,
 		el superservidor <application>xinetd</application> pasaría a gestionar las
 		conexiones a Samba:</para>
 	

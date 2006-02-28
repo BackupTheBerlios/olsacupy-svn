@@ -56,7 +56,7 @@
 <screen><prompt>#</prompt> <userinput>addgroup --system slapd</userinput>
 <computeroutput>Añadiendo el grupo slapd (133)...
 Hecho.</computeroutput>
-<prompt>#</prompt> <userinput>adduser --home /var/lib/ldap --shell /bin/false --no-create-home --ingroup slapd --system</userinput>
+<prompt>#</prompt> <userinput>adduser --home /var/lib/ldap --shell /bin/false --no-create-home --ingroup slapd --system slapd</userinput>
 <computeroutput>adduser: Aviso: El directorio home que Usted especificó ya existe.
 Añadiendo usuario del sistema slapd...
 Añadiendo nuevo usuario slapd (126) con grupo slapd.
@@ -112,7 +112,7 @@ No se crea el directorio home.</computeroutput>
 			<example id="openldap-configuracion-cambio-usuario-ejemplo2">
 				<title>Cambio del propietario/grupo en archivos relacionados con <command>slapd</command></title>
 
-<screen><prompt>#</prompt> <userinput>/bin/chown -R slapd.slapd /etc/ldap /var/lib/slapd /var/lib/ldap /var/run/slapd slapd</userinput></screen>
+<screen><prompt>#</prompt> <userinput>/bin/chown -R slapd.slapd /etc/ldap /var/lib/slapd /var/lib/ldap /var/run/slapd</userinput></screen>
 			</example>
 
 			<para>En estos momentos <command>slapd</command> ya casi está preparado para
@@ -200,11 +200,11 @@ slapd <co id="co-ex4-usuario-slapd3"/>   12730  0.0  0.6 12216 3556 ?     S    1
 	<note>
 	<para>El protocolo <quote>ldap</quote> especifica las interfaces y los puertos donde escuchará
 	<command>slapd</command> con la característica de que las conexiones que se establezcan a la
-	misma no harán uso de encriptación.</para>
+	misma no harán uso de cifrado.</para>
 
 	<para>El protocolo <quote>ldaps</quote> especifica las interfaces y los puertos donde escuchará
 	<command>slapd</command> con la característica de que las conexiones que se establezcan a la
-	misma harán uso de encriptación.</para>
+	misma harán uso de cifrado.</para>
 
 	<para>Adicionalmente se puede establecer un nuevo protocolo de comunicaciones,
 	<quote>ldapi</quote>, destinado a las peticiones realizadas desde sockets Unix.</para>
@@ -261,7 +261,7 @@ slapd 12819 0.0  0.6 12216 3552 ?   S    15:19 0:00     \_ /usr/sbin/slapd -h ld
 		</callout>
 	</calloutlist>
 
-	<note><para>La salida del comando <command>/bin/ps</command> se ha retocado para
+	<note><para>La salida de la orden <command>/bin/ps</command> se ha retocado para
 	mejorar la legibilidad.</para></note>
 
 	</sect2>

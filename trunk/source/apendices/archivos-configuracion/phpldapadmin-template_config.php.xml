@@ -4,8 +4,8 @@
 	<title>Archivo de configuración <filename>/var/www/phpldapadmin/templates/template_config.php</filename></title>
 
 <programlisting><![CDATA[<?php
-// $Header: /cvsroot/phpldapadmin/phpldapadmin/templates/template_config.php,\
-// v 1.17 2004/05/08 11:14:55 xrenard Exp $
+// $Header: /cvsroot/phpldapadmin/phpldapadmin/templates/template_config.php,v \
+                                          1.17 2004/05/08 11:14:55 xrenard Exp $
 
 /**
  * template_config.php
@@ -39,7 +39,7 @@ $templates[] =
 		// You can use the 'regexp' directive to restrict where
 		// entries can be created for this template
                 //'regexp' => '^ou=People,o=.*,c=.*$'
-		'regexp' => '^ou=people,dc=.*,dc=.*$'
+		//'regexp' => '^ou=People,dc=.*,dc=.*$'
 
 $templates[] =
         array(  'desc'    => 'Address Book Entry (inetOrgPerson)',
@@ -123,14 +123,14 @@ $base_posix_groups="ou=groups,dc=gsr,dc=pt";
 ######################################################################################*/
 
 // path 2 the mkntpwd utility (Customize)
-$mkntpwdCommand = "/usr/local/sbin/mkntpwd";
+$mkntpwdCommand = "/usr/sbin/smbldap-passwd";
 
 // Default domains definition (Customize)
 //   (use `net getlocalsid` on samba server)
 $default_samba3_domains = array();
 $default_samba3_domains[] =
         array(  'name'   => 'GSRDOMAIN',
-                'sid' => 'S-1-5-21-3777331929-1837441497-3139219028' );
+                'sid' => 'S-1-5-21-2817058862-34499604-3382793611' );
 
 // The base dn of samba group. (CUSTOMIZE)
 $samba_base_groups = "ou=groups,dc=gsr,dc=pt";
@@ -138,15 +138,15 @@ $samba_base_groups = "ou=groups,dc=gsr,dc=pt";
 
 //Definition of built-in local groups
 $built_in_local_groups = array(
-    "S-1-5-21-3777331929-1837441497-3139219028-512" => "Administrators",
-    "S-1-5-21-3777331929-1837441497-3139219028-513" => "Users",
-    "S-1-5-21-3777331929-1837441497-3139219028-514" => "Guests",
-    "S-1-5-21-3777331929-1837441497-3139219028-21007" => "Power Users",
-    "S-1-5-21-3777331929-1837441497-3139219028-21009" => "Account Operators",
-    "S-1-5-21-3777331929-1837441497-3139219028-21011" => "Server Operators",
-    "S-1-5-21-3777331929-1837441497-3139219028-21013" => "Print Operators",
-    "S-1-5-21-3777331929-1837441497-3139219028-21015" => "backup Operators",
-    "S-1-5-21-3777331929-1837441497-3139219028-21017" => "Replicator" );
+                "S-1-5-21-2817058862-34499604-3382793611-512" => "Administrators",
+                "S-1-5-21-2817058862-34499604-3382793611-513" => "Users",
+                "S-1-5-21-2817058862-34499604-3382793611-514" => "Guests",
+                "S-1-5-21-2817058862-34499604-3382793611-21007" => "Power Users",
+                "S-1-5-21-2817058862-34499604-3382793611-21009" => "Account Operators",
+                "S-1-5-21-2817058862-34499604-3382793611-21011" => "Server Operators",
+                "S-1-5-21-2817058862-34499604-3382793611-2101" => "Print Operators",
+                "S-1-5-21-2817058862-34499604-3382793611-21015" => "backup Operators",
+                "S-1-5-21-2817058862-34499604-3382793611-21017" => "Replicator" );
 
 
 /*######################################################################################
@@ -223,17 +223,15 @@ class MkntPasswdUtil{
   function createSambaPasswords($password){
     global $mkntpwdCommand;
     $this->clearPassword = $password;
-    file_exists ( $mkntpwdCommand ) && is_executable ( $mkntpwdCommand ) \
-    or pla_error(' Unable to create the Samba passwords. Please, check \
-    the configuration in template_config.php');
+    file_exists ( $mkntpwdCommand ) && is_executable ( $mkntpwdCommand ) or \
+                  pla_error(' Unable to create the Samba passwords. Please, \
+                  check the configuration in template_config.php');
     $sambaPassCommand = $mkntpwdCommand . " " . $password;
     if($sambaPassCommandOutput = shell_exec($sambaPassCommand)){
-      $this->sambaPassword['sambaLMPassword'] = \
-      trim( substr( $sambaPassCommandOutput , 0 , \
-      strPos( $sambaPassCommandOutput,':' ) ) );
-      $this->sambaPassword['sambaNTPassword'] = \
-      trim( substr( $sambaPassCommandOutput, \
-      strPos( $sambaPassCommandOutput ,':' ) +1 ) );
+      $this->sambaPassword['sambaLMPassword'] = trim( substr( \
+             $sambaPassCommandOutput , 0 , strPos( $sambaPassCommandOutput,':' ) ) );
+      $this->sambaPassword['sambaNTPassword'] = trim( substr( \
+             $sambaPassCommandOutput, strPos( $sambaPassCommandOutput ,':' ) +1 ) );
       return true;
     }
     else{
@@ -270,8 +268,7 @@ function get_posix_groups( $server_id , $base_dn = NULL ){
   if( is_null( $base_dn ) )
     $base_dn = $servers[$server_id]['base'];  
   
-  $results = pla_ldap_search( $server_id, "objectclass=posixGroup", \
-             $base_dn, array() );
+  $results = pla_ldap_search( $server_id, "objectclass=posixGroup", $base_dn, array() );
   if( !$results )
     return false;
   else

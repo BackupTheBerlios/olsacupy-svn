@@ -218,7 +218,7 @@ scramble</computeroutput></screen>
 
 	  <figure id="samba-configuracion-red-simple-con-servidor-samba">
 		  <title>Configuración de red simple con un servidor Samba<footnote><para>Si quiere obtener
-		  el código fuente de esta figura realizada con <xref linkend="dia"/> pulse
+		  el código fuente de esta imagen realizada con <xref linkend="dia"/> pulse
 		  <ulink url="./imagenes/samba-configuracion-red-simple-con-servidor-samba.dia">aquí</ulink>.
 		  </para></footnote></title>
 
@@ -279,7 +279,7 @@ scramble</computeroutput></screen>
 	(<emphasis>Toltec</emphasis>). La distinción entre mayúsculas y minúsculas es irrelevantes
 	en los nombres de las máquinas (<emphasis>hostname</emphasis>), por lo que puede ver
 	<emphasis>toltec</emphasis>, <emphasis>Toltec</emphasis> y <emphasis>TOLTEC</emphasis> como
-	resultado de algunos comandos o en distintas pantallas, pero todos se refieren al mismo
+	resultado de algunas órdenes o en distintas pantallas, pero todos se refieren al mismo
 	sistema. Gracias a Samba, Windows 98 ve al servidor Unix como a un servidor <acronym>SBM</acronym>
 	válido, y puede acceder al directorio <emphasis>spirit</emphasis> como si fuese un directorio
 	más del sistema.
@@ -328,7 +328,7 @@ scramble</computeroutput></screen>
 
 	<para>
 	Eche un vistazo a la línea que aparece al lado de la ruta (<emphasis>Path</emphasis>) en la
-	figura <xref linkend="samba-mapeo-de-una-unidad-de-red-en-una-letra-de-unidad-windows"/>.
+	imagen <xref linkend="samba-mapeo-de-una-unidad-de-red-en-una-letra-de-unidad-windows"/>.
 	Una forma equivalente de representar un directorio en una máquina de la red es utilizando
 	dos barras invertidas (\\), seguidas del nombre de la máquina de red, otra barra invertida
 	(\), y el directorio de red de la máquina, como se muestra en el
@@ -467,7 +467,7 @@ scramble</computeroutput></screen>
 	<title>Viendo las cosas desde Unix</title>
 	<para>
 	Como se mencionó anteriormente, Samba no es más que un conjunto de demonios. Puede verlos
-	haciendo uso del comando <command>ps</command>; puede ver cualquier mensaje que generen
+	haciendo uso de la orden <command>ps</command>; puede ver cualquier mensaje que generen
 	a través de archivos de depuración personalizados o a través del <application>syslog</application>
 	(dependiendo de como se haya configurado Samba); y puede configurarlos desde un único archivo
 	de configuración: <filename>smb.conf</filename>. A parte de esto, si quiere saber que están
@@ -477,7 +477,7 @@ scramble</computeroutput></screen>
 	</para>
 
 <example id="samba-ejemplo-salida-smbstatus">
-	<title>Muestra de la salida del comando <command>smbstatus</command></title>
+	<title>Muestra de la salida de la orden <command>smbstatus</command></title>
 
 <screen><prompt>#</prompt> <userinput>/usr/bin/smbstatus</userinput>
 <computeroutput>Processing section "[homes]"
@@ -637,7 +637,7 @@ Share mode memory usage (bytes):
 
 		<figure id="samba-protocolos-sobre-los-que-se-ejecuta-sbm">
 			<title>Protocolos sobre los que corre <acronym>SMB</acronym><footnote><para>Si
-			quiere obtener el código fuente de esta figura realizada con
+			quiere obtener el código fuente de esta imagen realizada con
 			<xref linkend="dia"/> pulse
 			<ulink url="./imagenes/samba-protocolos-sobre-los-que-se-ejecuta-sbm.dia">aquí</ulink>
 			.</para></footnote></title>
@@ -682,7 +682,7 @@ Share mode memory usage (bytes):
 
 		<figure id="samba-registro-de-nombres-broadcast-vs-NBNS">
 			<title>Registro de nombres Broadcast versus <acronym>NBNS</acronym><footnote><para>Si
-			quiere obtener el código fuente de esta figura realizada con
+			quiere obtener el código fuente de esta imagen realizada con
 			<xref linkend="dia"/> pulse
 			<ulink url="./imagenes/samba-registro-de-nombres-broadcast-vs-NBNS.dia">aquí</ulink>
 			.</para></footnote></title>
@@ -724,7 +724,7 @@ Share mode memory usage (bytes):
 		<figure id="samba-resolucion-de-nombres-broadcast-vs-NBNS">
 			<title>Resolución de nombres Broadcast versus
 			<acronym>NBNS</acronym><footnote><para>Si quiere obtener el código fuente
-			de esta figura realizada con <xref linkend="dia"/> pulse
+			de esta imagen realizada con <xref linkend="dia"/> pulse
 			<ulink url="./imagenes/samba-resolucion-de-nombres-broadcast-vs-NBNS.dia">aquí</ulink>
 			.</para></footnote></title>
 			  
@@ -851,10 +851,10 @@ Share mode memory usage (bytes):
 		</para>
 
 		<para>
-		Puede encontrar el tipo de nodo de un ordenador Windows 95/98/Me ejecutando el comando
+		Puede encontrar el tipo de nodo de un ordenador Windows 95/98/Me ejecutando la orden
 		<command>winipcfg</command> y pulsando sobre el botón de <emphasis>Más
 		información</emphasis>. En Windows <acronym>NT</acronym>/2000/<acronym>XP</acronym>,
-		puede hacer uso del comando
+		puede hacer uso de la orden
 		<command>ipconfig /all</command> en el prompt de una ventana de comandos. En cualquier
 		caso, busque la línea que diga <emphasis>Node Type</emphasis>.
 		</para>
@@ -907,7 +907,7 @@ Share mode memory usage (bytes):
 
 			<figure id="samba-estructura-de-nombres-netbios">
 				<title>Estructura de nombres <acronym>NetBIOS</acronym><footnote><para>Si
-				quiere obtener el código fuente de esta figura realizada con
+				quiere obtener el código fuente de esta imagen realizada con
 				<xref linkend="dia"/> pulse
 				<ulink url="./imagenes/samba-estructura-de-nombres-netbios.dia">aquí</ulink>.
 				</para></footnote></title>
@@ -940,7 +940,7 @@ Share mode memory usage (bytes):
 
 			<para>
 			Puede saber qué nombres están registrados para una máquina <acronym>NBT</acronym>
-			determinada usando el comando de Windows <command>nbtstat</command>. Debido a
+			determinada usando la orden de Windows <command>nbtstat</command>. Debido a
 			que estos servicios son únicos (no puede haber más de uno registrado),
 			aparecerán listados como tipo ÚNICO (UNIQUE) en la salida. Por ejemplo,
 			el <xref linkend="samba-ejemplo-ejecucion-nbtstat"/>
@@ -948,7 +948,7 @@ Share mode memory usage (bytes):
 			</para>
 
 <example id="samba-ejemplo-ejecucion-nbtstat">
-	<title>Ejecución del comando <command>nbtstat</command></title>
+	<title>Ejecución de la orden <command>nbtstat</command></title>
 
 <screen><prompt>D:\></prompt> <userinput>nbtstat -a toltec</userinput>
 <computeroutput><![CDATA[       NetBIOS Remote Machine Name Table
@@ -1536,8 +1536,8 @@ METRAN         <1E>   GROUP       Registered
 		<filename class="directory">C:\Windows</filename> y su nombre será el de
 		la cuenta del usuario, seguido por la extensión <emphasis>.pwl</emphasis>.
 		Por ejemplo, si la cuenta de usuario es <emphasis>sara</emphasis>, el archivo
-		será <filename>C:\Windows\sara.pwl</filename>. Este archivo está encriptado
-		con la clave de Windows como llave de encriptación.
+		será <filename>C:\Windows\sara.pwl</filename>. Este archivo está cifrado
+		con la clave de Windows como llave de cifrado.
 		</para>
 
 		<tip><para>Como medida de seguridad, debería comprobar la existencia de
@@ -1601,7 +1601,7 @@ METRAN         <1E>   GROUP       Registered
 
 		<figure id="samba-un-simple-dominio-windows">
 			<title>Un simple dominio Windows<footnote><para>Si quiere obtener
-			el código fuente de esta figura realizada con <xref linkend="dia"/> pulse
+			el código fuente de esta imagen realizada con <xref linkend="dia"/> pulse
 			<ulink url="./imagenes/samba-un-simple-dominio-windows.dia">aquí</ulink>.
 			</para></footnote></title>
 			  
@@ -1857,7 +1857,7 @@ METRAN         <1E>   GROUP       Registered
 			<figure id="samba-dominio-windows-con-un-buscador-maestro-local-y-de-respaldo">
 				<title>Un dominio Windows con un buscador maestro local y uno de
 				respaldo<footnote><para>Si quiere obtener el código fuente de esta
-				figura realizada con <xref linkend="dia"/> pulse
+				imagen realizada con <xref linkend="dia"/> pulse
 				<ulink url="./imagenes/samba-dominio-windows-con-un-buscador-maestro-local-y-de-respaldo.dia">aquí</ulink>.</para></footnote></title>
 			
 				<mediaobject>
@@ -1966,7 +1966,7 @@ METRAN         <1E>   GROUP       Registered
 
 			<figure id="samba-grupo-de-trabajo-que-abarca-mas-de-una-subred">
 				<title>Grupo de trabajo que abarca más de una subred<footnote><para>Si
-				quiere obtener el código fuente de esta figura realizada con
+				quiere obtener el código fuente de esta imagen realizada con
 				<xref linkend="dia"/> pulse
 				<ulink url="./imagenes/samba-grupo-de-trabajo-que-abarca-mas-de-una-subred.dia">aquí</ulink>.</para></footnote></title>
 			
@@ -2367,7 +2367,7 @@ METRAN         <1E>   GROUP       Registered
 			para conectarse a los recursos compartidos <acronym>SMB</acronym> y operar
 			con ellos. El capítulo 5 de la entrada bibliográfica
 			<xref linkend="bibliografia-ts-eckstein-collier-brown-01"/>
-			discute este comando con más detalle.</para></listitem>
+			discute esta orden con más detalle.</para></listitem>
 		</varlistentry>
 		<varlistentry>
 			<term><command>smbcontrol</command></term>
@@ -2376,7 +2376,7 @@ METRAN         <1E>   GROUP       Registered
 		</varlistentry>
 		<varlistentry>
 			<term><command>smbgroupedit</command></term>
-			<listitem><para>Un comando que se puede utilizar para definir
+			<listitem><para>Una orden que se puede utilizar para definir
 			mapeos entre los grupos de Windows <acronym>NT</acronym> y los de Unix.
 			Esta es una funcionalidad nueva en Samba 3.0.</para></listitem>
 		</varlistentry>
@@ -2401,8 +2401,8 @@ METRAN         <1E>   GROUP       Registered
 			<term><command>smbsh</command></term>
 			<listitem><para>Una herramienta que funciona de manera similar a una
 			shell, permitiendo el acceso a sistemas de archivos <acronym>SMB</acronym>
-			remotos, y permite a las herramientas de Unix operar con ellos. Este
-			comando se describe con mayor profundidad en el capítulo 5 de la
+			remotos, y permite a las herramientas de Unix operar con ellos. Esta
+			orden se describe con mayor profundidad en el capítulo 5 de la
 			entrada bibliográfica
 			<xref linkend="bibliografia-ts-eckstein-collier-brown-01"/></para></listitem>
 		</varlistentry>
@@ -2420,7 +2420,7 @@ METRAN         <1E>   GROUP       Registered
 		</varlistentry>
 		<varlistentry>
 			<term><command>smbtar</command></term>
-			<listitem><para>Un programa similar al comando <command>tar</command>
+			<listitem><para>Un programa similar a la orden <command>tar</command>
 			de Unix, que permite archivar datos en los recursos compartidos
 			de <acronym>SMB</acronym>.</para></listitem>
 		</varlistentry>

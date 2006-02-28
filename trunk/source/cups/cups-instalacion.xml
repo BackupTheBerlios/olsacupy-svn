@@ -62,25 +62,23 @@
 <computeroutput><![CDATA[Package: cupsys
 Priority: optional
 Section: net
-Installed-Size: 10524
+Installed-Size: 10532
 Maintainer: Kenshi Muto <kmuto@debian.org>
 Architecture: i386
-Version: 1.1.20final+cvs20040330-4
+Version: 1.1.20final+rc1-9
 Replaces: cupsys-pstoraster
 Depends: libc6 (>= 2.3.2.ds1-4), libcupsimage2 (>= 1.1.19final-1),
-libcupsys2-gnutls10 (>= 1.1.20final-1), libgnutls10 (>= 1.0.0-0),
-libpam0g (>= 0.76), libpaper1, libslp1, zlib1g (>= 1:1.2.1),
-libcupsys2-gnutls10 (= 1.1.20final+cvs20040330-4), gs-esp]]> <co id="co-cupsys-gs-esp"/><![CDATA[,
-adduser (>= 3.12), debconf (>= 1.2.9)
+libcupsys2-gnutls10 (>= 1.1.20final-1), libgcc1 (>= 1:3.4.1-3),
+libgnutls11 (>= 1.0.16), libpam0g (>= 0.76), libpaper1, libslp1,
+zlib1g (>= 1:1.2.1), gs-esp]]> <co id="co-cupsys-gs-esp"/><![CDATA[, adduser (>= 3.12), debconf (>= 1.2.9), patch
 Recommends: cupsys-client]]> <co id="co-cupsys-cupsys-client"/><![CDATA[, smbclient]]> <co id="co-cupsys-smbclient"/><![CDATA[, xpdf-common
 Suggests: cupsys-bsd]]> <co id="co-cupsys-cupsys-bsd"/><![CDATA[, cupsys-driver-gimpprint]]> <co id="co-cupsys-cupsys-driver-gimpprint"/><![CDATA[,
-foomatic-bin | cupsomatic-ppd]]> <co id="co-cupsys-foomatic"/><![CDATA[,
-xpdf-korean | xpdf-japanese | xpdf-chinese-traditional
-| xpdf-chinese-simplified
+foomatic-bin | foomatic-filters-ppds]]> <co id="co-cupsys-foomatic"/><![CDATA[,
+xpdf-korean | xpdf-japanese | xpdf-chinese-traditional | xpdf-chinese-simplified
 Conflicts: cupsys-pstoraster (<< 2), lprng (>= 3.8.25)
-Filename: pool/main/c/cupsys/cupsys_1.1.20final+cvs20040330-4_i386.deb
-Size: 3617444
-MD5sum: 7d73d3ea0d66940434d5e9722e9c91ef
+Filename: pool/main/c/cupsys/cupsys_1.1.20final+rc1-9_i386.deb
+Size: 3609096
+MD5sum: 9a1db7a532df1477e7c572151d217030
 Description: Common UNIX Printing System(tm) - server
  The Common UNIX Printing System (or CUPS(tm)) is a printing system and
  general replacement for lpd and the like.  It supports the Internet
@@ -93,6 +91,7 @@ Description: Common UNIX Printing System(tm) - server
  Easy Software Products (www.easysw.com), and refer to the original
  source packages from which these packages are made.
 Task: print-server
+
 ]]></computeroutput></screen>
 
 		<calloutlist>
@@ -121,7 +120,7 @@ Task: print-server
 				instalar.</para>
 			</callout>
 			<callout arearefs="co-cupsys-cupsys-bsd">
-				<para>Paquete que provee los comandos de impresión <acronym>BSD</acronym>,
+				<para>Paquete que provee las órdenes de impresión <acronym>BSD</acronym>,
 				de forma que puedan interactuar con <acronym>CUPS</acronym>.</para>
 			</callout>
 			<callout arearefs="co-cupsys-cupsys-driver-gimpprint">
@@ -179,7 +178,7 @@ Section: text
 Installed-Size: 12008
 Maintainer: Masayuki Hatta (mhatta) <mhatta@debian.org>
 Architecture: i386
-Version: 7.07.1-8
+Version: 7.07.1-9
 Replaces: gs-afpl (<< 8.14-3), gs-aladdin (<< 8.14-3),
 gs-gpl (<< 8.01-3), gs (<< 8.01-3), gs-pdfencrypt (<< 7.00),
 cupsys-pstoraster
@@ -187,16 +186,16 @@ Provides: gs, gs-pdfencrypt, postscript-viewer
 Depends: libc6 (>= 2.3.2.ds1-4), libcupsimage2 (>= 1.1.19final-1),
 libcupsys2-gnutls10 (>= 1.1.20final-1), libgimpprint1 (>= 4.2.6),
 libglib2.0-0 (>= 2.4.1), libjpeg62, libpaper1,
-libpng12-0 (>= 1.2.5.0-4), libstdc++5 (>= 1:3.3.3-1), libtiff3g,
+libpng12-0 (>= 1.2.5.0-4), libstdc++5 (>= 1:3.3.4-1), libtiff4,
 libx11-6 | xlibs (>> 4.1.0), libxext6 | xlibs (>> 4.1.0),
 libxt6 | xlibs (>> 4.1.0), zlib1g (>= 1:1.2.1), gs-common (>= 0.2)
 Recommends: gsfonts]]> <co id="co-cupsys-gsfonts"/><![CDATA[ (>= 6.0-1), psfontmgr]]> <co id="co-cupsys-psfontmgr"/><![CDATA[
 Conflicts: gs-afpl (<< 8.14-3), gs-aladdin (<< 8.14-3),
 gs-gpl (<< 8.01-3), gs (<< 8.01-3), gs-pdfencrypt (<< 7.00),
 cupsys-pstoraster
-Filename: pool/main/g/gs-esp/gs-esp_7.07.1-8_i386.deb
+Filename: pool/main/g/gs-esp/gs-esp_7.07.1-9_i386.deb
 Size: 2772000
-MD5sum: e7704b6b9cf8d63b9c02ee92f4aedc70
+MD5sum: 26559300a360d8aa1176512e4beab77e
 Description: The Ghostscript PostScript interpreter - ESP version
  Ghostscript is used for PostScript preview and printing.  Usually as
  a back-end to a program such as ghostview, it can display postscript
@@ -214,6 +213,7 @@ Description: The Ghostscript PostScript interpreter - ESP version
  ESP Ghostscript homepage is available at:
  .
  http://www.cups.org/ghostscript.php
+
 ]]></computeroutput></screen>
 
 			<calloutlist>
@@ -262,13 +262,12 @@ Section: text
 Installed-Size: 5080
 Maintainer: Masayuki Hatta (mhatta) <mhatta@debian.org>
 Architecture: all
-Version: 8.14-3
+Version: 8.14+v8.11-0.1
 Depends: defoma
-Conflicts: gs (<< 5.50-5), gs-aladdin (<< 6.50-4),
-gsfonts-x11 (<< 0.13)
-Filename: pool/main/g/gsfonts/gsfonts_8.14-3_all.deb
-Size: 3686976
-MD5sum: 27093f8719cab143f7ae8216c7aeb854
+Conflicts: gs (<< 5.50-5), gs-aladdin (<< 6.50-4), gsfonts-x11 (<< 0.13)
+Filename: pool/main/g/gsfonts/gsfonts_8.14+v8.11-0.1_all.deb
+Size: 3726818
+MD5sum: b383e6b56330d231fbd0dfee8797aaec
 Description: Fonts for the Ghostscript interpreter(s)
  These are free look-alike fonts of the Adobe PostScript fonts.
  Recommended for all flavors of Ghostscript (gs-gpl, gs-afpl and gs-esp).
@@ -280,12 +279,12 @@ Installed-Size: 172
 Maintainer: Angus Lees <gus@debian.org>
 Architecture: all
 Source: defoma
-Version: 0.11.8
+Version: 0.11.8-0.1
 Depends: defoma (>= 0.9.1), whiptail | dialog, perl
 Conflicts: defoma-ps, scigraphica-common (<= 0.7.1-3)
-Filename: pool/main/d/defoma/psfontmgr_0.11.8_all.deb
-Size: 21158
-MD5sum: 5b24dd5a874a652449e8df90973bc70e
+Filename: pool/main/d/defoma/psfontmgr_0.11.8-0.1_all.deb
+Size: 21220
+MD5sum: 82d87f3940cc0270fdff58568ca3c5ee
 Description: PostScript font manager -- part of Defoma, Debian Font Manager
  psfontmgr manages PostScript fonts through the Defoma framework. It
  registers the name of available PostScript fonts to Defoma in
@@ -297,6 +296,7 @@ Description: PostScript font manager -- part of Defoma, Debian Font Manager
  those who want to print a PostScript file with the printer fonts and
  have the printer fonts appear in a font-choosing menu.
 Task: chinese-s, chinese-t
+
 ]]></computeroutput></screen>
 		</example>
 
@@ -319,20 +319,20 @@ Task: chinese-s, chinese-t
 <computeroutput><![CDATA[Package: cupsys-client
 Priority: optional
 Section: net
-Installed-Size: 324
+Installed-Size: 308
 Maintainer: Kenshi Muto <kmuto@debian.org>
 Architecture: i386
 Source: cupsys
-Version: 1.1.20final+cvs20040330-4
+Version: 1.1.20final+rc1-9
 Replaces: cupsys (<= 1.1.18-3)
-Depends: libc6 (>= 2.3.2.ds1-4), libcupsys2-gnutls10 (>= 1.1.20final-1),
-zlib1g (>= 1:1.2.1), libcupsys2-gnutls10 (= 1.1.20final+cvs20040330-4)
+Depends: libc6 (>= 2.3.2.ds1-4),
+libcupsys2-gnutls10 (>= 1.1.20final-1), zlib1g (>= 1:1.2.1)
 Recommends: cupsys-bsd]]> <co id="co-cupsys-cupsys-bsd1"/><![CDATA[
 Suggests: cupsys, kdeprint]]> <co id="co-cupsys-kdeprint"/><![CDATA[, gtklp, cupsys-pt, xpp
 Conflicts: lprng
-Filename: pool/main/c/cupsys/cupsys-client_1.1.20final+cvs20040330-4_i386.deb
-Size: 103216
-MD5sum: b20276754176a419aa51910f40faf0f9
+Filename: pool/main/c/cupsys/cupsys-client_1.1.20final+rc1-9_i386.deb
+Size: 87964
+MD5sum: 100897320ff2fc8296d8c7192d11e313
 Description: Common UNIX Printing System(tm) - client programs (SysV)
  The Common UNIX Printing System (or CUPS(tm)) is a printing system and
  general replacement for lpd and the like.  It supports the Internet
@@ -344,7 +344,8 @@ Description: Common UNIX Printing System(tm) - client programs (SysV)
  The terms "Common UNIX Printing System" and "CUPS" are trademarks of
  Easy Software Products (www.easysw.com), and refer to the original
  source packages from which these packages are made.
-Task: lsb, print-server
+Task: print-server
+
 ]]></computeroutput></screen>
 
 			<calloutlist>
@@ -390,22 +391,23 @@ Task: lsb, print-server
 <computeroutput><![CDATA[Package: kdeprint
 Priority: optional
 Section: utils
-Installed-Size: 1804
+Installed-Size: 1828
 Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Architecture: i386
 Source: kdebase
-Version: 4:3.2.2-1
+Version: 4:3.3.0a-1
 Replaces: kdebase (<< 4:3.0.0), kdebase-doc (<< 4:3.0.0)
-Depends: kdelibs4 (>= 4:3.2.2), libart-2.0-2, libc6 (>= 2.3.2.ds1-4),
-libfam0c102, libgcc1 (>= 1:3.3.3-1), libice6 | xlibs (>> 4.1.0),
-libpng12-0 (>= 1.2.5.0-4), libqt3c102-mt (>= 3:3.2.3),
-libsm6 | xlibs (>> 4.1.0), libstdc++5 (>= 1:3.3.3-1),
+Depends: kdelibs4 (>= 4:3.3.0), libart-2.0-2 (>= 2.3.16),
+libc6 (>= 2.3.2.ds1-4), libfam0c102, libgcc1 (>= 1:3.4.1-3),
+libice6 | xlibs (>> 4.1.0), libidn11 (>= 0.5.2),
+libpng12-0 (>= 1.2.5.0-4), libqt3c102-mt (>= 3:3.3.3),
+libsm6 | xlibs (>> 4.1.0), libstdc++5 (>= 1:3.3.4-1),
 libx11-6 | xlibs (>> 4.1.0), libxext6 | xlibs (>> 4.1.0),
 libxrender1, zlib1g (>= 1:1.2.1), enscript, gv, poster, psutils
 Suggests: khelpcenter, efax | hylafax-client | mgetty-fax
-Filename: pool/main/k/kdebase/kdeprint_3.2.2-1_i386.deb
-Size: 1055740
-MD5sum: 310dfeaa2ccfc0fbbf91b5f07d11a0a3
+Filename: pool/main/k/kdebase/kdeprint_3.3.0a-1_i386.deb
+Size: 1061246
+MD5sum: b865d5a1909d34c910a5eba77617b3fc
 Description: KDE Print
  KDE is a powerful Open Source graphical desktop environment
  for Unix workstations. It combines ease of use, contemporary
@@ -417,6 +419,7 @@ Description: KDE Print
  printing.
  .
  This package is part of the official KDE base module.
+
 ]]></computeroutput></screen>
 			</example>
 
@@ -436,19 +439,19 @@ Description: KDE Print
 <computeroutput><![CDATA[Package: cupsys-bsd
 Priority: extra
 Section: net
-Installed-Size: 216
+Installed-Size: 192
 Maintainer: Kenshi Muto <kmuto@debian.org>
 Architecture: i386
 Source: cupsys
-Version: 1.1.20final+cvs20040330-4
+Version: 1.1.20final+rc1-9
 Replaces: lpr, cupsys (<= 1.1.15-2), manpages-fr (<< 0.9.5-1)
 Provides: lpr
 Depends: libc6 (>= 2.3.2.ds1-4), libcupsys2-gnutls10 (>= 1.1.20final-1),
-cupsys-client (= 1.1.20final+cvs20040330-4), debconf
+cupsys-client (= 1.1.20final+rc1-9), debconf, netbase
 Conflicts: lpr, lprng, manpages-fr (<< 0.9.5-1)
-Filename: pool/main/c/cupsys/cupsys-bsd_1.1.20final+cvs20040330-4_i386.deb
-Size: 55956
-MD5sum: 8405ccba2ad3226253d31e31a328c48b
+Filename: pool/main/c/cupsys/cupsys-bsd_1.1.20final+rc1-9_i386.deb
+Size: 40272
+MD5sum: cfc6bc7f6a73e414752f297e3949f382
 Description: Common UNIX Printing System(tm) - BSD commands
  The Common UNIX Printing System (or CUPS(tm)) is a printing system and
  general replacement for lpd and the like.  It supports the Internet
@@ -462,7 +465,8 @@ Description: Common UNIX Printing System(tm) - BSD commands
  The terms "Common UNIX Printing System" and "CUPS" are trademarks of
  Easy Software Products (www.easysw.com), and refer to the original
  source packages from which these packages are made.
-Task: lsb, print-server
+Task: print-server
+
 ]]></computeroutput></screen>
 		</example>
 
@@ -483,21 +487,20 @@ Task: lsb, print-server
 <computeroutput><![CDATA[Package: cupsys-driver-gimpprint
 Priority: optional
 Section: graphics
-Installed-Size: 1984
+Installed-Size: 1192
 Maintainer: Roger Leigh <rleigh@debian.org>
 Architecture: i386
 Source: gimp-print
-Version: 4.2.6-5
+Version: 4.2.7-4
 Depends: libc6 (>= 2.3.2.ds1-4), libcupsimage2 (>= 1.1.19final-1),
-libcupsys2-gnutls10 (>= 1.1.20final-1), libjpeg62,
-libpng12-0 (>= 1.2.5.0-4), libtiff3g, zlib1g (>= 1:1.2.1), perl,
-cupsys-driver-gimpprint-data]]> <co id="co-cupsys-cupsys-driver-gimpprint-data"/><![CDATA[ (= 4.2.6-5),
+libcupsys2-gnutls10 (>= 1.1.20final-1), libgimpprint1 (>= 4.2.7),
+zlib1g (>= 1:1.2.1), perl, cupsys-driver-gimpprint-data]]> <co id="co-cupsys-cupsys-driver-gimpprint-data"/><![CDATA[ (= 4.2.7-4),
 cupsys (>= 1.1.4) | cups (>= 1.1.4)
-Recommends: postscript-viewer | gs (>= 6.51)
-Suggests: gimpprint-doc (>= 4.2.6-5), gimpprint-locales]]> <co id="co-cupsys-gimpprint-locales"/><![CDATA[ (>= 4.2.6-5)
-Filename: pool/main/g/gimp-print/cupsys-driver-gimpprint_4.2.6-5_i386.deb
-Size: 1498432
-MD5sum: 7310bb9bc554f7af4cbd4f4e398dcd52
+Recommends: gs-esp (>= 7.05.2-1) | gs-gpl (>= 8.01-1) | postscript-viewer
+Suggests: gimpprint-doc (>= 4.2.7-4), gimpprint-locales]]> <co id="co-cupsys-gimpprint-locales"/><![CDATA[ (>= 4.2.7-4)
+Filename: pool/main/g/gimp-print/cupsys-driver-gimpprint_4.2.7-4_i386.deb
+Size: 952450
+MD5sum: 0b6224bdd85be3a35b56af4d22d0de82
 Description: Gimp-Print printer drivers for CUPS
  This package includes a CUPS driver based on Gimp-Print.
  .
@@ -508,7 +511,7 @@ Description: Gimp-Print printer drivers for CUPS
  .
    http://www.cups.org
  .
- This is Gimp-Print version 4.2.6, a stable release in
+ This is Gimp-Print version 4.2.7, a stable release in
  the 4.2 line.
  .
  Gimp-Print is the print facility for the Gimp, and in addition a
@@ -518,6 +521,7 @@ Description: Gimp-Print printer drivers for CUPS
  many cases, and can be used for many of the most demanding printing
  tasks.
 Task: print-server
+
 ]]></computeroutput></screen>
 
 			<calloutlist>
@@ -561,15 +565,15 @@ Task: print-server
 <computeroutput><![CDATA[Package: gimpprint-locales
 Priority: optional
 Section: libs
-Installed-Size: 968
+Installed-Size: 1152
 Maintainer: Roger Leigh <rleigh@debian.org>
 Architecture: all
 Source: gimp-print
-Version: 4.2.6-5
+Version: 4.2.7-4
 Replaces: libgimpprint1 (<= 4.2.0-1)
-Filename: pool/main/g/gimp-print/gimpprint-locales_4.2.6-5_all.deb
-Size: 257454
-MD5sum: e26b1509ed74c0f67b3f4f03b4f2788a
+Filename: pool/main/g/gimp-print/gimpprint-locales_4.2.7-4_all.deb
+Size: 309592
+MD5sum: a32bf289f46ea3a6ce6ed915b3d6b647
 Description: Locale data files for Gimp-Print
  This package contains the i18n files of Gimp-Print, used by
  libgimpprint1, cupsys-driver-gimpprint and escputil.  It is also
@@ -579,7 +583,7 @@ Description: Locale data files for Gimp-Print
  They are needed when you want the programs in Gimp-Print to print
  their messages in other languages than US English.
  .
- This is Gimp-Print version 4.2.6, a stable release in
+ This is Gimp-Print version 4.2.7, a stable release in
  the 4.2 line.
  .
  Gimp-Print is the print facility for the Gimp, and in addition a
@@ -592,15 +596,16 @@ Description: Locale data files for Gimp-Print
 Package: cupsys-driver-gimpprint-data
 Priority: optional
 Section: graphics
-Installed-Size: 1868
+Installed-Size: 1984
 Maintainer: Roger Leigh <rleigh@debian.org>
 Architecture: all
 Source: gimp-print
-Version: 4.2.6-5
+Version: 4.2.7-4
 Replaces: cupsys-driver-gimpprint (<< 4.2.6-4)
-Filename: pool/main/g/gimp-print/cupsys-driver-gimpprint-data_4.2.6-5_all.deb
-Size: 1307958
-MD5sum: c6d55fcc07154fde680d8a14c3a31726
+Depends: cupsys-driver-gimpprint (= 4.2.7-4)
+Filename: pool/main/g/gimp-print/cupsys-driver-gimpprint-data_4.2.7-4_all.deb
+Size: 1368570
+MD5sum: 988e7ee0a060ebaed149c9d91dd9c5b8
 Description: Gimp-Print printer drivers for CUPS
  This package includes Gimp-Print PPDs for CUPS.
  .
@@ -611,7 +616,7 @@ Description: Gimp-Print printer drivers for CUPS
  .
    http://www.cups.org
  .
- This is Gimp-Print version 4.2.6, a stable release in
+ This is Gimp-Print version 4.2.7, a stable release in
  the 4.2 line.
  .
  Gimp-Print is the print facility for the Gimp, and in addition a
@@ -620,6 +625,7 @@ Description: Gimp-Print printer drivers for CUPS
  for UNIX/Linux on a par with proprietary vendor-supplied drivers in
  many cases, and can be used for many of the most demanding printing
  tasks.
+
 ]]></computeroutput></screen>
 			</example>
 
@@ -647,12 +653,12 @@ Installed-Size: 60
 Maintainer: Chris Lawrence <lawrencc@debian.org>
 Architecture: all
 Source: foomatic-db-engine
-Version: 3.0.1-20040506-1
+Version: 3.0.2-2
 Depends: foomatic-db]]> <co id="co-cupsys-foomatic-db"/><![CDATA[ (>> 2.9), foomatic-db-hpijs]]> <co id="co-cupsys-foomatic-db-hpijs"/><![CDATA[, foomatic-db-engine]]> <co id="co-cupsys-foomatic-db-engine"/><![CDATA[,
 foomatic-filters]]> <co id="co-cupsys-foomatic-filters"/><![CDATA[
-Filename: pool/main/f/foomatic-db-engine/foomatic-bin_3.0.1-20040506-1_all.deb
-Size: 47350
-MD5sum: 684a7426298dda63ee04d70b5ebf1715
+Filename: pool/main/f/foomatic-db-engine/foomatic-bin_3.0.2-2_all.deb
+Size: 47592
+MD5sum: f147f54037ca6c8c9a4a1128f3f6adfa
 Description: linuxprinting.org printer support - transition package
  Release 3.0 of foomatic has reorganized the foomatic printing system.
  This package is provided to facilitate a smooth upgrade from Foomatic
@@ -662,6 +668,7 @@ Description: linuxprinting.org printer support - transition package
  package can be safely purged from your system.
  .
  Home Page: http://www.linuxprinting.org/
+
 ]]></computeroutput></screen>
 
 			<calloutlist>
@@ -725,17 +732,17 @@ Description: linuxprinting.org printer support - transition package
 <computeroutput><![CDATA[Package: foomatic-db
 Priority: optional
 Section: text
-Installed-Size: 9776
+Installed-Size: 10064
 Maintainer: Chris Lawrence <lawrencc@debian.org>
 Architecture: all
-Version: 20040506-1
+Version: 20041013-1
 Depends: foomatic-filters
 Recommends: foomatic-db-engine
 Suggests: foomatic-db-hpijs, foomatic-db-gimp-print]]> <co id="co-cupsys-foomatic-db-gimp-print"/><![CDATA[, foo2zjs]]> <co id="co-cupsys-foo2zjs"/><![CDATA[
 Conflicts: foomatic-bin (<< 2.9)
-Filename: pool/main/f/foomatic-db/foomatic-db_20040506-1_all.deb
-Size: 480204
-MD5sum: 4ea717e2072999873c005af9f6f0d20b
+Filename: pool/main/f/foomatic-db/foomatic-db_20041013-1_all.deb
+Size: 494012
+MD5sum: 84891b80ef692464897e8ceb4bc8724a
 Description: linuxprinting.org printer support - database
  Foomatic is a printing system designed to make it easier to set up
  common printers for use with Debian (and other operating systems).
@@ -759,6 +766,7 @@ Description: linuxprinting.org printer support - database
  from HP and Minolta/QMS that use the Zenographics ZjStream protocol.
  .
  Home Page: http://www.linuxprinting.org/
+
 ]]></computeroutput></screen>
 			</example>
 
@@ -810,16 +818,16 @@ Description: linuxprinting.org printer support - database
 <computeroutput><![CDATA[Package: foomatic-db-gimp-print
 Priority: optional
 Section: text
-Installed-Size: 10788
+Installed-Size: 11948
 Maintainer: Roger Leigh <rleigh@debian.org>
 Architecture: all
 Source: gimp-print
-Version: 4.2.6-5
-Depends: foomatic-db, ijsgimpprint (>= 4.2.6-5)
+Version: 4.2.7-4
+Depends: foomatic-db, ijsgimpprint (>= 4.2.7-4)
 Conflicts: foomatic-bin (<< 2.9), foomatic-db (<< 2.9)
-Filename: pool/main/g/gimp-print/foomatic-db-gimp-print_4.2.6-5_all.deb
-Size: 494678
-MD5sum: 1eccbd92657eee847c3e0155ffd0ff4d
+Filename: pool/main/g/gimp-print/foomatic-db-gimp-print_4.2.7-4_all.deb
+Size: 544364
+MD5sum: ef504aba3492142f5174aaeecd4af05f
 Description: linuxprinting.org printer support - database for Gimp-Print printer drivers
  Foomatic is a printing system designed to make it easier to set up
  common printers for use with Debian (and other operating systems).
@@ -832,7 +840,7 @@ Description: linuxprinting.org printer support - database for Gimp-Print printer
  .
  Home Page: http://www.linuxprinting.org/
  .
- This is Gimp-Print version 4.2.6, an unstable
+ This is Gimp-Print version 4.2.7, an unstable
  development release in the 4.3 line.
  .
  Gimp-Print is the print facility for the Gimp, and in addition a
@@ -867,6 +875,7 @@ Description: Support for printing to ZjStream-based printers
  printing support.
  .
  Home Page: http://foo2zjs.rkkda.com/
+
 ]]></computeroutput></screen>
 				</example>
 			</sect4>
@@ -886,15 +895,15 @@ Description: Support for printing to ZjStream-based printers
 <computeroutput><![CDATA[Package: foomatic-db-hpijs
 Priority: optional
 Section: text
-Installed-Size: 4460
+Installed-Size: 4712
 Maintainer: Chris Lawrence <lawrencc@debian.org>
 Architecture: all
-Version: 1.5-20040506-1
+Version: 1.5-20041013-1
 Depends: foomatic-filters, foomatic-db, hpijs (>> 1.3)
 Conflicts: foomatic-bin (<< 2.9), foomatic-db (<< 2.9)
-Filename: pool/main/f/foomatic-db-hpijs/foomatic-db-hpijs_1.5-20040506-1_all.deb
-Size: 205438
-MD5sum: e1a6486082a99482f4491f3ddb0f4b05
+Filename: pool/main/f/foomatic-db-hpijs/foomatic-db-hpijs_1.5-20041013-1_all.deb
+Size: 214228
+MD5sum: 161b737f47bca70174237efae2d63ee8
 Description: linuxprinting.org printer support - database for HPIJS printers
  Foomatic is a printing system designed to make it easier to set up
  common printers for use with Debian (and other operating systems).
@@ -908,6 +917,7 @@ Description: linuxprinting.org printer support - database for HPIJS printers
  .
  Home Page: http://www.linuxprinting.org/
 Task: print-server
+
 ]]></computeroutput></screen>
 			</example>
 
@@ -930,18 +940,18 @@ Section: text
 Installed-Size: 704
 Maintainer: Chris Lawrence <lawrencc@debian.org>
 Architecture: i386
-Version: 3.0.1-20040506-1
+Version: 3.0.2-2
 Replaces: foomatic-bin (<< 2.9)
 Depends: perl (>= 5.6.0-16), libc6 (>= 2.3.2.ds1-4),
-libxml2 (>= 2.6.8), zlib1g (>= 1:1.2.1), foomatic-db,
-foomatic-filters, wget | curl
+libxml2 (>= 2.6.11), zlib1g (>= 1:1.2.1), foomatic-db, foomatic-filters,
+wget | curl
 Pre-Depends: bash (>= 2.05)
 Recommends: netcat]]> <co id="co-cupsys-netcat"/><![CDATA[
 Suggests: foomatic-db-hpijs, foomatic-db-gimp-print, foomatic-gui]]> <co id="co-cupsys-foomatic-gui"/><![CDATA[
 Conflicts: foomatic-bin (<< 2.9), foomatic-db (<< 2.9)
-Filename: pool/main/f/foomatic-db-engine/foomatic-db-engine_3.0.1-20040506-1_i386.deb
-Size: 252408
-MD5sum: 6fa1e0d78b8f8fc3ebf292cf841c8401
+Filename: pool/main/f/foomatic-db-engine/foomatic-db-engine_3.0.2-2_i386.deb
+Size: 252714
+MD5sum: aed29832cb990e97d859fb9066a06617
 Description: linuxprinting.org printer support - programs
  Foomatic is a printing system designed to make it easier to set up
  common printers for use with Debian (and other operating systems).
@@ -950,7 +960,7 @@ Description: linuxprinting.org printer support - programs
  sent to the printer.
  .
  This package contains the architecture-dependent programs needed to
- et up and maintain the foomatic system.  You will also need one or
+ set up and maintain the foomatic system.  You will also need one or
  more database packages.  The foomatic-db package includes drivers for
  most common printers using Ghostscript as the print processor, as
  well as some common glue code used in other filter systems.
@@ -967,6 +977,7 @@ Description: linuxprinting.org printer support - programs
  .
  Home Page: http://www.linuxprinting.org/
 Task: print-server
+
 ]]></computeroutput></screen>
 			</example>
 
@@ -993,14 +1004,14 @@ Task: print-server
 <computeroutput><![CDATA[Package: netcat
 Priority: optional
 Section: net
-Installed-Size: 179
+Installed-Size: 176
 Maintainer: Decklin Foster <decklin@red-bean.com>
 Architecture: i386
-Version: 1.10-23
-Depends: libc6 (>= 2.3.2-1)
-Filename: pool/main/n/netcat/netcat_1.10-23_i386.deb
-Size: 64358
-MD5sum: c9bdb444c95cbf5c99536fbd7d61f52c
+Version: 1.10-26
+Depends: libc6 (>= 2.3.2.ds1-4)
+Filename: pool/main/n/netcat/netcat_1.10-26_i386.deb
+Size: 66302
+MD5sum: 3273445ba7953c3c827872d6c474053b
 Description: TCP/IP swiss army knife
  A simple Unix utility which reads and writes data across network
  connections using TCP or UDP protocol.  It is designed to be a reliable
@@ -1009,21 +1020,19 @@ Description: TCP/IP swiss army knife
  debugging and exploration tool, since it can create almost any kind of
  connection you would need and has several interesting built-in
  capabilities.
-Task: unix-server
 
 Package: foomatic-gui
 Priority: optional
 Section: gnome
-Installed-Size: 253
+Installed-Size: 248
 Maintainer: Chris Lawrence <lawrencc@debian.org>
 Architecture: all
-Version: 0.6.5.1
-Depends: python (>> 2.3), python (<< 2.4), foomatic-db-engine,
-python-gnome2, python-glade2, netcat, pconf-detect, nmap, smbclient,
-gksu
-Filename: pool/main/f/foomatic-gui/foomatic-gui_0.6.5.1_all.deb
-Size: 57826
-MD5sum: 8affab39674ebec1b0dd19d34bcd0d26
+Version: 0.6.7
+Depends: python (>> 2.3), python (<< 2.4), foomatic-db-engine, python-gnome2,
+python-glade2, netcat, pconf-detect, nmap, smbclient, gksu
+Filename: pool/main/f/foomatic-gui/foomatic-gui_0.6.7_all.deb
+Size: 58252
+MD5sum: 3720f90cb004a41a24b19f07ca8bdf23
 Description: GNOME interface for configuring the Foomatic printer filter system
  Foomatic is a printing system designed to make it easier to set up
  common printers for use with Debian (and other operating systems).
@@ -1037,6 +1046,7 @@ Description: GNOME interface for configuring the Foomatic printer filter system
  Project Home: http://savannah.nongnu.org/projects/foomatic-gui/
  Development weblog: http://blog.lordsutch.com/?topic=13
 Task: print-server
+
 ]]></computeroutput></screen>
 				</example>
 			</sect4>
@@ -1063,19 +1073,20 @@ Task: print-server
 <computeroutput><![CDATA[Package: foomatic-filters
 Priority: optional
 Section: text
-Installed-Size: 312
+Installed-Size: 324
 Maintainer: Chris Lawrence <lawrencc@debian.org>
 Architecture: all
-Version: 3.0.1-20040506-4
+Version: 3.0.2-1
 Replaces: foomatic-bin (<< 2.9), cupsomatic-ppd
 Depends: perl, debconf (>= 0.5) | debconf-2.0, ucf (>= 0.30)
 Pre-Depends: bash (>= 2.05)
-Recommends: cupsys | lpr | lprng | pdq | rlpr, gs-esp | gs,
-cupsys | enscript]]> <co id="co-cupsys-enscript"/><![CDATA[ | a2ps]]> <co id="co-cupsys-a2ps"/><![CDATA[ | mpage]]> <co id="co-cupsys-mpage"/><![CDATA[, foomatic-db-engine
+Recommends: cupsys-client | lpr | lprng | pdq | rlpr, gs-esp | gs,
+cupsys | enscript]]> <co id="co-cupsys-enscript"/><![CDATA[ | a2ps]]> <co id="co-cupsys-a2ps"/><![CDATA[ | mpage]]> <co id="
+co-cupsys-mpage"/><![CDATA[, foomatic-db-engine
 Conflicts: foomatic-bin (<< 2.9), cupsomatic-ppd (<< 20030507)
-Filename: pool/main/f/foomatic-filters/foomatic-filters_3.0.1-20040506-4_all.deb
-Size: 119254
-MD5sum: 05805f73a6038503be2831985516b492
+Filename: pool/main/f/foomatic-filters/foomatic-filters_3.0.2-1_all.deb
+Size: 123842
+MD5sum: ba5f0f7710be13d2a131c5d16cd8cec5
 Description: linuxprinting.org printer support - filters
  Foomatic is a printer database designed to make it easier to set up
  common printers for use with Debian (and other operating systems).
@@ -1089,7 +1100,11 @@ Description: linuxprinting.org printer support - filters
  You will need to install the foomatic-db-engine package and its
  dependencies for this package to be useful.
  .
+ For use with CUPS, you will need both the cupsys and cupsys-client
+ packages installed on your system.
+ .
  Home Page: http://www.linuxprinting.org/
+
 ]]></computeroutput></screen>
 
 			<calloutlist>
@@ -1124,11 +1139,11 @@ Installed-Size: 12
 Maintainer: Chris Lawrence <lawrencc@debian.org>
 Architecture: all
 Source: foomatic-filters-ppds
-Version: 20040506-1
+Version: 20041013-1
 Depends: foomatic-filters-ppds]]> <co id="co-cupsys-foomatic-filters-ppds"/><![CDATA[
-Filename: pool/main/f/foomatic-filters-ppds/cupsomatic-ppd_20040506-1_all.deb
-Size: 2562
-MD5sum: 0d0c8b9a6e3e56b68e1006424104801a
+Filename: pool/main/f/foomatic-filters-ppds/cupsomatic-ppd_20041013-1_all.deb
+Size: 2588
+MD5sum: 6474bf484cd5a424134e301b1dd928a3
 Description: linuxprinting.org printer support - transition package
  Foomatic is a printer database designed to make it easier to set up
  common printers for use with Debian (and other operating systems).
@@ -1141,6 +1156,7 @@ Description: linuxprinting.org printer support - transition package
  safely removed once you have installed foomatic-filters-ppds.
  .
  Home Page: http://www.linuxprinting.org/
+
 ]]></computeroutput></screen>
 
 			<calloutlist>
@@ -1174,18 +1190,18 @@ Description: linuxprinting.org printer support - transition package
 <computeroutput><![CDATA[Package: foomatic-filters-ppds
 Priority: extra
 Section: text
-Installed-Size: 10448
+Installed-Size: 10616
 Maintainer: Chris Lawrence <lawrencc@debian.org>
 Architecture: all
-Version: 20040506-1
+Version: 20041013-1
 Replaces: cupsomatic-ppd (<< 20030507)
 Depends: foomatic-db-engine
 Recommends: cupsys
 Suggests: foomatic-db-hpijs, foomatic-db-gimp-print, foo2zjs
 Conflicts: cupsomatic-ppd (<< 20030507)
-Filename: pool/main/f/foomatic-filters-ppds/foomatic-filters-ppds_20040506-1_all.deb
-Size: 6053402
-MD5sum: ba79768ea2cf27241a4911c30e04b4b2
+Filename: pool/main/f/foomatic-filters-ppds/foomatic-filters-ppds_20041013-1_all.deb
+Size: 6145132
+MD5sum: 249f8685a14a4b7b05a8a74cb4621134
 Description: linuxprinting.org printer support - prebuilt PPD files
  Foomatic is a printer database designed to make it easier to set up
  common printers for use with Debian (and other operating systems).
@@ -1207,6 +1223,7 @@ Description: linuxprinting.org printer support - prebuilt PPD files
  .
  Home Page: http://www.linuxprinting.org/
 Task: print-server
+
 ]]></computeroutput></screen>
 			</example>
 
@@ -1269,8 +1286,8 @@ Task: print-server
 		habría que hacer una búsqueda en la base de datos de paquetes disponibles y
 		seleccionar aquellos que se consideren necesarios.</para>
 
-		<para>La búsqueda se puede realizar con el siguiente comando:
-		<command>/usr/bin/apt-cache search cups</command>. Este comando devolverá una
+		<para>La búsqueda se puede realizar con la siguiente orden:
+		<command>/usr/bin/apt-cache search cups</command>. Esta orden devolverá una
 		lista con aquellos paquetes cuya descripción posea la palabra <emphasis>cups</emphasis>.
 		De la lista devuelta, los paquetes más interesantes son:</para>
 
@@ -1317,26 +1334,30 @@ Task: print-server
 <computeroutput>Leyendo lista de paquetes... Hecho
 Creando árbol de dependencias... Hecho
 gsfonts ya está en su versión más reciente. <co id="cupsys-instalacion-gsfonts"/>
+psfontmgr ya está en su versión más reciente. <co id="cupsys-instalacion-psfontmgr"/>
 kdeprint ya está en su versión más reciente. <co id="cupsys-instalacion-kdeprint"/>
 Se instalarán los siguientes paquetes extras:
   cupsys-driver-gimpprint-data foomatic-db foomatic-db-engine foomatic-db-hpijs
-  foomatic-filters
+  foomatic-filters gs-esp hpijs ijsgimpprint libcupsimage2 libijs-0.35
 Paquetes sugeridos:
-  xpdf-korean xpdf-japanese xpdf-chinese-traditional xpdf-chinese-simplified gtklp
-  cupsys-pt xpp kdelibs3-cups gimpprint-doc foo2zjs foomatic-gui
+  xpdf-korean xpdf-japanese xpdf-chinese-traditional xpdf-chinese-simplified gtklp cupsys-pt
+  xpp gimpprint-doc foo2zjs foomatic-gui hpoj
+Paquetes recomendados
+  xpdf-common
 Se instalarán los siguientes paquetes NUEVOS:
   cupsomatic-ppd cupsys cupsys-bsd cupsys-client cupsys-driver-gimpprint
   cupsys-driver-gimpprint-data foomatic-bin foomatic-db foomatic-db-engine
   foomatic-db-gimp-print foomatic-db-hpijs foomatic-filters foomatic-filters-ppds
-  gimpprint-locales psfontmgr
-0 actualizados, 15 se instalarán, 0 para eliminar y 0 no actualizados.
-Se necesita descargar 0B/14,5MB de archivos.
-Se utilizarán 53,9MB de espacio de disco adicional después de desempaquetar.
+  gimpprint-locales gs-esp hpijs ijsgimpprint libcupsimage2 libijs-0.35
+0 actualizados, 19 se instalarán, 0 para eliminar y 0 no actualizados.
+0 actualizados, 19 se instalarán, 0 para eliminar y 2 no actualizados.
+Se necesita descargar 0B/17,1MB de archivos.
+Se utilizarán 67,8MB de espacio de disco adicional después de desempaquetar.
 ¿Desea continuar? [S/n]</computeroutput> <userinput>S</userinput>
 <computeroutput>Preconfiguring packages ...</computeroutput></screen>
 
 		<calloutlist>
-			<callout arearefs="cupsys-instalacion-gsfonts cupsys-instalacion-kdeprint">
+			<callout arearefs="cupsys-instalacion-gsfonts cupsys-instalacion-psfontmgr cupsys-instalacion-kdeprint">
 				<para>En el sistema donde se han realizado las pruebas ya se encontraban
 				instalados estos paquetes.</para>
 			</callout>
@@ -1344,7 +1365,7 @@ Se utilizarán 53,9MB de espacio de disco adicional después de desempaquetar.
 	</example>
 
 	<figure>
-		<title>Configuración del filtro de impresión Foomatic</title>
+		<title><emphasis>Backend</emphasis> de impresión para <application>Foomatic</application></title>
 		<mediaobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-instalacion1.eps" align="center" format="EPS" scale="35"/>
@@ -1354,16 +1375,15 @@ Se utilizarán 53,9MB de espacio de disco adicional después de desempaquetar.
 			</imageobject>
 	
 			<caption>
-				<para><emphasis>Foomatic</emphasis> permite la creación de un archivo de log,
-				sobre el que volcará los informes de depuración. La creación de este archivo
-				supone un riesgo de seguridad en el sistema, por lo que se recomienda no instalarlo,
-				a no ser que lo necesite para analizar su comportamiento.</para>
+				<para>Seleccione la cola de impresión que desea que utilice <emphasis>Foomatic</emphasis>
+				para los trabajos de impresión. Como en esta documentación se va a emplear
+				<acronym>CUPS</acronym>, se ha elegido esta opción.</para>
 			</caption>
 		</mediaobject>
 	</figure>
 
 	<figure>
-		<title>Comando para convertir archivos de texto en archivos PostScript</title>
+		<title>Configuración del filtro de impresión Foomatic</title>
 		<mediaobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-instalacion2.eps" align="center" format="EPS" scale="35"/>
@@ -1373,8 +1393,10 @@ Se utilizarán 53,9MB de espacio de disco adicional después de desempaquetar.
 			</imageobject>
 	
 			<caption>
-				<para>Se deja la opción seleccionada por defecto, de forma que Foomatic se encargue
-				de buscar las herramientas necesarias en el sistema.</para>
+				<para><emphasis>Foomatic</emphasis> permite la creación de un archivo de log,
+				sobre el que volcará los informes de depuración. La creación de este archivo
+				supone un riesgo de seguridad en el sistema, por lo que se recomienda no instalarlo,
+				a no ser que lo necesite para analizar su comportamiento.</para>
 			</caption>
 		</mediaobject>
 	</figure>
@@ -1472,77 +1494,81 @@ Se utilizarán 53,9MB de espacio de disco adicional después de desempaquetar.
 	<example id="cups-instalacion-inst-cupsys2">
 		<title>Instalación del sistema de impresión <acronym>CUPS</acronym> (segunda parte)</title>
 
-<screen><computeroutput>--------------------- Sourcerer Apt Watcher ---------------------
-Configure: foomatic-filters
-Tagging (entrada estándar) for rebuild
------------------------------------------------------------------
-Seleccionando el paquete foomatic-filters previamente no seleccionado.
+<screen><computeroutput>Seleccionando el paquete foomatic-filters previamente no seleccionado.
 (Leyendo la base de datos ...
-277267 ficheros y directorios instalados actualmente.)
-Desempaquetando foomatic-filters (de .../foomatic-filters_3.0.1-20040506-4_all.deb) ...
+135345 ficheros y directorios instalados actualmente.)
+Desempaquetando foomatic-filters (de .../foomatic-filters_3.0.2-1_all.deb) ...
 Seleccionando el paquete foomatic-db previamente no seleccionado.
-Desempaquetando foomatic-db (de .../foomatic-db_20040506-1_all.deb) ...
+Desempaquetando foomatic-db (de .../foomatic-db_20041013-1-1_all.deb) ...
 Seleccionando el paquete foomatic-db-engine previamente no seleccionado.
-Desempaquetando foomatic-db-engine (de .../foomatic-db-engine_3.0.1-20040506-1_i386.deb) ...
+Desempaquetando foomatic-db-engine (de .../foomatic-db-engine_3.0.2-2_i386.deb) ...
 Seleccionando el paquete foomatic-filters-ppds previamente no seleccionado.
-Desempaquetando foomatic-filters-ppds (de .../foomatic-filters-ppds_20040506-1_all.deb) ...
+Desempaquetando foomatic-filters-ppds (de .../foomatic-filters-ppds_20041013-1_all.deb) ...
 Seleccionando el paquete cupsomatic-ppd previamente no seleccionado.
-Desempaquetando cupsomatic-ppd (de .../cupsomatic-ppd_20040506-1_all.deb) ...
+Desempaquetando cupsomatic-ppd (de .../cupsomatic-ppd_20041013-1_all.deb) ...
+Seleccionando el paquete libcupsimage2 previamente no seleccionado.
+Desempaquetando libcupsimage2 (de .../libcupsimage2_1.1.20final+rc1-9_i386.deb) ...
+Seleccionando el paquete gs-esp previamente no seleccionado.
+Desempaquetando gs-esp (de .../gs-esp_7.07.1-9_i386.deb) ...
 Seleccionando el paquete cupsys previamente no seleccionado.
-Desempaquetando cupsys (de .../cupsys_1.1.20final+cvs20040330-4_i386.deb) ...
+Desempaquetando cupsys (de .../cupsys_1.1.20final+rc1-9_i386.deb) ...
 Seleccionando el paquete cupsys-client previamente no seleccionado.
-Desempaquetando cupsys-client (de .../cupsys-client_1.1.20final+cvs20040330-4_i386.deb) ...
+Desempaquetando cupsys-client (de .../cupsys-client_1.1.20final+rc1-9_i386.deb) ...
 Seleccionando el paquete cupsys-driver-gimpprint-data previamente no seleccionado.
-Desempaquetando cupsys-driver-gimpprint-data (de .../cupsys-driver-gimpprint-data_4.2.6-5_all.deb) ...
+Desempaquetando cupsys-driver-gimpprint-data (de .../cupsys-driver-gimpprint-data_4.2.7-4_all.deb) ...
 Seleccionando el paquete cupsys-driver-gimpprint previamente no seleccionado.
-Desempaquetando cupsys-driver-gimpprint (de .../cupsys-driver-gimpprint_4.2.6-5_i386.deb) ...
+Desempaquetando cupsys-driver-gimpprint (de .../cupsys-driver-gimpprint_4.2.7-4_i386.deb) ...
+Seleccionando el paquete hpijs previamente no seleccionado.
+Desempaquetando hpijs (de .../hpijs_1.6.2-1_i386.deb) ...
 Seleccionando el paquete foomatic-db-hpijs previamente no seleccionado.
-Desempaquetando foomatic-db-hpijs (de .../foomatic-db-hpijs_1.5-20040506-1_all.deb) ...
+Desempaquetando foomatic-db-hpijs (de .../foomatic-db-hpijs_1.5-20041013-1_all.deb) ...
 Seleccionando el paquete foomatic-bin previamente no seleccionado.
-Desempaquetando foomatic-bin (de .../foomatic-bin_3.0.1-20040506-1_all.deb) ...
+Desempaquetando foomatic-bin (de .../foomatic-bin_3.0.2-2_all.deb) ...
+Seleccionando el paquete libijs-0.35 previamente no seleccionado.
+Desempaquetando libijs-0.35 (de .../libijs-0.35_0.35-1_i386.deb) ...
+Seleccionando el paquete ijsgimpprint previamente no seleccionado.
+Desempaquetando ijsgimpprint (de .../ijsgimpprint_4.2.7-4_i386.deb) ...
 Seleccionando el paquete foomatic-db-gimp-print previamente no seleccionado.
-Desempaquetando foomatic-db-gimp-print (de .../foomatic-db-gimp-print_4.2.6-5_all.deb) ...
+Desempaquetando foomatic-db-gimp-print (de .../foomatic-db-gimp-print_4.2.7-4_all.deb) ...
 Seleccionando el paquete gimpprint-locales previamente no seleccionado.
-Desempaquetando gimpprint-locales (de .../gimpprint-locales_4.2.6-5_all.deb) ...
-Seleccionando el paquete psfontmgr previamente no seleccionado.
-Desempaquetando psfontmgr (de .../psfontmgr_0.11.8_all.deb) ...
+Desempaquetando gimpprint-locales (de .../gimpprint-locales_4.2.7-4_all.deb) ...
 Seleccionando el paquete cupsys-bsd previamente no seleccionado.
-Desempaquetando cupsys-bsd (de .../cupsys-bsd_1.1.20final+cvs20040330-4_i386.deb) ...
-Configurando foomatic-filters (3.0.1-20040506-4) ...
+Desempaquetando cupsys-bsd (de .../cupsys-bsd_1.1.20final+rc1-9_i386.deb) ...
+Configurando foomatic-filters (3.0.2-1) ...
 
 Creating config file /etc/foomatic/filter.conf with new version
 
-Configurando foomatic-db (20040506-1) ...
-Configurando foomatic-db-engine (3.0.1-20040506-1) ...
-Configurando foomatic-filters-ppds (20040506-1) ...
+Configurando foomatic-db (20041013-1) ...
+Configurando foomatic-db-engine (3.0.2-2) ...
+Configurando foomatic-filters-ppds (20041013-1) ...
 invoke-rc.d: unknown initscript, /etc/init.d/cupsys not found.
 
-Configurando cupsomatic-ppd (20040506-1) ...
-Configurando cupsys (1.1.20final+cvs20040330-4) ...
+Configurando cupsomatic-ppd (20041013-1) ...
+Configurando libcupsimage2 (1.1.20final+rc1-9) ...
+
+Configurando gs-esp (7.07.1-9) ...
+
+Configurando cupsys (1.1.20final+rc1-9) ...
+Adding group `lpadmin' (116)...
+Hecho.
 Starting printing system service: cupsd.
 
-Configurando cupsys-client (1.1.20final+cvs20040330-4) ...
-Configurando cupsys-driver-gimpprint-data (4.2.6-5) ...
-Configurando cupsys-driver-gimpprint (4.2.6-5) ...
+Configurando cupsys-client (1.1.20final+rc1-9) ...
+Configurando hpijs (1.6.2-1) ...
+Configurando foomatic-db-hpijs (1.5-20041013-1) ...
+Configurando foomatic-bin (3.0.2-2) ...
+Configurando libijs-0.35 (0.35-1) ...
+
+Configurando ijsgimpprint (4.2.7-4) ...
+Configurando foomatic-db-gimp-print (4.2.7-4) ...
+Configurando gimpprint-locales (4.2.7-4) ...
+Configurando cupsys-bsd (1.1.20final+rc1-9) ...
+
+Configurando cupsys-driver-gimpprint-data (4.2.7-4) ...
+Configurando cupsys-driver-gimpprint (4.2.7-4) ...
 No Gimp-Print PPD files to update.
 Reloading printing system service: cupsd.
 
-Configurando foomatic-db-hpijs (1.5-20040506-1) ...
-Configurando foomatic-bin (3.0.1-20040506-1) ...
-Configurando foomatic-db-gimp-print (4.2.6-5) ...
-Configurando gimpprint-locales (4.2.6-5) ...
-Configurando psfontmgr (0.11.8) ...
-Updating font configuration of psfontmgr...
-Cleaning up category postscript..
-Cleaning up category xfont..
-Cleaning up category type1..
-Cleaning up category pspreview..
-Updating category pspreview..
-Updating category type1..
-Updating category xfont..
-Updating category postscript..
-
-Configurando cupsys-bsd (1.1.20final+cvs20040330-4) ...
 </computeroutput></screen>
 	</example>
 
@@ -1570,36 +1596,22 @@ Paquetes sugeridos:
   gnome-cups-manager
 Se instalarán los siguientes paquetes NUEVOS:
   cups-pdf
-0 actualizados, 1 se instalarán, 0 para eliminar y 0 no actualizados.
-Se necesita descargar 0B/13,2kB de archivos.
-Se utilizarán 86,0kB de espacio de disco adicional después de desempaquetar.
---------------------- Sourcerer Apt Watcher ---------------------
-Configure: cups-pdf
------------------------------------------------------------------
+0 actualizados, 1 se instalarán, 0 para eliminar y 2 no actualizados.
+Se necesita descargar 0B/15,4kB de archivos.
+Se utilizarán 106kB de espacio de disco adicional después de desempaquetar.
 Seleccionando el paquete cups-pdf previamente no seleccionado.
 (Leyendo la base de datos ...
-283687 ficheros y directorios instalados actualmente.)
-Desempaquetando cups-pdf (de .../cups-pdf_1.3.1-5_i386.deb) ...
-Configurando cups-pdf (1.3.1-5) ...
+140777 ficheros y directorios instalados actualmente.)
+Desempaquetando cups-pdf (de .../cups-pdf_1.6.3-1_i386.deb) ...
+Configurando cups-pdf (1.6.3-1) ...
+Restarting printing system service: cupsd.
+
 </computeroutput></screen>
 		</example>
 
-		<para>Ahora sólo queda reiniciar el servidor <acronym>CUPS</acronym> para que el
-		nuevo <emphasis>backend</emphasis> esté disponible en el sistema:</para>
-
-		<example id="cups-instalacion-inst-cupsd">
-			<title>Reiniciando el demonio <application>cupsd</application></title>
-
-<screen><prompt>#</prompt> <userinput>/etc/init.d/cupsys restart</userinput>
-<computeroutput>Restarting printing system service: cupsd.</computeroutput></screen>
-		</example>
-
-		<para>Para saber donde se almacenarán los archivos <acronym>PDF</acronym>
-		generados por las impresoras virtuales, eche un vistazo al
-		archivo: <filename>/usr/share/doc/cups-pdf/README.Debian</filename>.
-		Este indica que los archivos <acronym>PDF</acronym> generados a partir
-		de los trabajos de impresión se almacenarán en:
-		<filename class="directory">$HOME/cups-pdf</filename>.</para>
+		<para>Los documentos <acronym>PDF</acronym> generados por las impresoras virtuales
+		se almacenarán en el directorio: <filename class="directory">$HOME/cups-pdf</filename>.
+		(Más datos en <filename>/usr/share/doc/cups-pdf/README.Debian</filename>).</para>
 
 		<para>Con este paquete finalizaría la parte de instalación de <acronym>CUPS</acronym>,
 		en las siguientes secciones se verán las modificaciones y configuración

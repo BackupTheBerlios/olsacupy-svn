@@ -58,8 +58,8 @@ nuevo cliente en cada una de las máquinas que quisiese utilizar. Piense ahora qu
 si, por un cambio de política de su empresa, se tenga que modificar cierto aspecto
 en todas las cuentas de los usuarios existentes...</para>
 
-<para>Si entramos en el aspecto de la compartición de archivos entre los distintos usuarios,
-o el almacén de los documentos de un determinado usuario, que puede utilizar múltiples
+<para>Si entramos en la compartición de archivos entre los distintos usuarios,
+o el almacenamiento de los documentos de un determinado usuario, que puede utilizar múltiples
 clientes, la cosa se complica. Y si a todo esto se le añade la gestión de las cuotas
 de impresión de todos y cada uno de los usuarios, se hace necesario buscar un
 método que facilite, en la medida de lo posible, la labor de administración.</para>
@@ -123,7 +123,7 @@ sistema operativo utilizado.</para>
 				<para><xref linkend="openldap-certificados-openldap"/>: la conexión segura
 				con el servidor OpenLDAP se trata en este capítulo, que va desde la creación
 				de los certificados, pasando por la configuración de OpenLDAP para
-				que soporte conexiones encriptadas, para finalizar con una serie de pruebas
+				que soporte conexiones cifradas, para finalizar con una serie de pruebas
 				sobre el sistema.</para>
 			</listitem>
 			<listitem>
@@ -221,9 +221,9 @@ sistema operativo utilizado.</para>
 				un breve informe sobre el proyecto PyKota.</para>
 			</listitem>
 			<listitem>
-				<para><xref linkend="pykota-obtencion"/>. Este capítulo muestra los cambios
-				que se han tenido que realizar al código fuente de PyKota para generar
-				el paquete <emphasis>deb</emphasis> de dicho software.</para>
+				<para><xref linkend="pykota-obtencion"/>. Este capítulo muestra el proceso que
+				se ha de seguir para obtener un un paquete <emphasis>deb</emphasis>
+				de PyKota, a partir de su código fuente.</para>
 			</listitem>
 			<listitem>
 				<para><xref linkend="pykota-instalacion"/>. Instalación del paquete
@@ -300,8 +300,8 @@ sistema operativo utilizado.</para>
 	<para><application>nombre-aplicacion</application>: indica el nombre de una
 	aplicación.</para>
 
-	<para><command>comando</command>: indica el nombre de un comando, o la ejecución
-	de un comando con algunos parámetros asociados.</para>
+	<para><command>orden</command>: indica el nombre de una orden, o la ejecución
+	de una orden con algunos parámetros asociados.</para>
 
 	<para><emphasis>cursiva</emphasis>: todo aquel texto que por alguna razón necesita
 	ser remarcado sobre el resto, bien sea por ser un anglicismos, bien por
@@ -337,36 +337,36 @@ sistema operativo utilizado.</para>
 <screen><prompt>#</prompt>      <lineannotation>-> prompt del sistema, en este caso representa
           la ejecución de código como el usuario root.</lineannotation></screen>
 
-<screen><userinput>/usr/bin/tree -L 1 /</userinput>    <lineannotation>-> Representa los comandos
-                         tecleados por el usuario.</lineannotation></screen>
+<screen><userinput>/usr/bin/tree -L 1 /</userinput>    <lineannotation>-> Representa las órdenes
+                         tecleadas por el usuario.</lineannotation></screen>
 
 <screen><computeroutput>/
 |-- bin
 |-- boot
-|-- cdrom
+|-- cdrom -> media/cdrom
 |-- dev
 |-- etc
-|-- floppy
 |-- home
 |-- initrd
 |-- lib
+|-- lib64
+|-- media
 |-- mnt
+|-- nonexistent
 |-- opt
 |-- proc
 |-- root
 |-- sbin
-|-- selinux
-|-- static
+|-- srv
 |-- sys
 |-- tmp
 |-- usr
 |-- var
-|-- vmlinuz -> boot/vmlinuz-2.6.6-01
-|-- vmlinuz.2.4 -> boot/vmlinuz-2.4.26-01
-`-- vmlinuz.old -> boot/vmlinuz-2.4.27-pre2-lck1-01
+|-- vmlinuz -> boot/vmlinuz-2.6.8.1-01
+`-- vmlinuz.old -> boot/vmlinuz-2.6.7-1-386
 
-20 directories, 3 files</computeroutput>    <lineannotation>-> Representa la salida del ordenador,
-                           tras la ejecución de un comando por
+21 directories, 2 files</computeroutput>    <lineannotation>-> Representa la salida del ordenador,
+                           tras la ejecución de una orden por
                            parte de un usuario.</lineannotation></screen>
 
 	<example>
@@ -378,6 +378,47 @@ sistema operativo utilizado.</para>
 <programlisting> * Listado de código
  * Ejemplos de archivos de configuración
  * etc.</programlisting>
+</sect1>
+
+<sect1 id="prefacio-agradecimientos">
+	<title>Agradecimientos</title>
+
+	<para>Los primeros pensamientos y agradecimientos van dirigidos a todos y cada uno de los desarrolladores
+	que han hecho posible que el software utilizado para realizar esta documentación exista.</para>
+
+	<para>Tampoco hay que olvidar a las dos personas que han hecho que esta documentación se llevase a
+	cabo:</para>
+
+	<itemizedlist>
+		<listitem>
+			<para>
+				<ulink url="http://www.ipb.pt/~rlopes/">Rui Pedro Lopes</ulink> <email>rlopes (en) ipb (punto) pt</email>
+			</para>
+		</listitem>
+		<listitem>
+			<para><ulink url="http://www.ipb.pt/~nuno/">Nuno Gonçalves Rodrigues</ulink>
+			<email>nuno (en) ipb (punto) pt</email></para>
+		</listitem>
+	</itemizedlist>
+
+	<para>La siguiente lista, muestra aquellas personas que de alguna u otra forma, han participado en la
+	realización de esta documentación. El orden utilizado para la presentación es completamente aleatorio.</para>
+
+	<itemizedlist>
+		<listitem>
+			<para>
+				Juan Sierra Pons <email>juansierrapons (en) yahoo (punto) es</email>
+				(<emphasis>Sugerencia para indicar el orden de los esquemas en el
+				<xref linkend="samba-ajustes-ldap"/>.</emphasis>)
+			</para>
+		</listitem>
+		<listitem>
+			<para>Juan José Muñoz Martín <email>juanjo.munoz (en) yecla (punto) es</email>
+			(<emphasis>Gracias a sus correos, aclaración de ciertos aspectos en el
+			<xref linkend="openldap-certificados-openldap"/></emphasis>)</para>
+		</listitem>
+	</itemizedlist>
+
 </sect1>
 </preface>
 

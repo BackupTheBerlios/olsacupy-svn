@@ -123,7 +123,7 @@
 					</row>
 					<row>
 						<entry>Internacionalización</entry>
-						<entry>Sí: inglés, francés, español, portugués y sueco.
+						<entry>Sí: inglés, francés, español, portugués, brasileño, sueco, tailandés, alemán e italiano.
 						Están planificadas más traducciones</entry>
 						<entry>Sí: inglés y francés. Están planificadas
 						más traducciones</entry>
@@ -292,7 +292,7 @@
 							</para></listitem>
 							<listitem><para>
 							Delegación del control de copias a cualquier
-							comando externo a su elección
+							orden externa a su elección
 							</para></listitem>
 							<listitem><para>
 							Escaneo de trabajos de impresión muy poco
@@ -480,11 +480,11 @@
 						se enciende una impresora, PyKota intenta solucionar
 						lo mejor posible esta limitación de las impresoras.
 						Con métodos contadores externos, la precisión la marcan
-						estos métodos, ya que se especifica directamente el
-						comando a utilizar para computar el tamaño del trabajo.
+						estos métodos, ya que se especifica directamente la
+						orden a utilizar para computar el tamaño del trabajo.
 						Sin embargo, se puede sufrir los mismos problemas
 						que posee PrintBill con los atascos de papel, dependerá
-						de como el comando externo compute el tamaño del trabajo.
+						de como la orden externa compute el tamaño del trabajo.
 						Como no cuenta en ningún caso el consumo de tinta,
 						PyKota es injusto con aquellas personas que hacen poco
 						consumo de tinta, ya que los usuarios que hacen mucho
@@ -571,22 +571,19 @@
 
 		<itemizedlist mark="fillcircle">
 			<listitem>
-				<para>Soporta cualquier impresora que pueda reportar su
-				contador interno de páginas</para>
+				<para>Los métodos de contabilidad por hardware o por software son completamente configurables</para>
 			</listitem>
 			<listitem>
-				<para>Soporta cualquier otro tipo de impresoras a través
-				de Ghostscript. Dependiendo de la impresora, tal vez
-				se necesite algún tipo de configuración</para>
+				<para>Soporta cualquier impresora que pueda devolver su
+				contador interno de páginas. Puede preguntar a las impresoras por su contador interno de páginas
+				vía <acronym>SNMP</acronym>, Netatalk, <acronym>PJL</acronym>, <acronym>PS</acronym> o
+				cualquier otra forma. Esto es completamente configurable</para>
 			</listitem>
 			<listitem>
-				<para>Puede preguntar a las impresoras por su contador interno
-				de páginas a través de <acronym>SNMP</acronym>, Netatalk o
-				cualquier otro medio de su elección. Este es completamente
-				configurable.</para>
-			</listitem>
-			<listitem>
-				<para>Se pueden configurar métodos externos de contabilidad</para>
+				<para>Soporta <acronym>DSC</acronym> y PostScript binarios, <acronym>PDF</acronym>,
+				<acronym>PCL5</acronym>, <acronym>PCLXL</acronym> (o <acronym>PCL6</acronym>)
+				e impresoras <acronym>ESC/P2</acronym> nativamente por métodos de contabilidad software.
+				Se están preparando más formatos</para>
 			</listitem>
 		</itemizedlist>
 	</sect2>
@@ -609,9 +606,6 @@
 				<para>Soporta cuotas sobre el balance de consumo en cualquier moneda.
 				Se pueden asignar cuotas sobre el balance de consumo a cada usuario.
 				Los balances de las cuentas se comparten entre todas las impresoras</para>
-			</listitem>
-			<listitem>
-				<para></para>
 			</listitem>
 			<listitem>
 				<para>Las cuotas de papel y de balance de consumo se pueden
@@ -700,6 +694,10 @@
 				<para>Se pueden ajustar automáticamente las cuotas mínimas o
 				el balance de saldo de forma regular o lanzarlo manualmente</para>
 			</listitem>
+			<listitem>
+				<para>Herramienta de exportación de datos muy potente, que permite llevar los datos
+				de PyKota a otro software</para>
+			</listitem>
 		</itemizedlist>
 	</sect2>
 
@@ -708,14 +706,14 @@
 
 		<itemizedlist mark="fillcircle">
 			<listitem>
-				<para>Todos los comandos de consola aceptan el parámetro
+				<para>Todas las órdenes de consola aceptan el parámetro
 				-h | --help, que mostrará todas las opciones disponibles y ejemplos
 				de uso</para>
 			</listitem>
 			<listitem>
 				<para>Completamente internacionalizada. Actualmente soporta los
-				idiomas: inglés, francés, español, portugués y sueco. Más en
-				camino</para>
+				idiomas: inglés, francés, español, portugués, brasileño, sueco,
+				tailandés, alemán e italiano. Más en camino</para>
 			</listitem>
 		</itemizedlist>
 	</sect2>
@@ -730,7 +728,7 @@
 		<title>Página principal</title>
 
 		<para>Pykota dispone de una página principal,
-		<ulink url="http://www.librelogiciel.com/software/PyKota/action_Presentation.html">www.librelogiciel.com/software/PyKota/action_Presentation.html</ulink>,
+		<ulink url="http://www.librelogiciel.com/software/PyKota/Presentation/action_Presentation">www.librelogiciel.com/software/PyKota/Presentation/action_Presentation</ulink>,
 		desde donde puede obtener mucha información. De hecho, para elaborar esta sección
                 ha utilizado la información allí disponible.</para>
 	</sect2>
@@ -774,7 +772,7 @@
 		</itemizedlist>
 
 		<para>Para más detalles sobre las formas de obtener PyKota, visite el siguiente
-		enlace: <ulink url="http://www.librelogiciel.com/software/PyKota/Download/action_Download.html">www.librelogiciel.com/software/PyKota/Download/action_Download.html</ulink>.</para>
+		enlace: <ulink url="http://www.librelogiciel.com/software/PyKota/Download/action_Download">www.librelogiciel.com/software/PyKota/Download/action_Download</ulink>.</para>
 	</sect2>
 
 	<sect2 id="pykota-documentacion">
@@ -797,7 +795,7 @@
 
 			<para>Puede acceder al canal de #pykota alojado en el servidor
 			irc.freenode.net. Más información en:
-			<ulink url="www.librelogiciel.com/software/PyKota/IRC/action_IRC.html">www.librelogiciel.com/software/PyKota/IRC/action_IRC.html</ulink>.</para>
+			<ulink url="http://www.librelogiciel.com/software/PyKota/IRC/action_IRC">www.librelogiciel.com/software/PyKota/IRC/action_IRC</ulink>.</para>
 		</formalpara>
 
 		<formalpara>
@@ -822,7 +820,7 @@
 		<para>La página principal de PyKota pone a su disposición un formulario desde el
 		cual se podrán enviar sugerencias, retroalimentación y posibles errores encontrados
 		en el programa al autor del mismo. Más detalles en:
-		<ulink url="http://www.librelogiciel.com/software/PyKota/Download/Feedback.html">www.librelogiciel.com/software/PyKota/Download/Feedback.html</ulink>.</para>
+		<ulink url="http://www.librelogiciel.com/software/PyKota/Features/Feedback">www.librelogiciel.com/software/PyKota/Features/Feedback</ulink>.</para>
 
 		<para>Aunque si lo desea, puede hacer uso de la dirección de correo electrónico del autor
 		para tal fin: Jerome Alet, <email>alet@librelogiciel.com</email>.</para>

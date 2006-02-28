@@ -100,14 +100,14 @@
 	<para>
 	Al igual que muchos otros sistemas de impresión, <acronym>CUPS</acronym> gira entorno
 	a un proceso central de planeamiento (scheduling) de impresión, que cursa los
-	trabajos de impresión, procesa los comandos de administración y facilita la información
+	trabajos de impresión, procesa las órdenes de administración y facilita la información
 	de estado de la impresora a los programas locales y remotos, informado a los usuario
 	que lo necesiten. La <xref linkend="cups-diagrama-organizacion-interna"/> muestra la organización
 	básica de <acronym>CUPS</acronym>.</para>
 
 	<figure id="cups-diagrama-organizacion-interna">
 		<title>Diagrama de la organización interna de <acronym>CUPS</acronym><footnote><para>Si
-		quiere obtener el código fuente de esta figura realizada con <xref linkend="dia"/> pulse
+		quiere obtener el código fuente de esta imagen realizada con <xref linkend="dia"/> pulse
 		<ulink url="./imagenes/cups-diagrama-organizacion-interna.dia">aquí</ulink></para></footnote></title>
 
 		<mediaobject>
@@ -216,17 +216,17 @@
 	</sect2>
 
 
-	<sect2 id="cups-comandos-de-berkeley-y-system-v">
-		<title>Comandos de Berkeley y System V</title>
+	<sect2 id="cups-ordenes-de-berkeley-y-system-v">
+		<title>Órdenes de Berkeley y System V</title>
 		<para>
-		<acronym>CUPS</acronym> provee las interfaces de los comandos de consola
+		<acronym>CUPS</acronym> provee las interfaces de las órdenes de consola
 		de System V y Berkeley, que permiten el envío de trabajos y comprobación del estado
-		de una impresora. Los comandos <command>lpstat</command> y <command>lpcstatus</command>
+		de una impresora. Las órdenes <command>lpstat</command> y <command>lpcstatus</command>
 		también muestran impresoras de rec (<quote>impresora@servidor</quote>) cuando
 		la búsqueda de impresoras está habilitada.
 		</para>
 
-		<para>Los comandos de administración de System V se suministran para manejar
+		<para>Las órdenes de administración de System V se suministran para manejar
 		las impresoras y las clases. La herramienta de administración de Berkeley
 		(<command>lpc</command>) sólo es soportada en un modo de solo lectura, para comprobar
 		el estado actual de las colas de impresión y del planificador.</para>
@@ -357,7 +357,7 @@
 		<para>La implementación de la autentificación en modo <emphasis>Digest</emphasis>
 		de la versión 1.1 de <acronym>CUPS</acronym> se realiza gracias al uso
 		de un archivo especial de claves <acronym>MD5</acronym> en vez del archivo
-		de claves de Unix. Este archivo se maneja con el nuevo comando
+		de claves de Unix. Este archivo se maneja con la nueva orden
 		<command>lppasswd</command>.</para>
 	</sect2>
 
@@ -435,7 +435,7 @@
 		las opcionales. Las opciones opcionales <quote>crear trabajo</quote> y
 		<quote>enviar archivo</quote> ya están implementadas, permitiendo una
 		compatibilidad mejor con el sistema de impresión System V (un identificador
-		de trabajo por cada comando <command>lp</command>), así como el soporte
+		de trabajo por cada orden <command>lp</command>), así como el soporte
 		de páginas de separación.</para>
 	</sect2>
 
@@ -469,12 +469,12 @@
 		<title>Definiciones de impresoras y opciones por parte del usuario</title>
 
 		<para><acronym>CUPS</acronym> 1.1 incluye soporte para las definiciones de usuario
-		de impresoras y opciones gracias a un nuevo comando, <command>lpoptions</command>.
+		de impresoras y opciones gracias a una nueva orden, <command>lpoptions</command>.
 		Las impresoras definidas por el usuario son instancias especiales de las impresoras
 		disponibles (por ejemplo <quote>printer/instance</quote> o
 		<quote>printer@server/instance</quote>), que pueden tener sus propias opciones
 		por defecto, como el tamaño del papel, la resolución y así en adelante.
-		El comando <command>lpoptions</command> se puede utilizar también para establecer
+		La orden <command>lpoptions</command> se puede utilizar también para establecer
 		una cola de impresión diferente a la definida por defecto.</para>
 	</sect2>
 

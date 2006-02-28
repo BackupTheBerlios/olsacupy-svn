@@ -37,7 +37,7 @@ que haga uso del servidor <acronym>LDAP</acronym> para la autentificación de usu
 La particularidad es que tendrán la misma cuenta de acceso
 para los todos sistemas, tanto en <acronym>GNU</acronym>/Linux como en Windows, de toda la red.</para>
 
-<para>Se ha seleccionado la versión 3.0.4 de Samba, que acompaña a la versión
+<para>Se ha seleccionado la versión 3.0.* de Samba, que acompaña a la versión
 en desarrollo de Debian GNU/Linux.</para>
 
 </sect1>
@@ -77,21 +77,21 @@ en desarrollo de Debian GNU/Linux.</para>
 <computeroutput><![CDATA[Package: samba
 Priority: optional
 Section: net
-Installed-Size: 5912
+Installed-Size: 6036
 Maintainer: Eloy A. Paris <peloy@debian.org>
 Architecture: i386
-Version: 3.0.4-5
+Version: 3.0.7-1
 Replaces: samba-common (<= 2.0.5a-2)
-Depends: samba-common]]> <co id="dependecia-samba-common"/> <![CDATA[(= 3.0.4-5), netbase, logrotate,
+Depends: samba-common]]> <co id="dependecia-samba-common"/> <![CDATA[(= 3.0.7-1), netbase, logrotate,
 libacl1 (>= 2.2.11-1), libc6 (>= 2.3.2.ds1-4), libcomerr2 (>= 1.33-3),
 libcupsys2-gnutls10 (>= 1.1.20final-1), libkrb53 (>= 1.3.2),
 libldap2 (>= 2.1.17-1), libpam0g (>= 0.76), libpopt0 (>= 1.7),
 debconf (>= 0.5) | debconf-2.0, libpam-runtime (>= 0.76-13.1),
 libpam-modules
 Suggests: samba-doc]]> <co id="sugerencia-samba-doc"/> <![CDATA[
-Filename: pool/main/s/samba/samba_3.0.4-5_i386.deb
-Size: 2360466
-MD5sum: 47bd4f3c91c0c4542c9a1cdb61416516
+Filename: pool/main/s/samba/samba_3.0.7-1_i386.deb
+Size: 2412814
+MD5sum: b60a9942c8057c2f7ef3868bc79954a0
 Description: a LanManager-like file and printer server for Unix
  The Samba software suite is a collection of programs that
  implements the SMB protocol for unix systems, allowing you to serve
@@ -141,18 +141,18 @@ Task: file-server, print-server
 <computeroutput><![CDATA[Package: samba-common
 Priority: optional
 Section: net
-Installed-Size: 4392
+Installed-Size: 4456
 Maintainer: Eloy A. Paris <peloy@debian.org>
 Architecture: i386
 Source: samba
-Version: 3.0.4-5
+Version: 3.0.7-1
 Replaces: samba (<< 2.999+3.0.alpha21-4)
 Depends: debconf, libpam-modules, libc6 (>= 2.3.2.ds1-4),
-libcomerr2 (>= 1.33-3), libkrb53 (>= 1.3.2),
-libldap2 (>= 2.1.17-1), libpopt0 (>= 1.7)
-Filename: pool/main/s/samba/samba-common_3.0.4-5_i386.deb
-Size: 1880226
-MD5sum: 2dd135efcdeae9778b02aa0b22bd6a26
+libcomerr2 (>= 1.33-3), libkrb53 (>= 1.3.2), libldap2 (>= 2.1.17-1),
+libpopt0 (>= 1.7)
+Filename: pool/main/s/samba/samba-common_3.0.7-1_i386.deb
+Size: 1904980
+MD5sum: 46ffe1e90eaf4dea5337ea7d87ea7732
 Description: Samba common files used by both the server and the client
  The Samba software suite is a collection of programs that
  implements the SMB protocol for unix systems, allowing you to serve
@@ -177,11 +177,13 @@ Description: Samba common files used by both the server and the client
 Creando árbol de dependencias... Hecho
 Se instalarán los siguientes paquetes extras:
   samba-common
+Paquetes sugeridos:
+  samba-doc
 Se instalarán los siguientes paquetes NUEVOS:
   samba samba-common
-0 actualizados, 2 se instalarán, 0 para eliminar y 5 no actualizados.
-Se necesita descargar 0B/3988kB de archivos.
-Se utilizarán 9839kB de espacio de disco adicional después de desempaquetar.
+0 actualizados, 2 se instalarán, 0 para eliminar y 1 no actualizados.
+Se necesita descargar 0B/4318kB de archivos.
+Se utilizarán 10,7MB de espacio de disco adicional después de desempaquetar.
 ¿Desea continuar? [S/n]</computeroutput> <userinput>S</userinput>
 <computeroutput>Preconfiguring packages ...</computeroutput></screen>
 		</example>
@@ -198,76 +200,54 @@ Se utilizarán 9839kB de espacio de disco adicional después de desempaquetar.
 		
 				<caption>
 					<para>Elección del grupo de trabajo/dominio que servirá el servidor Samba
-					sujeto a la instalación.</para>
+					sujeto a la instalación. En este caso <quote>GSRDOMAIN</quote>.</para>
 				</caption>
 			</mediaobject>
 		</figure>
 
-		<example id="samba-instalacion-pasos-servidor-ejemplo4">
-			<title>Instalación de <quote>samba</quote> (segunda parte)</title>
-
-<screen>
-<computeroutput>--------------------- Sourcerer Apt Watcher ---------------------
-Configure: samba-common
------------------------------------------------------------------
-Seleccionando el paquete samba-common previamente no seleccionado.
-(Leyendo la base de datos ...
-263674 ficheros y directorios instalados actualmente.)
-Desempaquetando samba-common (de .../samba-common_3.0.4-5_i386.deb) ...
-Seleccionando el paquete samba previamente no seleccionado.
-Desempaquetando samba (de .../samba_3.0.4-5_i386.deb) ...
-Configurando samba-common (3.0.4-5) ...
-
-Configurando samba (3.0.4-5) ...
-Generating /etc/default/samba... <co id="etc-default-samba"/>
---------- IMPORTANT INFORMATION FOR XINETD USERS ---------- <co id="informacion-usuarios-xinetd"/>
-The following line will be added to your /etc/inetd.conf file:
-
-<![CDATA[#<off># netbios-ssn     stream  tcp     nowait  root    /usr/sbin/tcpd  /usr/sbin/smbd]]>
-
-If you are indeed using xinetd, you will have to convert the
-above into /etc/xinetd.conf format, and add it manually. See
-/usr/share/doc/xinetd/README.Debian for more information.
------------------------------------------------------------
-
-Starting Samba daemons: nmbd smbd.
-
-</computeroutput></screen>
-		</example>
-
-		<calloutlist>
-			<callout arearefs="etc-default-samba">
-				<para>Archivo destinado a las opciones por defecto de los
-				scripts de inicio del servidor Samba.</para>
-			</callout>
-			<callout arearefs="informacion-usuarios-xinetd">
-				<para>Información para los usuarios de xinetd (servidor que reemplaza
-				al superservidor de Internet -inetd-), importante si pretende
-				utilizarlo para ejecutar Samba.</para>
-			</callout>
-		</calloutlist>
-
-		<para>Una vez se ha terminado de instalar el paquete, lo reconfiguramos, para seleccionar
-		algunas opciones más relativas a Samba. Tenga en cuenta que esta parte puede no ser
-		necesaria en su sistema, si a la hora de instalar el paquete se le han realizado
-		todas las preguntas que se muestran a continuación, no será necesario realizar esta
-		parte.</para>
-
-		<example id="samba-instalacion-pasos-servidor-ejemplo5">
-			<title>Configuración preliminar de <quote>samba</quote> (primera parte)</title>
-<screen><prompt>#</prompt> <userinput>/usr/sbin/dpkg-reconfigure --priority=low samba</userinput>
-<computeroutput>
-Stopping Samba daemons: nmbd smbd.</computeroutput></screen>
-		</example>
-
 		<figure>
-			<title>¿Cómo ejecutar Samba (demonios/inetd)?</title>
+			<title>¿Contraseñas cifradas?</title>
 			<mediaobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/samba-instalacion-samba2.eps" align="center" format="EPS" scale="35"/>
 				</imageobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/samba-instalacion-samba2.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>Se responde afirmativamente a esta pregunta, de esta forma se hará uso
+					de cifrado para el intercambio/almacén de contraseñas.</para>
+				</caption>
+			</mediaobject>
+		</figure>
+
+		<figure>
+			<title>¿Utilizar la información del <acronym>DHCP</acronym> para configurar <acronym>WINS</acronym>?</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/samba-instalacion-samba3.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/samba-instalacion-samba3.png" format="PNG"/>
+				</imageobject>
+		
+				<caption>
+					<para>En esta documentación no se van a utilizar servidores
+					<application>WINS</application> ni <application>DHCP</application>, por lo
+					que se responde que no a esta pregunta.</para>
+				</caption>
+			</mediaobject>
+		</figure>
+
+		<figure>
+			<title>¿Cómo ejecutar Samba (demonios/inetd)?</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/samba-instalacion-samba4.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/samba-instalacion-samba4.png" format="PNG"/>
 				</imageobject>
 		
 				<caption>
@@ -288,10 +268,10 @@ Stopping Samba daemons: nmbd smbd.</computeroutput></screen>
 			<title>Creación de la base de datos de contraseñas</title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/samba-instalacion-samba3.eps" align="center" format="EPS" scale="35"/>
+					<imagedata fileref="./imagenes/samba-instalacion-samba5.eps" align="center" format="EPS" scale="35"/>
 				</imageobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/samba-instalacion-samba3.png" format="PNG"/>
+					<imagedata fileref="./imagenes/samba-instalacion-samba5.png" format="PNG"/>
 				</imageobject>
 		
 				<caption>
@@ -301,60 +281,66 @@ Stopping Samba daemons: nmbd smbd.</computeroutput></screen>
 			</mediaobject>
 		</figure>
 
-		<figure>
-			<title>Configuración del grupo de trabajo/dominio de <command>samba</command></title>
-			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/samba-instalacion-samba4.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/samba-instalacion-samba4.png" format="PNG"/>
-				</imageobject>
-		
-				<caption>
-					<para>Elección del grupo de trabajo/dominio que servirá el servidor Samba
-					sujeto a la instalación. En este caso <quote>GSRDOMAIN</quote>.</para>
-				</caption>
-			</mediaobject>
-		</figure>
+		<example id="samba-instalacion-pasos-servidor-ejemplo4">
+			<title>Instalación de <quote>samba</quote> (segunda parte)</title>
 
-		<figure>
-			<title>¿Contraseñas cifradas?</title>
-			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/samba-instalacion-samba5.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/samba-instalacion-samba5.png" format="PNG"/>
-				</imageobject>
-		
-				<caption>
-					<para>Se responde afirmativamente a esta pregunta, de esta forma se hará uso
-					de cifrado para el intercambio/almacén de contraseñas.</para>
-				</caption>
-			</mediaobject>
-		</figure>
+<screen>
+<computeroutput>Seleccionando el paquete samba-common previamente no seleccionado.
+(Leyendo la base de datos ...
+133203 ficheros y directorios instalados actualmente.)
+Desempaquetando samba-common (de .../samba-common_3.0.7-1_i386.deb) ...
+Seleccionando el paquete samba previamente no seleccionado.
+Desempaquetando samba (de .../samba_3.0.7-1_i386.deb) ...
+Configurando samba-common (3.0.7-1) ...
 
-		<figure>
-			<title>¿Utilizar la información del <acronym>DHCP</acronym> para configurar <acronym>WINS</acronym>?</title>
-			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/samba-instalacion-samba6.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/samba-instalacion-samba6.png" format="PNG"/>
-				</imageobject>
-		
-				<caption>
-					<para>En esta documentación no se van a utilizar servidores
-					<application>WINS</application> ni <application>DHCP</application>, por lo
-					que se responde que no a esta pregunta.</para>
-				</caption>
-			</mediaobject>
-		</figure>
+Configurando samba (3.0.7-1) ...
+Generating /etc/default/samba... <co id="etc-default-samba"/>
+TDBSAM version too old (0), trying to convert it.
+TDBSAM converted successfully.
+--------- IMPORTANT INFORMATION FOR XINETD USERS ---------- <co id="informacion-usuarios-xinetd"/>
+The following line will be added to your /etc/inetd.conf file:
 
-		<para>Tras estos pasos, el servidor Samba ya se encontraría instalado e inicialmente
-		configurado. En el siguiente capítulo se verá como adecuar la configuración a sus necesidades.</para>
+<![CDATA[#<off># netbios-ssn     stream  tcp     nowait  root    /usr/sbin/tcpd  /usr/sbin/smbd]]>
+
+If you are indeed using xinetd, you will have to convert the
+above into /etc/xinetd.conf format, and add it manually. See
+/usr/share/doc/xinetd/README.Debian for more information.
+-----------------------------------------------------------
+
+Starting Samba daemons: nmbd smbd.
+
+localepurge: checking system for new locale ...
+localepurge: processing locale files ...
+localepurge: processing man pages ...
+
+</computeroutput></screen>
+		</example>
+
+		<calloutlist>
+			<callout arearefs="etc-default-samba">
+				<para>Archivo destinado a las opciones por defecto de los
+				scripts de inicio del servidor Samba.</para>
+			</callout>
+			<callout arearefs="informacion-usuarios-xinetd">
+				<para>Información para los usuarios de xinetd (servidor que reemplaza
+				al superservidor de Internet -<application>inetd</application>-), importante si pretende
+				utilizarlo para ejecutar Samba.</para>
+			</callout>
+		</calloutlist>
+
+		<note><para>Si a la hora de instalar el paquete no se le han realizado
+		todas las preguntas que se han mostrado en el proceso de instalación, puede forzarlo tecleando
+		la siguiente orden:</para>
+
+		<example id="samba-instalacion-pasos-servidor-ejemplo5">
+			<title>Configuración preliminar de <quote>samba</quote></title>
+
+<screen><prompt>#</prompt> <userinput>/usr/sbin/dpkg-reconfigure --priority=low samba</userinput></screen>
+		</example></note>
+
+		<para>En estos momentos el servidor Samba ya se encontraría instalado e inicialmente
+		configurado. En el siguiente capítulo se verá como adecuar la configuración a sus necesidades, pero
+		antes se tratará la instalación de los clientes en la siguiente sección.</para>
 
 	</sect2>
 
@@ -371,20 +357,21 @@ Stopping Samba daemons: nmbd smbd.</computeroutput></screen>
 <computeroutput><![CDATA[Package: smbclient
 Priority: optional
 Section: net
-Installed-Size: 5916
+Installed-Size: 5988
 Maintainer: Eloy A. Paris <peloy@debian.org>
 Architecture: i386
 Source: samba
-Version: 3.0.4-5
+Version: 3.0.7-1
 Replaces: samba (<< 2.999+3.0.alpha21-4)
 Provides: samba-client
-Depends: samba-common]]> <co id="dependencia-samba-common1"/> <![CDATA[ (= 3.0.4-5), libc6 (>= 2.3.2.ds1-4),
-libcomerr2 (>= 1.33-3), libkrb53 (>= 1.3.2), libldap2 (>= 2.1.17-1),
-libncurses5 (>= 5.4-1), libpopt0 (>= 1.7), libreadline4 (>= 4.3-1)
+Depends: samba-common]]> <co id="dependencia-samba-common1"/> <![CDATA[ (= 3.0.7-1),
+libc6 (>= 2.3.2.ds1-4), libcomerr2 (>= 1.33-3), libkrb53 (>= 1.3.2),
+libldap2 (>= 2.1.17-1), libncurses5 (>= 5.4-1), libpopt0 (>= 1.7),
+libreadline4 (>= 4.3-1)
 Suggests: smbfs]]> <co id="sugerencia-smbfs"/> <![CDATA[
-Filename: pool/main/s/samba/smbclient_3.0.4-5_i386.deb
-Size: 2382652
-MD5sum: 2167b566f174efbf82611329937450cd
+Filename: pool/main/s/samba/smbclient_3.0.7-1_i386.deb
+Size: 2411216
+MD5sum: 3c4fdf54182fce094b94a6f3e420e6f9
 Description: a LanManager-like simple client for Unix
  The Samba software suite is a collection of programs that
  implements the SMB protocol for unix systems, allowing you to serve
@@ -400,20 +387,19 @@ Task: file-server, print-server
 Package: smbfs
 Priority: optional
 Section: otherosfs
-Installed-Size: 716
+Installed-Size: 720
 Maintainer: Eloy A. Paris <peloy@debian.org>
 Architecture: i386
 Source: samba
-Version: 3.0.4-5
+Version: 3.0.7-1
 Replaces: smbfsx
-Depends: netbase (>= 2.02), samba-common]]> <co id="dependencia-samba-common2"/> <![CDATA[(= 3.0.4-5),
-libc6 (>= 2.3.2.ds1-4), libcomerr2 (>= 1.33-3),
-libkrb53 (>= 1.3.2), libldap2 (>= 2.1.17-1)
+Depends: netbase (>= 2.02), samba-common]]> <co id="dependencia-samba-common2"/> <![CDATA[(= 3.0.7-1),
+libc6 (>= 2.3.2.ds1-4), libcomerr2 (>= 1.33-3), libkrb53 (>= 1.3.2), libldap2 (>= 2.1.17-1)
 Suggests: smbclient]]> <co id="sugerencia-smbclient"/> <![CDATA[
 Conflicts: smbfsx, suidmanager (<< 0.50)
-Filename: pool/main/s/samba/smbfs_3.0.4-5_i386.deb
-Size: 309678
-MD5sum: 5e4809bb7c633d18df260a0f5548bb71
+Filename: pool/main/s/samba/smbfs_3.0.7-1_i386.deb
+Size: 311844
+MD5sum: 3051f174f56f0b1cc5056364847daa50
 Description: mount and umount commands for the smbfs (for kernels >= than 2.2.x)
  Smbfs is a filesystem which understands the SMB protocol.
  This is the protocol Windows for Workgroups, Windows NT or
@@ -456,24 +442,23 @@ Task: file-server, print-server
 
 <screen><prompt>#</prompt> <userinput>/usr/bin/apt-get install smbclient smbfs</userinput>
 <computeroutput><![CDATA[Leyendo lista de paquetes... Hecho
-Creando árbol de dependencias... 50%
 Creando árbol de dependencias... Hecho
 Se instalarán los siguientes paquetes NUEVOS:
   smbclient smbfs
-0 actualizados, 2 se instalarán, 0 para eliminar y 5 no actualizados.
-Se necesita descargar 0B/2684kB de archivos.
-Se utilizarán 6754kB de espacio de disco adicional después de desempaquetar.
---------------------- Sourcerer Apt Watcher ---------------------
-Configure: smbclient
------------------------------------------------------------------
+0 actualizados, 2 se instalarán, 0 para eliminar y 1 no actualizados.
+Se necesita descargar 0B/2723kB de archivos.
+Se utilizarán 6869kB de espacio de disco adicional después de desempaquetar.
 Seleccionando el paquete smbclient previamente no seleccionado.
 (Leyendo la base de datos ...
-263489 ficheros y directorios instalados actualmente.)
-Desempaquetando smbclient (de .../smbclient_3.0.4-5_i386.deb) ...
+133280 ficheros y directorios instalados actualmente.)
+Desempaquetando smbclient (de .../smbclient_3.0.7-1_i386.deb) ...
 Seleccionando el paquete smbfs previamente no seleccionado.
-Desempaquetando smbfs (de .../smbfs_3.0.4-5_i386.deb) ...
-Configurando smbclient (3.0.4-5) ...
-Configurando smbfs (3.0.4-5) ...]]></computeroutput></screen>
+Desempaquetando smbfs (de .../smbfs_3.0.7-1_i386.deb) ...
+Configurando smbclient (3.0.7-1) ...
+Configurando smbfs (3.0.7-1) ...
+localepurge: checking system for new locale ...
+localepurge: processing locale files ...
+localepurge: processing man pages ...]]></computeroutput></screen>
 		</example>
 
 		<para>Una vez se ha completado el proceso de instalación, el sistema tendrá disponibles
@@ -485,9 +470,7 @@ Configurando smbfs (3.0.4-5) ...]]></computeroutput></screen>
 			<quote>smbfs</quote></title>
 
 <screen><prompt>$</prompt> <userinput>/usr/bin/dpkg -L smbclient  | /bin/grep bin</userinput>
-<computeroutput>
-/usr/bin
-/usr/bin/smbclient
+<computeroutput>/usr/bin/smbclient
 /usr/bin/smbtar
 /usr/bin/rpcclient
 /usr/bin/smbspool
@@ -495,10 +478,7 @@ Configurando smbfs (3.0.4-5) ...]]></computeroutput></screen>
 /usr/bin/smbcacls
 /usr/bin/smbcquotas</computeroutput>
 <prompt>$</prompt> <userinput>/usr/bin/dpkg -L smbfs  | /bin/grep bin</userinput>
-<computeroutput>
-/sbin
-/usr/bin
-/usr/bin/smbmount
+<computeroutput>/usr/bin/smbmount
 /usr/bin/smbumount
 /usr/bin/smbmnt
 /sbin/mount.smbfs

@@ -29,17 +29,17 @@ samba-doc, por lo que si no lo ha instalado en su sistema, puede hacerlo en este
 Creando árbol de dependencias... Hecho
 Se instalarán los siguientes paquetes NUEVOS:
   samba-doc
-0 actualizados, 1 se instalarán, 0 para eliminar y 0 no actualizados.
-Se necesita descargar 0B/7252kB de archivos.
-Se utilizarán 13,3MB de espacio de disco adicional después de desempaquetar.
---------------------- Sourcerer Apt Watcher ---------------------
-Configure: samba-doc
------------------------------------------------------------------
+0 actualizados, 1 se instalarán, 0 para eliminar y 1 no actualizados.
+Se necesita descargar 0B/11,6MB de archivos.
+Se utilizarán 18,1MB de espacio de disco adicional después de desempaquetar.
 Seleccionando el paquete samba-doc previamente no seleccionado.
 (Leyendo la base de datos ...
-273537 ficheros y directorios instalados actualmente.)
-Desempaquetando samba-doc (de .../samba-doc_3.0.4-5_all.deb) ...
-Configurando samba-doc (3.0.4-5) ...</computeroutput></screen>
+133336 ficheros y directorios instalados actualmente.)
+Desempaquetando samba-doc (de .../samba-doc_3.0.7-1_all.deb) ...
+Configurando samba-doc (3.0.7-1) ...
+localepurge: checking system for new locale ...
+localepurge: processing locale files ...
+localepurge: processing man pages ...</computeroutput></screen>
 </example></important>
 
 <example id="samba-ajustes-ldap-ejemplo2">
@@ -48,7 +48,7 @@ Configurando samba-doc (3.0.4-5) ...</computeroutput></screen>
 <screen><prompt>#</prompt> <userinput>/bin/cp -v /usr/share/doc/samba-doc/examples/LDAP/samba.schema.gz /etc/ldap/schema</userinput>
 <computeroutput>`/usr/share/doc/samba-doc/examples/LDAP/samba.schema.gz' -> `/etc/ldap/schema/samba.schema.gz'</computeroutput>
 <prompt>#</prompt> <userinput>/bin/gunzip -v /etc/ldap/schema/samba.schema.gz</userinput>
-<computeroutput>/etc/ldap/schema/samba.schema.gz:        81.2% -- replaced with /etc/ldap/schema/samba.schema</computeroutput>
+<computeroutput>/etc/ldap/schema/samba.schema.gz:        81.0% -- replaced with /etc/ldap/schema/samba.schema</computeroutput>
 <prompt>#</prompt> <userinput>/bin/chown -v slapd.slapd /etc/ldap/schema/samba.schema</userinput>
 <computeroutput>cambiado el propietario de `/etc/ldap/schema/samba.schema' a slapd:slapd</computeroutput>
 <prompt>#</prompt> <userinput>/bin/chmod -v 644 /etc/ldap/schema/samba.schema</userinput>
@@ -59,6 +59,11 @@ Configurando samba-doc (3.0.4-5) ...</computeroutput></screen>
 <application>slapd</application> y reiniciar el demonio. Para ello se ha de editar el
 archivo <filename>/etc/ldap/slapd.conf</filename> y añadir en la sección
 <quote># Schema and objectClass definitions</quote> la siguiente línea:</para>
+
+<important><para>El orden en el que se coloquen los esquemas dentro del archivo
+<filename>/etc/ldap/slapd.conf</filename> es importante. Si ha seguido todos los pasos
+hasta este punto, añada la siguiente línea al final de la lista de esquemas, para evitar
+errores al arrancar el demonio <application>slapd</application>.</para></important>
 
 <programlisting>include         /etc/ldap/schema/samba.schema</programlisting>
 

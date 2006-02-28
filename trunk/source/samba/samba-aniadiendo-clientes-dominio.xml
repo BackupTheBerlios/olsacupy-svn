@@ -193,7 +193,7 @@
 				no se ha tecleado el nombre del host de forma correcta, pues tiene
 				que terminar en el signo <emphasis>$</emphasis> (<acronym>LAM</acronym>
 				lo ha introducido automáticamente) y se ha dejado en blanco el
-				campo <emphasis>UID number</emphasis>, el cual reyena <acronym>LAM</acronym>
+				campo <emphasis>UID number</emphasis>, el cual rellena <acronym>LAM</acronym>
 				de forma automática.</para>
 
 				<para>Se vuelve a pulsar sobre el botón <emphasis>Create Account</emphasis>
@@ -305,7 +305,7 @@
 	
 			<caption>
 				<para>Abierta la ventana del <emphasis>Panel de Control</emphasis>,
-				se hace doble click sobre el icono de <quote>Red</quote>.</para>
+				se hace doble clic sobre el icono de <quote>Red</quote>.</para>
 			</caption>
 		</mediaobject>
 	</figure>

@@ -49,7 +49,6 @@
 [global]
 
 # Quota Storage administrator's name and password
-storageadmin: cn=admin,dc=gsr,dc=pt
-storageadminpw: ********]]></programlisting>
+storageadmin: cn=pykotaadmin,dc=gsr,dc=pt
+storageadminpw: **********]]></programlisting>
 </appendix>
-

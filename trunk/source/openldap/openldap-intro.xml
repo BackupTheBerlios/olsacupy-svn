@@ -105,7 +105,7 @@
 		<figure id="openldap-arbol-directorio-ldap-nombramiento-tradicional">
 			<title>Árbol del directorio <acronym>LDAP</acronym> (nombramiento
 			tradicional)<footnote><para>Si quiere obtener el código fuente de esta
-			figura realizada con <xref linkend="dia"/> pulse
+			imagen realizada con <xref linkend="dia"/> pulse
 			<ulink url="./imagenes/openldap-LDAP_directory_tree_traditional_naming.dia">aquí</ulink>.</para></footnote></title>
 			
 			<mediaobject>
@@ -127,7 +127,7 @@
 
 		<figure id="openldap-arbol-directorio-ldap-nombramiento-internet">
 			<title>Árbol del directorio <acronym>LDAP</acronym> (nombramiento de
-			Internet)<footnote><para>Si quiere obtener el código fuente de esta figura
+			Internet)<footnote><para>Si quiere obtener el código fuente de esta imagen
 			realizada con <xref linkend="dia"/> pulse
 			<ulink url="./imagenes/openldap-LDAP_directory_tree_internet_naming.dia">aquí</ulink>.</para></footnote></title>
 			

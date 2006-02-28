@@ -37,51 +37,44 @@
 
 		<para>Para la realización de esta documentación se ha elegido descargar
 		el código fuente directamente del CVS. La versión que se ha empleado
-		es la 1.19alpha20.</para>
+		es la 1.20alpha25.</para>
 	</sect2>
 	
 	<sect2 id="pykota-obtencion-modificaciones">
 		<title>Modificaciones para generar el paquete <emphasis>deb</emphasis></title>
 
-		<para>Tal y como se obtiene PyKota del CVS no permite la generación de
-		un paquete <emphasis>deb</emphasis>, por este motivo se han realizado
-		una serie de modificaciones al código fuente para que si sea posible
-		esta generación.</para>
+		<para>Lo único que se modificará en el código fuente de PyKota será
+		la versión del paquete que se genere. Para ello, aplique el siguiente
+		parche a la versión 1.20alpha25 de pykota (en el
+		<xref linkend="pykota-obtencion-modificaciones-ex1"/> se muestra
+		como hacerlo):</para>
 
-		<para>Las modificaciones realizadas las puede encontrar en el
-		<xref linkend="pykota-diff"/>. Aplique el parche que se muestra en
-		el apéndice anterior al código de la versión 1.19alpha20 de PyKota
-		de la siguiente forma:</para>
+<programlisting><![CDATA[diff -urN pykota/debian/changelog pykota-1.20alpha25/debian/changelog
+--- pykota/debian/changelog     2004-10-13 18:35:03.000000000 +0200
++++ pykota-1.20alpha25/debian/changelog 2004-10-13 18:45:06.000000000 +0200
+@@ -1,3 +1,9 @@
++pykota (1.20alpha25) unstable; urgency=low
++
++  * Update from CVS.
++
++ -- Sergio González González <sergio.gonzalez@hispalinux.es>  Wed, 13 Oct 2004 18:44:34 +0200
++
+ pykota (1.20alpha24) unstable; urgency=low
+
+   * Update from CVS.]]></programlisting>
 
 		<example id="pykota-obtencion-modificaciones-ex1">
 			<title>Aplicación del parche de modificaciones al código de PyKota</title>
 
 			<para>Sitúese en el directorio que contenga el código fuente de
-			PyKota y teclee lo siguiente, suponiendo que el parche
+			PyKota y teclee la siguiente orden, suponiendo que el parche
 			se encuentra en el directorio padre, se llama
 			<filename>patch-pykota</filename> y está en texto plano:</para>
 
 <screen><prompt>$</prompt> <userinput>/bin/cat ../patch-pykota | /usr/bin/patch -p1</userinput>
-<computeroutput>patching file cgi-bin/printquota.cgi
-patching file debian/changelog
-patching file debian/conffiles
-patching file debian/control
-patching file debian/cron.daily
-patching file debian/dirs
-patching file debian/docs
-patching file debian/etc/default/printquota
-patching file debian/etc/pykota.cron.daily
-patching file debian/Makefile.docs
-patching file debian/postinst
-patching file debian/printquota-default
-patching file debian/rules
-patching file setup.py
-patching file stylesheets/pykota.css</computeroutput></screen>
+<computeroutput>patching file debian/changelog</computeroutput></screen>
 		</example>
 
-		<para>Con la aplicación del parche ya se debería poder generar el paquete
-		<emphasis>deb</emphasis> de pykota. La forma de hacerlo se verá en la siguiente
-		sección.</para>
 	</sect2>
 
 	<sect2 id="pykota-obtencion-generacion-deb">
@@ -91,14 +84,17 @@ patching file stylesheets/pykota.css</computeroutput></screen>
 			<title>Generando el paquete <emphasis>deb</emphasis> de PyKota</title>
 
 			<para>Sitúese en el directorio que contenga el código fuente de
-			PyKota, asegúrese de que el archivo
-			<filename>debian/rules</filename> tiene permisos de ejecución
-			y teclee:</para>
+			PyKota, edite el archivo <filename>setup.py</filename> y cambie el
+			valor de la variable <emphasis>DEBIAN_BUILD_PACKAGE</emphasis>
+			a <quote>1</quote>.</para>
+
+			<para>Asegúrese de que el archivo <filename>debian/rules</filename>
+			tiene permisos de ejecución	y teclee:</para>
 
 <screen><prompt>$</prompt> <userinput>/usr/bin/dpkg-buildpackage -rfakeroot -us -uc -b</userinput>
 <computeroutput>dpkg-buildpackage: source package is pykota
-dpkg-buildpackage: source version is 1.19alpha20.cvs.20040611-1
-dpkg-buildpackage: source maintainer is Sergio Gonz'alez Gonz'alez <![CDATA[<sergio.gonzalez@hispalinux.es>]]>
+dpkg-buildpackage: source version is 1.20alpha25
+dpkg-buildpackage: source maintainer is Sergio González González <![CDATA[<sergio.gonzalez@hispalinux.es>]]>
 dpkg-buildpackage: host architecture is i386
  fakeroot debian/rules clean
 dh_testdir
@@ -109,65 +105,7 @@ running clean
 
 ...
 
-/usr/bin/python setup.py install --prefix=`pwd`/debian/tmp/usr --no-compile
-Do you want to install
-        conf/pykota.conf.sample as /etc/pykota/pykota.conf (y/N) ?</computeroutput> <userinput>y</userinput>
-<computeroutput>Configuration file /etc/pykota/pykota.conf and /etc/pykota/pykotadmin.conf installed.
-Don't forget to adapt these files to your needs.
-Please press ENTER when you have read the message above.</computeroutput> <userinput>[enter]</userinput>
-<computeroutput>You can now activate the database caching mechanism
-which is disabled by default.
-It is especially recommended with the LDAP backend.
-You can now disable the preservation of the complete
-job history which is enabled by default.
-It is probably more useful with the LDAP backend.
-PLEASE LOOK AT THE SAMPLE CONFIGURATION FILE conf/pykota.conf.sample
-TO LEARN HOW TO DO
-Please press ENTER when you have read the message above.</computeroutput> <userinput>[enter]</userinput>
-<computeroutput>
-WARNING : IF YOU ARE UPGRADING FROM A PRE-1.19alpha17 TO 1.19alpha17 OR ABOVE
-AND USE THE POSTGRESQL BACKEND, THEN YOU HAVE TO MODIFY YOUR
-DATABASE SCHEMA USING initscripts/postgresql/upgrade-to-1.19.sql
-PLEASE READ DOCUMENTATION IN initscripts/postgresql/ TO LEARN HOW TO DO.
-YOU CAN DO THAT AFTER THE INSTALLATION IS FINISHED, OR PRESS CTRL+C NOW.
-
-
-YOU DON'T HAVE ANYTHING SPECIAL TO DO IF THIS IS YOUR FIRST INSTALLATION
-OR IF YOU ARE ALREADY RUNNING VERSION 1.19alpha17 OR ABOVE.
-
-Please press ENTER when you have read the message above.</computeroutput> <userinput>[enter]</userinput>
-<computeroutput>
-
-WARNING : IF YOU ARE UPGRADING FROM A PRE-1.19alpha10 TO 1.19alpha10 OR ABOVE
-YOU **MUST** MODIFY YOUR /etc/pykota/pykota.conf FILE BECAUSE accounter
-AND requester DIRECTIVES SUPPORTED VALUES HAVE CHANGED.
-
-YOU CAN DO THAT AFTER THE INSTALLATION IS FINISHED, OR PRESS CTRL+C NOW.
-
-
-YOU DON'T HAVE ANYTHING SPECIAL TO DO IF THIS IS YOUR FIRST INSTALLATION
-OR IF YOU ARE ALREADY RUNNING VERSION 1.19alpha10 OR ABOVE.
-
-Please press ENTER when you have read the message above.</computeroutput> <userinput>[enter]</userinput>
-<computeroutput>Checking for PygreSQL availability : NO.
-ERROR : PygreSQL not available !
-PygreSQL is mandatory if you want to use PostgreSQL as the quota storage backend.
-You may continue safely if you don't need this functionnality.
-PygreSQL is missing. Do you want to continue anyway (y/N) ?</computeroutput> <userinput>y</userinput>
-<computeroutput>Checking for mxDateTime availability : OK
-Checking for Python-LDAP availability : OK
-Checking for SNMP Tools availability : OK
-Checking for Netatalk availability : OK
-running install
-running build
-running build_py
-running build_scripts
-running install_lib
-
-...
-
-dpkg-deb --build debian/tmp ..
-dpkg-deb: construyendo el paquete `pykota' en `../pykota_1.19alpha20.cvs.20040611-1_all.deb'.
+dpkg-deb: construyendo el paquete `pykota' en `../pykota_1.20alpha25_all.deb'.
  dpkg-genchanges -b
 dpkg-genchanges: binary-only upload - not including any source code
 dpkg-buildpackage: binary only upload (no source included)</computeroutput></screen>
@@ -175,7 +113,7 @@ dpkg-buildpackage: binary only upload (no source included)</computeroutput></scr
 
 		<para>La acción anterior debería haber generado un archivo <emphasis>deb</emphasis>
 		en el directorio padre del actual. El archivo en cuestión debería denominarse
-		<filename>pykota_1.19alpha20.cvs.20040611-1_all.deb</filename>.</para>
+		<filename>pykota_1.20alpha25_all.deb</filename>.</para>
 
 		<para>A partir de este momento, ya se está en disposición de instalar PyKota,
 		el siguiente capítulo mostrará la forma de hacerlo.</para>

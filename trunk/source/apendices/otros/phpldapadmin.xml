@@ -6,85 +6,27 @@
 <sect1 id="phpldapadmin-instalacion">
 	<title>Instalación</title>
 
-	<sect2 id="phpldapadmin-instalacion-source">
-		<title>Instalación desde el código fuente</title>
+	<para><emphasis>phpLDAPadmin</emphasis> es una interfaz web destinada a la administración
+	de un directorio <acronym>LDAP</acronym>. Antes de proceder con la instalación de
+	phpLDAPadmin, se verá la descripción del paquete <emphasis>phpldapadmin</emphasis>,
+	que provee dicha herramienta dentro de Debian:</para>
 
-
-	<para>Descargue el programa desde la página del
-	proyecto: <ulink url="http://phpldapadmin.sourceforge.net">http://phpldapadmin.sourceforge.net</ulink>.
-	</para>
-
-	<para>Una vez descargado el archivo en cuestión, <filename>phpldapadmin-0.9.4b.tar.gz</filename>,
-	se descomprime en el directorio
-	<filename class="directory">/var/www</filename> (por ejemplo):</para>
-
-	<example id="phpldapadmin-instalacion-source-descompresion">
-		<title>Descompresión de la herramienta en el lugar adecuado</title>
-
-<screen><prompt>#</prompt> <userinput>/bin/tar xzvf phpldapadmin-0.9.4b.tar.gz -C /var/www</userinput></screen>
-	</example>
-
-	<para>Esto habrá creado un directorio denominado
-	<filename class="directory">phpldapadmin-0.9.4b</filename> bajo el directorio
-	<filename class="directory">/var/www</filename>. Se renombra, para que el acceso a la herramienta
-	sea más cómodo:</para>
-
-	<example id="phpldapadmin-instalacion-source-renombrado">
-		<title>Renombrado del directorio <filename class="directory">phpldapadmin-0.9.4b</filename></title>
-
-<screen><prompt>#</prompt> <userinput>/bin/mv /var/www/phpldapadmin-0.9.4b /var/www/phpldapadmin</userinput></screen>
-	</example>
-
-	</sect2>
-
-	<sect2 id="phpldapadmin-instalacion-deb">
-		<title>Instalación desde paquetes <emphasis>deb</emphasis></title>
-
-		<para>Durante la realización de esta documentación, la herramienta
-		<emphasis>phpLDAPadmin</emphasis> entró a formar parte de Debian, por lo
-		tanto, una forma más fácil de instalar este programa será:</para>
-
-		<example id="phpldapadmin-instalacion-deb-ejemplo1">
-			<title>Instalación de phpLDAPadmin desde un paquete deb</title>
-	
-<screen><prompt>#</prompt> <userinput>/usr/bin/apt-get install phpldapadmin</userinput>
-<computeroutput>Leyendo lista de paquetes... Hecho
-Creando árbol de dependencias... Hecho
-Se instalarán los siguientes paquetes NUEVOS:
-  phpldapadmin
-0 actualizados, 1 se instalarán, 0 para eliminar y 0 no actualizados.
-Se necesita descargar 0B/376kB de archivos.
-Se utilizarán 1774kB de espacio de disco adicional después de desempaquetar.
-Preconfiguring packages ...
---------------------- Sourcerer Apt Watcher ---------------------
-Configure: phpldapadmin
------------------------------------------------------------------
-Seleccionando el paquete phpldapadmin previamente no seleccionado.
-(Leyendo la base de datos ...
-275016 ficheros y directorios instalados actualmente.)
-Desempaquetando phpldapadmin (de .../phpldapadmin_0.9.4-6_all.deb) ...
-Configurando phpldapadmin (0.9.4-6) ...
-
-</computeroutput></screen>
-		</example>
-
-		<para>El siguiente ejemplo mostrará la descripción anteriormente instalado:</para>
-
-		<example id="phpldapadmin-instalacion-deb-ejemplo2">
-			<title>Descripción de phpLDAPadmin</title>
+	<example id="phpldapadmin-instalacion-deb-ejemplo1">
+		<title>Descripción de phpLDAPadmin</title>
 	
 <screen><prompt>$</prompt> <userinput>/usr/bin/apt-cache show phpldapadmin</userinput>
-<computeroutput>Package: phpldapadmin
+<computeroutput><![CDATA[Package: phpldapadmin
 Priority: extra
 Section: admin
-Installed-Size: 1732
-Maintainer: Fabio Tranchitella <![CDATA[<kobold@kobold.it>]]>
+Installed-Size: 1716
+Maintainer: Fabio Tranchitella <kobold@kobold.it>
 Architecture: all
-Version: 0.9.4-6
-Depends: apache | httpd, php4-ldap, php4 (>= 4.1.0), debconf (>= 0.2.26)
-Filename: pool/main/p/phpldapadmin/phpldapadmin_0.9.4-6_all.deb
-Size: 375750
-MD5sum: 946b0ced9c875b5c75ee175f055d10a7
+Version: 0.9.4-9
+Depends: apache | httpd, php4-ldap,
+php4 (>= 4.1.0) | php4-cgi (>= 4.1.0) | libapache2-mod-php4, debconf (>= 0.2.26)
+Filename: pool/main/p/phpldapadmin/phpldapadmin_0.9.4-9_all.deb
+Size: 374178
+MD5sum: eea7c0c0bc601462e999a5207c530846
 Description: Web based interface for administering LDAP servers
  phpLDAPadmin is a web-based LDAP client. It provides easy,
  anywhere-accessible, multi-language administration for your LDAP
@@ -92,54 +34,248 @@ Description: Web based interface for administering LDAP servers
  make it intuitive to browse and administer your LDAP directory. Since it
  is a web application, this LDAP browser works on many platforms, making
  your LDAP server easily manageable from any location.
-</computeroutput></screen>
-		</example>
 
-	</sect2>
+]]></computeroutput></screen>
+	</example>
+
+	<para>El proceso de instalación de esta herramienta se muestra en el siguiente
+	ejemplo:</para>
+
+	<example id="phpldapadmin-instalacion-deb-ejemplo2">
+		<title>Instalación del paquete <emphasis>phpldapadmin</emphasis> (primera parte)</title>
+	
+<screen><prompt>#</prompt> <userinput>/usr/bin/apt-get install phpldapadmin</userinput>
+<computeroutput>Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias... Hecho
+Se instalarán los siguientes paquetes NUEVOS:
+  phpldapadmin
+0 actualizados, 1 se instalarán, 0 para eliminar y 1 no actualizados.
+Se necesita descargar 0B/374kB de archivos.
+Se utilizarán 1757kB de espacio de disco adicional después de desempaquetar.
+Preconfiguring packages ...</computeroutput></screen>
+	</example>
+
+	<figure id="phpldapadmin-instalacion1">
+		<title>¿Qué tipo de autentificación desea?</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="./imagenes/phpldapadmin-instalacion1.eps" align="center" format="EPS" scale="35"/>
+			</imageobject>
+			<imageobject>
+				<imagedata fileref="./imagenes/phpldapadmin-instalacion1.png" format="PNG"/>
+			</imageobject>
+	
+			<caption>
+				<para>Seleccione aquí el tipo de autentificación que más se ajuste a sus necesidades,
+				en esta documentación se ha seleccionado la opción <quote>session</quote>.</para>
+			</caption>
+		</mediaobject>
+	</figure>
+
+	<figure>
+		<title>¿Qué servidor web reconfigurar?</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="./imagenes/phpldapadmin-instalacion2.eps" align="center" format="EPS" scale="35"/>
+			</imageobject>
+			<imageobject>
+				<imagedata fileref="./imagenes/phpldapadmin-instalacion2.png" format="PNG"/>
+			</imageobject>
+	
+			<caption>
+				<para>Elija la versión(es) de <application>Apache</application> que tenga instalada(s)
+				o aquella(s) para la(s) cual(es) quiera configurar el acceso a phpldapadmin.</para>
+			</caption>
+		</mediaobject>
+	</figure>
+
+	<figure>
+		<title>¿Reiniciar el servidor web?</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="./imagenes/phpldapadmin-instalacion3.eps" align="center" format="EPS" scale="35"/>
+			</imageobject>
+			<imageobject>
+				<imagedata fileref="./imagenes/phpldapadmin-instalacion3.png" format="PNG"/>
+			</imageobject>
+	
+			<caption>
+				<para>Sería recomendable reiniciar el servidor web, para que relea la nueva configuración.</para>
+			</caption>
+		</mediaobject>
+	</figure>
+
+	<example id="phpldapadmin-instalacion-deb-ejemplo3">
+		<title>Instalación del paquete <emphasis>phpldapadmin</emphasis> (segunda parte)</title>
+	
+<screen><computeroutput>Seleccionando el paquete phpldapadmin previamente no seleccionado.
+(Leyendo la base de datos ...
+135022 ficheros y directorios instalados actualmente.)
+Desempaquetando phpldapadmin (de .../phpldapadmin_0.9.4-9_all.deb) ...
+Configurando phpldapadmin (0.9.4-9) ...
+Restarting apache.
+
+localepurge: checking system for new locale ...
+localepurge: processing locale files ...
+localepurge: processing man pages ...</computeroutput></screen>
+		</example>
 </sect1>
 
 <sect1 id="phpldapadmin-configuracion">
 	<title>Configuración</title>
 
-	<sect2 id="phpldapadmin-configuracion-source">
-		<title>Configuración de la instalación realizada desde el código fuente</title>
+	<sect2 id="phpldapadmin-configuracion-apache">
+		<title>Configuración relativa a <application>Apache</application></title>
 
-	<para>En los siguientes párrafos se detallarán los pasos necesarios para configurar la herramienta
-	<emphasis>phpLDAPadmin</emphasis> instalada anteriormente desde el código fuente.</para>
+		<note><para>Si desea ver como se configura <application>Apache</application> para
+		el soporte <acronym>SSL</acronym>, vea el
+		<xref linkend="apache-creacion-certificados"/>.</para></note>
 
-	<para>Entre en el directorio <filename class="directory">/var/www/phpldapadmin</filename>
-	y renombre el archivo <filename>config.php.example</filename> a
-	<filename>config.php</filename>. Acto seguido edítelo para adaptarlo a las necesidades del sistema (en
-	el <xref linkend="phpldapadmin-config.php"/> se encuentra un archivo adaptado al sistema
-	empleado para esta documentación).</para>
+		<para>Antes de proceder a la configuración de la herramienta, se va a obligar al
+		servidor web <application>Apache</application> a servir las páginas relacionadas
+		con <emphasis>phpLDAPadmin</emphasis> en modo <acronym>SSL</acronym>. Para ello, edite el
+		archivo <filename>/etc/phpldapadmin/apache.conf</filename> y añada
+		las siguientes líneas al final del archivo:</para>
 
-	<example id="phpldapadmin-instalacion-renombrado-config">
-		<title>Renombrado del archivo <filename>config.php.example</filename></title>
+<programlisting><![CDATA[# redirect to https when available (thanks omen@descolada.dartmouth.edu)
+<IfModule mod_rewrite.c>
+    <IfModule mod_ssl.c>
+        <Location /phpldapadmin>
+            RewriteEngine on
+            RewriteCond %{HTTPS} !=on
+            RewriteRule . https://%{HTTP_HOST}%{REQUEST_URI}  [L]
+        </Location>
+    </IfModule>
+</IfModule>]]></programlisting>
 
-<screen><prompt>#</prompt> <userinput>/bin/mv /var/www/phpldapadmin/config.php.example /var/www/phpldapadmin/config.php</userinput></screen>
-	</example>
+		<para>El siguiente paso será hacer que el servidor <application>Apache</application>
+		relea su configuración:</para>
 
-	<para>Otro de los archivos que se han de editar es:
-	<filename>/var/www/phpldapadmin/templates/template_config.php</filename> para modificar
-	algunos aspectos de la configuración de Samba y la forma de añadir cuentas al sistema. A
-	continuación se verán las partes que se han modificado, aunque en el
-	<xref linkend="phpldapadmin-template_config.php"/> tiene un ejemplo de este archivo
-	ya configurado.</para>
+		<example id="phpldapadmin-configuracion-apache-ejemplo-1">
+			<title>Releyendo la configuración de <application>Apache</application></title>
 
-	<example id="phpldapadmin-instalacion-template_config.php">
-		<title>Configuración del archivo <filename>template_config.php</filename></title>
+<screen><prompt>#</prompt> <userinput>/etc/init.d/apache reload</userinput>
+<computeroutput>Reloading apache configuration.</computeroutput></screen>
+		</example>
+	</sect2>
 
-<screen><prompt>#</prompt> <userinput>/bin/cp /var/www/phpldapadmin/templates/template_config.php \
-          /var/www/phpldapadmin/templates/template_config.php.orig</userinput>
-<prompt>#</prompt> <userinput>cd /var/www/phpldapadmin/templates/</userinput>
-<prompt>#</prompt> <userinput>/bin/date +%s</userinput> <co id="co-date1"/>
-<computeroutput>1085436226</computeroutput>
-<prompt>#</prompt> <userinput>/usr/bin/vim template_config.php</userinput>
-<prompt>#</prompt> <userinput>/bin/date +%s</userinput> <co id="co-date2"/>
-<computeroutput>1085436398</computeroutput>
-<prompt>#</prompt> <userinput>/usr/bin/diff -u template_config.php.orig template_config.php</userinput>
-<computeroutput><![CDATA[--- template_config.php.orig    2004-05-24 18:58:46.000000000 +0100
-+++ template_config.php 2004-05-24 19:56:47.000000000 +0100
+	<sect2 id="phpldapadmin-configuracion-ajustes">
+		<title>Ajustes en la configuración</title>
+
+		<para>El último paso antes de tener <emphasis>phpLDAPadmin</emphasis> completamente
+		instalado y configurado, es retocar varios archivos de configuración del mismo.
+		Las siguientes secciones mostrarán dichos cambios.</para>
+
+		<sect3 id="phpldapadmin-configuracion-ajustes-config.php">
+			<title><filename>/etc/phpldapadmin/config.php</filename></title>
+
+			<para>Las siguientes líneas mostrarán las opciones más importantes del archivo
+			de configuración <filename>/etc/phpldapadmin/config.php</filename> y los
+			valores adoptados en esta documentación.</para>
+
+			<note><para>En el <xref linkend="phpldapadmin-config.php"/> posee un ejemplo completo de este
+			archivo de configuración.</para></note>
+
+			<orderedlist>
+				<listitem>
+					<para>Nombre del equipo donde está alojado el servidor <acronym>LDAP</acronym>:</para>
+
+<programlisting><![CDATA[$servers[$i]['name'] = 'TodoSCSI';]]></programlisting>
+				</listitem>
+				<listitem>
+					<para><acronym>URL</acronym> del servidor <acronym>LDAP</acronym>.
+					Si quiere utilizar <acronym>TLS</acronym> en la conexión contra el servidor
+					<acronym>LDAP</acronym> (como es el caso de esta documentación), asegúrese
+					de indicar aquí la dirección del servidor <acronym>LDAP</acronym> por
+					el protocolo <emphasis>ldap</emphasis>.</para>
+
+<programlisting><![CDATA[$servers[$i]['host'] = 'ldap://gsr.pt';]]></programlisting>
+				</listitem>
+				<listitem>
+					<para>La base <acronym>DN</acronym> del servidor <acronym>LDAP</acronym>.</para>
+
+<programlisting><![CDATA[$servers[$i]['base'] = 'dc=gsr,dc=pt';]]></programlisting>
+				</listitem>
+				<listitem>
+					<para>Puerto del servidor <acronym>LDAP</acronym>. Al igual que se indicaba
+					anteriormente, especifique aquí el puerto del servidor <acronym>LDAP</acronym>
+					que no utilice cifrado <acronym>SSL</acronym>, esto es necesario
+					para realizar las conexiones por <acronym>TLS</acronym>.</para>
+
+<programlisting><![CDATA[$servers[$i]['port'] = 389;]]></programlisting>
+				</listitem>
+				<listitem>
+					<para>Tipo de autentificación que se utilizará. Esta opción ya se definió
+					en el proceso de instalación de <emphasis>phpldapadmin</emphasis> (vea
+					la <xref linkend="phpldapadmin-instalacion1"/> para más datos).</para>
+
+<programlisting><![CDATA[$servers[$i]['auth_type'] = 'session';]]></programlisting>
+				</listitem>
+				<listitem id="phpldapadmin-lisitem-usuario-ingreso-por-defecto" xreflabel="Usuario por defecto para el ingreso de phpLDAPadmin">
+					<para>Usuario con el que se desea ingresar en
+					<emphasis>phpLDAPadmin</emphasis> por defecto. El
+					<acronym>DN</acronym> que aquí se teclee, aparecerá por defecto
+					siempre que trate de ingresar en la herramienta.</para>
+
+<programlisting><![CDATA[$servers[$i]['login_dn'] = 'cn=admin,dc=gsr,dc=pt';]]></programlisting>
+				</listitem>
+				<listitem>
+					<para>Se activa la conexión por <acronym>TLS</acronym> entre la aplicación
+					<emphasis>phpLDAPadmin</emphasis> y el servidor <acronym>LDAP</acronym>.</para>
+
+<programlisting><![CDATA[$servers[$i]['tls'] = true;]]></programlisting>
+				</listitem>
+				<listitem>
+					<para>Seleccione el algoritmo de hash que desee utilizar por defecto para
+					el cifrado de las claves.</para>
+
+<programlisting><![CDATA[$servers[$i]['default_hash'] = 'crypt';]]></programlisting>
+				</listitem>
+				<listitem>
+					<para>Si se quiere que <emphasis>phpLDAPadmin</emphasis> busque y asigne
+					automáticamente el <emphasis>uid</emphasis> para las nuevas entradas,
+					active esta opción.</para>
+
+<programlisting><![CDATA[$servers[$i]['enable_auto_uid_numbers'] = true;]]></programlisting>
+				</listitem>
+				<listitem>
+					<para>Método para buscar el primer <emphasis>uid</emphasis> disponible
+					en el sistema.</para>
+
+<programlisting><![CDATA[$servers[$i]['auto_uid_number_mechanism'] = 'search';]]></programlisting>
+				</listitem>
+				<listitem>
+					<para>Base de la búsqueda para encontrar el siguiente <emphasis>uid</emphasis>
+					libre en el sistema.</para>
+
+<programlisting><![CDATA[$servers[$i]['auto_uid_number_search_base'] = 'ou=people,dc=gsr,dc=pt';]]></programlisting>
+				</listitem>
+				<listitem>
+					<para>Si se ha seleccionado la opción <quote>search</quote> para encontrar automáticamente
+					los <emphasis>uids</emphasis> de las nuevas entradas, indique aquí el valor mínimo
+					que un <acronym>UID</acronym> puede tener.</para>
+
+<programlisting><![CDATA[$servers[$i]['auto_uid_number_min'] = 1000;]]></programlisting>
+				</listitem>
+			</orderedlist>
+		</sect3>
+
+		<sect3 id="phpldapadmin-configuracion-ajustes-template_config.php">
+			<title><filename>/etc/phpldapadmin/templates/template_config.php</filename></title>
+
+			<para>En este archivo se configuran algunos aspectos relativos a Samba y
+			la forma de añadir cuentas al sistema. A continuación se verán las partes que se han
+			modificado de este archivo, en relación al archivo original distribuido con la
+			herramienta:</para>
+
+			<note><para>En el <xref linkend="phpldapadmin-template_config.php"/> posee un
+			archivo de configuración completo.</para></note>
+
+			<example id="phpldapadmin-configuracion-ajustes-template_config.php-ejemplo-1">
+				<title>Modificaciones realizadas al archivo <filename>template_config.php</filename></title>
+
+<programlisting><![CDATA[--- template_config.php.orig    2004-10-01 18:22:34.000000000 +0200
++++ template_config.php 2004-10-01 22:10:18.000000000 +0200
 @@ -101,7 +101,7 @@
 
  // uncomment to set the base dn of posix groups
@@ -149,12 +285,12 @@ Description: Web based interface for administering LDAP servers
 
 
 
-@@ -117,29 +117,29 @@
+@@ -117,29 +117,30 @@
  ######################################################################################*/
 
  // path 2 the mkntpwd utility (Customize)
 -$mkntpwdCommand = "./templates/creation/mkntpwd";
-+$mkntpwdCommand = "/usr/local/sbin/mkntpwd"; ]]><co id="template_config-mkntpwd"/><![CDATA[
++$mkntpwdCommand = "/usr/sbin/smbldap-passwd"; ]]><co id="template_config-mkntpwd"/><![CDATA[
 
  // Default domains definition (Customize)
  //   (use `net getlocalsid` on samba server)
@@ -163,7 +299,7 @@ Description: Web based interface for administering LDAP servers
 -        array(  'name'   => 'My Samba domain Name',
 -                'sid' => 'S-1-5-21-479559372-1547523452-3818884970' );
 +        array(  'name'   => 'GSRDOMAIN', ]]><co id="template_config-domain"/><![CDATA[
-+                'sid' => 'S-1-5-21-3777331929-1837441497-3139219028' ); ]]><co id="template_config-sid"/><![CDATA[
++                'sid' => 'S-1-5-21-2817058862-34499604-3382793611' ); ]]><co id="template_config-sid"/><![CDATA[
 
  // The base dn of samba group. (CUSTOMIZE)
 -//$samba_base_groups = "ou=Groups,ou=samba,dc=example,dc=org";
@@ -180,122 +316,62 @@ Description: Web based interface for administering LDAP servers
 -                               "S-1-5-32-550" => "Print Operators",
 -                               "S-1-5-32-551" => "backup Operators",
 -                               "S-1-5-32-552" => "Replicator" );
-+$built_in_local_groups = array( "S-1-5-21-3777331929-1837441497-3139219028-512" => "Administrators", ]]><co id="template_config-gids"/><![CDATA[
-+                               "S-1-5-21-3777331929-1837441497-3139219028-513" => "Users",
-+                               "S-1-5-21-3777331929-1837441497-3139219028-514" => "Guests",
-+                               "S-1-5-21-3777331929-1837441497-3139219028-21007" => "Power Users",
-+                               "S-1-5-21-3777331929-1837441497-3139219028-21009" => "Account Operators",
-+                               "S-1-5-21-3777331929-1837441497-3139219028-21011" => "Server Operators",
-+                               "S-1-5-21-3777331929-1837441497-3139219028-21013" => "Print Operators",
-+                               "S-1-5-21-3777331929-1837441497-3139219028-21015" => "backup Operators",
-+                               "S-1-5-21-3777331929-1837441497-3139219028-21017" => "Replicator" );
++$built_in_local_groups = array(
++                "S-1-5-21-2817058862-34499604-3382793611-512" => "Administrators", ]]><co id="template_config-gids"/><![CDATA[
++                "S-1-5-21-2817058862-34499604-3382793611-513" => "Users",
++                "S-1-5-21-2817058862-34499604-3382793611-514" => "Guests",
++                "S-1-5-21-2817058862-34499604-3382793611-21007" => "Power Users",
++                "S-1-5-21-2817058862-34499604-3382793611-21009" => "Account Operators",
++                "S-1-5-21-2817058862-34499604-3382793611-21011" => "Server Operators",
++                "S-1-5-21-2817058862-34499604-3382793611-21013" => "Print Operators",
++                "S-1-5-21-2817058862-34499604-3382793611-21015" => "backup Operators",
++                "S-1-5-21-2817058862-34499604-3382793611-21017" => "Replicator" );
 
 
- /*######################################################################################]]></computeroutput></screen>
+ /*######################################################################################]]></programlisting>
+			</example>
 
-		<calloutlist>
-			<callout arearefs="co-date1 co-date2">
-				<para>Este comando sólo sirve para indicar que en la edición del archivo
-				<filename>template_config.php</filename> se ha empleado algo de tiempo.</para>
-			</callout>
-			<callout arearefs="template_config-base-posix-groups">
-				<para>Base de la unidad organizacional destinada al almacén de los grupos de usuarios.</para>
-			</callout>
-			<callout arearefs="template_config-mkntpwd">
-				<para>Localización de la herramienta <application>mkntpwd</application>. Esta herramienta
-				la provee IDEALX (<ulink url="http://samba.idealx.org/">http://samba.idealx.org/</ulink>)
-				con el paquete smbldap-tools-0.8.4.tgz (en el <xref linkend="smbldap-tools"/>
-				se encuentra un ejemplo de instalación y configuración de estas herramientas).</para>
-				<para>El paquete samba-doc de Debian <acronym>GNU</acronym>/Linux también
-				trae estas herramientas, aunque se recomienda bajar el paquete de la página de
-				IDEALX, para obtener la última versión.</para>
-			</callout>
-			<callout arearefs="template_config-domain">
-				<para>Dominio que administra el servidor Samba.</para>
-			</callout>
-			<callout arearefs="template_config-sid">
-				<para><acronym>SID</acronym> de la máquina donde se ejecuta Samba. (Vea el
-				<xref linkend="ldap-account-manager-configuracion-obtencion-sid"/> para
-				saber como obtener este número).</para>
-			</callout>
-			<callout arearefs="template_config-samba-base-groups">
-				<para>Base de la unidad organizacional destinada al almacén de los grupos de usuarios.</para>
-			</callout>
-			<callout arearefs="template_config-gids">
-				<para>Se modifican los <acronym>gid</acronym>s que tienen por defecto los grupos
-				listados y se adaptan a los <acronym>gid</acronym>s de los grupos ya existentes
-				en el sistema (si no existe algún grupo, puede crearlos en este momento, si lo
-				desea).</para>
+			<calloutlist>
+				<callout arearefs="template_config-base-posix-groups">
+					<para>Base de la unidad organizacional destinada al almacén de los grupos de usuarios.</para>
+				</callout>
+				<callout arearefs="template_config-mkntpwd">
+					<para>Localización de la herramienta <application>mkntpwd</application>. Esta herramienta
+					la proveía IDEALX (<ulink url="http://samba.idealx.org/">http://samba.idealx.org/</ulink>)
+					con el paquete smbldap-tools (versión &lt;=0.8.4).</para>
+	
+					<para>Desde la versión 0.8.5 esta herramienta se ha sustituído por el módulo
+					de perl <emphasis>Crypt::SmbHash</emphasis>. Por este motivo, a partir de ahora
+					se puede hacer uso de la herramienta <application>smbldap-passwd</application>
+					en su lugar.</para>
+	
+					<note><para>En el <xref linkend="smbldap-tools"/> podrá ver la forma de instalar
+					y configurar este conjunto de herramientas.</para></note>
+				</callout>
+				<callout arearefs="template_config-domain">
+					<para>Dominio que administra el servidor Samba.</para>
+				</callout>
+				<callout arearefs="template_config-sid">
+					<para><acronym>SID</acronym> de la máquina donde se ejecuta Samba. (Vea el
+					<xref linkend="ldap-account-manager-configuracion-obtencion-sid"/> para
+					saber como obtener este número).</para>
+				</callout>
+				<callout arearefs="template_config-samba-base-groups">
+					<para>Base de la unidad organizacional destinada al almacén de los grupos de usuarios.</para>
+				</callout>
+				<callout xreflabel="Grupos adicionales para Samba" id="phpldapadmin-callout-template_config-gids" arearefs="template_config-gids">
+					<para>Se modifican los <acronym>gid</acronym>s que tienen por defecto los grupos
+					listados y se adaptan a los <acronym>gid</acronym>s de los grupos ya existentes
+					en el sistema (si no existe algún grupo, puede crearlos en este momento, si lo
+					desea).</para>
+	
+					<para>El valor que se ha de añadir en cada uno de los grupos, es el
+					valor del atributo <emphasis>sambaSID</emphasis> de los grupos
+					en cuestión.</para>
+				</callout>
+			</calloutlist>
 
-				<para>El valor que se ha de añadir en cada uno de los grupos, es el
-				valor del atributo <emphasis>sambaSID</emphasis> de los grupos
-				en cuestión.</para>
-			</callout>
-		</calloutlist>
-
-	</example>
-
-	</sect2>
-
-	<sect2 id="phpldapadmin-configuracion-deb">
-		<title>Configuración de la instalación realizada desde el paquete <emphasis>deb</emphasis></title>
-
-	<para>En los siguientes párrafos se detallarán los pasos necesarios para configurar la herramienta
-	<emphasis>phpLDAPadmin</emphasis> instalada anteriormente desde un paquete deb.</para>
-
-	<para>En esta ocasión, los archivos de configuración se encuentran bajo el directorio:
-	<filename class="directory">/etc/phpldapadmin/</filename>:</para>
-
-	<example>
-		<title>Archivos de configuración bajo <filename class="directory">/etc/phpldapadmin/</filename>
-		</title>
-
-<screen><prompt>#</prompt> <userinput>/usr/bin/tree /etc/phpldapadmin/</userinput>
-<computeroutput>/etc/phpldapadmin/
-|-- apache.conf
-|-- config.php <co id="co-phpldapadmin-config.php"/>
-`-- templates
-    |-- creation
-    |   |-- custom.php
-    |   |-- new_address_template.php
-    |   |-- new_dns_entry.php
-    |   |-- new_kolab_template.php
-    |   |-- new_nt_machine.php
-    |   |-- new_ou_template.php
-    |   |-- new_posix_group_template.php
-    |   |-- new_security_object_template.php
-    |   |-- new_smb3_nt_machine.php
-    |   |-- new_smb3_user_template.php
-    |   |-- new_smbgroup_template.php
-    |   |-- new_smbuser_template.php
-    |   `-- new_user_template.php
-    |-- modification
-    |   |-- default.php
-    |   |-- group_of_names.php
-    |   `-- user.php
-    `-- template_config.php <co id="co-phpldapadmin-template_config.php"/>
-
-3 directories, 19 files</computeroutput></screen>
-
-		<calloutlist>
-			<callout arearefs="co-phpldapadmin-config.php">
-				<para>Archivo principal de configuración de <application>phpLDAPadmin</application>,
-				se ha de editar y adaptarlo a las necesidades del sistema.</para>
-
-				<para>Este es el mismo archivo que se ha renombrado en la
-				<xref linkend="phpldapadmin-configuracion-source"/>, por lo tanto, en el
-				apéndice <xref linkend="phpldapadmin-config.php"/> podrá encontrar un
-				archivo de configuración adaptado al sistema empleado para realizar
-				esta documentación.</para>
-			</callout>
-			<callout arearefs="co-phpldapadmin-template_config.php">
-				<para>En la <xref linkend="phpldapadmin-configuracion-source"/> puede encontrar
-				toda la información para configurar este archivo. Para más detalles,
-				vea el <xref linkend="phpldapadmin-instalacion-template_config.php"/> y
-				el <xref linkend="phpldapadmin-template_config.php"/>.</para>
-			</callout>
-		</calloutlist>
-	</example>
+		</sect3>
 	</sect2>
 </sect1>
 
@@ -306,7 +382,7 @@ Description: Web based interface for administering LDAP servers
 	para ello puede teclear en su navegador favorito la <acronym>URL</acronym>:
 	http://gsr.pt/phpldapadmin/ (sustituya el dominio por el que se adapte a su configuración).</para>
 
-	<figure>
+	<figure id="phpldapadmin1">
 		<title><acronym>URL</acronym> donde está instalado <emphasis>phpLDAPadmin</emphasis></title>
 		<mediaobject>
 			<imageobject>
@@ -321,6 +397,76 @@ Description: Web based interface for administering LDAP servers
 				<keycombo action='simul'><keycap>Alt</keycap><keycap>F2</keycap></keycombo> e introduzca
 				la dirección donde se encuentre instalado <emphasis>phpLDAPadmin</emphasis>.</para>
 			</caption>
+		</mediaobject>
+	</figure>
+
+	<figure id="phpldapadmin-configuracion-certificado1">
+		<title>Aviso acerca del certificado del servidor web I</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion-certificado1.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion-certificado1.png" format="PNG"/>
+				</imageobject>
+			
+				<caption><para>Si ha configurado correctamente el servidor web, a la hora
+				de acceder a la aplicación <emphasis>phpLDAPadmin</emphasis> por el protocolo
+				<emphasis>http</emphasis>, <application>Apache</application> le tendría
+				que redireccionar a la misma dirección, pero bajo el protocolo
+				<emphasis>https</emphasis>.</para>
+
+				<para>Esto es lo que ha ocurrido en esta pantalla, <application>Apache</application>
+				ha redirigido la petición realizada (http://gsr.pt/phpldapadmin/) hacia el protocolo
+				<emphasis>https</emphasis>. Por este motivo, y debido a que la entidad
+				certificadora que se ha creado es desconocida, sale este aviso. Pulse sobre
+				el botón <emphasis>Detalles</emphasis> para obtener más información.</para></caption>
+		</mediaobject>
+	</figure>
+
+	<figure id="phpldapadmin-configuracion-certificado2">
+		<title>Información <acronym>SSL</acronym></title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion-certificado2.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion-certificado2.png" format="PNG"/>
+				</imageobject>
+			
+				<caption><para>En esta pantalla se muestra la información del certificado y la
+				entidad certificadora que ha creado dicho certificado. Si se fija, aquí aparecerán
+				los datos tecleados en el <xref linkend="apache-creacion-certificados"/>. Pulse
+				sobre el botón <emphasis>Cerrar</emphasis> para continuar.</para></caption>
+		</mediaobject>
+	</figure>
+
+	<figure id="phpldapadmin-configuracion-certificado3">
+		<title>Aviso acerca del certificado del servidor web II</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion-certificado3.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion-certificado3.png" format="PNG"/>
+				</imageobject>
+			
+				<caption><para>Pulse ahora sobre el botón <emphasis>Continuar</emphasis> para
+				seguir con la carga de la página.</para></caption>
+		</mediaobject>
+	</figure>
+
+	<figure id="phpldapadmin-configuracion-certificado4">
+		<title>Período de aceptación del certificado</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion-certificado4.eps" align="center" format="EPS" scale="35"/>
+				</imageobject>
+				<imageobject>
+					<imagedata fileref="./imagenes/lam-configuracion-certificado4.png" format="PNG"/>
+				</imageobject>
+			
+				<caption><para>Seleccione la opción deseada y pulse sobre ella.</para></caption>
 		</mediaobject>
 	</figure>
 
@@ -354,7 +500,11 @@ Description: Web based interface for administering LDAP servers
 	
 			<caption>
 				<para>Se teclea en el campo correspondiente el <acronym>DN</acronym> del
-				usuario administrador del directorio <acronym>LDAP</acronym> y la clave
+				usuario con el que quiera acceder al directorio <acronym>LDAP</acronym>
+				(recuerde que por defecto aparecerá el usuario que haya tecleado
+				en el archivo de configuración de <emphasis>phpLDAPadmin</emphasis>.
+				En el siguiente enlace puede ver la opción referida anteriormente:
+				<xref linkend="phpldapadmin-lisitem-usuario-ingreso-por-defecto"/>) y la clave
 				para dicho usuario. Luego se procede a la autentificación, pulsando sobre
 				el botón <emphasis>Authenticate</emphasis>.</para>
 			</caption>
@@ -374,21 +524,7 @@ Description: Web based interface for administering LDAP servers
 			<caption>
 				<para>La aplicación informa de la correcta autentificación en el servidor
 				<acronym>LDAP</acronym>.</para>
-			</caption>
-		</mediaobject>
-	</figure>
 
-	<figure>
-		<title>Pantalla de opciones, una vez autentificado</title>
-		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin5.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin5.png" format="PNG"/>
-			</imageobject>
-	
-			<caption>
 				<para>Como se puede ver en la imagen, una vez autentificado, la aplicación
 				provee una serie de herramientas para la administración de un directorio
 				<acronym>LDAP</acronym>. Estas comprenden desde el listado de los esquemas disponibles
@@ -403,10 +539,10 @@ Description: Web based interface for administering LDAP servers
 		<title>Árbol de contenidos del directorio</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin6.eps" align="center" format="EPS" scale="35"/>
+				<imagedata fileref="./imagenes/phpldapadmin5.eps" align="center" format="EPS" scale="35"/>
 			</imageobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin6.png" format="PNG"/>
+				<imagedata fileref="./imagenes/phpldapadmin5.png" format="PNG"/>
 			</imageobject>
 	
 			<caption>
@@ -420,10 +556,10 @@ Description: Web based interface for administering LDAP servers
 		<title>Información sobre un objeto</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin7.eps" align="center" format="EPS" scale="35"/>
+				<imagedata fileref="./imagenes/phpldapadmin6.eps" align="center" format="EPS" scale="35"/>
 			</imageobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin7.png" format="PNG"/>
+				<imagedata fileref="./imagenes/phpldapadmin6.png" format="PNG"/>
 			</imageobject>
 	
 			<caption>
@@ -438,10 +574,10 @@ Description: Web based interface for administering LDAP servers
 		<title>Creación de un nuevo objeto</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin8.eps" align="center" format="EPS" scale="35"/>
+				<imagedata fileref="./imagenes/phpldapadmin7.eps" align="center" format="EPS" scale="35"/>
 			</imageobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin8.png" format="PNG"/>
+				<imagedata fileref="./imagenes/phpldapadmin7.png" format="PNG"/>
 			</imageobject>
 	
 			<caption>
@@ -457,10 +593,10 @@ Description: Web based interface for administering LDAP servers
 		<title>Finalizando la sesión</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin9.eps" align="center" format="EPS" scale="35"/>
+				<imagedata fileref="./imagenes/phpldapadmin8.eps" align="center" format="EPS" scale="35"/>
 			</imageobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin9.png" format="PNG"/>
+				<imagedata fileref="./imagenes/phpldapadmin8.png" format="PNG"/>
 			</imageobject>
 	
 			<caption>
@@ -470,6 +606,5 @@ Description: Web based interface for administering LDAP servers
 			</caption>
 		</mediaobject>
 	</figure>
-
 </sect1>	
 </appendix>

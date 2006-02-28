@@ -18,11 +18,11 @@
 
 	<para>Antes de proceder con la configuración de PyKota, es necesario realizar
 	una serie de ajustes en el sistema. En primer lugar hay que elegir la
-	base de datos sobre la cual se almacenarán los datos de las cuotas de usuario.
+	base de datos sobre la cual se almacenarán los datos de las cuotas.
 	PyKota da la posibilidad de almacenar estos datos sobre Postgresql o
 	sobre un directorio <acronym>LDAP</acronym>.</para>
 
-	<para>La elección en este caso ha sido <acronym>LDAP</acronym>, por lo que habrá
+	<para>La elección ha sido <acronym>LDAP</acronym>, por lo que habrá
 	que modificar el servidor <application>slapd</application> para que soporte
 	los datos de PyKota y, finalmente, crear la estructura necesaria en el
 	directorio <acronym>LDAP</acronym> para PyKota.</para>
@@ -33,30 +33,10 @@
 <sect1 id="pykota-retoques-iniciales-ldap">
 	<title>Modificaciones en la configuración de <application>slapd</application></title>
 
-	<para>En primer lugar se ha de copiar el esquema de PyKota para <acronym>LDAP</acronym>
-	en el directorio <filename class="directory">/etc/ldap/schema/</filename>, el
-	siguiente ejemplo muestra como hacerlo:</para>
-
-	<example>
-		<title>Copiando el esquema para <acronym>LDAP</acronym> de PyKota a
-		<filename class="directory">/etc/ldap/schema/</filename></title>
-
-<screen><prompt>#</prompt> <userinput>/bin/cp -v /usr/share/doc/pykota/initscripts/ldap/pykota.schema.gz \
-      /etc/ldap/schema/</userinput>
-<computeroutput>`/usr/share/doc/pykota/initscripts/ldap/pykota.schema.gz' -> \
-                                  `/etc/ldap/schema/pykota.schema.gz'</computeroutput>
-<prompt>#</prompt> <userinput>/bin/gunzip -v /etc/ldap/schema/pykota.schema.gz</userinput>
-<computeroutput>/etc/ldap/schema/pykota.schema.gz:       80.6% -- replaced with \
-                                        /etc/ldap/schema/pykota.schema</computeroutput>
-<prompt>#</prompt> <userinput>/bin/chown -v slapd\:slapd /etc/ldap/schema/pykota.schema</userinput>
-<computeroutput>cambiado el propietario de `/etc/ldap/schema/pykota.schema' a slapd:slapd</computeroutput>
-<prompt>#</prompt> <userinput>/bin/chmod -v 644 /etc/ldap/schema/pykota.schema</userinput>
-<computeroutput>el modo de `/etc/ldap/schema/pykota.schema' cambia a 0644 (rw-r--r--)</computeroutput></screen>
-	</example>
-
-	<para>Ahora ha de añadir una línea similar a la siguiente en el archivo
+	<para>En primer lugar se ha añadir una línea similar a la siguiente en el archivo
 	de configuración de <application>slapd</application> (<filename>/etc/ldap/slapd.conf</filename>),
-	en la sección de definiciones de esquemas y objectClass:</para>
+	en la sección de definiciones de esquemas y objectClass (añádala al final de la
+	lista de esquemas, para evitar problemas):</para>
 
 <programlisting>include         /etc/ldap/schema/pykota.schema</programlisting>
 
@@ -86,11 +66,20 @@ indexing id=00000016
 indexing id=00000017
 indexing id=00000018
 indexing id=00000019
-indexing id=0000001a
 indexing id=0000001b
 indexing id=0000001c
 indexing id=0000001d
-indexing id=00000020</computeroutput>
+indexing id=0000001e
+indexing id=00000020
+indexing id=00000021
+indexing id=00000022
+indexing id=00000023
+indexing id=00000024
+indexing id=00000025
+indexing id=00000027
+indexing id=00000028
+indexing id=0000002a
+indexing id=0000002b</computeroutput>
 <prompt>#</prompt> <userinput>/etc/init.d/slapd restart</userinput>
 <computeroutput>Stopping OpenLDAP: slapd.
 Starting OpenLDAP: slapd.</computeroutput></screen>
@@ -106,6 +95,10 @@ Starting OpenLDAP: slapd.</computeroutput></screen>
 	<acronym>LDAP</acronym>. Las siguientes líneas muestran, en formato
 	<acronym>LDIF</acronym>, las entradas que se han de incorporar al
 	directorio <acronym>LDAP</acronym>:</para>
+
+	<note><para>Esta estructura se ha basado en el archivo
+	<filename>/usr/share/doc/pykota/initscripts/ldap/pykota-sample.ldif</filename>
+	que se distribuye con PyKota.</para></note>
 
 <programlisting># Entry 1: ou=pykota,dc=gsr,dc=pt
 dn:ou=pykota,dc=gsr,dc=pt
@@ -144,14 +137,13 @@ objectClass: top
 objectClass: organizationalUnit</programlisting>
 
 	<para>Suponiendo que la estructura anterior se encuentra almacenada en el
-	archivo <filename>pykota.ldif</filename>, ejecute el siguiente comando para
+	archivo <filename>pykota.ldif</filename>, ejecute la siguiente orden para
 	incorporarla a su directorio <acronym>LDAP</acronym>:</para>
 
 	<example>
 		<title>Creando la estructura para PyKota en <acronym>LDAP</acronym></title>
 
-<screen><prompt>$</prompt> <userinput>/usr/bin/ldapadd -x -D "cn=admin,dc=gsr,dc=pt" -W -h gsr.pt \
-                   -f pykota.ldif</userinput>
+<screen><prompt>$</prompt> <userinput>/usr/bin/ldapadd -x -D "cn=admin,dc=gsr,dc=pt" -W -h gsr.pt -f pykota.ldif</userinput>
 <computeroutput>Enter LDAP Password:</computeroutput> <userinput>[clave]</userinput>
 <computeroutput>adding new entry "ou=pykota,dc=gsr,dc=pt"
 

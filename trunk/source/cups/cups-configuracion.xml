@@ -61,7 +61,7 @@
 
 	<para>Antes de proceder con la configuración de <acronym>CUPS</acronym>, se va a comprobar
 	que el servidor Samba está preparado para funcionar junto con <acronym>CUPS</acronym>. Esta
-	comprobación se realizará con el comando <command>ldd</command>, que nos mostrará las librerías
+	comprobación se realizará con la orden <command>ldd</command>, que nos mostrará las librerías
 	compartidas que utiliza el demonio <command>smbd</command>, en este caso. Si entre estas
 	librerías se encuentra la de <acronym>CUPS</acronym>, es que Samba ha sido compilado
 	con soporte para este sistema de impresión:</para>
@@ -70,7 +70,7 @@
 		<title>Verificando que Samba se ha compilado con soporte para <acronym>CUPS</acronym></title>
 
 <screen><prompt>$</prompt> <userinput>/usr/bin/ldd `which smbd` | /bin/grep "cups"</userinput>
-<computeroutput>        libcups.so.2 => /usr/lib/libcups.so.2 (0x40129000)</computeroutput></screen>
+<computeroutput>        libcups.so.2 => /usr/lib/libcups.so.2 (0x40109000)</computeroutput></screen>
 	</example>
 
 	<para>Con el ejemplo anterior se comprueba que Samba ha sido compilado con soporte
@@ -85,8 +85,8 @@
 	para ver si se produce algún error relacionado con <acronym>CUPS</acronym>,
 	como ocurría en: <xref linkend="samba-comprobacion-funcionamiento-conf-cups-rehusada"/>:</para>
 
-<programlisting>[2004/06/15 13:32:20, 0] smbd/server.c:main(757)
-  smbd version 3.0.4-Debian started.
+<programlisting>[2004/10/09 20:13:22, 0] smbd/server.c:main(760)
+  smbd version 3.0.7-Debian started.
   Copyright Andrew Tridgell and the Samba Team 1992-2004</programlisting>
 
 	<para>Se puede comprobar, que ahora ya no se produce ningún error en el arranque del demonio
@@ -104,18 +104,16 @@
 		<title>Modificaciones de <acronym>PAM</acronym></title>
 
 		<para>Se ha de añadir al sistema de autentificación de <acronym>CUPS</acronym>, la posibilidad
-		de utilizar usuarios almacenados en la base de datos de <acronym>LDAP</acronym>. Para ello
-		se ha de modificar el archivo <filename>/etc/pam.d/cupsys</filename> de forma
-		que quede como se muestra a continuación:</para>
+		de utilizar usuarios almacenados en la base de datos de <acronym>LDAP</acronym>. Esto
+		se realiza en el archivo <filename>/etc/pam.d/cupsys</filename>. Si se echa un vistazo
+		a su contenido, se comprobará que no es necesario realizar ninguna modificación al mismo,
+		ya que en la <xref linkend="openldap-autentificacion-usuarios-configuracion-pam"/>
+		se han realizado todas las modificaciones necesarias.</para>
 
-<programlisting>auth    sufficient      pam_unix.so
-auth    required        pam_ldap.so
+<programlisting>@include common-auth
+@include common-account
+@include common-session</programlisting>
 
-account sufficient      pam_unix.so
-account required        pam_ldap.so</programlisting>
-
-		<note><para>En el <xref linkend="cupsys-pam"/> tiene un archivo de configuración
-		completo.</para></note>
 	</sect2>
 
 	<sect2 id="cups-configuracion-modificacion-conf-samba">
@@ -135,7 +133,7 @@ account required        pam_ldap.so</programlisting>
  # also give this right to other users to add drivers and set printer
  # properties
 -   printer admin = @domainadmins
-+   printer admin = @domainprintoperators <co id="co-printer-admin0"/>
++   printer admin = @domainprintoperator <co id="co-printer-admin0"/>
 
 
  ######## File sharing ########
@@ -152,7 +150,7 @@ account required        pam_ldap.so</programlisting>
     printable = yes
     create mask = 0700
 +   use client driver = no <co id="co-use-client-driver"/>
-+   printer admin = root, @domainprintoperators <co id="co-printer-admin1"/>
++   printer admin = root, @domainprintoperator <co id="co-printer-admin1"/>
 
  # Windows clients look for this share name as a source of downloadable
  # printer drivers
@@ -161,7 +159,7 @@ account required        pam_ldap.so</programlisting>
     guest ok = no
     read only = yes
 -   write list = root, @domainadmins
-+   write list = root, @domainprintoperators <co id="co-printer-admin2"/>
++   write list = root, @domainprintoperator <co id="co-printer-admin2"/>
 
  [tmp]
     comment = Temporal</computeroutput></screen>
@@ -182,9 +180,9 @@ account required        pam_ldap.so</programlisting>
 
 					<para>En este caso, el directorio tiene los siguientes permisos:</para>
 <screen><prompt>$</prompt> <userinput>/bin/ls -ld /var/spool/samba</userinput>
-<computeroutput>drwxrws---  2 root  domainpowerusers   48 2004-06-16 18:29 /var/spool/samba/</computeroutput></screen>
+<computeroutput>drwxrws---  2 root domainpoweruser 48 2004-10-09 20:28 /var/spool/samba</computeroutput></screen>
 
-					<para>Note que se ha utilizado el grupo <emphasis>domainpowerusers</emphasis>,
+					<para>Note que se ha utilizado el grupo <emphasis>domainpoweruser</emphasis>,
 					grupo al que han de pertenecer aquellos usuarios que quieran imprimir
 					vía Samba.</para>
 					</warning>
@@ -201,14 +199,14 @@ account required        pam_ldap.so</programlisting>
 					<para>El valor de esta opción dependerá del comportamiento de su sistema.</para>
 				</callout>
 				<callout arearefs="co-printer-admin0 co-printer-admin1 co-printer-admin2">
-					<para>En el <xref linkend="phpldapadmin-instalacion-template_config.php"/>
+					<para>En el <xref linkend="phpldapadmin-callout-template_config-gids"/>
 					se propone la opción de añadir los grupos de usuarios listados en el
 					archivo <filename>template_config.php</filename> de la aplicación
 					<application>phpLDAPadmin</application>. Esos grupos ya existen en el
 					sistema empleado para la elaboración de esta documentación, por lo que
 					se hará uso de ellos.</para>
 
-					<para>Se selecciona el grupo más adecuado, <quote>domainprintoperators</quote>,
+					<para>Se selecciona el grupo más adecuado, <quote>domainprintoperator</quote>,
 					para la administración de las impresoras.</para>
 				</callout>
 			</calloutlist>
@@ -217,6 +215,189 @@ account required        pam_ldap.so</programlisting>
 		<para>Una vez modificada la configuración de Samba, este servidor ha de releer su
 		configuración. En el <xref linkend="samba-comprobacion-funcionamiento-conf-releer-conf"/>
 		se muestra como hacerlo.</para>
+	</sect2>
+
+	<sect2 id="cups-configuracion-modificacion-conf-cups">
+		<title>Modificaciones relativas a <acronym>CUPS</acronym></title>
+
+		<note><para>Para realizar esta sección se ha consultado, principalmente, la
+		entrada bibliográfica <xref linkend="bibliografia-cups02"/>.</para></note>
+
+		<sect3 id="cups-configuracion-modificacion-conf-cups-client.conf">
+			<title>Archivo <filename>/etc/cups/client.conf</filename></title>
+
+			<para>En este archivo se descomentarán dos líneas, la primera hace referencia
+			al servidor donde está instalado <acronym>CUPS</acronym> y la segunda al
+			uso o no de cifrado:</para>
+
+<programlisting>ServerName gsr.pt <co id="cups-servername" />
+Encryption Required <co id="cups-encryption-required" /></programlisting>
+
+			<calloutlist>
+				<callout arearefs="cups-servername">
+					<para>Se especifica donde está alojado el servidor <acronym>CUPS</acronym>.</para>
+				</callout>
+				<callout arearefs="cups-encryption-required">
+					<para>Se hace uso del cifrado <acronym>TLS</acronym> en las comunicaciones.</para>
+				</callout>
+			</calloutlist>
+
+			<note><para>En el <xref linkend="cups-client.conf"/> tiene un ejemplo completo de
+			este archivo de configuración.</para></note>
+
+		</sect3>
+
+		<sect3 id="cups-configuracion-modificacion-conf-cups-cupsd.conf">
+			<title>Archivo <filename>/etc/cups/cupsd.conf</filename></title>
+
+				<para>El archivo de configuración <filename>cupsd.conf</filename> está estructurado
+				en secciones, por este motivo, las opciones de configuración más importantes
+				se irán mostrando en sucesivas secciones, que se corresponderán con las secciones del archivo
+				tratado.</para>
+
+				<note><para>En el <xref linkend="cups-cupsd.conf"/> tiene un ejemplo completo de
+				este archivo de configuración.</para></note>
+
+				<sect4 id="cups-configuracion-modificacion-conf-cups-cupsd.conf-server-identity">
+					<title>Server Identity</title>
+
+<programlisting>ServerName gsr.pt <co id="cups-server-identity-server-name"/>
+ServerAdmin sergio@gsr.pt <co id="cups-server-identity-server-admin" /></programlisting>
+
+				<calloutlist>
+					<callout arearefs="cups-server-identity-server-name">
+						<para>Nombre del servidor donde está alojado <acronym>CUPS</acronym>.</para>
+					</callout>
+					<callout arearefs="cups-server-identity-server-admin">
+						<para>Dirección de correo del administrador de impresión.</para>
+					</callout>
+				</calloutlist>
+
+				</sect4>
+
+				<sect4 id="cups-configuracion-modificacion-conf-cups-cupsd.conf-encryption-support">
+					<title>Encryption Support</title>
+
+					<para>Se han utilizado los mismos certificados creados en la
+					<xref linkend="openldap-certificados-creacion-certificado-entidad-certifificadora"/>,
+					por este motivo se ha copiado el directorio <filename class="directory">/etc/ldap/ssl/</filename> a
+					<filename class="directory">/etc/cups</filename>.</para>
+
+					<example id="cups-configuracion-modificacion-conf-cups-cupsd.conf-encryption-support-ex1">
+						<title>Copiando el contenido del directorio
+						<filename class="directory">/etc/ldap/ssl/</filename> a
+						<filename class="directory">/etc/cups</filename></title>
+
+<screen><prompt>#</prompt> <userinput>/bin/cp -va /etc/ldap/ssl/ /etc/cups/</userinput>
+<computeroutput>«/etc/ldap/ssl/» -> «/etc/cups/ssl»
+«/etc/ldap/ssl/crl» -> «/etc/cups/ssl/crl»
+«/etc/ldap/ssl/certs» -> «/etc/cups/ssl/certs»
+«/etc/ldap/ssl/certs/servidorcert.pem» -> «/etc/cups/ssl/certs/servidorcert.pem»
+«/etc/ldap/ssl/index.txt.old» -> «/etc/cups/ssl/index.txt.old»
+«/etc/ldap/ssl/index.txt» -> «/etc/cups/ssl/index.txt»
+«/etc/ldap/ssl/serial.old» -> «/etc/cups/ssl/serial.old»
+«/etc/ldap/ssl/serial» -> «/etc/cups/ssl/serial»
+«/etc/ldap/ssl/newcerts» -> «/etc/cups/ssl/newcerts»
+«/etc/ldap/ssl/newcerts/01.pem» -> «/etc/cups/ssl/newcerts/01.pem»
+«/etc/ldap/ssl/cacert.pem» -> «/etc/cups/ssl/cacert.pem»
+«/etc/ldap/ssl/index.txt.attr» -> «/etc/cups/ssl/index.txt.attr»
+«/etc/ldap/ssl/private» -> «/etc/cups/ssl/private»
+«/etc/ldap/ssl/private/cakey.pem» -> «/etc/cups/ssl/private/cakey.pem»
+«/etc/ldap/ssl/private/servidorkey.pem» -> «/etc/cups/ssl/private/servidorkey.pem»</computeroutput>
+<prompt>#</prompt> <userinput>/bin/chown root.lpadmin -vR /etc/cups/ssl</userinput>
+<computeroutput>cambiado el propietario de «/etc/cups/ssl» a root:lpadmin
+cambiado el propietario de «/etc/cups/ssl/crl» a root:lpadmin
+cambiado el propietario de «/etc/cups/ssl/certs» a root:lpadmin
+cambiado el propietario de «/etc/cups/ssl/certs/servidorcert.pem» a root:lpadmin
+cambiado el propietario de «/etc/cups/ssl/index.txt.old» a root:lpadmin
+cambiado el propietario de «/etc/cups/ssl/index.txt» a root:lpadmin
+cambiado el propietario de «/etc/cups/ssl/serial.old» a root:lpadmin
+cambiado el propietario de «/etc/cups/ssl/serial» a root:lpadmin
+cambiado el propietario de «/etc/cups/ssl/newcerts» a root:lpadmin
+cambiado el propietario de «/etc/cups/ssl/newcerts/01.pem» a root:lpadmin
+cambiado el propietario de «/etc/cups/ssl/cacert.pem» a root:lpadmin
+cambiado el propietario de «/etc/cups/ssl/index.txt.attr» a root:lpadmin
+cambiado el propietario de «/etc/cups/ssl/private» a root:lpadmin
+cambiado el propietario de «/etc/cups/ssl/private/cakey.pem» a root:lpadmin
+cambiado el propietario de «/etc/cups/ssl/private/servidorkey.pem» a root:lpadmin</computeroutput></screen>
+					</example>
+
+					<para>Las opciones de configuración, por tanto, quedarían de la siguiente forma:</para>
+
+<programlisting>ServerCertificate /etc/cups/ssl/certs/servidorcert.pem
+ServerKey /etc/cups/ssl/private/servidorkey.pem</programlisting>
+
+				</sect4>
+
+				<sect4 id="cups-configuracion-modificacion-conf-cups-cupsd.conf-network-options">
+					<title>Network Options</title>
+
+					<para>Se especifica donde ha de escuchar el servidor <acronym>CUPS</acronym> y
+					en que puertos:</para>
+
+<programlisting>Listen gsr.pt:631 <co id="cups-network-options-listen" />
+SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting>
+
+				<calloutlist>
+					<callout arearefs="cups-network-options-listen">
+						<para>Puerto por defecto, destinado a las conexiones sin cifrado.</para>
+					</callout>
+					<callout arearefs="cups-network-options-ssllisten">
+						<para>Puerto destinado a las conexiones con cifrado. Si su sistema no posee
+						el puerto 443 ocupado, sería recomendable utilizarlo.</para>
+					</callout>
+				</calloutlist>
+
+				</sect4>
+
+				<sect4 id="cups-configuracion-modificacion-conf-cups-cupsd.conf-security-options">
+					<title>Security Options</title>
+
+					<para>La única modificación que se realizará en esta sección, será obligar
+					a aquellos directorios que precisan autentificación para su acceso, a hacer
+					uso de cifrado. Para ello se utilizará la directiva
+					<emphasis>Encryption Required</emphasis>.</para>
+
+<programlisting><![CDATA[<Location /jobs>
+
+    AuthType Basic
+    AuthClass User
+
+    Encryption Required
+
+</Location>
+
+<Location /admin>
+
+    AuthType Basic
+    AuthClass System
+
+    Order Deny,Allow
+    Deny From All
+    Allow From 127.0.0.1
+
+    Encryption Required
+
+</Location>]]>
+</programlisting>
+
+				</sect4>
+		</sect3>
+
+		<sect3 id="cups-configuracion-modificacion-conf-cups-reinicio-servidor">
+			<title>Reinicio del servidor <acronym>CUPS</acronym></title>
+
+			<para>Una vez se ha finalizado la configuración de <acronym>CUPS</acronym>, se ha de reiniciar
+			el servidor, para que relea su configuración:</para>
+
+			<example id="cups-configuracion-modificacion-conf-cups-reinicio-servidor-ex1">
+				<title>Reinicio del servidor <acronym>CUPS</acronym></title>
+
+<screen><prompt>#</prompt> <userinput>/etc/init.d/cupsys restart</userinput>
+<computeroutput>Restarting printing system service: cupsd.</computeroutput></screen>
+			</example>
+		</sect3>
+
 	</sect2>
 </sect1>
 
@@ -264,7 +445,7 @@ account required        pam_ldap.so</programlisting>
 			</listitem>
 		</itemizedlist>
 
-		<para>Las dos siguientes secciones mostrarán como añadir una impresora desde
+		<para>Las dos secciones siguientes mostrarán como añadir una impresora desde
 		la interfaz de administración web de <acronym>CUPS</acronym> y desde el frontend
 		que provee el escritorio <acronym>KDE</acronym> para la administración
 		de impresoras.</para>
@@ -291,8 +472,82 @@ account required        pam_ldap.so</programlisting>
 						teclee <keycombo action='simul'><keycap>Alt</keycap><keycap>F2</keycap></keycombo>
 						e introduzca la dirección donde se encuentre instalado <acronym>CUPS</acronym>
 						seguido del puerto donde está escuchando. En este caso:
-						<emphasis>localhost:631</emphasis>.</para>
+						<emphasis>https://gsr.pt:6443</emphasis>.</para>
+
+						<note><para>Si se fija en la <acronym>URL</acronym> que se ha tecleado,
+						se ha especificado el protocolo <emphasis>https</emphasis> y el puerto
+						de conexión segura de <acronym>CUPS</acronym>. Esto es necesario
+						si se quiere hacer uso de cifrado en las comunicaciones con
+						<acronym>CUPS</acronym>.</para>
+
+						<para>Si no accede de esta forma a la interfaz web de <acronym>CUPS</acronym>,
+						no podrá realizar labores de administración, ya que se ha obligado
+						en los archivos de configuración de <acronym>CUPS</acronym>, al uso
+						de cifrado en las secciones de administración.</para></note>
 					</caption>
+				</mediaobject>
+			</figure>
+
+			<figure>
+				<title>Aviso acerca del certificado del servidor web I</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="./imagenes/lam-configuracion-certificado1.eps" align="center" format="EPS" scale="35"/>
+						</imageobject>
+						<imageobject>
+							<imagedata fileref="./imagenes/lam-configuracion-certificado1.png" format="PNG"/>
+						</imageobject>
+					
+						<caption><para>Como se ha accedido a la interfaz web de <acronym>CUPS</acronym>
+						vía el puerto seguro y debido a que la entidad certificadora que se ha creado para las
+						conexiones <acronym>SSL</acronym>/<acronym>TLS</acronym> es desconocida,
+						sale este aviso. Pulse sobre el botón <emphasis>Detalles</emphasis>
+						para obtener más información.</para></caption>
+				</mediaobject>
+			</figure>
+	
+			<figure>
+				<title>Información <acronym>SSL</acronym></title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="./imagenes/lam-configuracion-certificado2.eps" align="center" format="EPS" scale="35"/>
+						</imageobject>
+						<imageobject>
+							<imagedata fileref="./imagenes/lam-configuracion-certificado2.png" format="PNG"/>
+						</imageobject>
+					
+						<caption><para>En esta pantalla se muestra la información del certificado y la
+						entidad certificadora que ha creado dicho certificado. Pulse
+						sobre el botón <emphasis>Cerrar</emphasis> para continuar.</para></caption>
+				</mediaobject>
+			</figure>
+	
+			<figure>
+				<title>Aviso acerca del certificado del servidor web II</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="./imagenes/lam-configuracion-certificado3.eps" align="center" format="EPS" scale="35"/>
+						</imageobject>
+						<imageobject>
+							<imagedata fileref="./imagenes/lam-configuracion-certificado3.png" format="PNG"/>
+						</imageobject>
+					
+						<caption><para>Pulse ahora sobre el botón <emphasis>Continuar</emphasis> para
+						seguir con la carga de la página.</para></caption>
+				</mediaobject>
+			</figure>
+	
+			<figure>
+				<title>Período de aceptación del certificado</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="./imagenes/lam-configuracion-certificado4.eps" align="center" format="EPS" scale="35"/>
+						</imageobject>
+						<imageobject>
+							<imagedata fileref="./imagenes/lam-configuracion-certificado4.png" format="PNG"/>
+						</imageobject>
+					
+						<caption><para>Seleccione la opción deseada y pulse sobre ella.</para></caption>
 				</mediaobject>
 			</figure>
 
@@ -384,6 +639,21 @@ account required        pam_ldap.so</programlisting>
 					<caption>
 						<para>Seleccione el tipo <emphasis>Virtual Printer (PDF Printer)</emphasis>
 						como dispositivo de impresión...</para>
+
+						<warning><para>En las pruebas realizadas desde la interfaz web de <acronym>CUPS</acronym>
+						por el puerto seguro <emphasis>6443</emphasis>, no se ha conseguido que se
+						muestren los dispositivos de impresión disponibles en el sistema. Por este motivo
+						se ha seguido, a partir de este punto, la configuración por el puerto estándar:
+						el 631.</para>
+
+						<para>Para conseguir esto, se han de comentar (o cambiar al valor adecuado)
+						las directivas <emphasis>Encryption</emphasis> de los directorios
+						<filename class="directory">/admin</filename> y
+						<filename class="directory">/jobs</filename> del archivo de configuración
+						<filename>/etc/cups/cupsd.conf</filename> (más datos sobre
+						estas directivas en la
+						<xref linkend="cups-configuracion-modificacion-conf-cups-cupsd.conf-security-options"/>).</para>
+						</warning>
 					</caption>
 				</mediaobject>
 			</figure>
@@ -499,7 +769,7 @@ account required        pam_ldap.so</programlisting>
 					<caption>
 						<para>Acceda al menú de <acronym>KDE</acronym>, y seleccione la
 						herramienta <emphasis>Administrador de impresión</emphasis> desde el
-						mismo; o bien teclee el comando <command>/usr/bin/kcmshell printers</command>.</para>
+						mismo; o bien teclee la orden <command>/usr/bin/kcmshell printers</command>.</para>
 					</caption>
 				</mediaobject>
 			</figure>
@@ -745,10 +1015,10 @@ account required        pam_ldap.so</programlisting>
 				<title>Prueba de impresión</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora23a.eps" align="center" format="EPS" scale="35"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora24.eps" align="center" format="EPS" scale="35"/>
 					</imageobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora23a.png" format="PNG"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora24.png" format="PNG"/>
 					</imageobject>
 			
 					<caption>
@@ -763,10 +1033,10 @@ account required        pam_ldap.so</programlisting>
 				<title>Selección de rótulos</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora24.eps" align="center" format="EPS" scale="35"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora25.eps" align="center" format="EPS" scale="35"/>
 					</imageobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora24.png" format="PNG"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora25.png" format="PNG"/>
 					</imageobject>
 			
 					<caption>
@@ -783,10 +1053,10 @@ account required        pam_ldap.so</programlisting>
 				<title>Cuotas de impresión</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora25.eps" align="center" format="EPS" scale="35"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora26.eps" align="center" format="EPS" scale="35"/>
 					</imageobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora25.png" format="PNG"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora26.png" format="PNG"/>
 					</imageobject>
 			
 					<caption>
@@ -804,10 +1074,10 @@ account required        pam_ldap.so</programlisting>
 				<title>Permisos de acceso a la impresora</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora26.eps" align="center" format="EPS" scale="35"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora27.eps" align="center" format="EPS" scale="35"/>
 					</imageobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora26.png" format="PNG"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora27.png" format="PNG"/>
 					</imageobject>
 			
 					<caption>
@@ -824,10 +1094,10 @@ account required        pam_ldap.so</programlisting>
 				<title>Información sobre la impresora</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora27.eps" align="center" format="EPS" scale="35"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora28.eps" align="center" format="EPS" scale="35"/>
 					</imageobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora27.png" format="PNG"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora28.png" format="PNG"/>
 					</imageobject>
 			
 					<caption>
@@ -843,10 +1113,10 @@ account required        pam_ldap.so</programlisting>
 				<title>Confirmación</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora28.eps" align="center" format="EPS" scale="35"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora29.eps" align="center" format="EPS" scale="35"/>
 					</imageobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora28.png" format="PNG"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora29.png" format="PNG"/>
 					</imageobject>
 			
 					<caption>
@@ -862,10 +1132,10 @@ account required        pam_ldap.so</programlisting>
 				<title>Nueva impresora <emphasis>LaserBN</emphasis></title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora29.eps" align="center" format="EPS" scale="35"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora30.eps" align="center" format="EPS" scale="35"/>
 					</imageobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora29.png" format="PNG"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora30.png" format="PNG"/>
 					</imageobject>
 			
 					<caption>
@@ -951,14 +1221,88 @@ account required        pam_ldap.so</programlisting>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora1.png" format="PNG"/>
 					</imageobject>
-			
+		
 					<caption>
 						<para>Si se encuentra en un entorno de escritorio <acronym>KDE</acronym>,
 						teclee <keycombo action='simul'><keycap>Alt</keycap><keycap>F2</keycap></keycombo>
 						e introduzca la dirección donde se encuentre instalado <acronym>CUPS</acronym>
 						seguido del puerto donde está escuchando. En este caso:
-						<emphasis>localhost:631</emphasis>.</para>
+						<emphasis>https://gsr.pt:6443</emphasis>.</para>
+
+						<note><para>Si se fija en la <acronym>URL</acronym> que se ha tecleado,
+						se ha especificado el protocolo <emphasis>https</emphasis> y el puerto
+						de conexión segura de <acronym>CUPS</acronym>. Esto es necesario
+						si se quiere hacer uso de cifrado en las comunicaciones con
+						<acronym>CUPS</acronym>.</para>
+
+						<para>Si no accede de esta forma a la interfaz web de <acronym>CUPS</acronym>,
+						no podrá realizar labores de administración, ya que se ha obligado
+						en los archivos de configuración de <acronym>CUPS</acronym>, al uso
+						de cifrado en las secciones de administración.</para></note>
 					</caption>
+				</mediaobject>
+			</figure>
+
+			<figure>
+				<title>Aviso acerca del certificado del servidor web I</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="./imagenes/lam-configuracion-certificado1.eps" align="center" format="EPS" scale="35"/>
+						</imageobject>
+						<imageobject>
+							<imagedata fileref="./imagenes/lam-configuracion-certificado1.png" format="PNG"/>
+						</imageobject>
+					
+						<caption><para>Como se ha accedido a la interfaz web de <acronym>CUPS</acronym>
+						vía el puerto seguro y debido a que la entidad certificadora que se ha creado para las
+						conexiones <acronym>SSL</acronym>/<acronym>TLS</acronym> es desconocida,
+						sale este aviso. Pulse sobre el botón <emphasis>Detalles</emphasis>
+						para obtener más información.</para></caption>
+				</mediaobject>
+			</figure>
+	
+			<figure>
+				<title>Información <acronym>SSL</acronym></title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="./imagenes/lam-configuracion-certificado2.eps" align="center" format="EPS" scale="35"/>
+						</imageobject>
+						<imageobject>
+							<imagedata fileref="./imagenes/lam-configuracion-certificado2.png" format="PNG"/>
+						</imageobject>
+					
+						<caption><para>En esta pantalla se muestra la información del certificado y la
+						entidad certificadora que ha creado dicho certificado. Pulse
+						sobre el botón <emphasis>Cerrar</emphasis> para continuar.</para></caption>
+				</mediaobject>
+			</figure>
+	
+			<figure>
+				<title>Aviso acerca del certificado del servidor web II</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="./imagenes/lam-configuracion-certificado3.eps" align="center" format="EPS" scale="35"/>
+						</imageobject>
+						<imageobject>
+							<imagedata fileref="./imagenes/lam-configuracion-certificado3.png" format="PNG"/>
+						</imageobject>
+					
+						<caption><para>Pulse ahora sobre el botón <emphasis>Continuar</emphasis> para
+						seguir con la carga de la página.</para></caption>
+				</mediaobject>
+			</figure>
+	
+			<figure>
+				<title>Período de aceptación del certificado</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="./imagenes/lam-configuracion-certificado4.eps" align="center" format="EPS" scale="35"/>
+						</imageobject>
+						<imageobject>
+							<imagedata fileref="./imagenes/lam-configuracion-certificado4.png" format="PNG"/>
+						</imageobject>
+					
+						<caption><para>Seleccione la opción deseada y pulse sobre ella.</para></caption>
 				</mediaobject>
 			</figure>
 
@@ -976,6 +1320,23 @@ account required        pam_ldap.so</programlisting>
 						<para>Una vez se tenga acceso al interfaz de administración web de
 						<acronym>CUPS</acronym>, pulse sobre el enlace
 						<quote>Do Administration Tasks</quote>.</para>
+					</caption>
+				</mediaobject>
+			</figure>
+
+			<figure>
+				<title>Clave del administrador</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora4.eps" align="center" format="EPS" scale="35"/>
+					</imageobject>
+					<imageobject>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora4.png" format="PNG"/>
+					</imageobject>
+			
+					<caption>
+						<para>Introduzca un usuario con permisos de administración para el sistema
+						de impresión, así como su clave.</para>
 					</caption>
 				</mediaobject>
 			</figure>
@@ -1028,6 +1389,21 @@ account required        pam_ldap.so</programlisting>
 					<caption>
 						<para>Seleccione las impresoras que van a pertenecer a la clase y pulse
 						sobre el botón <quote>Continue</quote>.</para>
+
+						<warning><para>En las pruebas realizadas desde la interfaz web de <acronym>CUPS</acronym>
+						por el puerto seguro <emphasis>6443</emphasis>, no se ha conseguido que se
+						muestren las impresoras existentes. Por este motivo
+						se ha seguido, a partir de este punto, la configuración por el puerto estandar:
+						el 631.</para>
+
+						<para>Para conseguir esto, se han de comentar (o cambiar al valor adecuado)
+						las directivas <emphasis>Encryption</emphasis> de los directorios
+						<filename class="directory">/admin</filename> y
+						<filename class="directory">/jobs</filename> del archivo de configuración
+						<filename>/etc/cups/cupsd.conf</filename> (más datos sobre
+						estas directivas en la
+						<xref linkend="cups-configuracion-modificacion-conf-cups-cupsd.conf-security-options"/>).</para>
+						</warning>
 					</caption>
 				</mediaobject>
 			</figure>
@@ -1089,7 +1465,7 @@ account required        pam_ldap.so</programlisting>
 					<caption>
 						<para>Acceda al menú de <acronym>KDE</acronym>, y seleccione la
 						herramienta <emphasis>Administrador de impresión</emphasis> desde el
-						mismo; o bien teclee el comando <command>/usr/bin/kcmshell printers</command>.</para>
+						mismo; o bien teclee la orden <command>/usr/bin/kcmshell printers</command>.</para>
 					</caption>
 				</mediaobject>
 			</figure>
@@ -1135,10 +1511,10 @@ account required        pam_ldap.so</programlisting>
 				<title>Bienvenida al asistente de impresión de KDE</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase8.eps" align="center" format="EPS" scale="35"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora15.eps" align="center" format="EPS" scale="35"/>
 					</imageobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase8.png" format="PNG"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-impresora15.png" format="PNG"/>
 					</imageobject>
 			
 					<caption>
@@ -1154,10 +1530,10 @@ account required        pam_ldap.so</programlisting>
 				<title>Selección de la clase impresora</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase9.eps" align="center" format="EPS" scale="35"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-clase8.eps" align="center" format="EPS" scale="35"/>
 					</imageobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase9.png" format="PNG"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-clase8.png" format="PNG"/>
 					</imageobject>
 			
 					<caption>
@@ -1174,10 +1550,10 @@ account required        pam_ldap.so</programlisting>
 				<title>Composición de la clase</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase10.eps" align="center" format="EPS" scale="35"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-clase9.eps" align="center" format="EPS" scale="35"/>
 					</imageobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase10.png" format="PNG"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-clase9.png" format="PNG"/>
 					</imageobject>
 			
 					<caption>
@@ -1193,10 +1569,10 @@ account required        pam_ldap.so</programlisting>
 				<title>Información sobre la clase</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase11.eps" align="center" format="EPS" scale="35"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-clase10.eps" align="center" format="EPS" scale="35"/>
 					</imageobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase11.png" format="PNG"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-clase10.png" format="PNG"/>
 					</imageobject>
 			
 					<caption>
@@ -1211,10 +1587,10 @@ account required        pam_ldap.so</programlisting>
 				<title>Confirmación de la creación de la nueva clase</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase12.eps" align="center" format="EPS" scale="35"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-clase11.eps" align="center" format="EPS" scale="35"/>
 					</imageobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase12.png" format="PNG"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-clase11.png" format="PNG"/>
 					</imageobject>
 			
 					<caption>
@@ -1230,10 +1606,10 @@ account required        pam_ldap.so</programlisting>
 				<title>Nueva clase <emphasis>Color</emphasis></title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase13.eps" align="center" format="EPS" scale="35"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-clase12.eps" align="center" format="EPS" scale="35"/>
 					</imageobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase13.png" format="PNG"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-clase12.png" format="PNG"/>
 					</imageobject>
 			
 					<caption>
@@ -1256,10 +1632,10 @@ account required        pam_ldap.so</programlisting>
 				<title>Listado de clases</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase14.eps" align="center" format="EPS" scale="35"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-clase13.eps" align="center" format="EPS" scale="35"/>
 					</imageobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase14.png" format="PNG"/>
+						<imagedata fileref="./imagenes/cupsys-aniadir-clase13.png" format="PNG"/>
 					</imageobject>
 			
 					<caption>
@@ -1335,7 +1711,7 @@ account required        pam_ldap.so</programlisting>
 						<filename>/var/log/cups/page_log</filename>, ha de ver una entrada
 						similar a:</para>
 
-<programlisting>LaserColor sergio 5 [15/Jun/2004:22:28:40 +0100] 1 1 - localhost</programlisting>
+<programlisting>Sublimacion sergio 2 [10/Oct/2004:19:52:05 +0200] 1 1 - localhost</programlisting>
 
 						<para>Finalmente, si mira en el directorio
 						<filename class="directory">cups-pdf</filename> localizado en el
@@ -1431,7 +1807,7 @@ cups-samba.ss</computeroutput></screen>
 			en el directorio <filename class="directory">/usr/share/cups/drivers/</filename></title>
 
 <screen><prompt>#</prompt> <userinput>/bin/mkdir -v -m 755 /usr/share/cups/drivers/</userinput>
-<computeroutput>mkdir: se ha creado el directorio `/usr/share/cups/drivers/'</computeroutput>
+<computeroutput>/bin/mkdir: se ha creado el directorio `/usr/share/cups/drivers/'</computeroutput>
 <prompt>#</prompt> <userinput>/bin/tar xvf /tmp/cups-samba.ss -C /</userinput>
 <computeroutput>/usr/share/cups/drivers/cups5.hlp
 /bin/tar: Removing leading `/' from member names
@@ -1473,7 +1849,7 @@ cups-samba.ss</computeroutput></screen>
 <screen><prompt>$</prompt> <userinput>/usr/bin/wine winstspa.exe</userinput></screen>
 		</example>
 
-		<para>Tras la ejecución del comando del ejemplo anterior, comenzará el proceso de instalación
+		<para>Tras la ejecución de la orden del ejemplo anterior, comenzará el proceso de instalación
 		de los controladores PostScript de Adobe en el sistema. Vea las siguientes
 		capturas para más detalles:</para>
 
@@ -1752,7 +2128,7 @@ el modo de `/usr/share/cups/drivers/PSMON.DLL' cambia a 0644 (rw-r--r--)</comput
 		<example id="cups-configuracion-controladores-adobe-wine5">
 			<title>Exportando los controladores de impresión con <command>cupsaddsmb</command></title>
 
-			<para>La opción <emphasis>-a</emphasis> le dice al comando
+			<para>La opción <emphasis>-a</emphasis> le dice a la orden
 			<command>cupsaddsmb</command> que añada todas las impresoras
 			presentes en el sistema.</para>
 
@@ -1810,7 +2186,7 @@ el modo de `/usr/share/cups/drivers/PSMON.DLL' cambia a 0644 (rw-r--r--)</comput
 		</example>
 
 		<note><para>En el <xref linkend="cupsaddsmb"/> se muestra la ejecución
-		del comando <command>cupsaddsmb</command> con la opción <emphasis>-v</emphasis>
+		de la orden <command>cupsaddsmb</command> con la opción <emphasis>-v</emphasis>
 		(modo <emphasis>verbose</emphasis>).</para></note>
 
 
@@ -1837,29 +2213,29 @@ el modo de `/usr/share/cups/drivers/PSMON.DLL' cambia a 0644 (rw-r--r--)</comput
 
 <screen><prompt>$</prompt> <userinput>/usr/bin/smbclient -L TODOSCSI -U gsruser</userinput>
 <computeroutput>Password:</computeroutput> <userinput>[Clave]</userinput>
-<computeroutput>Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.4-Debian]
+<computeroutput>Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 
-        Sharename      Type      Comment
-        ---------      ----      -------
-        netlogon       Disk      Network Logon Service
-        print$         Disk      Printer Drivers
-        tmp            Disk      Temporal
-        cdrom          Disk      Samba server's CD-ROM
-        IPC$           IPC       IPC Service (SAMBA-LDAP PDC server)
-        ADMIN$         IPC       IPC Service (SAMBA-LDAP PDC server)
-        InyeccionBN    Printer   Impresora de inyeccion de tinta en Blanco y Negro
-        LaserBN        Printer   Impresora Laser a Blanco y Negro
-        LaserColor     Printer   Impresora Laser a Color
-        Multifuncion   Printer   Impresora multifuncion
-        Plotter        Printer   Plotter de impresion
-        Sublimacion    Printer   Impresora de sublimacion
-        Barato         Printer   Impresoras para imprimir a bajo coste
-        BlancoNegro    Printer   Impresoras a blanco y negro
-        Color          Printer   Impresoras a color
-        Laser          Printer   Impresoras Laser
-        Profesional    Printer   Impresoras para trabajos de calidad
-        gsruser        Disk      Home Directories
-Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.4-Debian]
+        Sharename       Type      Comment
+        ---------       ----      -------
+        netlogon        Disk      Network Logon Service
+        print$          Disk      Printer Drivers
+        tmp             Disk      Temporal
+        cdrom           Disk      Samba server's CD-ROM
+        IPC$            IPC       IPC Service (SAMBA-LDAP PDC server)
+        ADMIN$          IPC       IPC Service (SAMBA-LDAP PDC server)
+        InyeccionBN     Printer   Impresora de inyeccion de tinta a Blanco y Negro
+        LaserBN         Printer   Impresora Laser a Blanco y Negro
+        LaserColor      Printer   Impresora Laser a Color
+        Multifuncion    Printer   Impresora multifuncion
+        Plotter         Printer   Plotter de impresion
+        Barato          Printer   Impresoras para imprimir a bajo coste
+        Sublimacion     Printer   Impresora de sublimacion
+        BlancoNegro     Printer   Impresion a Blanco y Negro
+        Color           Printer   Impresoras a color
+        Laser           Printer   Impresion a Laser
+        Profesional     Printer   Impresoras para trabajos de calidad
+        gsruser         Disk      Home Directories
+Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 
         Server               Comment
         ---------            -------
@@ -1891,7 +2267,7 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.4-Debian]
 			<caption>
 				<para>Acceda al menú de <acronym>KDE</acronym>, y seleccione la
 				herramienta <emphasis>Administrador de impresión</emphasis> desde el
-				mismo; o bien teclee el comando <command>/usr/bin/kcmshell printers</command>.</para>
+				mismo; o bien teclee la orden <command>/usr/bin/kcmshell printers</command>.</para>
 			</caption>
 		</mediaobject>
 	</figure>
@@ -2090,10 +2466,10 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.4-Debian]
 		<title>Prueba de impresión</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-impresora23a.eps" align="center" format="EPS" scale="35"/>
+				<imagedata fileref="./imagenes/cupsys-aniadir-impresora24.eps" align="center" format="EPS" scale="35"/>
 			</imageobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-impresora23a.png" format="PNG"/>
+				<imagedata fileref="./imagenes/cupsys-aniadir-impresora24.png" format="PNG"/>
 			</imageobject>
 	
 			<caption>
@@ -2107,10 +2483,10 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.4-Debian]
 		<title>Selección de rótulos</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-impresora24.eps" align="center" format="EPS" scale="35"/>
+				<imagedata fileref="./imagenes/cupsys-aniadir-impresora25.eps" align="center" format="EPS" scale="35"/>
 			</imageobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-impresora24.png" format="PNG"/>
+				<imagedata fileref="./imagenes/cupsys-aniadir-impresora25.png" format="PNG"/>
 			</imageobject>
 	
 			<caption>
@@ -2126,10 +2502,10 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.4-Debian]
 		<title>Cuotas de impresión</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-impresora25.eps" align="center" format="EPS" scale="35"/>
+				<imagedata fileref="./imagenes/cupsys-aniadir-impresora26.eps" align="center" format="EPS" scale="35"/>
 			</imageobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-impresora25.png" format="PNG"/>
+				<imagedata fileref="./imagenes/cupsys-aniadir-impresora26.png" format="PNG"/>
 			</imageobject>
 	
 			<caption>
@@ -2146,10 +2522,10 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.4-Debian]
 		<title>Permisos de acceso a la impresora</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-impresora26.eps" align="center" format="EPS" scale="35"/>
+				<imagedata fileref="./imagenes/cupsys-aniadir-impresora27.eps" align="center" format="EPS" scale="35"/>
 			</imageobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-impresora26.png" format="PNG"/>
+				<imagedata fileref="./imagenes/cupsys-aniadir-impresora27.png" format="PNG"/>
 			</imageobject>
 	
 			<caption>

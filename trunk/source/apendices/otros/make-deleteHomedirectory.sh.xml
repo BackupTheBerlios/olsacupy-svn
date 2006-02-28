@@ -91,7 +91,7 @@
 
 
 # Password to bind to ldap server
-systempass="1"  
+systempass="********"  
 # Bind dn
 binddn="cn=admin,dc=gsr,dc=pt" 
 # Acount leave

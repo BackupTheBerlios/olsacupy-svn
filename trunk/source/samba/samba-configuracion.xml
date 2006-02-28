@@ -212,7 +212,7 @@ Press enter to see a dump of your service definitions
    guest account = guest <co id="guest_account"/>
    invalid users = root <co id="invalid_users"/>
    unix password sync = yes <co id="unix_password_sync"/>
-   passwd program = /usr/local/sbin/smbldap-passwd -o %u <co id="passwd_program"/>
+   passwd program = /usr/sbin/smbldap-passwd -o %u <co id="passwd_program"/>
    passwd chat = *Enter\snew\sUNIX\spassword:* %n\n *Retype\snew\sUNIX\spassword:* %n\n . <co id="passwd_chat"/>
    </programlisting>
 
@@ -221,7 +221,7 @@ Press enter to see a dump of your service definitions
 					<para>Opción necesaria para la administración de dominios por parte de Samba.</para>
 				</callout>
 				<callout arearefs="encrypt_passwords">
-					<para>Se activa la encriptación para el almacenado de las claves</para>
+					<para>Se activa el cifrado para el almacenado de las claves</para>
 				</callout>
 				<callout arearefs="passdb_backend">
 					<para>Se asigna a esta opción el valor: <quote>ldapsam:ldap://gsr.pt</quote>,
@@ -240,7 +240,8 @@ Press enter to see a dump of your service definitions
 					<para>Se activa la sincronización entre las claves Unix y las claves Samba.</para>
 				</callout>
 				<callout arearefs="passwd_program">
-					<para>Programa utilizado durante el cambio de clave de un usuario.</para>
+					<para>Programa utilizado durante el cambio de clave de un usuario. Vea el
+					<xref linkend="smbldap-tools"/> para saber como obtener esta herramienta.</para>
 				</callout>
 				<callout arearefs="passwd_chat">
 					<para>Texto que se mostrará durante el cambio de una clave mediante Samba.</para>
@@ -254,7 +255,7 @@ Press enter to see a dump of your service definitions
 <programlisting>   ldap admin dn = cn=admin,dc=gsr,dc=pt <co id="ldap-admin-dn"/>
 ;   ldap server = gsr.pt <co id="ldap-server"/>
 ;   ldap port = 389 <co id="ldap-port"/>
-   ldap ssl = off <co id="ldap-ssl"/>
+   ldap ssl = start_tls <co id="ldap-ssl"/>
    ldap delete dn = no <co id="ldap-delete-dn"/>
    ldap filter = <![CDATA[(&(uid=%u)(objectclass=sambaSamAccount))]]> <co id="ldap-filter"/>
    ldap suffix = ou=people,dc=gsr,dc=pt <co id="ldap-suffix"/>
@@ -276,16 +277,18 @@ Press enter to see a dump of your service definitions
 				</callout>
 				<callout arearefs="ldap-port">
 					<para>Indica en que puerto está escuchando <acronym>LDAP</acronym>. El puerto
-					389 es el puerto estándar para las conexiones sin encriptación; el 636
-					es el puerto estándar para las conexiones con encriptación. Si la línea
+					389 es el puerto estándar para las conexiones sin cifrado; el 636
+					es el puerto estándar para las conexiones con cifrado. Si la línea
 					<quote>ldap ssl</quote> posee el valor <quote>on</quote>, Samba intentará
 					automáticamente conectarse por el puerto 636 para contactar con el servidor
 					<acronym>LDAP</acronym>. Este parámetro se comenta, ya que parece que Samba no lo
 		            reconoce.</para>
 				</callout>
 				<callout arearefs="ldap-ssl">
-					<para>Opción que determina si encriptar o no las comunicaciones entre el servidor
-					Samba y el servidor <acronym>LDAP</acronym>.</para>
+					<para>Opción que determina si cifrar o no las comunicaciones entre el servidor
+					Samba y el servidor <acronym>LDAP</acronym>. Se ha seleccionado la conexión
+					por <acronym>TLS</acronym>, como ya viene siendo habitual a lo largo
+					de toda la documentación.</para>
 				</callout>
 				<callout arearefs="ldap-delete-dn">
 					<para>Este parámetro especifica si al realizar una operación de borrado en
@@ -384,7 +387,7 @@ Press enter to see a dump of your service definitions
    idmap uid = 10000-20000 <co id="idmap_uid"/>
    idmap gid = 10000-20000 <co id="idmap_gid"/>
    template shell = /bin/bash <co id="template_shell"/>
-   add user script = /usr/local/sbin/smbldap-useradd -w %u <co id="add_user_script"/></programlisting>
+   add user script = /usr/sbin/smbldap-useradd -w %u <co id="add_user_script"/></programlisting>
 
 			<calloutlist>
 				<callout arearefs="socket_options">
@@ -691,7 +694,8 @@ Press enter to see a dump of your service definitions
 
 		<tip><para>Normalmente, para acceder al contenido de un <acronym>CDROM</acronym> es
 		necesario montarlo primero. Por lo que se recomienda instalar el parche
-		<emphasis>supermount</emphasis> en el núcleo Linux, de forma que el montado
+		<ulink url="http://supermount-ng.sourceforge.net/">supermount</ulink>
+		en el núcleo Linux, de forma que el montado
 		y desmontado del <acronym>CDROM</acronym> sea transparente al usuario. Cuando se
 		intenta acceder al recurso, el <acronym>CDROM</acronym> se montará automáticamente.</para>
 

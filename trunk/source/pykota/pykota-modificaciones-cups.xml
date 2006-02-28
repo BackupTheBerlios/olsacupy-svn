@@ -75,7 +75,8 @@ KLimit 0
 	quiera que se administre con PyKota</para>
 
 	<para>Una vez haya realizado las modificaciones oportunas, sólo queda reiniciar
-	el demonio <command>cupsd</command> (vea el <xref linkend="cups-instalacion-inst-cupsd"/>).
+	el demonio <command>cupsd</command> (vea el
+	<xref linkend="cups-configuracion-modificacion-conf-cups-reinicio-servidor-ex1"/>).
 	A partir de ese momento, la impresión en las impresoras modificadas pasará a estar controlada por
 	PyKota.</para>
 </sect1>

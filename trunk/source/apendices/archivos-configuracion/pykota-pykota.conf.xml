@@ -25,7 +25,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
 #
-# $Id: pykota.conf.sample,v 1.91 2004/06/03 21:50:34 jalet Exp $
+# $Id: pykota.conf.sample,v 1.104 2004/10/06 08:19:29 jalet Exp $
 #
 
 [global]
@@ -34,15 +34,15 @@
 # MySQL and BerkeleyDB are planned.
 
 # the 'postgresql' value is deprecated, use 'pgstorage' instead.
-# storagebackend: ldapstorage
+storagebackend: ldapstorage
 
 # Quota Storage Server hostname (and optional port)
 # e.g. db.example.com:5432
-# storageserver: gsr.pt:389
+storageserver: ldap://gsr.pt:389
 
 #
 # name of the Quota Storage Database
-#storagename: pykota
+storagename: dc=gsr,dc=pt
 
 # 
 # Quota Storage normal user's name and password
@@ -53,8 +53,8 @@
 # DATABASE, OTHERWISE ANY USER WHO COULD READ THIS CONFIGURATION
 # FILE COULD CHANGE HIS PRINT QUOTA.
 #
-#storageuser: pykotauser
-#storageuserpw: secret
+storageuser: cn=pykotauser,dc=gsr,dc=pt
+storageuserpw: **********
 
 # Should the database caching mechanism be enabled or not ?
 # If unset, caching is disabled. Possible values Y/N/YES/NO
@@ -80,12 +80,12 @@ storagecaching: No
 disablehistory: No
 
 # LDAP example, uncomment and adapt it to your own configuration :
-storagebackend: ldapstorage
-storageserver: ldap://gsr.pt:389
-storagename: dc=gsr,dc=pt
-storageuser: cn=admin,dc=gsr,dc=pt
-storageuserpw: ********
-
+#storagebackend: ldapstorage
+#storageserver: ldap://ldap.librelogiciel.com:389
+#storagename: dc=librelogiciel,dc=com
+#storageuser: cn=notadmin,dc=librelogiciel,dc=com
+#storageuserpw: abc.123
+#
 # Here we define some helpers to know where 
 # to plug into an existing LDAP directory
 userbase: ou=people,dc=gsr,dc=pt
@@ -100,7 +100,7 @@ jobbase: ou=jobs,ou=pykota,dc=gsr,dc=pt
 userquotabase: ou=uquotas,ou=pykota,dc=gsr,dc=pt
 groupquotabase: ou=gquotas,ou=pykota,dc=gsr,dc=pt
 lastjobbase: ou=lastjobs,ou=pykota,dc=gsr,dc=pt
-
+#
 # How to create new accounts and groups
 # authorized values are "below" and "attach(objectclass name [, fail|warn])"
 #
@@ -119,11 +119,11 @@ lastjobbase: ou=lastjobs,ou=pykota,dc=gsr,dc=pt
 # a possible value:  newuser: attach(posixAccount, warn)
 newuser : attach(posixAccount, warn)
 newgroup : attach(posixGroup, warn)
-
+#
 # LDAP attribute which stores the user's email address
 usermail : mail
 
- 
+# 
 # Choose what attribute contains the list of group members
 # common values are : memberUid, uniqueMember, member
 groupmembers: memberUid
@@ -137,12 +137,12 @@ groupmembers: memberUid
 #
 # BEWARE : SETTING THIS TO 'YES' CAUSES PROBLEMS FOR NOW
 # BETTER TO LET IT SET TO 'NO'
-ldapcache: no
+# ldapcache: no
 
 # Where to log ?
-# supported values : stderr, system (system means syslog, but don'ti
-# use 'syslog' here)
-# if the value is not set then the default SYSTEM applies.
+# supported values : stderr, system (system means syslog, 
+# but don't use 'syslog' here) if the value is not set
+# then the default SYSTEM applies.
 logger: system
 
 # Enable debugging ? Put YES or NO there.
@@ -191,18 +191,36 @@ maildomain: gsr.pt
 # This is a global option only.
 # Some people reported that WinXP sends mixed case usernames
 # setting 'utolower: Yes' solves the problem.
-# Of course you have to user lowercase only when adding
+# Of course you have to use lowercase only when adding
 # users with edpykota, because ALL database accesses are
 # still case sensitive.
 #
 # If utolower is Yes, the usernames received from the printing
 # system is converted to lowercase at the start of the cupspykota
-# backend or of the pykota filter.
+# backend or of the lprngpykota filter.
 #
 # If utolower is No, which is the default, strict case checking
 # is done, this means that users 'Jerome' and 'jerome' are
 # different. Printer and groups names are ALWAYS case sensitive.
 utolower: No
+
+# Should we split usernames on a specific separator when printing ?
+# Default is No, i.e. if the value is unset.
+# This is a global option only.
+# This option adds support for Samba's Winbind utility, which
+# prefixes usernames with domain name and separator character.
+# Of course if you set this then you have to use NO separator when 
+# adding users with edpykota.
+#
+# If winbind_separator is set, the usernames received from the printing
+# system are split on the separator's value, and only the last part
+# (real username) is used.
+#
+# If winbind_separator is not set, which is the default, strict 
+# username equality checking will be done (modulo the setting
+# of the 'utolower' directive), this means that users 'DOMAIN1/jerome',
+# 'Domain2/jerome' and 'jerome' are different. 
+# winbind_separator: /
 
 # What is the accounting backend to use
 # 
@@ -218,11 +236,23 @@ utolower: No
 #                 for network printers.
 #                 e.g. myprinter.example.com
 #
-#         Example : 
+#         Recommended values :
+#
+#             accounter: hardware(snmp)
+#
+#               Extracts the printer's internal page counter via SNMP.
+#
+#         Or :
+#
+#             accounter: hardware(pjl)
+# 
+#               Extracts the printer's internal page counter via PJL queries
+#               over port tcp/9100.
+#
+#         Other Examples : 
 #         
-#             accounter: hardware(/usr/bin/snmpget -v1 -c public \
-#                                 -Ov %(printer)s mib-2.43.10.2.1.4.1.1 \
-#                                 | cut -f 2,2 -d " ")
+#             accounter: hardware(/usr/bin/snmpget -v1 -c public -Ov \
+#               %(printer)s mib-2.43.10.2.1.4.1.1 | cut -f 2,2 -d " ")
 #         
 #         Another untested example, using npadmin :
 #         
@@ -234,65 +264,74 @@ utolower: No
 #         appropriate location)
 #         
 #             accounter: hardware(/usr/share/pykota/papwaitprinter.sh \
-#                                 "MyPrinter:LaserWriter@*" && /usr/bin/pap \
-#                                 -p "MyPrinter:LaserWriter@*" \
-#                                 /usr/share/pykota/pagecount.ps  2>/dev/null \
-#                                 | /bin/grep -v status | \
-#                                 /bin/grep -v Connect | /usr/bin/tail -1)
+#                        "MyPrinter:LaserWriter@*" && /usr/bin/pap -p \
+#                        "MyPrinter:LaserWriter@*" /usr/share/pykota/pagecount.ps \
+#                         2>/dev/null | /bin/grep -v status | /bin/grep \
+#                         -v Connect | /usr/bin/tail -1)
 #         
 #         An example for parallel printers like the HP Laserjet 5MP :
 #         
 #             accounter: hardware(/bin/cat /usr/share/pykota/pagecount.pjl \
-#                                 >/dev/lp0 && /usr/bin/head -2 </dev/lp0 \
-#                                 | /usr/bin/tail -1)
+#                 >/dev/lp0 && /usr/bin/head -2 </dev/lp0 | /usr/bin/tail -1)
 #         
 #         This value can be set either globally or per printer or both.
 #         If both are defined, the printer option has priority.
 #         
 #         Some examples and comments provided by Bob Martel from csuohio.edu
 #         
-#         For several printers I could not get the page count using snmpget. I
+#         For several printers I could not get the page count using snmpget.  I
 #         resorted to snmpwalk:
 #         
-#             accounter: hardware(/opt/local/net-snmp/bin/snmpwalk -v 1 \
-#                                 -Cc -c public %(printer)s \
-#                                 | grep mib-2.43.10.2.1.4.1.1 | cut -d " " -f4)
+#             accounter: hardware(/opt/local/net-snmp/bin/snmpwalk -v 1 -Cc \
+#                                 -c public %(printer)s | grep \
+#                                 mib-2.43.10.2.1.4.1.1 | cut -d " " -f4)
 #         
 #         The last example is still more ugly, some of the printers only provided
 #         their counters without names, but at least always on the same line:
 #         
-#             accounter: hardware(/opt/local/net-snmp/bin/snmpwalk -v 1 -Cc \
-#                                 -c public -Ov %(printer)s | grep Counter32 \
-#                                 | tail -2 | head -1 | cut -d " " -f2)
+#             accounter: hardware(/opt/local/net-snmp/bin/snmpwalk \
+#                                 -v 1 -Cc -c public -Ov %(printer)s | \
+#                                 grep Counter32 | tail -2 | head -1 | cut -d " " -f2)
 #         
 #         An example using netcat and a preformatted PJL job which you can find
 #         in the untested/pjl directory, which is sent to a JetDirect print
 #         server on port 9100 :
 #         
 #             accounter: hardware(/bin/nc -w 2 %(printer)s 9100 \
-#                                 </usr/share/pykota/pagecount.pjl \
-#                                 | /usr/bin/tail -2)
+#                        </usr/share/pykota/pagecount.pjl | /usr/bin/tail -2)
 #         
 #         An example using the contributed pagecount.pl script which does 
 #         the same as above, but should work on more printers : 
 #         
-#             accounter: hardware(/usr/share/pykota/pagecount.pl %(printer)s 9100)
+#             accounter: hardware(LC_ALL=C /usr/share/pykota/pagecount.pl \
+#                                 %(printer)s 9100)
 #         
-#         WARNING : In any case, when using an hardware accounter, please test the
-#                   command line outside of PyKota before. This will save you
-#                   some headaches in case it doesn't work as expected.
+#         NB : the LC_ALL=C is used because sometimes Perl can correctly set
+#              locale and is verbose about it, causing PyKota to miss the
+#              correct answer.
+#
+#         WARNING : In any case, when using an hardware accounter, please test
+#                   the command line outside of PyKota before. This will save
+#                   you some headaches in case it doesn't work as expected.
 #         
 #         The waitprinter.sh is there to wait until the printer is idle again.
 #         This should prevent a job to be sent to the printer while another one is 
 #         not yet finished (not all pages are printed, but the complete job is in 
 #         the printer)
 #         
-#         YOU ABSOLUTELY HAVE TO BE SURE YOU HAVE A SCRIPT WHICH WAITS FOR THE
-#         PRINTER BEING READY BEFORE ASKING FOR ITS INTERNAL PAGE COUNTER.
+#   YOU ABSOLUTELY HAVE TO BE SURE YOU HAVE A SCRIPT WHICH WAITS FOR THE
+#   PRINTER BEING READY BEFORE ASKING FOR ITS INTERNAL PAGE COUNTER.
 #         
-#         PYKOTA INCLUDES SUCH SCRIPTS FOR SNMP AND APPLETALK PRINTERS, MORE TO COME
+#   PYKOTA INCLUDES SUCH SCRIPTS FOR SNMP AND APPLETALK PRINTERS, MORE TO COME
 #
-#         SOME OF THE ABOVE EXAMPLES DON'T USE SUCH A SCRIPT, YOU HAVE BEEN WARNED
+#   SOME OF THE ABOVE EXAMPLES DON'T USE SUCH A SCRIPT, YOU HAVE BEEN WARNED
+#
+#
+#   WITH THE SPECIAL MAGIC hardware(snmp) AND hardware(pjl) VALUES, PYKOTA
+#   TAKES CARE OF ALL THIS FOR YOU, SO PLEASE UNDERSTAND THAT IT IS PREFERABLE
+#   TO USE THESE TWO METHODS : THEY WORK FINE, REQUIRE LITTLE TO NO CPU,
+#   AND DO ALL THE HARD WORK AUTOMATICALLY. IF YOU REALLY NEED TO YOU CAN USE
+#   YOUR OWN EXTERNAL COMMANDS AS DESCRIBED ABOVE, JUST BE CAREFUL WITH THIS.
 #         
 #
 #    - software : delegates the job's size computation to any 
@@ -305,8 +344,8 @@ utolower: No
 #
 #                 pkpgcounter is a command line tool which is
 #                 part of PyKota and which can handle both
-#                 DSC compliant PostScript documents and PCL5
-#                 documents. More file formats will be added
+#                 DSC compliant or binary PostScript, PCL5, PCL6 (aka PCLXL)
+#                 and PDF documents. More file formats will be added
 #                 in the future, as time permits.
 #
 #                 while pkpgcounter is the recommended value
@@ -318,11 +357,33 @@ utolower: No
 # This value can be set either globally or on a per printer basis
 # If both are defined, the printer option has priority.
 #
-# default value
-#accounter: hardware(/usr/share/pykota/waitprinter.sh %(printer)s && \
-#                    /usr/bin/snmpget -v1 -c public -Ov %(printer)s \
-#                    mib-2.43.10.2.1.4.1.1 | cut -f 2,2 -d " ")
+# accounter: hardware(/usr/share/pykota/waitprinter.sh %(printer)s && \
+#                     /usr/bin/snmpget -v1 -c public -Ov %(printer)s \
+#                     mib-2.43.10.2.1.4.1.1 | cut -f 2,2 -d " ")
+# accounter: hardware(snmp)
+# accounter: hardware(pjl)
 accounter: software(/usr/bin/pkpgcounter)
+
+# What should we do if the accounter's subprocess doesn't return
+# a valid result (for example doesn't return an integer on its stdout)
+#
+# Valid values are : 'continue' and 'stop'. 'stop' is the default
+# if unset.
+#
+# 'continue' means try to process as usual, this may introduce
+# accounting errors and free jobs. This was the default behavior
+# until v1.20alpha5.
+#
+# 'stop' means fail and stop the print queue. If an accounter
+# error occurs, most of the time this is a misconfiguration, so
+# stopping the print queue is usually the better thing to do 
+# until the admin has fixed the configuration.
+#
+# This value can be set either globally or on a per printer basis
+# If both are defined, the printer option has priority.
+#
+# onaccountererror: continue
+onaccountererror: stop
 
 # Print Quota administrator
 # These values can be set either globally or per printer or both.
@@ -361,12 +422,11 @@ adminmail: root@localhost
 #       mailto: external(/usr/bin/callpager %(username)s \
 #                        "Quota problem on %(printername)s" >/dev/null)
 #
-#   To automatically send a WinPopup message (this may only work with a PDC,
+#   To automatically send a WinPopup message (this may only work with a PDC, 
 #   here the same machine does Samba as PDC + CUPS) :
 #
 #       mailto: external(echo "%(message)s"  | /usr/bin/iconv --to-code utf-8 \
-#                        --from-code iso-8859-15 | /usr/bin/smbclient \
-#                        -M "%(username)s" 2>&1 >/dev/null)
+#        --from-code iso-8859-15 | /usr/bin/smbclient -M "%(username)s" 2>&1 >/dev/null)
 #
 #   NB : I use ISO-8859-15, but Windows expects UTF-8, so we pipe the message
 #        into iconv before sending it to the Windows user.
@@ -374,8 +434,7 @@ adminmail: root@localhost
 # or more simply :
 #
 #       mailto: external(/usr/share/pykota/mailandpopup.sh %(username)s \
-#                        %(printername)s "%(email)s" "%(message)s" \
-#                        2>&1 >/dev/null)
+#                        %(printername)s "%(email)s" "%(message)s" 2>&1 >/dev/null)
 #
 #   NB : The mailandpopup.sh shell script is now included in PyKota
 #
@@ -404,36 +463,42 @@ poorman: 2.0
 # Poor man's warning message
 # The warning message that is sent if the "poorman" value is reached
 # Again this must appear in the global section
-poorwarn: Your Print Quota account balance is low. 
- Soon you'll not be allowed to print anymore.
+poorwarn: Su saldo en la cuota de impresión es bajo.
+ Dentro de poco no podrá volver a imprimir.
 
 # Soft limit reached warning message
 # The warning message that is sent if the soft quota limit is reached
 # May appear either globally or on a per-printer basis
-softwarn: Your Print Quota Soft Limit is reached.
- This means that you may still be allowed to print for some
- time, but you must contact your administrator to purchase 
- more print quota.
+softwarn: Ha alcanzado su límite blando en la cuota de impresión.
+ Esto significa que podrá seguir imprimiendo algún tiempo,
+ pero debería contactar con su administrador para comprar
+ más cuota de impresión.
  
 # Hard limit reached error message
 # The error message that is sent if the hard quota limit is reached
 # May appear either globally or on a per-printer basis
-hardwarn: Your Print Quota Hard Limit is reached.
- This means that you are not allowed to print anymore.
- Please contact your administrator at root@localhost
- as soon as possible to solve the problem.
+hardwarn: Ha alcanzado su límite duro en la cuota de impresión.
+ Esto significa que no podrá volver a imprimir.
+ Contacte con su administrador en <root@gsr.pt> tan
+ pronto como le sea posible para solucionar el
+ problema.
 
 # one section per printer, or no other section at all if all options 
 # are defined globally.
 # Each section's name must be the same as the printer's queue name as defined
-# in your printing system, be it CUPS or LPRng.
-# If you don't want any special printer section, just comment out
-# the line below so that following options are global.
-#[hpmarketing]
+# in your printing system, be it CUPS or LPRng, between square brackets, for
+# example a print queue named 'hpmarketing' would appear in this file as
+# [hpmarketing]
 
 
-# Default policy for inexistant users (e.g. root)
-# either allow or deny or external(some command here)
+# Default policy to apply when either :
+#
+#       - Printer doesn't exist in PyKota's database
+#       - User doesn't exist in PyKota's database
+#       - User has no quota entry for this Printer in PyKota's database
+#
+# Value can be either allow or deny or external(some command here)
+#
 # This value can be set either globally or per printer or both.
 # If both are defined, the printer option has priority.
 # If the value is not set then the default policy DENY applies.
@@ -443,29 +508,42 @@ hardwarn: Your Print Quota Hard Limit is reached.
 # for example to automatically add the user to the quota storage 
 # if he is unknown. Example :
 # 
-#       policy: external(/usr/bin/edpykota --add --printer %(printername)s \
-#                        --softlimit 50 --hardlimit 60 %(username)s >/dev/null) 
+#   policy: external(/usr/bin/edpykota --add --printer %(printername)s \
+#                    --softlimit 50 --hardlimit 60 %(username)s >/dev/null) 
+#
+# NB : If you want to limit users by their account balance value, it is preferable to
+# use the following policy to automate user account creation on first print :
+#
+#   policy: external(/usr/bin/autopykota --initbalance 25.0 >/dev/null) 
+#
+#   This will automatically add the user if he doesn't already exist, and
+#   set his initial balance value to 25.0 (for example). If the user already 
+#   exists then his balance value will not be modified. 
+#   Please don't use autopykota if you want to limit your users by page
+#   quota, and in any case, carefully read autopykota's help or manpage
+#   and understand its goal before using it in your own configuration.
 #
 # Of course you can launch any command of your choice with this, e.g. :
 #
-#       policy: external(/usr/local/bin/myadminscript.sh %(username)s >/dev/null)
+#   policy: external(/usr/local/bin/myadminscript.sh %(username)s >/dev/null)
 
 # You can use :
 #
 #       '%(username)s'          will contain the user's name
 #       '%(printername)s'       will contain the printer's name
 #
-#   On your command line, to pass arguments to your command.
+#   On your command line, to pass arguments to your command. 
 #
 #   NB : Don't forget to redirect your command's standard output somewhere 
 #        (e.g. >/dev/null) so that there's no perturbation to the underlying
 #        layer (filter or backend)
 #
-# If the user still doesn't exist after external policy command was 
-# launched (the external command didn't add it), or if an error occured
-# during the execution of the external policy command, the job is rejected.
+# If the printer, user, or user quota entry still doesn't exist after 
+# external policy command was launched (the external command didn't add it), 
+# or if an error occured during the execution of the external policy 
+# command, then the job is rejected.
 #
-#policy: deny
+policy: deny
 
 # Pre and Post Hooks 
 # These directives allow the easy plug-in of any command of your choice
@@ -483,6 +561,7 @@ hardwarn: Your Print Quota Hard Limit is reached.
 # of external commands defined in the accounter and mailto 
 # directives.
 #
+# PYKOTAMD5SUM : Contains an hexadecimal digest of the md5 sum of the job's datas
 # PYKOTAPHASE : BEFORE or AFTER the job is sent to the printer
 # PYKOTAACTION : ALLOW or DENY or WARN for current print job
 # PYKOTAUSERNAME : user's name
@@ -504,10 +583,13 @@ hardwarn: Your Print Quota Hard Limit is reached.
 # PYKOTASTATUS : contains "CANCELLED" when SIGTERM was received by PyKota
 #                else is not set.
 # PYKOTAJOBSIZEBYTES : contains the job's size in bytes. Always available.
-# PYKOTAPRECOMPUTEDJOBSIZE : contains the precomputed job's size
-# PYKOTAPRECOMPUTEDJOBPRICE : contains the precomputed job's price
+# PYKOTAPRECOMPUTEDJOBSIZE : contains the precomputed job's size (with enforcement: strict)
+# PYKOTAPRECOMPUTEDJOBPRICE : contains the precomputed job's price (with enforcement: strict)
 # PYKOTAJOBORIGINATINGHOSTNAME : contains the client's hostname if 
 #                                it is possible to retrieve it.
+# PYKOTAPRINTERHOSTNAME : the printer's hostname or IP address for network
+#                         printers, or "localhost" if not defined or not
+#                         meaningful.
 
 # PreHook : gets executed after being sure the user, printer and user quota
 # entry on the printer both exist in the PyKota database, and after
@@ -529,7 +611,7 @@ hardwarn: Your Print Quota Hard Limit is reached.
 # PYKOTAPHASE contains 'AFTER' during execution of posthook.
 #
 # uncomment the line below to see what environment variables are available
-#posthook: /usr/bin/printenv >/tmp/after
+# posthook: /usr/bin/printenv >/tmp/after
 
 # How should enforcement be done for this printer ?
 #
@@ -546,5 +628,5 @@ hardwarn: Your Print Quota Hard Limit is reached.
 #
 # default value
 # enforcement : laxist
-#enforcement : strict]]></programlisting>
+enforcement : strict]]></programlisting>
 </appendix>

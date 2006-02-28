@@ -35,8 +35,10 @@
 <computeroutput>Setting stored password for "cn=admin,dc=gsr,dc=pt" in secrets.tdb</computeroutput></screen>
 	</example>
 
-	<para>Tenga en cuenta que si el valor de la opción <quote>ldap admin dn</quote> de su
-	archivo de configuración de Samba cambia, la clave ha de resetearse.</para>
+	<warning><para>Si varía el valor de la opción <quote>ldap admin dn</quote> del
+	archivo de configuración de Samba, la clave del administrador del directorio
+	<acronym>LDAP</acronym> ha de resetearse, ejecutando de nuevo la orden
+	  presente en el <xref linkend="samba-ajustes-finales-sistema-clave-admin-ldap-ejemplo1"/>.</para></warning>
 
 </sect1>
 
@@ -52,8 +54,9 @@
 
 <programlisting><![CDATA[# allow the "ldap admin dn" access, but deny everyone else
 # (Samba related)
-access to attrs=sambaLMPassword,sambaNTPassword
+access to attribute=sambaLMPassword,sambaNTPassword
      by dn="cn=admin,dc=gsr,dc=pt" write
+     by dn="cn=readadmin,dc=gsr,dc=pt" read
      by * none]]></programlisting>
 	
 	<para>Para que la nueva configuración tenga efecto, ha de reiniciar el demonio
@@ -81,6 +84,8 @@ index objectclass             eq
 index default                 sub
 index cn                      pres,sub,eq
 index sn                      pres,sub,eq
+index mail                    eq,subinitial
+index givenname               eq,subinitial
 
 # Requerido para soportar pdb_getsampwnam
 index uid                     pres,sub,eq
@@ -108,19 +113,9 @@ index sambaDomainName       eq</programlisting>
 <screen><prompt>#</prompt> <userinput>/usr/sbin/slapindex -vf /etc/ldap/slapd.conf</userinput>
 <computeroutput>indexing id=00000001
 indexing id=00000002
-indexing id=00000016
-indexing id=00000017
-indexing id=00000018
-indexing id=00000019
-indexing id=0000001a
-indexing id=0000001b
-indexing id=0000001c
-indexing id=0000001d
-indexing id=00000020
-indexing id=00000023
-indexing id=00000024
-indexing id=00000025
-indexing id=00000026</computeroutput></screen>
+indexing id=0000000a
+indexing id=0000000b
+indexing id=0000000c</computeroutput></screen>
 	</example>
 
 	<para>Ahora sólo queda reiniciar el servidor <application>slapd</application>:</para>

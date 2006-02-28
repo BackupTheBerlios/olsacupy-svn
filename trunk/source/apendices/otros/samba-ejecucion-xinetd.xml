@@ -100,7 +100,7 @@ Processing service `netbios-ssn' ... enabled</computeroutput></screen>
 <computeroutput>Reloading internet superserver configuration: xinetd.</computeroutput></screen>
 	</example>
 
-	<para>Una vez ejecutado el comando del <xref linkend="samba-ejecucion-xinetd-ejemplo2"/>,
+	<para>Una vez ejecutada la orden del <xref linkend="samba-ejecucion-xinetd-ejemplo2"/>,
 	el superservidor <application>xinetd</application> pasaría a gestionar las
 	conexiones a Samba.</para>
 </sect1>

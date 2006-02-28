@@ -85,11 +85,11 @@
 		</tgroup>
 	</table>
 
-	<para>El comando que se va a utilizar para el establecimiento de los precios
+	<para>La orden que se va a utilizar para el establecimiento de los precios
 	de la tabla anterior en las impresoras es: <command>pkprinters</command>.
 	El siguiente ejemplo le mostrará como hacerlo:</para>
 
-	<note><para>Si ejecuta el comando <command>pkprinters --help</command>,
+	<note><para>Si ejecuta la orden <command>pkprinters --help</command>,
 	obtendrá un listado con las opciones que acepta <command>pkprinters</command>
 	así como una serie de ejemplos de uso.</para></note>
 
@@ -103,69 +103,70 @@
 <prompt>$</prompt> <userinput>/usr/bin/pkprinters --add --charge 0.025 Multifuncion InyeccionBN</userinput>
 <prompt>$</prompt> <userinput>/usr/bin/pkprinters --add --charge 0.07 InyeccionColor</userinput>
 <prompt>$</prompt> <userinput>/usr/bin/pkprinters --list</userinput>
-<computeroutput>LaserColor (0.0 + #*0.09)
-LaserBN (0.0 + #*0.03)
-Plotter (1.0 + #*0.5)
-Sublimacion (0.75 + #*0.65)
-Multifuncion (0.0 + #*0.025)
-InyeccionBN (0.0 + #*0.025)
-InyeccionColor (0.0 + #*0.07)</computeroutput>
+<computeroutput>LaserColor [] (0.0 + #*0.09)
+LaserBN [] (0.0 + #*0.03)
+Plotter [] (1.0 + #*0.5)
+Sublimacion [] (0.75 + #*0.65)
+Multifuncion [] (0.0 + #*0.025)
+InyeccionBN [] (0.0 + #*0.025)
+InyeccionColor [] (0.0 + #*0.07)</computeroutput>
 <prompt>$</prompt> <userinput>/usr/bin/repykota</userinput>
-<computeroutput>Reporte para la cuota user en la impresora  LaserColor
-Tiempo de gracia para páginas: 7 días
+<computeroutput>Informe para la cuota user en la impresora LaserColor ()
+Tiempo de gracia para páginas: 7 día(s)
 Precio por trabajo: 0.000
 Precio por página: 0.090
-Usuario         usado   suave   duro    balance gracia        total     pagado
+Usuario         usado   blando  duro    saldo gracia          total     pagado
 ------------------------------------------------------------------------------
                                                    Real : Desconocido
 
-Reporte para la cuota user en la impresora  LaserBN
-Tiempo de gracia para páginas: 7 días
+Informe para la cuota user en la impresora LaserBN ()
+Tiempo de gracia para páginas: 7 día(s)
 Precio por trabajo: 0.000
 Precio por página: 0.030
-Usuario         usado   suave   duro    balance gracia        total     pagado
+Usuario         usado   blando  duro    saldo gracia          total     pagado
 ------------------------------------------------------------------------------
                                                    Real : Desconocido
 
-Reporte para la cuota user en la impresora  Plotter
-Tiempo de gracia para páginas: 7 días
+Informe para la cuota user en la impresora Plotter ()
+Tiempo de gracia para páginas: 7 día(s)
 Precio por trabajo: 1.000
 Precio por página: 0.500
-Usuario         usado   suave   duro    balance gracia        total     pagado
+Usuario         usado   blando  duro    saldo gracia          total     pagado
 ------------------------------------------------------------------------------
                                                    Real : Desconocido
 
-Reporte para la cuota user en la impresora  Sublimacion
-Tiempo de gracia para páginas: 7 días
+Informe para la cuota user en la impresora Sublimacion ()
+Tiempo de gracia para páginas: 7 día(s)
 Precio por trabajo: 0.750
 Precio por página: 0.650
-Usuario         usado   suave   duro    balance gracia        total     pagado
+Usuario         usado   blando  duro    saldo gracia          total     pagado
 ------------------------------------------------------------------------------
                                                    Real : Desconocido
 
-Reporte para la cuota user en la impresora  Multifuncion
-Tiempo de gracia para páginas: 7 días
+Informe para la cuota user en la impresora Multifuncion ()
+Tiempo de gracia para páginas: 7 día(s)
 Precio por trabajo: 0.000
 Precio por página: 0.025
-Usuario         usado   suave   duro    balance gracia        total     pagado
+Usuario         usado   blando  duro    saldo gracia          total     pagado
 ------------------------------------------------------------------------------
                                                    Real : Desconocido
 
-Reporte para la cuota user en la impresora  InyeccionBN
-Tiempo de gracia para páginas: 7 días
+Informe para la cuota user en la impresora InyeccionBN ()
+Tiempo de gracia para páginas: 7 día(s)
 Precio por trabajo: 0.000
 Precio por página: 0.025
-Usuario         usado   suave   duro    balance gracia        total     pagado
+Usuario         usado   blando  duro    saldo gracia          total     pagado
 ------------------------------------------------------------------------------
                                                    Real : Desconocido
 
-Reporte para la cuota user en la impresora  InyeccionColor
-Tiempo de gracia para páginas: 7 días
+Informe para la cuota user en la impresora InyeccionColor ()
+Tiempo de gracia para páginas: 7 día(s)
 Precio por trabajo: 0.000
 Precio por página: 0.070
-Usuario         usado   suave   duro    balance gracia        total     pagado
+Usuario         usado   blando  duro    saldo gracia          total     pagado
 ------------------------------------------------------------------------------
                                                    Real : Desconocido
+
 </computeroutput></screen>
 	</example>
 
@@ -185,9 +186,9 @@ Usuario         usado   suave   duro    balance gracia        total     pagado
 	que tras agotarse, no se podrá volver a imprimir hasta que no se recargue.</para>
 
 	<para>En los siguientes ejemplos se verá la forma de establecer ambas cuotas de
-	impresión, para ello se hará uso del comando <command>edpykota</command>:</para>
+	impresión, para ello se hará uso de la orden <command>edpykota</command>:</para>
 
-	<note><para>Si ejecuta el comando <command>edpykota --help</command>,
+	<note><para>Si ejecuta la orden <command>edpykota --help</command>,
 	obtendrá un listado con las opciones que acepta <command>edpykota</command>
 	así como una serie de ejemplos de uso.</para></note>
 
@@ -197,15 +198,21 @@ Usuario         usado   suave   duro    balance gracia        total     pagado
 		<para>En este ejemplo se le asignará un límite de 10 páginas impresas para
 		el usuario <emphasis>printquota</emphasis>.</para>
 
-<screen><prompt>$</prompt> <userinput>/usr/bin/edpykota --add -P LaserColor -S 5 -H 10 printquota</userinput>
+		<para>Como el usuario <emphasis>printquota</emphasis> no existe en el
+		sistema, el comando <command>edpykota</command> lo añadirá automáticamente.</para>
+
+<screen><prompt>#</prompt> <userinput>/usr/bin/edpykota --add -P LaserColor -S 5 -H 10 printquota</userinput>
+<computeroutput>WARN: No se ha podido encontrar una entrada objectClass posixAccount existente con \
+uid=printquota para anexionar el objectClass pykotaAccount. A new entry will be created instead.</computeroutput>
 <prompt>#</prompt> <userinput>/usr/bin/repykota --printer LaserColor</userinput>
-<computeroutput>Reporte para la cuota user en la impresora  LaserColor
-Tiempo de gracia para páginas: 7 días
+<computeroutput>Informe para la cuota user en la impresora LaserColor ()
+Tiempo de gracia para páginas: 7 día(s)
 Precio por trabajo: 0.000
 Precio por página: 0.090
-Usuario         usado   suave   duro    balance gracia        total     pagado
+Usuario         usado   blando  duro    saldo gracia          total     pagado
 ------------------------------------------------------------------------------
 printquot -Q       0       5      10       0.00                   0       0.00
+                                                   Real : Desconocido
 </computeroutput></screen>
 	</example>
 
@@ -240,17 +247,23 @@ printquot -Q       0       5      10       0.00                   0       0.00
 		<para>En este ejemplo se le asignará un saldo de 5 euros al
 		usuario <emphasis>printsaldo</emphasis>.</para>
 
-<screen><prompt>$</prompt> <userinput>/usr/bin/edpykota --add -P Sublimacion --limitby balance --balance 5 printsaldo</userinput>
+		<para>Como el usuario <emphasis>printsaldo</emphasis> no existe en el
+		sistema, el comando <command>edpykota</command> lo añadirá automáticamente.</para>
+
+<screen><prompt>#</prompt> <userinput>/usr/bin/edpykota --add -P Sublimacion --limitby balance --balance 5 printsaldo</userinput>
+<computeroutput>WARN: No se ha podido encontrar una entrada objectClass posixAccount existente con uid=printsaldo para \
+anexionar el objectClass pykotaAccount. A new entry will be created instead.</computeroutput>
 <prompt>#</prompt> <userinput>/usr/bin/repykota --printer Sublimacion</userinput>
-<computeroutput>Reporte para la cuota user en la impresora  Sublimacion
-Tiempo de gracia para páginas: 7 días
+<computeroutput>Informe para la cuota user en la impresora Sublimacion ()
+Tiempo de gracia para páginas: 7 día(s)
 Precio por trabajo: 0.750
 Precio por página: 0.650
-Usuario         usado   suave   duro    balance gracia        total     pagado
+Usuario         usado   blando  duro    saldo gracia          total     pagado
 ------------------------------------------------------------------------------
 printsald -B       0    None    None       5.00                   0       5.00
                                                   Total :         0       5.00
                                                    Real : Desconocido
+
 </computeroutput></screen>
 	</example>
 

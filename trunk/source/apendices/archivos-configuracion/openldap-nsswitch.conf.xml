@@ -3,7 +3,8 @@
 <appendix id="openldap-nsswitch.conf">
 	<title>Archivo de configuración <filename>/etc/nsswitch.conf</filename></title>
 
-<programlisting><![CDATA[# /etc/nsswitch.conf
+<programlisting><![CDATA[
+# /etc/nsswitch.conf
 #
 # Example configuration of GNU Name Service Switch functionality.
 # If you have the `glibc-doc' and `info' packages installed, try:
@@ -21,5 +22,5 @@ services:       db files
 ethers:         db files
 rpc:            db files
 
-netgroup:       ldap nis]]></programlisting>
+netgroup:       nis]]></programlisting>
 </appendix>
