@@ -25,9 +25,6 @@
 		<title>Estructura de la red de impresión</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cups-red-impresoras.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cups-red-impresoras.png" format="PNG"/>
 			</imageobject>
 	
@@ -461,9 +458,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Accediendo a la interfaz de administración web de <acronym>CUPS</acronym></title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora1.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora1.png" format="PNG"/>
 					</imageobject>
 			
@@ -492,9 +486,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Aviso acerca del certificado del servidor web I</title>
 					<mediaobject>
 						<imageobject>
-							<imagedata fileref="./imagenes/lam-configuracion-certificado1.eps" align="center" format="EPS" scale="35"/>
-						</imageobject>
-						<imageobject>
 							<imagedata fileref="./imagenes/lam-configuracion-certificado1.png" format="PNG"/>
 						</imageobject>
 					
@@ -510,9 +501,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Información <acronym>SSL</acronym></title>
 					<mediaobject>
 						<imageobject>
-							<imagedata fileref="./imagenes/lam-configuracion-certificado2.eps" align="center" format="EPS" scale="35"/>
-						</imageobject>
-						<imageobject>
 							<imagedata fileref="./imagenes/lam-configuracion-certificado2.png" format="PNG"/>
 						</imageobject>
 					
@@ -526,9 +514,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Aviso acerca del certificado del servidor web II</title>
 					<mediaobject>
 						<imageobject>
-							<imagedata fileref="./imagenes/lam-configuracion-certificado3.eps" align="center" format="EPS" scale="35"/>
-						</imageobject>
-						<imageobject>
 							<imagedata fileref="./imagenes/lam-configuracion-certificado3.png" format="PNG"/>
 						</imageobject>
 					
@@ -541,9 +526,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Período de aceptación del certificado</title>
 					<mediaobject>
 						<imageobject>
-							<imagedata fileref="./imagenes/lam-configuracion-certificado4.eps" align="center" format="EPS" scale="35"/>
-						</imageobject>
-						<imageobject>
 							<imagedata fileref="./imagenes/lam-configuracion-certificado4.png" format="PNG"/>
 						</imageobject>
 					
@@ -555,9 +537,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Administrando impresoras</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora2.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora2.png" format="PNG"/>
 					</imageobject>
@@ -575,9 +554,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Añadir nueva impresora</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora3.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora3.png" format="PNG"/>
 					</imageobject>
 			
@@ -592,9 +568,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Clave del administrador</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora4.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora4.png" format="PNG"/>
 					</imageobject>
@@ -611,9 +584,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Información sobre la impresora</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora5.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora5.png" format="PNG"/>
 					</imageobject>
 			
@@ -629,9 +599,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Dispositivo de impresión I</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora6.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora6.png" format="PNG"/>
 					</imageobject>
@@ -663,9 +630,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Dispositivo de impresión II</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora7.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora7.png" format="PNG"/>
 					</imageobject>
 			
@@ -679,9 +643,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Modelo</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora8.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora8.png" format="PNG"/>
 					</imageobject>
@@ -698,9 +659,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Controlador</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora9.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora9.png" format="PNG"/>
 					</imageobject>
 			
@@ -716,9 +674,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Nueva impresora lista</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora10.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora10.png" format="PNG"/>
 					</imageobject>
 			
@@ -733,9 +688,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Información sobre la impresora LaserColor</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora11.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora11.png" format="PNG"/>
 					</imageobject>
@@ -760,9 +712,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Arrancando el administrador de impresión</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora12.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora12.png" format="PNG"/>
 					</imageobject>
 			
@@ -778,9 +727,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Administrador de impresión</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora13.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora13.png" format="PNG"/>
 					</imageobject>
@@ -803,9 +749,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Nueva impresora</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora14.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora14.png" format="PNG"/>
 					</imageobject>
 			
@@ -822,9 +765,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Bienvenida al asistente de impresión de <acronym>KDE</acronym></title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora15.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora15.png" format="PNG"/>
 					</imageobject>
 			
@@ -840,9 +780,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Selección del tipo de impresora</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora16.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora16.png" format="PNG"/>
 					</imageobject>
@@ -861,9 +798,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title><acronym>URI</acronym> de la impresora</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora17.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora17.png" format="PNG"/>
 					</imageobject>
 			
@@ -879,9 +813,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Reconstruyendo la base de datos de controladores</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora18.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora18.png" format="PNG"/>
 					</imageobject>
 			
@@ -896,9 +827,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Modelo de la impresora</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora19.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora19.png" format="PNG"/>
 					</imageobject>
@@ -916,9 +844,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Probando la impresora I</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora20.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora20.png" format="PNG"/>
 					</imageobject>
 			
@@ -935,9 +860,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Opciones de configuración del controlador de impresión</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora21.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora21.png" format="PNG"/>
 					</imageobject>
@@ -958,9 +880,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Probando la impresora II</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora20.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora20.png" format="PNG"/>
 					</imageobject>
 			
@@ -975,9 +894,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Usuario con privilegios de administración de impresión</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora22.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora22.png" format="PNG"/>
 					</imageobject>
 			
@@ -991,9 +907,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Prueba enviada a la impresora</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora23.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora23.png" format="PNG"/>
 					</imageobject>
@@ -1015,9 +928,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Prueba de impresión</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora24.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora24.png" format="PNG"/>
 					</imageobject>
 			
@@ -1032,9 +942,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Selección de rótulos</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora25.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora25.png" format="PNG"/>
 					</imageobject>
@@ -1052,9 +959,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Cuotas de impresión</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora26.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora26.png" format="PNG"/>
 					</imageobject>
@@ -1074,9 +978,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Permisos de acceso a la impresora</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora27.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora27.png" format="PNG"/>
 					</imageobject>
 			
@@ -1094,9 +995,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Información sobre la impresora</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora28.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora28.png" format="PNG"/>
 					</imageobject>
 			
@@ -1113,9 +1011,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Confirmación</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora29.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora29.png" format="PNG"/>
 					</imageobject>
 			
@@ -1131,9 +1026,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Nueva impresora <emphasis>LaserBN</emphasis></title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora30.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora30.png" format="PNG"/>
 					</imageobject>
@@ -1157,9 +1049,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Listado de impresoras</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora31.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora31.png" format="PNG"/>
 					</imageobject>
@@ -1216,9 +1105,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Accediendo a la interfaz de administración web de <acronym>CUPS</acronym></title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora1.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora1.png" format="PNG"/>
 					</imageobject>
 		
@@ -1247,9 +1133,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Aviso acerca del certificado del servidor web I</title>
 					<mediaobject>
 						<imageobject>
-							<imagedata fileref="./imagenes/lam-configuracion-certificado1.eps" align="center" format="EPS" scale="35"/>
-						</imageobject>
-						<imageobject>
 							<imagedata fileref="./imagenes/lam-configuracion-certificado1.png" format="PNG"/>
 						</imageobject>
 					
@@ -1265,9 +1148,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Información <acronym>SSL</acronym></title>
 					<mediaobject>
 						<imageobject>
-							<imagedata fileref="./imagenes/lam-configuracion-certificado2.eps" align="center" format="EPS" scale="35"/>
-						</imageobject>
-						<imageobject>
 							<imagedata fileref="./imagenes/lam-configuracion-certificado2.png" format="PNG"/>
 						</imageobject>
 					
@@ -1281,9 +1161,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Aviso acerca del certificado del servidor web II</title>
 					<mediaobject>
 						<imageobject>
-							<imagedata fileref="./imagenes/lam-configuracion-certificado3.eps" align="center" format="EPS" scale="35"/>
-						</imageobject>
-						<imageobject>
 							<imagedata fileref="./imagenes/lam-configuracion-certificado3.png" format="PNG"/>
 						</imageobject>
 					
@@ -1296,9 +1173,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Período de aceptación del certificado</title>
 					<mediaobject>
 						<imageobject>
-							<imagedata fileref="./imagenes/lam-configuracion-certificado4.eps" align="center" format="EPS" scale="35"/>
-						</imageobject>
-						<imageobject>
 							<imagedata fileref="./imagenes/lam-configuracion-certificado4.png" format="PNG"/>
 						</imageobject>
 					
@@ -1309,9 +1183,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Administrando clases</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora2.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora2.png" format="PNG"/>
 					</imageobject>
@@ -1328,9 +1199,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Clave del administrador</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora4.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora4.png" format="PNG"/>
 					</imageobject>
 			
@@ -1344,9 +1212,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Añadiendo una clase</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase1.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-clase1.png" format="PNG"/>
 					</imageobject>
@@ -1362,9 +1227,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Información sobre la clase</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase2.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-clase2.png" format="PNG"/>
 					</imageobject>
 			
@@ -1379,9 +1241,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Miembros de la clase</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase3.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-clase3.png" format="PNG"/>
 					</imageobject>
@@ -1413,9 +1272,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Nueva clase lista</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase4.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-clase4.png" format="PNG"/>
 					</imageobject>
 			
@@ -1430,9 +1286,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Información sobre la clase <emphasis>Profesional</emphasis></title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase5.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-clase5.png" format="PNG"/>
 					</imageobject>
@@ -1456,9 +1309,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Arrancando el administrador de impresión</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora12.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora12.png" format="PNG"/>
 					</imageobject>
 			
@@ -1473,9 +1323,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Administrador de impresión</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase6.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-clase6.png" format="PNG"/>
 					</imageobject>
@@ -1493,9 +1340,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Nueva clase</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase7.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-clase7.png" format="PNG"/>
 					</imageobject>
 			
@@ -1510,9 +1354,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Bienvenida al asistente de impresión de KDE</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-impresora15.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-impresora15.png" format="PNG"/>
 					</imageobject>
@@ -1529,9 +1370,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Selección de la clase impresora</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase8.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-clase8.png" format="PNG"/>
 					</imageobject>
@@ -1550,9 +1388,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Composición de la clase</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase9.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-clase9.png" format="PNG"/>
 					</imageobject>
 			
@@ -1569,9 +1404,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Información sobre la clase</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase10.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-clase10.png" format="PNG"/>
 					</imageobject>
 			
@@ -1586,9 +1418,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Confirmación de la creación de la nueva clase</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase11.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-clase11.png" format="PNG"/>
 					</imageobject>
@@ -1605,9 +1434,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Nueva clase <emphasis>Color</emphasis></title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase12.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-clase12.png" format="PNG"/>
 					</imageobject>
@@ -1632,9 +1458,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Listado de clases</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-aniadir-clase13.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-aniadir-clase13.png" format="PNG"/>
 					</imageobject>
 			
@@ -1658,9 +1481,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Realizando una prueba de impresión sobre una clase</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-prueba-impresion1.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-prueba-impresion1.png" format="PNG"/>
 					</imageobject>
 			
@@ -1679,9 +1499,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 				<title>Confirmación del envío de la prueba de impresión</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-prueba-impresion2.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-prueba-impresion2.png" format="PNG"/>
 					</imageobject>
 			
@@ -1695,9 +1512,6 @@ SSLListen gsr.pt:6443 <co id="cups-network-options-ssllisten" /></programlisting
 			<figure>
 				<title>Información de envío</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/cupsys-prueba-impresion3.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/cupsys-prueba-impresion3.png" format="PNG"/>
 					</imageobject>
@@ -1857,9 +1671,6 @@ cups-samba.ss</computeroutput></screen>
 			<title>Proceso de descompresión de los controladores y archivos de instalación</title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/cupsys-drivers-adobe1.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/cupsys-drivers-adobe1.png" format="PNG"/>
 				</imageobject>
 		
@@ -1886,9 +1697,6 @@ cups-samba.ss</computeroutput></screen>
 			<title>Comienza el proceso de instalación</title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/cupsys-drivers-adobe2.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/cupsys-drivers-adobe2.png" format="PNG"/>
 				</imageobject>
 		
@@ -1902,9 +1710,6 @@ cups-samba.ss</computeroutput></screen>
 		<figure>
 			<title>Pantalla de bienvenida del instalador</title>
 			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/cupsys-drivers-adobe3.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/cupsys-drivers-adobe3.png" format="PNG"/>
 				</imageobject>
@@ -2258,9 +2063,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 		<title>Arrancando el administrador de impresión</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-impresora12.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-impresora12.png" format="PNG"/>
 			</imageobject>
 	
@@ -2275,9 +2077,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 	<figure>
 		<title>Nueva impresora</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-samba1.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-samba1.png" format="PNG"/>
 			</imageobject>
@@ -2294,9 +2093,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 		<title>Bienvenida al asistente de impresión de <acronym>KDE</acronym></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-impresora15.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-impresora15.png" format="PNG"/>
 			</imageobject>
 	
@@ -2311,9 +2107,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 	<figure>
 		<title>Selección del tipo de impresora</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-samba2.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-samba2.png" format="PNG"/>
 			</imageobject>
@@ -2332,9 +2125,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 		<title>Usuario de acceso a la red Samba</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-samba3.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-samba3.png" format="PNG"/>
 			</imageobject>
 	
@@ -2352,9 +2142,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 		<title>Monitorizar la red</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-samba4.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-samba4.png" format="PNG"/>
 			</imageobject>
 	
@@ -2368,9 +2155,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 	<figure>
 		<title>Selección de la impresora</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-samba5.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-samba5.png" format="PNG"/>
 			</imageobject>
@@ -2389,9 +2173,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 		<title>Modelo de la impresora</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-samba6.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-samba6.png" format="PNG"/>
 			</imageobject>
 	
@@ -2409,9 +2190,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 		<title>Probando la impresora</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-samba7.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-samba7.png" format="PNG"/>
 			</imageobject>
 	
@@ -2426,9 +2204,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 		<title>Usuario con privilegios de administración de impresión</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-impresora22.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-impresora22.png" format="PNG"/>
 			</imageobject>
 	
@@ -2442,9 +2217,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 	<figure>
 		<title>Prueba enviada a la impresora</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-impresora23.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-impresora23.png" format="PNG"/>
 			</imageobject>
@@ -2466,9 +2238,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 		<title>Prueba de impresión</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-impresora24.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-impresora24.png" format="PNG"/>
 			</imageobject>
 	
@@ -2482,9 +2251,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 	<figure>
 		<title>Selección de rótulos</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-impresora25.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-impresora25.png" format="PNG"/>
 			</imageobject>
@@ -2501,9 +2267,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 	<figure>
 		<title>Cuotas de impresión</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-impresora26.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-impresora26.png" format="PNG"/>
 			</imageobject>
@@ -2522,9 +2285,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 		<title>Permisos de acceso a la impresora</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-impresora27.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-impresora27.png" format="PNG"/>
 			</imageobject>
 	
@@ -2541,9 +2301,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 		<title>Información sobre la impresora</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-samba8.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-samba8.png" format="PNG"/>
 			</imageobject>
 	
@@ -2559,9 +2316,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 		<title>Confirmación</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-samba9.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-samba9.png" format="PNG"/>
 			</imageobject>
 	
@@ -2576,9 +2330,6 @@ Domain=[GSRDOMAIN] OS=[Unix] Server=[Samba 3.0.7-Debian]
 	<figure>
 		<title>Nueva impresora <emphasis>CompartidaSamba</emphasis></title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-aniadir-samba10.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-aniadir-samba10.png" format="PNG"/>
 			</imageobject>

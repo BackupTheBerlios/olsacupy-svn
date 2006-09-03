@@ -249,9 +249,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 		<title><acronym>URL</acronym> donde está instalado <acronym>LAM</acronym></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/lam-configuracion1.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/lam-configuracion1.png" format="PNG"/>
 			</imageobject>
 	
@@ -266,9 +263,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 	<figure>
 		<title>Aviso acerca del certificado del servidor web I</title>
 			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/lam-configuracion-certificado1.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/lam-configuracion-certificado1.png" format="PNG"/>
 				</imageobject>
@@ -293,9 +287,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 		<title>Información <acronym>SSL</acronym></title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/lam-configuracion-certificado2.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/lam-configuracion-certificado2.png" format="PNG"/>
 				</imageobject>
 			
@@ -310,9 +301,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 		<title>Aviso acerca del certificado del servidor web II</title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/lam-configuracion-certificado3.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/lam-configuracion-certificado3.png" format="PNG"/>
 				</imageobject>
 			
@@ -325,9 +313,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 		<title>Período de aceptación del certificado</title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/lam-configuracion-certificado4.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/lam-configuracion-certificado4.png" format="PNG"/>
 				</imageobject>
 			
@@ -338,9 +323,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 	<figure>
 		<title>Ingreso en <acronym>LAM</acronym></title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/lam-configuracion11.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/lam-configuracion11.png" format="PNG"/>
 			</imageobject>
@@ -359,9 +341,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 		<title>Edición de perfiles</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/lam-configuracion12.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/lam-configuracion12.png" format="PNG"/>
 			</imageobject>
 	
@@ -379,9 +358,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 		<title>Edición de un perfil de usuario</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/lam-adduser1.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/lam-adduser1.png" format="PNG"/>
 			</imageobject>
 	
@@ -396,9 +372,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 	<figure>
 		<title>Opciones de las cuentas (primera parte)</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/lam-adduser2.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/lam-adduser2.png" format="PNG"/>
 			</imageobject>
@@ -446,9 +419,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 		<title>Opciones de las cuentas (segunda parte)</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/lam-adduser3.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/lam-adduser3.png" format="PNG"/>
 			</imageobject>
 	
@@ -474,9 +444,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 		<title>Perfil guardado</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/lam-adduser4.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/lam-adduser4.png" format="PNG"/>
 			</imageobject>
 	
@@ -493,9 +460,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 		<title>Creación de un nuevo usuario</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/lam-configuracion12.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/lam-configuracion12.png" format="PNG"/>
 			</imageobject>
 	
@@ -509,9 +473,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 	<figure>
 		<title>Selección del perfil</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/lam-adduser5.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/lam-adduser5.png" format="PNG"/>
 			</imageobject>
@@ -528,9 +489,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 	<figure>
 		<title>Datos generales</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/lam-adduser6.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/lam-adduser6.png" format="PNG"/>
 			</imageobject>
@@ -550,9 +508,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 	<figure>
 		<title>Datos generales, completado automático de información</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/lam-adduser7.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/lam-adduser7.png" format="PNG"/>
 			</imageobject>
@@ -575,9 +530,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 		<title>Propiedades sobre Unix</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/lam-adduser8.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/lam-adduser8.png" format="PNG"/>
 			</imageobject>
 	
@@ -593,9 +545,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 	<figure>
 		<title>Propiedades sobre Samba (primera parte)</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/lam-adduser9.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/lam-adduser9.png" format="PNG"/>
 			</imageobject>
@@ -613,9 +562,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 	<figure>
 		<title>Propiedades sobre Samba (segunda parte)</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/lam-adduser10.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/lam-adduser10.png" format="PNG"/>
 			</imageobject>
@@ -635,9 +581,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 		<title>Propiedades personales</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/lam-adduser11.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/lam-adduser11.png" format="PNG"/>
 			</imageobject>
 	
@@ -654,9 +597,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 		<title>Creación del usuario</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/lam-adduser12.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/lam-adduser12.png" format="PNG"/>
 			</imageobject>
 	
@@ -670,9 +610,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 	<figure>
 		<title>Usuario creado</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/lam-adduser13.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/lam-adduser13.png" format="PNG"/>
 			</imageobject>
@@ -688,9 +625,6 @@ Starting Samba daemons: nmbd smbd.</computeroutput></screen>
 	<figure>
 		<title>Lista de usuarios</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/lam-adduser14.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/lam-adduser14.png" format="PNG"/>
 			</imageobject>
@@ -878,9 +812,6 @@ drwx------    2 gsruser  domainusers       48 2004-06-01 12:27 directorio-de-eje
 			<title>Dirección de acceso a los recursos de Samba</title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/samba-acceso1.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/samba-acceso1.png" format="PNG"/>
 				</imageobject>
 		
@@ -899,9 +830,6 @@ drwx------    2 gsruser  domainusers       48 2004-06-01 12:27 directorio-de-eje
 			<title>Clave del usuario <emphasis>gsruser</emphasis></title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/samba-acceso2.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/samba-acceso2.png" format="PNG"/>
 				</imageobject>
 		
@@ -914,9 +842,6 @@ drwx------    2 gsruser  domainusers       48 2004-06-01 12:27 directorio-de-eje
 		<figure>
 			<title>Recursos compartidos</title>
 			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/samba-acceso3.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/samba-acceso3.png" format="PNG"/>
 				</imageobject>

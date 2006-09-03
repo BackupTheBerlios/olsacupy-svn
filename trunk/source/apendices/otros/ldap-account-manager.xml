@@ -76,9 +76,6 @@ Preconfiguring packages ...</computeroutput></screen>
 		<title>¿Arrancar <application>Apache</application> en el arranque?</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/lam-instalacion1.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/lam-instalacion1.png" format="PNG"/>
 			</imageobject>
 	
@@ -92,9 +89,6 @@ Preconfiguring packages ...</computeroutput></screen>
 	<figure>
 		<title>¿Activar suExec?</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/lam-instalacion2.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/lam-instalacion2.png" format="PNG"/>
 			</imageobject>
@@ -110,9 +104,6 @@ Preconfiguring packages ...</computeroutput></screen>
 	<figure>
 		<title>¿Para qué servidor(es) web se ha de configurar <acronym>LAM</acronym>?</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/lam-instalacion3.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/lam-instalacion3.png" format="PNG"/>
 			</imageobject>
@@ -130,9 +121,6 @@ Preconfiguring packages ...</computeroutput></screen>
 		<title>Alias para el acceso a <acronym>LAM</acronym> desde el servidor web</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/lam-instalacion4.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/lam-instalacion4.png" format="PNG"/>
 			</imageobject>
 	
@@ -148,9 +136,6 @@ Preconfiguring packages ...</computeroutput></screen>
 	<figure id="lam-instalacion5">
 		<title>Clave para el administrador de los perfiles dentro de <acronym>LAM</acronym></title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/lam-instalacion5.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/lam-instalacion5.png" format="PNG"/>
 			</imageobject>
@@ -200,9 +185,6 @@ Configurando apache (1.3.31-6) ...
 		<title>Módulos que cargará <application>Apache</application></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/lam-instalacion6.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/lam-instalacion6.png" format="PNG"/>
 			</imageobject>
 	
@@ -219,9 +201,6 @@ Configurando apache (1.3.31-6) ...
 		<title>Nombre del dominio que servirá <application>Apache</application> por defecto</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/lam-instalacion7.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/lam-instalacion7.png" format="PNG"/>
 			</imageobject>
 	
@@ -234,9 +213,6 @@ Configurando apache (1.3.31-6) ...
 	<figure>
 		<title>Dirección de correo electrónico del administrador de <application>Apache</application></title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/lam-instalacion8.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/lam-instalacion8.png" format="PNG"/>
 			</imageobject>
@@ -252,9 +228,6 @@ Configurando apache (1.3.31-6) ...
 		<title>Directorio raíz de <application>Apache</application> por defecto</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/lam-instalacion9.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/lam-instalacion9.png" format="PNG"/>
 			</imageobject>
 	
@@ -268,9 +241,6 @@ Configurando apache (1.3.31-6) ...
 	<figure>
 		<title>Puerto de escucha de <application>Apache</application></title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/lam-instalacion10.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/lam-instalacion10.png" format="PNG"/>
 			</imageobject>
@@ -315,9 +285,6 @@ Configurando php4-ldap (4.3.8-12) ...
 	<figure>
 		<title>Activar la extensión <acronym>LDAP</acronym> en <acronym>PHP4</acronym></title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/lam-instalacion11.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/lam-instalacion11.png" format="PNG"/>
 			</imageobject>
@@ -414,9 +381,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 	   	<title><acronym>URL</acronym> donde está instalado <acronym>LAM</acronym></title>
 	   	<mediaobject>
 	   		<imageobject>
-	   			<imagedata fileref="./imagenes/lam-configuracion1.eps" align="center" format="EPS" scale="35"/>
-	   		</imageobject>
-	   		<imageobject>
 	   			<imagedata fileref="./imagenes/lam-configuracion1.png" format="PNG"/>
 	   		</imageobject>
 	   
@@ -431,9 +395,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 		<figure>
 			<title>Aviso acerca del certificado del servidor web I</title>
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/lam-configuracion-certificado1.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/lam-configuracion-certificado1.png" format="PNG"/>
 					</imageobject>
@@ -456,9 +417,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 			<title>Información <acronym>SSL</acronym></title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/lam-configuracion-certificado2.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/lam-configuracion-certificado2.png" format="PNG"/>
 					</imageobject>
 				
@@ -473,9 +431,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 			<title>Aviso acerca del certificado del servidor web II</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/lam-configuracion-certificado3.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/lam-configuracion-certificado3.png" format="PNG"/>
 					</imageobject>
 				
@@ -488,9 +443,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 			<title>Período de aceptación del certificado</title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/lam-configuracion-certificado4.eps" align="center" format="EPS" scale="35"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/lam-configuracion-certificado4.png" format="PNG"/>
 					</imageobject>
 				
@@ -501,9 +453,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 	   <figure>
 	   	<title>Pantalla de ingreso</title>
 	   	<mediaobject>
-	   		<imageobject>
-	   			<imagedata fileref="./imagenes/lam-configuracion2.eps" align="center" format="EPS" scale="35"/>
-	   		</imageobject>
 	   		<imageobject>
 	   			<imagedata fileref="./imagenes/lam-configuracion2.png" format="PNG"/>
 	   		</imageobject>
@@ -520,9 +469,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 	   	<title>Pantalla de configuración</title>
 	   	<mediaobject>
 	   		<imageobject>
-	   			<imagedata fileref="./imagenes/lam-configuracion3.eps" align="center" format="EPS" scale="35"/>
-	   		</imageobject>
-	   		<imageobject>
 	   			<imagedata fileref="./imagenes/lam-configuracion3.png" format="PNG"/>
 	   		</imageobject>
 	   
@@ -536,9 +482,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 	   <figure>
 	   	<title>Asistente de configuración, datos del perfil</title>
 	   	<mediaobject>
-	   		<imageobject>
-	   			<imagedata fileref="./imagenes/lam-configuracion4.eps" align="center" format="EPS" scale="35"/>
-	   		</imageobject>
 	   		<imageobject>
 	   			<imagedata fileref="./imagenes/lam-configuracion4.png" format="PNG"/>
 	   		</imageobject>
@@ -558,9 +501,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 	   <figure>
 	   	<title>Asistente de configuración, datos del servidor <acronym>LDAP</acronym> y Samba</title>
 	   	<mediaobject>
-	   		<imageobject>
-	   			<imagedata fileref="./imagenes/lam-configuracion5.eps" align="center" format="EPS" scale="35"/>
-	   		</imageobject>
 	   		<imageobject>
 	   			<imagedata fileref="./imagenes/lam-configuracion5.png" format="PNG"/>
 	   		</imageobject>
@@ -602,9 +542,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 	   <figure>
 	   	<title>Asistente de configuración, creando la estructura para el directorio <acronym>LDAP</acronym></title>
 	   	<mediaobject>
-	   		<imageobject>
-	   			<imagedata fileref="./imagenes/lam-configuracion6.eps" align="center" format="EPS" scale="35"/>
-	   		</imageobject>
 	   		<imageobject>
 	   			<imagedata fileref="./imagenes/lam-configuracion6.png" format="PNG"/>
 	   		</imageobject>
@@ -662,9 +599,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 	   	<title>Asistente de configuración, confirmación de la creación de entradas <acronym>LDAP</acronym></title>
 	   	<mediaobject>
 	   		<imageobject>
-	   			<imagedata fileref="./imagenes/lam-configuracion7.eps" align="center" format="EPS" scale="35"/>
-	   		</imageobject>
-	   		<imageobject>
 	   			<imagedata fileref="./imagenes/lam-configuracion7.png" format="PNG"/>
 	   		</imageobject>
 	   
@@ -678,9 +612,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 	   <figure>
 	   	<title>Asistente de configuración, creación de un dominio</title>
 	   	<mediaobject>
-	   		<imageobject>
-	   			<imagedata fileref="./imagenes/lam-configuracion8.eps" align="center" format="EPS" scale="35"/>
-	   		</imageobject>
 	   		<imageobject>
 	   			<imagedata fileref="./imagenes/lam-configuracion8.png" format="PNG"/>
 	   		</imageobject>
@@ -712,9 +643,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 			<title>Asistente de configuración, creación de grupos para Samba</title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/lam-configuracion9.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/lam-configuracion9.png" format="PNG"/>
 				</imageobject>
 		
@@ -728,9 +656,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 		<figure>
 			<title>Información sobre el nuevo perfil creado</title>
 			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/lam-configuracion10.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/lam-configuracion10.png" format="PNG"/>
 				</imageobject>
@@ -754,9 +679,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 			<title>Ingreso en <acronym>LAM</acronym></title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/lam-configuracion11.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/lam-configuracion11.png" format="PNG"/>
 				</imageobject>
 		
@@ -773,9 +695,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 		<figure>
 			<title>Pantalla principal de <acronym>LAM</acronym></title>
 			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/lam-configuracion12.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/lam-configuracion12.png" format="PNG"/>
 				</imageobject>
@@ -794,9 +713,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 			<title>Dominios existentes</title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/lam-configuracion13.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/lam-configuracion13.png" format="PNG"/>
 				</imageobject>
 		
@@ -812,9 +728,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 		<figure>
 			<title>Grupos existentes</title>
 			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/lam-configuracion14.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/lam-configuracion14.png" format="PNG"/>
 				</imageobject>
@@ -837,9 +750,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 			<title>Hosts existentes</title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/lam-configuracion15.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/lam-configuracion15.png" format="PNG"/>
 				</imageobject>
 		
@@ -854,9 +764,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 		<figure>
 			<title>Saliendo de la herramienta</title>
 			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/lam-configuracion16.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/lam-configuracion16.png" format="PNG"/>
 				</imageobject>

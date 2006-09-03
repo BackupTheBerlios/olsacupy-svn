@@ -59,9 +59,6 @@ Preconfiguring packages ...</computeroutput></screen>
 		<title>¿Qué tipo de autentificación desea?</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin-instalacion1.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/phpldapadmin-instalacion1.png" format="PNG"/>
 			</imageobject>
 	
@@ -76,9 +73,6 @@ Preconfiguring packages ...</computeroutput></screen>
 		<title>¿Qué servidor web reconfigurar?</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin-instalacion2.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/phpldapadmin-instalacion2.png" format="PNG"/>
 			</imageobject>
 	
@@ -92,9 +86,6 @@ Preconfiguring packages ...</computeroutput></screen>
 	<figure>
 		<title>¿Reiniciar el servidor web?</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin-instalacion3.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/phpldapadmin-instalacion3.png" format="PNG"/>
 			</imageobject>
@@ -386,9 +377,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 		<title><acronym>URL</acronym> donde está instalado <emphasis>phpLDAPadmin</emphasis></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin1.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/phpldapadmin1.png" format="PNG"/>
 			</imageobject>
 	
@@ -403,9 +391,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 	<figure id="phpldapadmin-configuracion-certificado1">
 		<title>Aviso acerca del certificado del servidor web I</title>
 			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/lam-configuracion-certificado1.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/lam-configuracion-certificado1.png" format="PNG"/>
 				</imageobject>
@@ -428,9 +413,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 		<title>Información <acronym>SSL</acronym></title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/lam-configuracion-certificado2.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/lam-configuracion-certificado2.png" format="PNG"/>
 				</imageobject>
 			
@@ -445,9 +427,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 		<title>Aviso acerca del certificado del servidor web II</title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/lam-configuracion-certificado3.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/lam-configuracion-certificado3.png" format="PNG"/>
 				</imageobject>
 			
@@ -460,9 +439,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 		<title>Período de aceptación del certificado</title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/lam-configuracion-certificado4.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/lam-configuracion-certificado4.png" format="PNG"/>
 				</imageobject>
 			
@@ -473,9 +449,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 	<figure>
 		<title>Pantalla principal de <emphasis>phpLDAPadmin</emphasis></title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin2.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/phpldapadmin2.png" format="PNG"/>
 			</imageobject>
@@ -491,9 +464,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 	<figure>
 		<title>Autentificándose en <emphasis>phpLDAPadmin</emphasis></title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin3.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/phpldapadmin3.png" format="PNG"/>
 			</imageobject>
@@ -514,9 +484,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 	<figure>
 		<title>Autentificación realizada con éxito</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin4.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/phpldapadmin4.png" format="PNG"/>
 			</imageobject>
@@ -539,9 +506,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 		<title>Árbol de contenidos del directorio</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin5.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/phpldapadmin5.png" format="PNG"/>
 			</imageobject>
 	
@@ -555,9 +519,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 	<figure>
 		<title>Información sobre un objeto</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin6.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/phpldapadmin6.png" format="PNG"/>
 			</imageobject>
@@ -574,9 +535,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 		<title>Creación de un nuevo objeto</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin7.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/phpldapadmin7.png" format="PNG"/>
 			</imageobject>
 	
@@ -592,9 +550,6 @@ localepurge: processing man pages ...</computeroutput></screen>
 	<figure>
 		<title>Finalizando la sesión</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/phpldapadmin8.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/phpldapadmin8.png" format="PNG"/>
 			</imageobject>

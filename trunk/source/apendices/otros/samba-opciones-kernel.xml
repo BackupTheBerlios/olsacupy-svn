@@ -22,9 +22,6 @@
 			<title>Sistema de archivos</title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/samba-opciones-kernel-2.4.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/samba-opciones-kernel-2.4.png" format="PNG"/>
 				</imageobject>
 		
@@ -39,9 +36,6 @@
 			<title>Sistema de archivos en red</title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/samba-opciones-kernel-2.41.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/samba-opciones-kernel-2.41.png" format="PNG"/>
 				</imageobject>
 		
@@ -54,9 +48,6 @@
 		<figure id="samba-opciones-kernel-fig24">
 			<title>Opciones relativas Samba</title>
 			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/samba-opciones-kernel-2.42.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/samba-opciones-kernel-2.42.png" format="PNG"/>
 				</imageobject>
@@ -89,9 +80,6 @@ CONFIG_SMB_UNIX=y</programlisting>
 			<title>Sistema de archivos</title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/samba-opciones-kernel-2.6.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/samba-opciones-kernel-2.6.png" format="PNG"/>
 				</imageobject>
 		
@@ -106,9 +94,6 @@ CONFIG_SMB_UNIX=y</programlisting>
 			<title>Sistema de archivos en red</title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/samba-opciones-kernel-2.61.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/samba-opciones-kernel-2.61.png" format="PNG"/>
 				</imageobject>
 		
@@ -121,9 +106,6 @@ CONFIG_SMB_UNIX=y</programlisting>
 		<figure id="samba-opciones-kernel-fig26">
 			<title>Opciones relativas Samba</title>
 			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/samba-opciones-kernel-2.62.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/samba-opciones-kernel-2.62.png" format="PNG"/>
 				</imageobject>

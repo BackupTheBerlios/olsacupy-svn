@@ -112,9 +112,6 @@
 
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cups-diagrama-organizacion-interna.eps" align="center" format="EPS" scale="80"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cups-diagrama-organizacion-interna.png" format="PNG"/>
 			</imageobject>
 		</mediaobject>

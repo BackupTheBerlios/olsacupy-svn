@@ -79,9 +79,6 @@ Preconfiguring packages ...</computeroutput></screen>
 	<title>Configuración de <command>slapd</command> mediante <application>debconf</application></title>
 	<mediaobject>
 		<imageobject>
-			<imagedata fileref="./imagenes/openldap-instalacion-slapd1.eps" align="center" format="EPS" scale="35"/>
-		</imageobject>
-		<imageobject>
 			<imagedata fileref="./imagenes/openldap-instalacion-slapd1.png" format="PNG"/>
 		</imageobject>
 
@@ -96,9 +93,6 @@ Preconfiguring packages ...</computeroutput></screen>
 <figure>
 	<title>Configuración de <command>slapd</command>, elección del dominio</title>
 	<mediaobject>
-		<imageobject>
-			<imagedata fileref="./imagenes/openldap-instalacion-slapd2.eps" align="center" format="EPS" scale="35"/>
-		</imageobject>
 		<imageobject>
 			<imagedata fileref="./imagenes/openldap-instalacion-slapd2.png" width="800px" depth="600px" format="PNG"/>
 		</imageobject>
@@ -115,9 +109,6 @@ Preconfiguring packages ...</computeroutput></screen>
 	<title>Configuración de <command>slapd</command>, nombre de la organización</title>
 	<mediaobject>
 		<imageobject>
-			<imagedata fileref="./imagenes/openldap-instalacion-slapd3.eps" align="center" format="EPS" scale="35"/>
-		</imageobject>
-		<imageobject>
 			<imagedata fileref="./imagenes/openldap-instalacion-slapd3.png" width="800px" depth="600px" format="PNG"/>
 		</imageobject>
 
@@ -132,9 +123,6 @@ Preconfiguring packages ...</computeroutput></screen>
 <figure>
 	<title>Configuración de <command>slapd</command>, clave de administrador</title>
 	<mediaobject>
-		<imageobject>
-			<imagedata fileref="./imagenes/openldap-instalacion-slapd4.eps" align="center" format="EPS" scale="35"/>
-		</imageobject>
 		<imageobject>
 			<imagedata fileref="./imagenes/openldap-instalacion-slapd4.png" width="800px" depth="600px" format="PNG"/>
 		</imageobject>
@@ -151,9 +139,6 @@ Preconfiguring packages ...</computeroutput></screen>
 	<title>Configuración de <command>slapd</command>, repetir clave de administrador</title>
 	<mediaobject>
 		<imageobject>
-			<imagedata fileref="./imagenes/openldap-instalacion-slapd5.eps" align="center" format="EPS" scale="35"/>
-		</imageobject>
-		<imageobject>
 			<imagedata fileref="./imagenes/openldap-instalacion-slapd5.png" width="800px" depth="600px" format="PNG"/>
 		</imageobject>
 
@@ -168,9 +153,6 @@ Preconfiguring packages ...</computeroutput></screen>
 	<title>Configuración de <command>slapd</command>, elección del backend de la BBDD</title>
 	<mediaobject>
 		<imageobject>
-			<imagedata fileref="./imagenes/openldap-instalacion-slapd6.eps" align="center" format="EPS" scale="35"/>
-		</imageobject>
-		<imageobject>
 			<imagedata fileref="./imagenes/openldap-instalacion-slapd6.png" width="800px" depth="600px" format="PNG"/>
 		</imageobject>
 
@@ -184,9 +166,6 @@ Preconfiguring packages ...</computeroutput></screen>
 <figure>
 	<title>Configuración de <command>slapd</command>, ¿conservar los datos al desinstalarlo?</title>
 	<mediaobject>
-		<imageobject>
-			<imagedata fileref="./imagenes/openldap-instalacion-slapd7.eps" align="center" format="EPS" scale="35"/>
-		</imageobject>
 		<imageobject>
 			<imagedata fileref="./imagenes/openldap-instalacion-slapd7.png" width="800px" depth="600px" format="PNG"/>
 		</imageobject>
@@ -206,9 +185,6 @@ Preconfiguring packages ...</computeroutput></screen>
 <figure>
 	<title>Configuración de <command>slapd</command>, ¿mover los datos antiguos?</title>
 	<mediaobject>
-		<imageobject>
-			<imagedata fileref="./imagenes/openldap-instalacion-slapd8.eps" align="center" format="EPS" scale="35"/>
-		</imageobject>
 		<imageobject>
 			<imagedata fileref="./imagenes/openldap-instalacion-slapd8.png" width="800px" depth="600px" format="PNG"/>
 		</imageobject>
@@ -236,9 +212,6 @@ Preconfiguring packages ...</computeroutput></screen>
 <figure>
 	<title>Configuración de <command>slapd</command>, protocolo <acronym>LDAP</acronym>v2</title>
 	<mediaobject>
-		<imageobject>
-			<imagedata fileref="./imagenes/openldap-instalacion-slapd9.eps" align="center" format="EPS" scale="35"/>
-		</imageobject>
 		<imageobject>
 			<imagedata fileref="./imagenes/openldap-instalacion-slapd9.png" width="800px" depth="600px" format="PNG"/>
 		</imageobject>

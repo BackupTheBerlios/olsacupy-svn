@@ -228,9 +228,6 @@ printquot -Q       0       5      10       0.00                   0       0.00
 		<title>Informe de la impresora <emphasis>LaserColor</emphasis></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/pykota-cgi2.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/pykota-cgi2.png" format="PNG"/>
 			</imageobject>
 	
@@ -270,9 +267,6 @@ printsald -B       0    None    None       5.00                   0       5.00
 	<figure>
 		<title>Informe de la impresora <emphasis>Sublimacion</emphasis></title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/pykota-cgi1.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/pykota-cgi1.png" format="PNG"/>
 			</imageobject>

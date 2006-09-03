@@ -5,9 +5,6 @@
 	<informalfigure id="pykota-logotipo">
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/pykota-logo-grande.eps" align="center" format="EPS" scale="90"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/pykota-logo.png" format="PNG"/>
 			</imageobject>
 		</mediaobject>

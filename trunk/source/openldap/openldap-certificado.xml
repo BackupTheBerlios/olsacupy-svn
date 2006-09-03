@@ -1431,9 +1431,6 @@ adding new entry "cn=senhor administrador,ou=unidade de contas,dc=gsr,dc=pt"
 				<application>ethereal</application></title>
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/openldap-certificado-ethereal.eps" align="center" format="EPS" scale="40" />
-			
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/openldap-certificado-ethereal.png" format="PNG"/>
 					</imageobject>

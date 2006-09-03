@@ -83,9 +83,6 @@
 		<title>Acceso a la herramienta <acronym>LDAP</acronym> Account Manager</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/lam-configuracion1.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/lam-configuracion1.png" format="PNG"/>
 			</imageobject>
 	
@@ -100,9 +97,6 @@
 	<figure>
 		<title>Ingreso en <acronym>LAM</acronym></title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/lam-configuracion11.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/lam-configuracion11.png" format="PNG"/>
 			</imageobject>
@@ -124,9 +118,6 @@
 		<title>Sección <emphasis>Hosts</emphasis></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/lam-adduser14.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/lam-adduser14.png" format="PNG"/>
 			</imageobject>
 	
@@ -142,9 +133,6 @@
 		<title>Crear nueva máquina</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-maquina1.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-maquina1.png" format="PNG"/>
 			</imageobject>
 	
@@ -159,9 +147,6 @@
 	<figure>
 		<title>Completado de los campos</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-maquina2.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-maquina2.png" format="PNG"/>
 			</imageobject>
@@ -180,9 +165,6 @@
 	<figure>
 		<title>Corrección de los <quote>errores</quote> cometidos</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-maquina3.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-maquina3.png" format="PNG"/>
 			</imageobject>
@@ -207,9 +189,6 @@
 		<title>Cuenta creada</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-maquina4.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-maquina4.png" format="PNG"/>
 			</imageobject>
 	
@@ -225,9 +204,6 @@
 	<figure>
 		<title>Lista de Hosts</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-maquina5.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-maquina5.png" format="PNG"/>
 			</imageobject>
@@ -249,9 +225,6 @@
 		<title><quote>Inicio</quote></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winnt1.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winnt1.png" format="PNG"/>
 			</imageobject>
 	
@@ -264,9 +237,6 @@
 	<figure>
 		<title><quote>Configuración</quote></title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winnt2.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winnt2.png" format="PNG"/>
 			</imageobject>
@@ -281,9 +251,6 @@
 		<title><quote>Panel de Control</quote></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winnt3.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winnt3.png" format="PNG"/>
 			</imageobject>
 	
@@ -296,9 +263,6 @@
 	<figure>
 		<title><quote>Red</quote></title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winnt4.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winnt4.png" format="PNG"/>
 			</imageobject>
@@ -313,9 +277,6 @@
 	<figure>
 		<title>Cuadro de diálogo <quote>Red</quote></title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winnt5.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winnt5.png" format="PNG"/>
 			</imageobject>
@@ -332,9 +293,6 @@
 		<title>Miembro de dominio</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winnt6.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winnt6.png" format="PNG"/>
 			</imageobject>
 	
@@ -349,9 +307,6 @@
 		<title>Nombre del dominio</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winnt7.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winnt7.png" format="PNG"/>
 			</imageobject>
 	
@@ -365,9 +320,6 @@
 	<figure>
 		<title>Bienvenida</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winnt8.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winnt8.png" format="PNG"/>
 			</imageobject>
@@ -384,9 +336,6 @@
 		<title>Cierre del cuadro de diálogo <quote>Red</quote></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winnt9.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winnt9.png" format="PNG"/>
 			</imageobject>
 	
@@ -400,9 +349,6 @@
 	<figure>
 		<title>Reinicio del sistema</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winnt10.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winnt10.png" format="PNG"/>
 			</imageobject>
@@ -419,9 +365,6 @@
 		<keycap>Supr</keycap></keycombo></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winnt11.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winnt11.png" format="PNG"/>
 			</imageobject>
 	
@@ -436,9 +379,6 @@
 	<figure>
 		<title>Selección del nuevo dominio</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winnt12.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winnt12.png" format="PNG"/>
 			</imageobject>
@@ -506,9 +446,6 @@ Added user root.</computeroutput></screen>
 		<title><quote>Inicio</quote></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-win2k1.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-win2k1.png" format="PNG"/>
 			</imageobject>
 	
@@ -522,9 +459,6 @@ Added user root.</computeroutput></screen>
 	<figure>
 		<title><quote>Conexiones de Red</quote></title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-win2k2.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-win2k2.png" format="PNG"/>
 			</imageobject>
@@ -541,9 +475,6 @@ Added user root.</computeroutput></screen>
 		<title><quote>Identificación de Red</quote></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-win2k3.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-win2k3.png" format="PNG"/>
 			</imageobject>
 	
@@ -559,9 +490,6 @@ Added user root.</computeroutput></screen>
 	<figure>
 		<title>Selección del dominio</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-win2k4.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-win2k4.png" format="PNG"/>
 			</imageobject>
@@ -580,9 +508,6 @@ Added user root.</computeroutput></screen>
 	<figure>
 		<title>Cuenta para añadir la máquina al dominio</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-win2k5.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-win2k5.png" format="PNG"/>
 			</imageobject>
@@ -607,9 +532,6 @@ Added user root.</computeroutput></screen>
 		<title>Bienvenida al dominio</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-win2k6.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-win2k6.png" format="PNG"/>
 			</imageobject>
 	
@@ -625,9 +547,6 @@ Added user root.</computeroutput></screen>
 		<title>Preparándose para el reinicio</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-win2k7.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-win2k7.png" format="PNG"/>
 			</imageobject>
 	
@@ -642,9 +561,6 @@ Added user root.</computeroutput></screen>
 	<figure>
 		<title>Solicitud de reinicio</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-win2k8.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-win2k8.png" format="PNG"/>
 			</imageobject>
@@ -662,9 +578,6 @@ Added user root.</computeroutput></screen>
 		<keycap>Supr</keycap></keycombo></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-win2k9.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-win2k9.png" format="PNG"/>
 			</imageobject>
 	
@@ -681,9 +594,6 @@ Added user root.</computeroutput></screen>
 		<title>Selección del nuevo dominio</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-win2k10.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-win2k10.png" format="PNG"/>
 			</imageobject>
 	
@@ -699,9 +609,6 @@ Added user root.</computeroutput></screen>
 		<title>Cuenta de dominio</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-win2k11.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-win2k11.png" format="PNG"/>
 			</imageobject>
 	
@@ -715,9 +622,6 @@ Added user root.</computeroutput></screen>
 	<figure>
 		<title>Entrando en el sistema</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-win2k12.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-win2k12.png" format="PNG"/>
 			</imageobject>
@@ -745,9 +649,6 @@ Added user root.</computeroutput></screen>
 		<title>Conexiones de Red e Internet</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winxp1.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winxp1.png" format="PNG"/>
 			</imageobject>
 	
@@ -763,9 +664,6 @@ Added user root.</computeroutput></screen>
 		<title>Conexiones de Red</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winxp2.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winxp2.png" format="PNG"/>
 			</imageobject>
 	
@@ -778,9 +676,6 @@ Added user root.</computeroutput></screen>
 	<figure>
 		<title>Identificación de Red</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winxp3.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winxp3.png" format="PNG"/>
 			</imageobject>
@@ -796,9 +691,6 @@ Added user root.</computeroutput></screen>
 		<title>Propiedades del Sistema</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winxp4.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winxp4.png" format="PNG"/>
 			</imageobject>
 	
@@ -811,9 +703,6 @@ Added user root.</computeroutput></screen>
 	<figure>
 		<title>Selección del Dominio</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winxp5.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winxp5.png" format="PNG"/>
 			</imageobject>
@@ -829,9 +718,6 @@ Added user root.</computeroutput></screen>
 		<title>Cuenta del dominio</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winxp6.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winxp6.png" format="PNG"/>
 			</imageobject>
 	
@@ -845,9 +731,6 @@ Added user root.</computeroutput></screen>
 		<figure>
 		<title>Bienvenida al dominio</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-aniadir-winxp7.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-aniadir-winxp7.png" format="PNG"/>
 			</imageobject>

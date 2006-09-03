@@ -57,9 +57,6 @@ Configurando pykota (1.20alpha25) ...
 		<title>Información de PyKota a través de <application>debconf</application> I</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/pykota-instalacion1.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/pykota-instalacion1.png" format="PNG"/>
 			</imageobject>
 	
@@ -74,9 +71,6 @@ Configurando pykota (1.20alpha25) ...
 		<title>Información de PyKota a través de <application>debconf</application> II</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/pykota-instalacion2.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/pykota-instalacion2.png" format="PNG"/>
 			</imageobject>
 	
@@ -90,9 +84,6 @@ Configurando pykota (1.20alpha25) ...
 	<figure>
 		<title>Información de PyKota a través de <application>debconf</application> III</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/pykota-instalacion3.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/pykota-instalacion3.png" format="PNG"/>
 			</imageobject>

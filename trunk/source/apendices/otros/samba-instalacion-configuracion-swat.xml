@@ -67,9 +67,6 @@ Preconfiguring packages ...]]></computeroutput>
 		<title>Aviso de sobreescritura del archivo <filename>/etc/samba/smb.conf</filename></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-instalacion-swat.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-instalacion-swat.png" format="PNG"/>
 			</imageobject>
 	
@@ -227,9 +224,6 @@ tcp        0      0 *:swat                  *:*                     LISTEN     4
 		<title>Acceso a <application>SWAT</application></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-swat1.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-swat1.png" format="PNG"/>
 			</imageobject>
 	
@@ -243,9 +237,6 @@ tcp        0      0 *:swat                  *:*                     LISTEN     4
 	<figure>
 		<title>Autentificación</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-swat2.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-swat2.png" format="PNG"/>
 			</imageobject>
@@ -261,9 +252,6 @@ tcp        0      0 *:swat                  *:*                     LISTEN     4
 	<figure>
 		<title>Pantalla principal de <application>SWAT</application></title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-swat3.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-swat3.png" format="PNG"/>
 			</imageobject>

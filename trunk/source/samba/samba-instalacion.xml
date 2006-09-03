@@ -192,9 +192,6 @@ Se utilizarán 10,7MB de espacio de disco adicional después de desempaquetar.
 			<title>Configuración del grupo de trabajo/dominio de <command>samba</command> mediante <application>debconf</application></title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/samba-instalacion-samba1.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/samba-instalacion-samba1.png" format="PNG"/>
 				</imageobject>
 		
@@ -208,9 +205,6 @@ Se utilizarán 10,7MB de espacio de disco adicional después de desempaquetar.
 		<figure>
 			<title>¿Contraseñas cifradas?</title>
 			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/samba-instalacion-samba2.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/samba-instalacion-samba2.png" format="PNG"/>
 				</imageobject>
@@ -226,9 +220,6 @@ Se utilizarán 10,7MB de espacio de disco adicional después de desempaquetar.
 			<title>¿Utilizar la información del <acronym>DHCP</acronym> para configurar <acronym>WINS</acronym>?</title>
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/samba-instalacion-samba3.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/samba-instalacion-samba3.png" format="PNG"/>
 				</imageobject>
 		
@@ -243,9 +234,6 @@ Se utilizarán 10,7MB de espacio de disco adicional después de desempaquetar.
 		<figure>
 			<title>¿Cómo ejecutar Samba (demonios/inetd)?</title>
 			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/samba-instalacion-samba4.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/samba-instalacion-samba4.png" format="PNG"/>
 				</imageobject>
@@ -267,9 +255,6 @@ Se utilizarán 10,7MB de espacio de disco adicional después de desempaquetar.
 		<figure>
 			<title>Creación de la base de datos de contraseñas</title>
 			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/samba-instalacion-samba5.eps" align="center" format="EPS" scale="35"/>
-				</imageobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/samba-instalacion-samba5.png" format="PNG"/>
 				</imageobject>

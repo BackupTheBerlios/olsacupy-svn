@@ -5,9 +5,6 @@
 	<informalfigure id="samba-logotipo">
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-logo.eps" align="center" format="EPS" scale="150"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-logo.png" format="PNG"/>
 			</imageobject>
 		</mediaobject>

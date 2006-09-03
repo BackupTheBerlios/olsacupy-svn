@@ -5,9 +5,6 @@
 	<informalfigure id="cups-logotipo">
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cups-logo-grande.eps" align="center" format="EPS" scale="50"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cups-logo.png" format="PNG"/>
 			</imageobject>
 		</mediaobject>

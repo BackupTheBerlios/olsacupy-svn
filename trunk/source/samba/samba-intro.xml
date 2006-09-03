@@ -224,9 +224,6 @@ scramble</computeroutput></screen>
 
 		  <mediaobject>
 			  <imageobject>
-				  <imagedata fileref="./imagenes/samba-configuracion-red-simple-con-servidor-samba.eps" align="center" format="EPS" scale="75"/>
-			  </imageobject>
-			  <imageobject>
 				  <imagedata fileref="./imagenes/samba-configuracion-red-simple-con-servidor-samba.png" format="PNG"/>
 			</imageobject>
 		</mediaobject>
@@ -259,9 +256,6 @@ scramble</computeroutput></screen>
 		
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-entorno-de-red.eps" align="center" format="EPS" scale="75"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-entorno-de-red.png" format="PNG"/>
 			</imageobject>
 		</mediaobject>
@@ -291,9 +285,6 @@ scramble</computeroutput></screen>
 		
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-recursos-compartidos-en-toltec-vistos-desde-maya.eps" align="center" format="EPS" scale="75"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-recursos-compartidos-en-toltec-vistos-desde-maya.png" format="PNG"/>
 			</imageobject>
 		</mediaobject>
@@ -317,9 +308,6 @@ scramble</computeroutput></screen>
 		<title>Mapeo de una unidad de red en una letra de unidad Windows</title>
 		
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-mapeo-de-una-unidad-de-red-en-una-letra-de-unidad-windows.eps" align="center" format="EPS" scale="75"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-mapeo-de-una-unidad-de-red-en-una-letra-de-unidad-windows.png" format="PNG"/>
 			</imageobject>
@@ -390,9 +378,6 @@ scramble</computeroutput></screen>
 		
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/samba-directorio-de-red-mapeado-como-la-unidad-J-en-el-cliente.eps" align="center" format="EPS" scale="75"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/samba-directorio-de-red-mapeado-como-la-unidad-J-en-el-cliente.png" format="PNG"/>
 			</imageobject>
 		</mediaobject>
@@ -413,9 +398,6 @@ scramble</computeroutput></screen>
 		<emphasis>aztec</emphasis>)</title>
 		
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-recursos-compartidos-disponibles-en-toltec-vistos-desde-aztec.eps" align="center" format="EPS" scale="75"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-recursos-compartidos-disponibles-en-toltec-vistos-desde-aztec.png" format="PNG"/>
 			</imageobject>
@@ -452,9 +434,6 @@ scramble</computeroutput></screen>
 		<title>Impresora en red disponible en <emphasis>toltec</emphasis></title>
 		
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/samba-impresora-en-red-disponible-en-toltec.eps" align="center" format="EPS" scale="75"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/samba-impresora-en-red-disponible-en-toltec.png" format="PNG"/>
 			</imageobject>
@@ -644,9 +623,6 @@ Share mode memory usage (bytes):
 			  
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/samba-protocolos-sobre-los-que-se-ejecuta-sbm.eps" align="center" format="EPS" scale="70"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/samba-protocolos-sobre-los-que-se-ejecuta-sbm.png" format="PNG"/>
 				</imageobject>
 			</mediaobject>
@@ -689,9 +665,6 @@ Share mode memory usage (bytes):
 			  
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/samba-registro-de-nombres-broadcast-vs-NBNS.eps" align="center" format="EPS" scale="50"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/samba-registro-de-nombres-broadcast-vs-NBNS.png" format="PNG"/>
 				</imageobject>
 			</mediaobject>
@@ -729,9 +702,6 @@ Share mode memory usage (bytes):
 			.</para></footnote></title>
 			  
 			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/samba-resolucion-de-nombres-broadcast-vs-NBNS.eps" align="center" format="EPS" scale="50"/>
-				</imageobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/samba-resolucion-de-nombres-broadcast-vs-NBNS.png" format="PNG"/>
 				</imageobject>
@@ -913,9 +883,6 @@ Share mode memory usage (bytes):
 				</para></footnote></title>
 				  
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/samba-estructura-de-nombres-netbios.eps" align="center" format="EPS" scale="75"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/samba-estructura-de-nombres-netbios.png" format="PNG"/>
 					</imageobject>
@@ -1607,9 +1574,6 @@ METRAN         <1E>   GROUP       Registered
 			  
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/samba-un-simple-dominio-windows.eps" align="center" format="EPS" scale="65"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/samba-un-simple-dominio-windows.png" format="PNG"/>
 				</imageobject>
 			</mediaobject>
@@ -1862,9 +1826,6 @@ METRAN         <1E>   GROUP       Registered
 			
 				<mediaobject>
 					<imageobject>
-						<imagedata fileref="./imagenes/samba-dominio-windows-con-un-buscador-maestro-local-y-de-respaldo.eps" align="center" format="EPS" scale="65"/>
-					</imageobject>
-					<imageobject>
 						<imagedata fileref="./imagenes/samba-dominio-windows-con-un-buscador-maestro-local-y-de-respaldo.png" format="PNG"/>
 					</imageobject>
 				</mediaobject>
@@ -1971,9 +1932,6 @@ METRAN         <1E>   GROUP       Registered
 				<ulink url="./imagenes/samba-grupo-de-trabajo-que-abarca-mas-de-una-subred.dia">aquí</ulink>.</para></footnote></title>
 			
 				<mediaobject>
-					<imageobject>
-						<imagedata fileref="./imagenes/samba-grupo-de-trabajo-que-abarca-mas-de-una-subred.eps" align="center" format="EPS" scale="75"/>
-					</imageobject>
 					<imageobject>
 						<imagedata fileref="./imagenes/samba-grupo-de-trabajo-que-abarca-mas-de-una-subred.png" format="PNG"/>
 					</imageobject>

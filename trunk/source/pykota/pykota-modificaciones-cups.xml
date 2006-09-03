@@ -92,9 +92,6 @@ KLimit 0
 		<title>Añadiendo una impresora con soporte para PyKota</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/pykota-aniadir-impresora.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/pykota-aniadir-impresora.png" format="PNG"/>
 			</imageobject>
 	

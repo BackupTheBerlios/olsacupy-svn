@@ -110,9 +110,6 @@
 			
 			<mediaobject>
 				<imageobject>
-					<imagedata fileref="./imagenes/openldap-LDAP_directory_tree_traditional_naming.eps" align="center" format="EPS" scale="70"/>
-				</imageobject>
-				<imageobject>
 					<imagedata fileref="./imagenes/openldap-LDAP_directory_tree_traditional_naming.png" format="PNG"/>
 				</imageobject>
 			</mediaobject>
@@ -132,9 +129,6 @@
 			<ulink url="./imagenes/openldap-LDAP_directory_tree_internet_naming.dia">aquí</ulink>.</para></footnote></title>
 			
 			<mediaobject>
-				<imageobject>
-					<imagedata fileref="./imagenes/openldap-LDAP_directory_tree_internet_naming.eps" align="center" format="EPS" scale="70"/>
-				</imageobject>
 				<imageobject>
 					<imagedata fileref="./imagenes/openldap-LDAP_directory_tree_internet_naming.png" format="PNG"/>
 				</imageobject>

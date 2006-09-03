@@ -1368,9 +1368,6 @@ Se utilizarán 67,8MB de espacio de disco adicional después de desempaquetar.
 		<title><emphasis>Backend</emphasis> de impresión para <application>Foomatic</application></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-instalacion1.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-instalacion1.png" format="PNG"/>
 			</imageobject>
 	
@@ -1385,9 +1382,6 @@ Se utilizarán 67,8MB de espacio de disco adicional después de desempaquetar.
 	<figure>
 		<title>Configuración del filtro de impresión Foomatic</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-instalacion2.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-instalacion2.png" format="PNG"/>
 			</imageobject>
@@ -1404,9 +1398,6 @@ Se utilizarán 67,8MB de espacio de disco adicional después de desempaquetar.
 	<figure>
 		<title>Selección del intérprete Ghostscript</title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-instalacion3.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-instalacion3.png" format="PNG"/>
 			</imageobject>
@@ -1426,9 +1417,6 @@ Se utilizarán 67,8MB de espacio de disco adicional después de desempaquetar.
 		<title>Insertar información de contabilidad en cada trabajo</title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-instalacion4.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-instalacion4.png" format="PNG"/>
 			</imageobject>
 	
@@ -1444,9 +1432,6 @@ Se utilizarán 67,8MB de espacio de disco adicional después de desempaquetar.
 		<title>Trabajos sin tipo <acronym>MIME</acronym></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-instalacion5.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-instalacion5.png" format="PNG"/>
 			</imageobject>
 	
@@ -1461,9 +1446,6 @@ Se utilizarán 67,8MB de espacio de disco adicional después de desempaquetar.
 		<title>Selección de <emphasis>backends</emphasis> para <acronym>CUPS</acronym></title>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-instalacion6.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-instalacion6.png" format="PNG"/>
 			</imageobject>
 	
@@ -1477,9 +1459,6 @@ Se utilizarán 67,8MB de espacio de disco adicional después de desempaquetar.
 	<figure>
 		<title>Compatibilidad lpd de <acronym>BSD</acronym></title>
 		<mediaobject>
-			<imageobject>
-				<imagedata fileref="./imagenes/cupsys-instalacion7.eps" align="center" format="EPS" scale="35"/>
-			</imageobject>
 			<imageobject>
 				<imagedata fileref="./imagenes/cupsys-instalacion7.png" format="PNG"/>
 			</imageobject>

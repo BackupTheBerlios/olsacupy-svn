@@ -5,9 +5,6 @@
 	<informalfigure id="openldap-logotipo">
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="./imagenes/openldap-logo.eps" align="center" format="EPS" scale="150"/>
-			</imageobject>
-			<imageobject>
 				<imagedata fileref="./imagenes/openldap-logo.png" format="PNG"/>
 			</imageobject>
 		</mediaobject>
